@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iris Eye Center — Dr. Komal Yadav | Sector 27, Noida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --navy: #0c2d3f;
+    --navy-mid: #163d52;
+    --blue: #0e7490;
+    --blue-light: #06b6d4;
+    --gold: #0ea5a0;
+    --gold-light: #5eead4;
+    --cream: #f0fafa;
+    --warm-white: #f7fdfd;
+    --gray: #6b7280;
+    --light-gray: #e0f4f4;
+    --text: #0f2330;
+    --radius: 16px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-ring {
+    0%   { transform: scale(1);   opacity: .6; }
+    100% { transform: scale(1.6); opacity: 0;  }
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-8px); }
+  }
+
+  .fade-up  { animation: fadeUp .7s ease both; }
+  .delay-1  { animation-delay: .1s; }
+  .delay-2  { animation-delay: .2s; }
+  .delay-3  { animation-delay: .3s; }
+  .delay-4  { animation-delay: .4s; }
+
+  /* ---- NAVBAR ---- */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(12,45,63,.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(94,234,212,.15);
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto;
+    padding: 0 32px; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 600;
+    color: #fff; text-decoration: none; letter-spacing: .02em;
+  }
+  .nav-logo span { color: var(--gold-light); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,.7); text-decoration: none;
+    font-size: .875rem; font-weight: 500;
+    letter-spacing: .04em; text-transform: uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--blue-light); color: var(--navy);
+    padding: 10px 22px; border-radius: 50px;
+    font-weight: 700; font-size: .875rem;
+    text-decoration: none; transition: all .2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+
+  /* ---- HERO ---- */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding-top: 72px;
+  }
+  .hero-bg-circle { position: absolute; border-radius: 50%; pointer-events: none; }
+  .hero-bg-circle.c1 {
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(14,116,144,.3) 0%, transparent 70%);
+    top: -200px; right: -200px;
+  }
+  .hero-bg-circle.c2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(6,182,212,.1) 0%, transparent 70%);
+    bottom: 0; left: -100px;
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-inner {
+    max-width: 1280px; margin: 0 auto;
+    padding: 80px 32px;
+    display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: center;
+    position: relative; z-index: 1; width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(6,182,212,.12); border: 1px solid rgba(6,182,212,.3);
+    color: var(--gold-light); padding: 7px 18px; border-radius: 50px;
+    font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    font-weight: 300; line-height: 1.05; color: #fff; margin-bottom: 24px;
+  }
+  .hero-title em { font-style: italic; color: var(--gold-light); display: block; }
+  .hero-subtitle {
+    font-size: 1.1rem; color: rgba(255,255,255,.65);
+    line-height: 1.7; max-width: 540px; margin-bottom: 40px;
+  }
+  .hero-subtitle strong { color: rgba(255,255,255,.9); font-weight: 600; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary {
+    background: var(--blue-light); color: var(--navy);
+    padding: 14px 32px; border-radius: 50px;
+    font-weight: 700; font-size: .95rem; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all .25s; box-shadow: 0 8px 30px rgba(6,182,212,.3);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-secondary {
+    border: 1.5px solid rgba(255,255,255,.25); color: #fff;
+    padding: 14px 32px; border-radius: 50px;
+    font-weight: 500; font-size: .95rem; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all .25s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.07); }
+  .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+  .hero-stat .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 700; color: var(--gold-light); line-height: 1;
+  }
+  .hero-stat .label { font-size: .75rem; color: rgba(255,255,255,.5); margin-top: 4px; text-transform: uppercase; letter-spacing: .06em; }
+  .hero-divider { width: 1px; background: rgba(255,255,255,.1); height: 40px; align-self: center; }
+
+  /* Booking card */
+  .hero-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 24px; padding: 36px;
+    backdrop-filter: blur(20px);
+    animation: fadeUp .7s .4s ease both;
+  }
+  .hero-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; color: #fff; margin-bottom: 6px;
+  }
+  .hero-card p { font-size: .85rem; color: rgba(255,255,255,.5); margin-bottom: 24px; }
+  .form-field { margin-bottom: 14px; }
+  .form-field input, .form-field select {
+    width: 100%; padding: 13px 16px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px; color: #fff;
+    font-size: .9rem; font-family: 'DM Sans', sans-serif;
+    outline: none; transition: border-color .2s;
+  }
+  .form-field input::placeholder { color: rgba(255,255,255,.35); }
+  .form-field select option { background: var(--navy); color: #fff; }
+  .form-field input:focus, .form-field select:focus { border-color: rgba(6,182,212,.6); }
+  .form-btn {
+    width: 100%; padding: 14px;
+    background: var(--blue-light); color: var(--navy);
+    border: none; border-radius: 10px;
+    font-weight: 700; font-size: 1rem; font-family: 'DM Sans', sans-serif;
+    cursor: pointer; transition: all .2s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 4px;
+  }
+  .form-btn:hover { background: var(--gold-light); }
+  .fee-tag {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 16px; padding: 10px 14px;
+    background: rgba(6,182,212,.08); border-radius: 8px;
+    font-size: .8rem; color: rgba(255,255,255,.6);
+  }
+  .fee-tag strong { color: var(--gold-light); font-size: .95rem; }
+  .whatsapp-link {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 14px; padding: 11px;
+    background: rgba(37,211,102,.1); border: 1px solid rgba(37,211,102,.25);
+    border-radius: 10px; color: #25d366;
+    font-size: .875rem; font-weight: 600; text-decoration: none; transition: all .2s;
+  }
+  .whatsapp-link:hover { background: rgba(37,211,102,.18); }
+
+  /* ---- SECTION COMMONS ---- */
+  section { padding: 100px 32px; }
+  .section-inner { max-width: 1280px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block; font-size: .75rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400; color: var(--navy); line-height: 1.15; margin-bottom: 18px;
+  }
+  .section-sub { font-size: 1.05rem; color: var(--gray); line-height: 1.7; max-width: 600px; }
+  .divider-teal {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--gold-light));
+    border-radius: 2px; margin: 20px 0 40px;
+  }
+
+  /* ---- STATS STRIP ---- */
+  #stats { background: var(--navy); padding: 60px 32px; }
+  .stats-grid {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 2px;
+  }
+  .stat-card {
+    text-align: center; padding: 48px 24px;
+    border-right: 1px solid rgba(255,255,255,.08); transition: background .3s;
+  }
+  .stat-card:last-child { border-right: none; }
+  .stat-card:hover { background: rgba(255,255,255,.04); }
+  .stat-card .big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 700; color: var(--gold-light); line-height: 1; display: block;
+  }
+  .stat-card .caption {
+    font-size: .8rem; color: rgba(255,255,255,.5);
+    text-transform: uppercase; letter-spacing: .08em; margin-top: 8px; display: block;
+  }
+  .stat-card i { color: var(--blue-light); font-size: 1.4rem; margin-bottom: 16px; display: block; }
+
+  /* ---- ABOUT ---- */
+  #about { background: var(--cream); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  .cred-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff; border: 1px solid rgba(14,116,144,.2);
+    padding: 10px 20px; border-radius: 50px;
+    font-size: .8rem; font-weight: 600; color: var(--blue);
+    margin-bottom: 32px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+  .cred-badge .dot {
+    width: 8px; height: 8px; border-radius: 50%; background: #22c55e; position: relative;
+  }
+  .cred-badge .dot::before {
+    content: ''; position: absolute; inset: -3px; border-radius: 50%;
+    background: rgba(34,197,94,.3); animation: pulse-ring .8s ease-out infinite;
+  }
+  .about-text { font-size: 1.05rem; color: #4a5568; line-height: 1.85; margin-bottom: 20px; }
+  .memberships { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .member-chip {
+    background: #fff; border: 1px solid #d4eef0;
+    padding: 8px 16px; border-radius: 8px;
+    font-size: .8rem; font-weight: 500; color: var(--navy);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .member-chip i { color: var(--blue); }
+  .edu-card {
+    background: #fff; border-radius: 16px; padding: 24px 28px;
+    border-left: 4px solid var(--blue); margin-bottom: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.05); transition: transform .2s, box-shadow .2s;
+  }
+  .edu-card:hover { transform: translateX(4px); box-shadow: 0 4px 28px rgba(0,0,0,.09); }
+  .edu-card .year { font-size: .75rem; color: var(--blue); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .edu-card .degree { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin: 4px 0; }
+  .edu-card .inst { font-size: .85rem; color: var(--gray); }
+
+  /* ---- SERVICES ---- */
+  #services { background: var(--warm-white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px;
+  }
+  .service-card {
+    background: #fff; border-radius: 20px; padding: 36px 28px;
+    border: 1px solid #d4eef0; transition: all .3s; position: relative; overflow: hidden;
+  }
+  .service-card:hover { border-color: rgba(14,116,144,.35); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(14,116,144,.1); }
+  .service-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: linear-gradient(135deg, #e0f4f8, #ccf0f5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; color: var(--blue); margin-bottom: 20px;
+  }
+  .service-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .service-card p { font-size: .875rem; color: var(--gray); line-height: 1.65; }
+  .service-card .arrow {
+    margin-top: 20px; color: var(--blue); font-size: .85rem;
+    font-weight: 600; opacity: 0; transition: opacity .2s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .service-card:hover .arrow { opacity: 1; }
+
+  /* ---- WHY US ---- */
+  #why { background: var(--cream); }
+  .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 52px; }
+  .why-card {
+    background: #fff; border-radius: 20px; padding: 36px 28px;
+    box-shadow: 0 2px 24px rgba(0,0,0,.05); border-top: 3px solid var(--blue);
+  }
+  .why-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; font-weight: 700; color: rgba(14,116,144,.1); line-height: 1; margin-bottom: 16px;
+  }
+  .why-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .why-card p { font-size: .875rem; color: var(--gray); line-height: 1.7; }
+
+  /* ---- REVIEWS ---- */
+  #reviews { background: var(--warm-white); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px; }
+  .review-card {
+    background: #fff; border-radius: 20px; padding: 28px 24px;
+    border: 1px solid #d4eef0; transition: box-shadow .2s;
+  }
+  .review-card:hover { box-shadow: 0 10px 40px rgba(14,116,144,.1); }
+  .stars { color: #f59e0b; font-size: .95rem; margin-bottom: 14px; }
+  .review-text {
+    font-size: .9rem; color: #4a5568; line-height: 1.7;
+    font-style: italic; margin-bottom: 20px;
+  }
+  .reviewer { display: flex; align-items: center; gap: 12px; }
+  .rev-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: .9rem;
+  }
+  .rev-name { font-size: .875rem; font-weight: 600; color: var(--navy); }
+  .rev-date { font-size: .75rem; color: var(--gray); }
+  .rating-summary {
+    background: var(--navy); border-radius: 20px; padding: 40px;
+    display: flex; align-items: center; gap: 40px; margin-bottom: 40px;
+  }
+  .big-rating {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem; font-weight: 700; color: var(--gold-light); line-height: 1;
+  }
+  .rating-right .stars { font-size: 1.2rem; margin-bottom: 6px; }
+  .rating-right p { color: rgba(255,255,255,.6); font-size: .9rem; }
+
+  /* ---- LOCATION ---- */
+  #locations { background: var(--cream); }
+  .loc-card {
+    background: var(--navy); color: #fff;
+    border-radius: 20px; padding: 40px;
+    position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+    margin-top: 52px;
+  }
+  .loc-card::after {
+    content: ''; position: absolute; bottom: -60px; right: -60px;
+    width: 180px; height: 180px;
+    background: rgba(6,182,212,.06); border-radius: 50%;
+  }
+  .loc-left h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+  .loc-left address {
+    font-style: normal; font-size: .9rem; color: rgba(255,255,255,.55); line-height: 1.7; margin-bottom: 16px;
+  }
+  .loc-hours-block { margin-bottom: 24px; }
+  .loc-hours-block h4 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gold-light); margin-bottom: 10px; }
+  .hours-row { display: flex; justify-content: space-between; font-size: .875rem; color: rgba(255,255,255,.65); padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row span { color: #fff; font-weight: 500; }
+  .dir-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(6,182,212,.4); color: var(--gold-light);
+    padding: 10px 22px; border-radius: 50px;
+    font-size: .85rem; font-weight: 600; text-decoration: none; transition: all .2s;
+  }
+  .dir-btn:hover { background: rgba(6,182,212,.12); }
+  .loc-right {}
+  .contact-block { margin-bottom: 28px; }
+  .contact-block h4 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gold-light); margin-bottom: 14px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px; background: rgba(255,255,255,.05);
+    border-radius: 12px; margin-bottom: 10px;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .contact-item i { color: var(--blue-light); font-size: 1.1rem; width: 20px; text-align: center; }
+  .contact-item a { color: #fff; text-decoration: none; font-weight: 500; font-size: .9rem; }
+  .contact-item a:hover { color: var(--gold-light); }
+  .open-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.25);
+    color: #4ade80; padding: 8px 18px; border-radius: 50px;
+    font-size: .8rem; font-weight: 600;
+  }
+  .open-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; }
+
+  /* ---- FAQ ---- */
+  #faq { background: var(--warm-white); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 52px; }
+  .faq-item {
+    background: #fff; border-radius: 14px; border: 1px solid #d4eef0; overflow: hidden;
+  }
+  .faq-q {
+    padding: 20px 24px; display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; font-weight: 600; font-size: .95rem; color: var(--navy);
+    gap: 16px; user-select: none;
+  }
+  .faq-q i { color: var(--blue); flex-shrink: 0; transition: transform .3s; }
+  .faq-item.open .faq-q i { transform: rotate(45deg); }
+  .faq-a {
+    padding: 0 24px; max-height: 0; overflow: hidden;
+    font-size: .875rem; color: var(--gray); line-height: 1.7;
+    transition: max-height .35s ease, padding .35s ease;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
+
+  /* ---- BLOG ---- */
+  #blog { background: var(--cream); }
+  .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px; }
+  .blog-card {
+    background: #fff; border-radius: 20px; overflow: hidden;
+    border: 1px solid #d4eef0; transition: all .3s;
+  }
+  .blog-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(14,116,144,.1); }
+  .blog-img {
+    height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3rem;
+  }
+  .blog-img.c1 { background: linear-gradient(135deg, #cffafe, #a5f3fc); }
+  .blog-img.c2 { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+  .blog-img.c3 { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+  .blog-content { padding: 24px; }
+  .blog-tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; color: var(--blue); margin-bottom: 10px; }
+  .blog-title { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.45; margin-bottom: 10px; }
+  .blog-desc { font-size: .82rem; color: var(--gray); line-height: 1.65; }
+
+  /* ---- FOOTER ---- */
+  footer { background: var(--navy); color: rgba(255,255,255,.6); padding: 64px 32px 40px; }
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; color: #fff; margin-bottom: 16px; display: block;
+  }
+  .footer-brand .logo span { color: var(--gold-light); }
+  .footer-brand p { font-size: .85rem; line-height: 1.75; max-width: 300px; }
+  .footer-col h4 { color: #fff; font-size: .9rem; font-weight: 600; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .85rem; transition: color .2s; }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.08); padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: .8rem; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-bottom a { color: rgba(255,255,255,.4); text-decoration: none; }
+
+  /* ---- FLOATING BUTTONS ---- */
+  .floating-wa {
+    position: fixed; bottom: 28px; left: 24px; z-index: 500;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25d366; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; text-decoration: none;
+    box-shadow: 0 6px 24px rgba(37,211,102,.4);
+    animation: float 3s ease-in-out infinite; transition: transform .2s;
+  }
+  .floating-wa:hover { transform: scale(1.1); }
+  .floating-call {
+    position: fixed; bottom: 28px; right: 24px; z-index: 500;
+    background: var(--blue-light); color: var(--navy);
+    padding: 14px 24px; border-radius: 50px;
+    font-weight: 700; font-size: .9rem; text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 6px 24px rgba(6,182,212,.35); transition: all .2s;
+  }
+  .floating-call:hover { transform: translateY(-2px); }
+
+  /* ---- MOBILE MENU ---- */
+  #mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: var(--navy); padding: 100px 32px 40px;
+    flex-direction: column; gap: 32px;
+  }
+  #mobile-menu.open { display: flex; }
+  #mobile-menu a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: rgba(255,255,255,.8); text-decoration: none;
+  }
+  #mobile-menu a:hover { color: var(--gold-light); }
+  .close-menu {
+    position: absolute; top: 24px; right: 24px;
+    background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { max-width: 480px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: repeat(2,1fr); }
+    .why-grid { grid-template-columns: repeat(2,1fr); }
+    .reviews-grid { grid-template-columns: repeat(2,1fr); }
+    .loc-card { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .stats-grid { grid-template-columns: repeat(2,1fr); }
+    .faq-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    section { padding: 72px 20px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2,1fr); }
+    .rating-summary { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">IRIS <span>EYE CENTER</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#locations">Clinic</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:07947150406"><i class="fa-solid fa-phone-volume"></i> Call Now</a>
+    <div class="hamburger" id="ham" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu">
+  <button class="close-menu" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></button>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#reviews" onclick="toggleMenu()">Reviews</a>
+  <a href="#locations" onclick="toggleMenu()">Clinic</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="tel:07947150406" style="color:var(--gold-light)"><i class="fa-solid fa-phone"></i> 07947 150406</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge fade-up"><i class="fa-solid fa-certificate"></i> 10 Years of Expert Eye Care · Sector 27, Noida</div>
+      <h1 class="hero-title fade-up delay-1">
+        Clear Vision.<br>
+        <em>Compassionate Care.</em>
+      </h1>
+      <p class="hero-subtitle fade-up delay-2">
+        <strong>Dr. Komal Yadav</strong> — MS (Ophthalmology), MBBS.<br>
+        Expert Eye Surgeon at Iris Eye Center, D-192, Sector 27, Noida. Rated <strong>5.0 ★</strong> by 180+ patients.
+      </p>
+      <div class="hero-ctas fade-up delay-3">
+        <a class="btn-primary" href="#booking-form"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
+        <a class="btn-secondary" href="#services"><i class="fa-solid fa-list-ul"></i> View Services</a>
+      </div>
+      <div class="hero-stats fade-up delay-4">
+        <div class="hero-stat"><div class="num">10+</div><div class="label">Years Experience</div></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><div class="num">5.0★</div><div class="label">Google Rating</div></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><div class="num">180+</div><div class="label">Patient Reviews</div></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><div class="num">₹500</div><div class="label">Consultation Fee</div></div>
+      </div>
+    </div>
+
+    <div class="hero-card" id="booking-form">
+      <h3>Book Consultation</h3>
+      <p>Confirm your slot in 60 seconds</p>
+      <form onsubmit="handleBook(event)">
+        <div class="form-field">
+          <input type="text" placeholder="Patient Name" required>
+        </div>
+        <div class="form-field">
+          <input type="tel" placeholder="Mobile Number" required>
+        </div>
+        <div class="form-field">
+          <select required>
+            <option value="">Select Time Slot</option>
+            <option>Morning: 10:00 AM – 2:00 PM</option>
+            <option>Evening: 5:00 PM – 8:00 PM</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <input type="date" required min="">
+        </div>
+        <button class="form-btn" type="submit"><i class="fa-solid fa-check-circle"></i> Confirm Booking</button>
+      </form>
+      <div class="fee-tag">
+        <span>Consultation Fee</span>
+        <strong>₹500</strong>
+      </div>
+      <a class="whatsapp-link" href="https://wa.me/917947150406" target="_blank">
+        <i class="fa-brands fa-whatsapp" style="font-size:1.3rem"></i> Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <i class="fa-solid fa-star"></i>
+      <span class="big">5.0★</span>
+      <span class="caption">Google Rating</span>
+    </div>
+    <div class="stat-card">
+      <i class="fa-solid fa-users"></i>
+      <span class="big">180+</span>
+      <span class="caption">Verified Reviews</span>
+    </div>
+    <div class="stat-card">
+      <i class="fa-solid fa-stethoscope"></i>
+      <span class="big">10+</span>
+      <span class="caption">Years Experience</span>
+    </div>
+    <div class="stat-card">
+      <i class="fa-solid fa-heart-pulse"></i>
+      <span class="big">₹500</span>
+      <span class="caption">Consultation Fee</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-left">
+        <span class="section-tag">About the Doctor</span>
+        <h2 class="section-title">Dr. Komal Yadav<br>MS (Ophthalmology)</h2>
+        <div class="divider-teal"></div>
+        <div class="cred-badge"><div class="dot"></div> Verified Eye Specialist · 10 Years Clinical Experience</div>
+        <p class="about-text">Dr. Komal Yadav is a qualified Ophthalmologist and Eye Surgeon with <strong>MBBS and MS (Ophthalmology)</strong> degrees and over a decade of hands-on clinical practice.</p>
+        <p class="about-text">Practicing at <strong>Iris Eye Center, Sector 27, Noida</strong>, Dr. Yadav is known for her meticulous surgical precision, patient-first approach, and clear communication that puts patients at ease.</p>
+        <p class="about-text">Patients and families consistently commend her for performing complex procedures — including cataract surgeries — with exceptional outcomes and minimal recovery time.</p>
+        <div class="memberships">
+          <div class="member-chip"><i class="fa-solid fa-eye"></i> Ophthalmologist &amp; Eye Surgeon</div>
+          <div class="member-chip"><i class="fa-solid fa-graduation-cap"></i> MS – Ophthalmology</div>
+          <div class="member-chip"><i class="fa-solid fa-hospital"></i> Iris Eye Center, Noida</div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="edu-card">
+          <div class="year">Education</div>
+          <div class="degree">MBBS</div>
+          <div class="inst">Bachelor of Medicine &amp; Bachelor of Surgery</div>
+        </div>
+        <div class="edu-card" style="border-left-color: var(--blue-light)">
+          <div class="year" style="color:var(--blue-light)">Postgraduate</div>
+          <div class="degree">MS — Ophthalmology</div>
+          <div class="inst">Master of Surgery in Ophthalmology</div>
+        </div>
+        <div class="edu-card" style="border-left-color: #22c55e">
+          <div class="year" style="color:#22c55e">Experience</div>
+          <div class="degree">10+ Years as Specialist</div>
+          <div class="inst">Ophthalmologist &amp; Eye Surgeon</div>
+        </div>
+        <div class="edu-card" style="border-left-color: var(--navy); background: var(--navy);">
+          <div class="year" style="color:var(--gold-light)">Current Practice</div>
+          <div class="degree" style="color:#fff">Iris Eye Center</div>
+          <div class="inst" style="color:rgba(255,255,255,.55)">D-192, Sector 27, Noida, UP 201301</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <span class="section-tag">What We Treat</span>
+    <h2 class="section-title">Specialized Eye Care Services</h2>
+    <div class="divider-teal"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-eye"></i></div>
+        <h3>Cataract Surgery</h3>
+        <p>Advanced lens removal surgery with premium IOL implants. Dr. Yadav is highly rated for cataract outcomes by patients and families.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+        <h3>LASIK Laser Surgery</h3>
+        <p>Permanent freedom from glasses and contact lenses using advanced laser vision correction procedures.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-microscope"></i></div>
+        <h3>Retina Examination</h3>
+        <p>Thorough posterior segment assessment and laser procedures for retinal diseases including macular disorders.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Diabetic Retinopathy</h3>
+        <p>Diabetic eye screening, retinopathy staging, and timely laser or injection-based treatment for diabetic patients.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-child"></i></div>
+        <h3>Pediatric Ophthalmology</h3>
+        <p>Expert, gentle eye care for children — including vision screenings, squint correction, and amblyopia treatment.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Glaucoma Management</h3>
+        <p>Early detection, pressure monitoring, and ongoing treatment to prevent irreversible glaucoma-related vision loss.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>Corneal Treatment</h3>
+        <p>Corneal collagen cross-linking, disease management, and surgical care for corneal conditions.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+        <h3>Uveitis &amp; Inflammation</h3>
+        <p>Diagnosis and treatment of ocular inflammation and uveitis with tailored immunosuppressive care plans.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        <h3>General Eye Check-up</h3>
+        <p>Comprehensive routine eye examination, refraction testing, and updated vision correction prescription.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="section-inner">
+    <span class="section-tag">Why Choose Us</span>
+    <h2 class="section-title">The Iris Eye Center Difference</h2>
+    <div class="divider-teal"></div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h3>Perfect 5-Star Rating</h3>
+        <p>180+ verified Google reviews with a flawless 5.0 rating — a testament to consistent care quality, outcomes, and patient experience.</p>
+      </div>
+      <div class="why-card" style="border-top-color:var(--blue-light)">
+        <div class="why-num">02</div>
+        <h3>Skilled & Qualified Surgeon</h3>
+        <p>Dr. Komal Yadav holds MS in Ophthalmology and brings 10+ years of specialist experience in eye surgery and medical management.</p>
+      </div>
+      <div class="why-card" style="border-top-color:#22c55e">
+        <div class="why-num">03</div>
+        <h3>Transparent Pricing</h3>
+        <p>Consultation at just ₹500 with no hidden costs. Patients are always informed clearly before any procedure or investigation.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h3>Convenient Location</h3>
+        <p>Centrally located in Sector 27, Noida at D-192 — easily accessible from across the city with ample parking nearby.</p>
+      </div>
+      <div class="why-card" style="border-top-color:var(--blue-light)">
+        <div class="why-num">05</div>
+        <h3>Flexible Timings</h3>
+        <p>Open Monday to Saturday with both morning (10 AM–2 PM) and evening (5–8 PM) slots to fit around your schedule.</p>
+      </div>
+      <div class="why-card" style="border-top-color:#22c55e">
+        <div class="why-num">06</div>
+        <h3>Patient-First Approach</h3>
+        <p>Patients consistently praise the doctor's patience, clarity of explanation, and the supportive, professional clinic staff.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-inner">
+    <span class="section-tag">Patient Stories</span>
+    <h2 class="section-title">What Patients Say</h2>
+    <div class="divider-teal"></div>
+    <div class="rating-summary">
+      <div class="big-rating">5.0</div>
+      <div class="rating-right">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>Based on 180+ Google Reviews · Perfect 5.0 star rating</p>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Dr. Komal Yadav is very experienced and caring. She examined my eyes very carefully and gave me excellent advice. The clinic was also very clean. Highly recommended!"</p>
+        <div class="reviewer">
+          <div class="rev-avatar">A</div>
+          <div><div class="rev-name">Arjun M.</div><div class="rev-date">Verified Patient · Google</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Dr. Komal is highly skilled, very patient, and explains everything clearly. The treatment was very effective. The clinic is well-equipped and the staff is polite and supportive. Highly recommended!"</p>
+        <div class="reviewer">
+          <div class="rev-avatar">S</div>
+          <div><div class="rev-name">Sunita R.</div><div class="rev-date">Verified Patient · Google</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Dr. Komal performed cataract surgery on my mother. The procedure was quick and recovery went smoothly. The doctor was caring and explained everything clearly. Staff was wonderful. Highly recommend!"</p>
+        <div class="reviewer">
+          <div class="rev-avatar">V</div>
+          <div><div class="rev-name">Vikram T.</div><div class="rev-date">Verified Patient · Google</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Visited for my child's eye test. Staff was polite, professional and well-organized. The doctor gave full time and attention to my child. Everything was explained clearly and patiently."</p>
+        <div class="reviewer">
+          <div class="rev-avatar">P</div>
+          <div><div class="rev-name">Priya K.</div><div class="rev-date">Verified Patient · Google</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Dr. Komal Yadav did cataract surgery on my grandmother. She is happy with her new vision. Satisfied with the result. Dr. Komal Yadav is the best cataract surgeon in Noida!"</p>
+        <div class="reviewer">
+          <div class="rev-avatar">R</div>
+          <div><div class="rev-name">Rohit S.</div><div class="rev-date">Verified Patient · Google</div></div>
+        </div>
+      </div>
+      <div class="review-card" style="background: linear-gradient(135deg, var(--navy), #163d52); border-color: rgba(6,182,212,.2);">
+        <div style="font-size:2.5rem; margin-bottom:12px;">🏆</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--gold-light); font-weight:600; margin-bottom:8px;">Perfect Score</div>
+        <p style="font-size:.875rem; color:rgba(255,255,255,.6); line-height:1.7;">Iris Eye Center maintains a rare <strong style="color:#fff">5.0 / 5.0</strong> Google rating across 180+ reviews — placing it among the top-rated eye clinics in Noida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="locations">
+  <div class="section-inner">
+    <span class="section-tag">Find Us</span>
+    <h2 class="section-title">Visit Iris Eye Center</h2>
+    <div class="divider-teal"></div>
+    <div class="loc-card">
+      <div class="loc-left">
+        <div class="open-badge" style="margin-bottom:20px"><div class="open-dot"></div> Open Today</div>
+        <h3>Iris Eye Center, Sector 27</h3>
+        <address>D-192, Pocket D,<br>Sector 27, Noida,<br>Uttar Pradesh 201301</address>
+        <div class="loc-hours-block">
+          <h4>Clinic Timings</h4>
+          <div class="hours-row">Monday – Saturday <span>10:00 AM – 2:00 PM</span></div>
+          <div class="hours-row">Monday – Saturday <span>5:00 PM – 8:00 PM</span></div>
+          <div class="hours-row">Sunday <span>Closed</span></div>
+        </div>
+        <a class="dir-btn" href="https://maps.app.goo.gl/eLEZuToqrQ3F3J6P7" target="_blank"><i class="fa-solid fa-location-arrow"></i> Get Directions</a>
+      </div>
+      <div class="loc-right">
+        <div class="contact-block">
+          <h4>Contact Information</h4>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:07947150406">07947 150406</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <a href="https://wa.me/917947150406" target="_blank">Chat on WhatsApp</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-calendar-check"></i>
+            <a href="#booking-form">Book Online Appointment</a>
+          </div>
+        </div>
+        <div class="contact-block">
+          <h4>Doctor Available</h4>
+          <div class="contact-item">
+            <i class="fa-solid fa-user-doctor"></i>
+            <div>
+              <div style="color:#fff;font-weight:600;font-size:.9rem">Dr. Komal Yadav</div>
+              <div style="color:rgba(255,255,255,.5);font-size:.8rem">MS Ophthalmology · Mon–Sat</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+            <div>
+              <div style="color:#fff;font-weight:600;font-size:.9rem">₹500 Consultation</div>
+              <div style="color:rgba(255,255,255,.5);font-size:.8rem">No hidden charges</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <span class="section-tag">Frequently Asked</span>
+    <h2 class="section-title">Common Questions</h2>
+    <div class="divider-teal"></div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What is the consultation fee at Iris Eye Center?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">The consultation fee is ₹500 per visit. This covers a complete eye examination and specialist consultation with Dr. Komal Yadav.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What are the clinic timings?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">The clinic is open Monday to Saturday, 10:00 AM – 2:00 PM and again 5:00 PM – 8:00 PM. The clinic is closed on Sundays.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Does Dr. Yadav perform cataract surgery?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">Yes. Dr. Komal Yadav is highly experienced in cataract surgery and is praised by multiple patients for exceptional outcomes, quick procedures, and smooth recoveries.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is Iris Eye Center good for children's eye care?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">Absolutely. Pediatric Ophthalmology is a core service. Families have praised Dr. Yadav for her patience with children, including squint correction and routine vision tests.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How do I reach Iris Eye Center?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">The clinic is at D-192, Pocket D, Sector 27, Noida, Uttar Pradesh 201301. You can call 07947150406 or use the Google Maps link on this page for directions.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Does Dr. Yadav treat diabetic eye disease?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">Yes. Diabetic Retinopathy screening, monitoring, and treatment (including laser procedures) is a specialist service offered at the clinic for diabetic patients.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-inner">
+    <span class="section-tag">Eye Care Insights</span>
+    <h2 class="section-title">From the Doctor's Desk</h2>
+    <div class="divider-teal"></div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-img c1">👁️</div>
+        <div class="blog-content">
+          <div class="blog-tag">Cataracts</div>
+          <div class="blog-title">5 Warning Signs You Need a Cataract Check-up Today</div>
+          <div class="blog-desc">Blurry vision, glare at night, faded colors? Learn the early signs of cataract formation that many patients miss until it's advanced.</div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img c2">🩺</div>
+        <div class="blog-content">
+          <div class="blog-tag">Diabetes & Eyes</div>
+          <div class="blog-title">How Diabetic Retinopathy Silently Steals Your Sight</div>
+          <div class="blog-desc">Diabetes affects the retina's blood vessels long before symptoms appear. Annual retinal screening is the only way to catch it early.</div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img c3">👶</div>
+        <div class="blog-content">
+          <div class="blog-tag">Kids' Eye Health</div>
+          <div class="blog-title">When Should You First Take Your Child for an Eye Test?</div>
+          <div class="blog-desc">Many children with vision problems go undetected for years. Learn the right age for a first eye exam and what signs to watch for.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">IRIS <span>EYE CENTER</span></span>
+        <p>Expert ophthalmology care in Sector 27, Noida. Led by Dr. Komal Yadav — MS (Ophthalmology). Rated a perfect 5.0 by 180+ patients on Google.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Cataract Surgery</a></li>
+          <li><a href="#services">LASIK Laser</a></li>
+          <li><a href="#services">Glaucoma Care</a></li>
+          <li><a href="#services">Retina Check-up</a></li>
+          <li><a href="#services">Pediatric Eye Care</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Clinic</h4>
+        <ul>
+          <li><a href="#locations">D-192, Sector 27, Noida</a></li>
+          <li><a href="#locations">Mon–Sat: 10AM–2PM</a></li>
+          <li><a href="#locations">Mon–Sat: 5PM–8PM</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:07947150406">📞 07947 150406</a></li>
+          <li><a href="https://wa.me/917947150406">💬 WhatsApp</a></li>
+          <li><a href="#booking-form">📅 Book Online</a></li>
+          <li><a href="#faq">❓ FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Iris Eye Center, Sector 27, Noida. All rights reserved.</span>
+      <div style="display:flex;gap:20px">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a class="floating-wa" href="https://wa.me/917947150406" target="_blank" title="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+<a class="floating-call" href="tel:07947150406">
+  <i class="fa-solid fa-phone"></i> 07947 150406
+</a>
+
+<script>
+  document.querySelector('input[type="date"]').min = new Date().toISOString().split('T')[0];
+
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  function handleBook(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-btn');
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Booking Confirmed!';
+    btn.style.background = '#22c55e';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> Confirm Booking';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.animation = 'fadeUp .65s ease both';
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .why-card, .review-card, .blog-card, .edu-card, .faq-item').forEach(el => {
+    el.style.opacity = '0';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>

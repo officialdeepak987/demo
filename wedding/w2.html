@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar & Portfolio Slider</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Using Playfair Display for the Logo and services, Inter for the Navigation -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Fancybox CSS for Image Galleries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#e60023' // Custom red matching the "Home" link
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #000;
+            /* Removed overflow:hidden from here so we can scroll down to Our Services section */
+        }
+
+        /* Top gradient to ensure navbar readability */
+        .nav-overlay {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+        }
+
+        /* Smooth Vertical Sliding Animation for Portfolio */
+        .scrolling-wrapper {
+            display: flex;
+            flex-direction: column;
+            will-change: transform;
+        }
+
+        /* Different speeds for that off-sync masonry effect */
+        .scroll-normal {
+            animation: scrollUp 35s linear infinite;
+        }
+
+        .scroll-fast {
+            animation: scrollUp 25s linear infinite;
+        }
+
+        .scroll-slow {
+            animation: scrollUp 45s linear infinite;
+        }
+
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-50%);
+            }
+
+            /* Scrolls exactly halfway since the content is duplicated to loop perfectly */
+        }
+    </style>
+</head>
+<!-- Removed h-screen and overflow-hidden from body, shifted relative positioning so body can scroll naturally -->
+
+<body class="font-sans antialiased text-white m-0 p-0 bg-black">
+
+    <!-- Navbar Container -->
+    <header id="main-header" class="w-full fixed top-0 left-0 z-50 transition-all duration-300 nav-overlay pb-6">
+        <div class="px-5 md:px-10 lg:px-16 py-5 md:py-6 flex items-start md:items-center justify-between w-full">
+
+            <!-- Logo Section -->
+            <a href="#" class="shrink-0 hover:opacity-90 transition-opacity drop-shadow-lg w-32 md:w-48 lg:w-56">
+                <!-- Replace 'your-client-logo.png' with the actual path to your logo -->
+                <img src="client-logo.png" alt="Studio Sabi Logo" class="w-full h-auto object-contain" />
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden flex-1 lg:flex items-center justify-end mr-6 lg:mr-10 space-x-6 xl:space-x-8 text-[14px] xl:text-[15px] font-semibold tracking-wide drop-shadow-md">
+                <a href="#" class="text-brand-red hover:text-red-500 transition-colors">Home</a>
+                <a href="#" class="text-white hover:text-gray-300 transition-colors">About Us</a>
+                
+                <!-- Portfolio Dropdown -->
+                <div class="relative group">
+                    <button class="text-white hover:text-gray-300 transition-colors flex items-center gap-1 font-semibold">
+                        Portfolio
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <!-- Dropdown body -->
+                    <div class="absolute top-full left-0 mt-2 w-48 bg-black border border-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                        <div class="py-2">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-900 transition-colors">Wedding</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-900 transition-colors">Pre Wedding</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="text-white hover:text-gray-300 transition-colors">Awards</a>
+                <a href="#" class="text-white hover:text-gray-300 transition-colors">Films</a>
+            </nav>
+
+            <!-- Search Icon & Mobile Hamburger Menu -->
+            <div class="flex items-center shrink-0 mt-1 md:mt-0 drop-shadow-md">
+                <!-- Search -->
+                <button aria-label="Search" class="hidden md:block text-white hover:text-gray-300 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </button>
+
+                <!-- Hamburger Menu Toggle Button -->
+                <button onclick="toggleMenu()" class="lg:hidden text-white ml-5 hover:text-gray-300" aria-label="Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 sm:w-8 sm:h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Sidebar Menu -->
+        <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/60 z-[60] hidden opacity-0 transition-opacity duration-300" onclick="toggleMenu()"></div>
+        
+        <div id="mobileMenu" class="fixed inset-y-0 right-0 w-64 md:w-80 bg-black border-l border-gray-900 z-[70] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
+            <div class="p-5 flex justify-end">
+                <!-- Close Button -->
+                <button onclick="toggleMenu()" class="text-gray-400 hover:text-white transition-colors" aria-label="Close Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto px-6 pb-6">
+                <!-- Mobile Navigation Links -->
+                <nav class="flex flex-col space-y-5 text-lg font-medium tracking-wide">
+                    <a href="#" class="text-brand-red hover:text-red-500 transition-colors">Home</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors">About Us</a>
+                    
+                    <!-- Mobile Dropdown Alternative (Accordion) -->
+                    <div>
+                        <button onclick="toggleMobileDropdown()" class="w-full flex justify-between items-center text-white hover:text-gray-300 transition-colors">
+                            Portfolio
+                            <svg id="mobileDropdownIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div id="mobileDropdownMenu" class="hidden flex-col pl-4 mt-3 space-y-3 border-l-2 border-gray-800 border-solid py-1">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors block text-base">Wedding</a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors block text-base">Pre Wedding</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors">Awards</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors">Films</a>
+                </nav>
+            </div>
+        </div>
+        
+        <script>
+            function toggleMenu() {
+                const menu = document.getElementById('mobileMenu');
+                const overlay = document.getElementById('mobileMenuOverlay');
+                
+                if (menu.classList.contains('translate-x-full')) {
+                    // Open menu
+                    menu.classList.remove('translate-x-full');
+                    overlay.classList.remove('hidden');
+                    setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                } else {
+                    // Close menu
+                    menu.classList.add('translate-x-full');
+                    overlay.classList.add('opacity-0');
+                    setTimeout(() => overlay.classList.add('hidden'), 300); // Wait for transition
+                }
+            }
+            
+            function toggleMobileDropdown() {
+                const dropdown = document.getElementById('mobileDropdownMenu');
+                const icon = document.getElementById('mobileDropdownIcon');
+                
+                if (dropdown.classList.contains('hidden')) {
+                    dropdown.classList.remove('hidden');
+                    dropdown.classList.add('flex');
+                    icon.classList.add('rotate-180');
+                } else {
+                    dropdown.classList.add('hidden');
+                    dropdown.classList.remove('flex');
+                    icon.classList.remove('rotate-180');
+                }
+            }
+        </script>
+    </header>
+
+    <!-- Hero Section with Animated Portfolio Gallery Background -->
+    <section class="relative h-screen w-full bg-black overflow-hidden flex gap-1 sm:gap-2 justify-center items-start pt-[2px]">
+
+        <!-- Column 1 -->
+        <div class="w-1/4 flex flex-col flex-shrink-0 scrolling-wrapper scroll-normal gap-1 sm:gap-2">
+            <!-- Set 1 -->
+            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Fashion Portrait">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Beauty Close Up">
+            <img src="https://images.unsplash.com/photo-1512413914565-df04871e89ce?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Celebrity Lighting">
+            <!-- Set 2 -->
+            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Fashion Portrait">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Beauty Close Up">
+            <img src="https://images.unsplash.com/photo-1512413914565-df04871e89ce?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Celebrity Lighting">
+        </div>
+
+        <!-- Column 2 -->
+        <div class="w-1/4 flex flex-col flex-shrink-0 scrolling-wrapper scroll-slow gap-1 sm:gap-2" style="animation-delay: -10s;">
+            <!-- Set 1 -->
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Red Studio Light">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Black and White">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Fashion Shoot">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Profile Shot">
+            <!-- Set 2 -->
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Red Studio Light">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Black and White">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Fashion Shoot">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Profile Shot">
+        </div>
+
+        <!-- Column 3 -->
+        <div class="w-1/4 flex flex-col flex-shrink-0 scrolling-wrapper scroll-fast gap-1 sm:gap-2" style="animation-delay: -5s;">
+            <!-- Set 1 -->
+            <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Color Gel Photo">
+            <img src="https://images.unsplash.com/photo-1488161628813-04466f872bf2?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="High Fashion">
+            <img src="https://images.unsplash.com/photo-1513379733131-47fc74b45fc7?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Neon Look">
+            <!-- Set 2 -->
+            <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Color Gel Photo">
+            <img src="https://images.unsplash.com/photo-1488161628813-04466f872bf2?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="High Fashion">
+            <img src="https://images.unsplash.com/photo-1513379733131-47fc74b45fc7?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Neon Look">
+        </div>
+
+        <!-- Column 4 -->
+        <div class="w-1/4 flex flex-col flex-shrink-0 scrolling-wrapper scroll-normal gap-1 sm:gap-2" style="animation-duration: 32s; animation-delay: -18s;">
+            <!-- Set 1 -->
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Western Fashion">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Model Portrait">
+            <img src="https://images.unsplash.com/photo-1485230405346-71acb9518d9c?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Editorial Fashion">
+            <!-- Set 2 -->
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Western Fashion">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Model Portrait">
+            <img src="https://images.unsplash.com/photo-1485230405346-71acb9518d9c?q=80&w=600&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Editorial Fashion">
+        </div>
+
+        <!-- Background Logo/Image Watermark (Behind the portfolio grid) -->
+        <div class="pointer-events-none absolute inset-0 z-[-10] flex items-center justify-center opacity-70">
+            <!-- Replace 'background-logo.png' with your desired background image/logo -->
+            <img src="background-logo.png" alt="Background Logo Watermark" class="w-[60vw] h-auto object-contain drop-shadow-[0_4px_40px_rgba(0,0,0,0.8)]" />
+        </div>
+    </section>
+
+    <!-- NEW SECTION: OUR SERVICES / RECENT WORK -->
+    <section class="py-20 md:py-28 bg-[#fbf9f6] text-black px-6">
+        <style>
+            .scrollbar-hide::-webkit-scrollbar { display: none; }
+            .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        </style>
+        
+        <script>
+            function slideCarousel(id, direction) {
+                const carousel = document.getElementById(id);
+                const scrollAmount = carousel.clientWidth;
+                carousel.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+            }
+        </script>
+
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Section Header -->
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 tracking-wide text-gray-900">Featured Love Stories</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto text-[15px] md:text-base leading-relaxed">
+                    A chronology of couples' journeys where they vow to be One. Creating fiction out of strictly beautiful reality.
+                </p>
+            </div>
+
+            <!-- Services Grid (Mobile: 1 col, Desktop: 3 cols) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+
+                <!-- Card 1 -->
+                <div class="flex flex-col bg-[#F9F6F0] pb-6 group">
+                    <div class="relative w-full aspect-[4/5] overflow-hidden">
+                        <!-- Left/Right Buttons -->
+                        <button onclick="slideCarousel('carousel-1', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 p-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-sm" aria-label="Previous image">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button onclick="slideCarousel('carousel-1', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 p-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-sm" aria-label="Next image">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                        
+                        <!-- Images Container (Scroll Snap) -->
+                        <div id="carousel-1" class="flex w-full h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth">
+                            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800" class="w-full h-full flex-shrink-0 snap-center object-cover" alt="Sanaaya & Mihir Event 1">
+                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800" class="w-full h-full flex-shrink-0 snap-center object-cover" alt="Sanaaya & Mihir Event 2">
+                            <img src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?auto=format&fit=crop&q=80&w=800" class="w-full h-full flex-shrink-0 snap-center object-cover" alt="Sanaaya & Mihir Event 3">
+                        </div>
+                    </div>
+                    
+                    <div class="pt-5 px-1 md:px-0">
+                        <h3 class="text-[22px] text-gray-800 font-sans font-light tracking-wide">Sanaaya & Mihir</h3>
+                        <p class="text-gray-500 text-[14px] mt-1 font-sans font-medium opacity-80">A Blend of Playfulness & Spiritual Side</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flex flex-col bg-[#F9F6F0] pb-6 group">
+                    <div class="relative w-full aspect-[4/5] overflow-hidden">
+                        <!-- Left/Right Buttons -->
+                        <button onclick="slideCarousel('carousel-2', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 p-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-sm" aria-label="Previous image">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button onclick="slideCarousel('carousel-2', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 p-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-sm" aria-label="Next image">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                        
+                        <!-- Images Container -->
+                        <div id="carousel-2" class="flex w-full h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth">
+                            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=80&w=800" class="w-full h-full flex-shrink-0 snap-center object-cover" alt="Rohan & Priya Event 1">
+                            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&q=80&w=800" class="w-full h-full flex-shrink-0 snap-center object-cover" alt="Rohan & Priya Event 2">
+                            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800" class="w-full h-full flex-shrink-0 snap-center object-cover" alt="Rohan & Priya Event 3">
+                        </div>
+                    </div>
+                    
+                    <div class="pt-5 px-1 md:px-0">
+                        <h3 class="text-[22px] text-gray-800 font-sans font-light tracking-wide">Rohan & Priya</h3>
+                        <p class="text-gray-500 text-[14px] mt-1 font-sans font-medium opacity-80">A Timeless and Royal Journey</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="flex flex-col bg-[#F9F6F0] pb-6 group">
+                    <div class="relative w-full aspect-[4/5] overflow-hidden">
+                        <!-- Left/Right Buttons -->
+                        <button onclick="slideCarousel('carousel-3', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 p-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-sm" aria-label="Previous image">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button onclick="slideCarousel('carousel-3', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 p-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-sm" aria-label="Next image">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                        
+                        <!-- Images Container -->
+                        <div id="carousel-3" class="flex w-full h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" class="w-full h-full flex-shrink-0 snap-center object-cover" alt="Aryan & Meera Event 1">
+                            <img src="https://images.unsplash.com/photo-1623528148810-e55d5bb2bb94?auto=format&fit=crop&q=80&w=800" class="w-full h-full flex-shrink-0 snap-center object-cover" alt="Aryan & Meera Event 2">
+                            <img src="https://images.unsplash.com/photo-1543854589-32fb3eb72722?auto=format&fit=crop&q=80&w=800" class="w-full h-full flex-shrink-0 snap-center object-cover" alt="Aryan & Meera Event 3">
+                        </div>
+                    </div>
+                    
+                    <div class="pt-5 px-1 md:px-0">
+                        <h3 class="text-[22px] text-gray-800 font-sans font-light tracking-wide">Aryan & Meera</h3>
+                        <p class="text-gray-500 text-[14px] mt-1 font-sans font-medium opacity-80">An Intimate and Extravagant Tale</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-black text-gray-400 py-12 border-t border-gray-900 text-[14px]">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <!-- Left Side / Top on Mobile -->
+            <div class="flex flex-col items-center md:items-start">
+                <img src="assest/logo/white_logo.png" alt="Studio Sabi Logo" class="w-32 md:w-48 h-auto object-contain mb-2" />
+                <span>Capturing your timeless moments.</span>
+            </div>
+
+            <!-- Right Side / Bottom on Mobile -->
+            <div class="text-center md:text-right">
+                <p>&copy; 2026 Studio Sabi. All rights reserved.</p>
+                <p class="mt-1">Designed by <a href="https://wavetechify.in" target="_blank"
+                        class="text-white hover:text-[#e60023] font-medium transition cursor-pointer tracking-wider">wavetechify.in</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fancybox JS Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+        // Initialize Fancybox when the DOM is ready
+        document.addEventListener("DOMContentLoaded", () => {
+            Fancybox.bind('[data-fancybox]', {
+                // Fancybox options
+                Carousel: {
+                    infinite: true // Allows infinite scrolling through the gallery
+                },
+                Images: {
+                    zoom: true // Allows users to zoom
+                }
+            });
+        });
+
+        // Make the navbar sticky and visible on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black/95', 'backdrop-blur-md', 'border-b', 'border-gray-900', 'shadow-md', '!pb-4');
+                header.classList.remove('nav-overlay', 'pb-6');
+            } else {
+                header.classList.remove('bg-black/95', 'backdrop-blur-md', 'border-b', 'border-gray-900', 'shadow-md', '!pb-4');
+                header.classList.add('nav-overlay', 'pb-6');
+            }
+        });
+    </script>
+</body>
+
+</html>
