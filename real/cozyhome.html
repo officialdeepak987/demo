@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxeRealty – Best Real Estate in Delhi NCR | Buy, Sell & Rent Properties</title>
+  <meta name="description" content="LuxeRealty – Your trusted property dealer in Delhi NCR. Find verified flats, villas, plots & commercial properties. Best real estate deals, RERA registered. Book free site visit today!" />
+  <meta name="keywords" content="best real estate in Delhi, property dealer near me, buy flats near me, affordable housing Delhi NCR, property dealer Noida, 2BHK 3BHK flats Delhi" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="LuxeRealty – Best Real Estate in Delhi NCR" />
+  <meta property="og:description" content="Find verified properties in Delhi NCR. Buy, sell, or rent with confidence." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "LuxeRealty",
+    "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400",
+    "description": "Best real estate agency in Delhi NCR offering verified properties",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "42 Business District, Sector 18",
+      "addressLocality": "Noida",
+      "addressRegion": "Uttar Pradesh",
+      "postalCode": "201301",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91-9876543210",
+    "url": "https://luxerealty.in",
+    "priceRange": "₹₹₹",
+    "openingHours": "Mo-Sa 09:00-19:00",
+    "geo": {"@type": "GeoCoordinates", "latitude": "28.5707", "longitude": "77.3219"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Is LuxeRealty RERA registered?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, LuxeRealty is fully RERA registered and compliant with all real estate regulations in Uttar Pradesh and Delhi NCR."}},
+      {"@type": "Question", "name": "Do you provide home loan assistance?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we have tie-ups with 15+ leading banks and NBFCs to provide seamless home loan assistance at competitive interest rates."}},
+      {"@type": "Question", "name": "What types of properties do you deal in?", "acceptedAnswer": {"@type": "Answer", "text": "We deal in residential apartments, villas, plots, and commercial properties across Delhi NCR including Noida, Gurgaon, and Faridabad."}},
+      {"@type": "Question", "name": "Is the site visit free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, all site visits are completely free with no obligation to purchase."}},
+      {"@type": "Question", "name": "How do I verify a property?", "acceptedAnswer": {"@type": "Answer", "text": "All our listed properties are pre-verified by our legal team. We check title deeds, RERA registration, and encumbrance certificates before listing."}}
+    ]
+  }
+  </script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FAF8F3',
+            gold: '#C9A84C',
+            'gold-light': '#E8D5A3',
+            'gold-dark': '#A07830',
+            sage: '#8FAF8A',
+            'sage-light': '#D4E8D0',
+            navy: '#1A2B4A',
+            'navy-light': '#2D4470',
+            slate: '#6B7B8D',
+          },
+          fontFamily: {
+            display: ['Cormorant Garamond', 'Georgia', 'serif'],
+            body: ['DM Sans', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --navy: #1A2B4A;
+      --cream: #FAF8F3;
+      --sage: #8FAF8A;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: #FAF8F3; color: #1A2B4A; overflow-x: hidden; }
+
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; }
+
+    /* Navbar */
+    #navbar { transition: all 0.4s ease; }
+    #navbar.scrolled { background: rgba(26,43,74,0.97) !important; backdrop-filter: blur(12px); box-shadow: 0 4px 30px rgba(0,0,0,0.15); }
+
+    /* Hero */
+    .hero-bg {
+      background: linear-gradient(135deg, rgba(26,43,74,0.82) 0%, rgba(26,43,74,0.55) 60%, rgba(201,168,76,0.25) 100%),
+        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80') center/cover no-repeat;
+      min-height: 100vh;
+    }
+
+    /* Gold gradient text */
+    .text-gold-grad {
+      background: linear-gradient(135deg, #C9A84C, #E8D5A3, #A07830);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Property card hover */
+    .prop-card { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+    .prop-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(26,43,74,0.18); }
+    .prop-card .overlay { transition: opacity 0.3s; }
+    .prop-card:hover .overlay { opacity: 1 !important; }
+
+    /* Gold button */
+    .btn-gold {
+      background: linear-gradient(135deg, #C9A84C, #A07830);
+      color: #fff;
+      transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .btn-gold:hover { background: linear-gradient(135deg, #A07830, #C9A84C); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(160,120,48,0.4); }
+
+    .btn-outline-gold {
+      border: 1.5px solid #C9A84C;
+      color: #C9A84C;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .btn-outline-gold:hover { background: #C9A84C; color: #fff; }
+
+    /* Section divider */
+    .divider-gold { width: 60px; height: 3px; background: linear-gradient(90deg, #C9A84C, #E8D5A3); border-radius: 2px; }
+
+    /* Testimonial slider */
+    .testimonial-track { transition: transform 0.5s ease; }
+
+    /* FAQ accordion */
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-answer.open { max-height: 400px; }
+    .faq-icon { transition: transform 0.3s; }
+    .faq-open .faq-icon { transform: rotate(45deg); }
+
+    /* Floating buttons */
+    .float-wa {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 60px; height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 32px rgba(37,211,102,0.45);
+      animation: pulse-wa 2.5s infinite;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    @keyframes pulse-wa {
+      0%,100% { box-shadow: 0 8px 32px rgba(37,211,102,0.45); }
+      50% { box-shadow: 0 8px 48px rgba(37,211,102,0.7); }
+    }
+
+    .float-book {
+      position: fixed; bottom: 100px; right: 28px; z-index: 999;
+      background: linear-gradient(135deg, #C9A84C, #A07830);
+      color: #fff; border-radius: 30px;
+      padding: 12px 20px;
+      font-size: 13px; font-weight: 600;
+      box-shadow: 0 8px 24px rgba(160,120,48,0.4);
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      font-family: 'DM Sans', sans-serif;
+      animation: bob 3s ease-in-out infinite;
+    }
+    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+
+    /* Gallery grid */
+    .gallery-item { overflow: hidden; border-radius: 12px; cursor: pointer; }
+    .gallery-item img { transition: transform 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.08); }
+
+    /* Popup modal */
+    #popup-modal { display:none; }
+    #popup-modal.show { display:flex; }
+
+    /* Search bar inputs */
+    .search-input {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      backdrop-filter: blur(8px);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      width: 100%;
+      outline: none;
+      transition: border 0.3s;
+    }
+    .search-input:focus { border-color: #C9A84C; }
+    .search-input option { color: #1A2B4A; background: #fff; }
+    .search-input::placeholder { color: rgba(255,255,255,0.6); }
+
+    /* Stats counter */
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: #C9A84C; }
+
+    /* Smooth scroll offset for sticky nav */
+    section[id] { scroll-margin-top: 80px; }
+
+    /* Blog card */
+    .blog-card { transition: transform 0.3s, box-shadow 0.3s; }
+    .blog-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(26,43,74,0.14); }
+
+    /* Category card */
+    .cat-card { transition: all 0.3s; border: 1.5px solid transparent; }
+    .cat-card:hover { border-color: #C9A84C; transform: translateY(-5px); }
+
+    /* Before/after */
+    .before-after-container { position: relative; overflow: hidden; border-radius: 16px; }
+    .before-after-slider { position: absolute; top: 0; left: 50%; width: 3px; height: 100%; background: #C9A84C; cursor: ew-resize; z-index: 10; }
+
+    /* Image lazy load */
+    img[loading="lazy"] { background: #e8e4da; }
+
+    /* Mobile menu */
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    #mobile-menu.open { max-height: 500px; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #FAF8F3; }
+    ::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 3px; }
+
+    /* Lead popup */
+    #lead-popup { animation: slideUp 0.5s ease; }
+    @keyframes slideUp { from{transform:translateY(100px);opacity:0} to{transform:translateY(0);opacity:1} }
+  </style>
+</head>
+<body>
+
+<!-- ===================== FLOATING BUTTONS ===================== -->
+<a href="https://wa.me/919876543210?text=Hello%2C%20I%20am%20interested%20in%20a%20property.%20Please%20help%20me!" 
+   class="float-wa" target="_blank" aria-label="WhatsApp Chat">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<a href="#book-visit" class="float-book">
+  📅 Book Free Visit
+</a>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-transparent" role="navigation" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#C9A84C,#A07830)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <span class="font-display text-2xl font-bold text-white tracking-wide"><img src="./logo/cozyhomes.png" alt="Cozy Homes"></span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden lg:flex items-center gap-8 text-white text-sm font-medium">
+        <li><a href="#properties" class="hover:text-gold-300 transition-colors" style="--tw-text-opacity:1">Properties</a></li>
+        <li><a href="#categories" class="hover:text-yellow-300 transition-colors">Categories</a></li>
+        <li><a href="#about" class="hover:text-yellow-300 transition-colors">About</a></li>
+        <li><a href="#services" class="hover:text-yellow-300 transition-colors">Services</a></li>
+        <li><a href="#testimonials" class="hover:text-yellow-300 transition-colors">Reviews</a></li>
+        <li><a href="#blog" class="hover:text-yellow-300 transition-colors">Blog</a></li>
+        <li><a href="#contact" class="hover:text-yellow-300 transition-colors">Contact</a></li>
+      </ul>
+
+      <!-- CTA -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="tel:+919876543210" class="text-white text-sm font-medium px-4 py-2 border border-white/30 rounded-lg hover:border-yellow-400 hover:text-yellow-400 transition-all">📞 Call Now</a>
+        <a href="#book-visit" class="btn-gold px-5 py-2.5 rounded-lg text-sm">Book Site Visit</a>
+      </div>
+
+      <!-- Hamburger -->
+      <button id="hamburger" class="lg:hidden text-white p-2" aria-label="Toggle menu">
+        <svg id="ham-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden bg-navy/95 backdrop-blur-md rounded-xl mb-4 overflow-hidden">
+      <ul class="flex flex-col py-4 px-4 gap-1 text-white text-sm font-medium">
+        <li><a href="#properties" class="block py-3 px-4 hover:bg-white/10 rounded-lg transition-colors" onclick="closeMobileMenu()">Properties</a></li>
+        <li><a href="#categories" class="block py-3 px-4 hover:bg-white/10 rounded-lg transition-colors" onclick="closeMobileMenu()">Categories</a></li>
+        <li><a href="#about" class="block py-3 px-4 hover:bg-white/10 rounded-lg transition-colors" onclick="closeMobileMenu()">About</a></li>
+        <li><a href="#services" class="block py-3 px-4 hover:bg-white/10 rounded-lg transition-colors" onclick="closeMobileMenu()">Services</a></li>
+        <li><a href="#testimonials" class="block py-3 px-4 hover:bg-white/10 rounded-lg transition-colors" onclick="closeMobileMenu()">Reviews</a></li>
+        <li><a href="#contact" class="block py-3 px-4 hover:bg-white/10 rounded-lg transition-colors" onclick="closeMobileMenu()">Contact</a></li>
+        <li class="pt-2">
+          <a href="#book-visit" class="btn-gold block text-center py-3 px-4 rounded-lg" onclick="closeMobileMenu()">Book Site Visit</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="hero" class="hero-bg flex items-center relative" style="min-height:100vh">
+  <!-- Decorative overlay -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute bottom-0 left-0 right-0 h-32" style="background:linear-gradient(to top, #FAF8F3, transparent)"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-20 w-full relative z-10">
+    <div class="max-w-3xl">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-sm font-medium" style="background:rgba(201,168,76,0.2);border:1px solid rgba(201,168,76,0.4);color:#E8D5A3" data-aos="fade-right">
+        <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+        RERA Registered · Trusted Since 2014
+      </div>
+
+      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6" data-aos="fade-up" data-aos-delay="100">
+        Find Your<br/>
+        <span class="text-gold-grad">Dream Home</span><br/>
+        in Delhi NCR
+      </h1>
+      <p class="text-blue-100 text-lg sm:text-xl mb-10 max-w-xl leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+        Best real estate deals on verified flats, villas & plots. Expert guidance, legal support & hassle-free home buying experience.
+      </p>
+
+      <!-- Property Search Bar -->
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 mb-10" data-aos="fade-up" data-aos-delay="300">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+          <div>
+            <label class="text-white/70 text-xs mb-1.5 block font-medium uppercase tracking-wider">Location</label>
+            <select id="search-location" class="search-input">
+              <option value="">Select Location</option>
+              <option>Noida Sector 150</option>
+              <option>Greater Noida West</option>
+              <option>Gurgaon Sector 65</option>
+              <option>Dwarka, Delhi</option>
+              <option>Faridabad</option>
+              <option>Indirapuram</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-white/70 text-xs mb-1.5 block font-medium uppercase tracking-wider">Property Type</label>
+            <select id="search-type" class="search-input">
+              <option value="">Property Type</option>
+              <option>1 BHK Flat</option>
+              <option>2 BHK Flat</option>
+              <option>3 BHK Flat</option>
+              <option>Villa / Independent House</option>
+              <option>Plot / Land</option>
+              <option>Commercial Space</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-white/70 text-xs mb-1.5 block font-medium uppercase tracking-wider">Budget</label>
+            <select id="search-budget" class="search-input">
+              <option value="">Select Budget</option>
+              <option>Under ₹30 Lakhs</option>
+              <option>₹30 – 50 Lakhs</option>
+              <option>₹50 – 80 Lakhs</option>
+              <option>₹80 Lakhs – 1 Cr</option>
+              <option>₹1 Cr – 2 Cr</option>
+              <option>Above ₹2 Cr</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button onclick="searchProperties()" class="btn-gold flex-1 py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2">
+            🔍 Explore Properties
+          </button>
+          <a href="https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20enquire%20about%20a%20property." 
+             target="_blank"
+             class="flex-1 py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 text-white border border-white/30 hover:bg-white/15 transition-all">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Chat
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="flex flex-wrap gap-6 text-white" data-aos="fade-up" data-aos-delay="400">
+        <div class="text-center">
+          <div class="font-display text-3xl font-bold" style="color:#E8D5A3">4+</div>
+          <div class="text-xs text-blue-200 mt-0.5">Years Experience</div>
+        </div>
+        <div class="w-px bg-white/20"></div>
+        <div class="text-center">
+          <div class="font-display text-3xl font-bold" style="color:#E8D5A3">1200+</div>
+          <div class="text-xs text-blue-200 mt-0.5">Properties Sold</div>
+        </div>
+        <div class="w-px bg-white/20"></div>
+        <div class="text-center">
+          <div class="font-display text-3xl font-bold" style="color:#E8D5A3">500+</div>
+          <div class="text-xs text-blue-200 mt-0.5">Happy Families</div>
+        </div>
+        <div class="w-px bg-white/20"></div>
+        <div class="text-center">
+          <div class="font-display text-3xl font-bold" style="color:#E8D5A3">RERA</div>
+          <div class="text-xs text-blue-200 mt-0.5">Registered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 flex flex-col items-center gap-2 animate-bounce">
+    <span class="text-xs tracking-widest uppercase font-medium">Scroll</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14m-7-7l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- ===================== TRUST HIGHLIGHTS ===================== -->
+<section class="py-16 bg-navy">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(201,168,76,0.15)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="stat-num" data-count="4">0</div><span class="font-display text-3xl text-yellow-400 font-bold">+</span>
+        <div class="text-blue-200 text-sm mt-1">Years Experience</div>
+      </div>
+      <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(201,168,76,0.15)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        </div>
+        <div class="stat-num" data-count="1200">0</div><span class="font-display text-3xl text-yellow-400 font-bold">+</span>
+        <div class="text-blue-200 text-sm mt-1">Properties Sold</div>
+      </div>
+      <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(201,168,76,0.15)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="stat-num" data-count="100">0</div><span class="font-display text-3xl text-yellow-400 font-bold">%</span>
+        <div class="text-blue-200 text-sm mt-1">Verified Listings</div>
+      </div>
+      <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(201,168,76,0.15)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="stat-num" data-count="500">0</div><span class="font-display text-3xl text-yellow-400 font-bold">+</span>
+        <div class="text-blue-200 text-sm mt-1">Trusted Families</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURED PROPERTIES ===================== -->
+<section id="properties" class="py-20 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Featured Listings</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Premium Properties</h2>
+      <div class="divider-gold mx-auto mb-4"></div>
+      <p class="text-slate max-w-xl mx-auto">Handpicked, RERA-verified properties across Delhi NCR's most sought-after locations.</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up" data-aos-delay="100">
+      <button onclick="filterProps('all')" class="filter-btn active px-5 py-2 rounded-full text-sm font-medium transition-all" data-filter="all">All</button>
+      <button onclick="filterProps('apartment')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all" data-filter="apartment">Apartments</button>
+      <button onclick="filterProps('villa')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all" data-filter="villa">Villas</button>
+      <button onclick="filterProps('plot')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all" data-filter="plot">Plots</button>
+      <button onclick="filterProps('commercial')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all" data-filter="commercial">Commercial</button>
+    </div>
+
+    <div id="property-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Property cards injected by JS -->
+    </div>
+
+    <div class="text-center mt-12" data-aos="fade-up">
+      <a href="#contact" class="btn-gold px-8 py-4 rounded-xl text-sm font-semibold inline-flex items-center gap-2">
+        View All Properties →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Property Quick View Modal -->
+<div id="prop-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" style="background:rgba(0,0,0,0.65);backdrop-filter:blur(6px)">
+  <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl" data-aos="zoom-in">
+    <div id="modal-img" class="h-56 bg-cover bg-center relative">
+      <button onclick="closePropModal()" class="absolute top-4 right-4 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center text-navy font-bold hover:bg-white">✕</button>
+      <div class="absolute bottom-4 left-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full" id="modal-badge">Featured</div>
+    </div>
+    <div class="p-6">
+      <h3 id="modal-title" class="font-display text-2xl font-bold text-navy mb-1"></h3>
+      <p id="modal-loc" class="text-slate text-sm mb-3"></p>
+      <div class="flex gap-4 mb-4 text-sm text-navy">
+        <span id="modal-size"></span>
+        <span id="modal-beds"></span>
+        <span id="modal-baths"></span>
+      </div>
+      <div id="modal-price" class="font-display text-2xl font-bold mb-5" style="color:#C9A84C"></div>
+      <div class="flex gap-3">
+        <a id="modal-wa" href="#" target="_blank" class="flex-1 btn-gold py-3 rounded-xl text-center text-sm font-semibold">WhatsApp Enquiry</a>
+        <a href="#book-visit" onclick="closePropModal()" class="flex-1 py-3 rounded-xl border border-navy text-navy text-center text-sm font-semibold hover:bg-navy hover:text-white transition-all">Book Site Visit</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PROPERTY CATEGORIES ===================== -->
+<section id="categories" class="py-20" style="background:#F0EDE6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Browse By Type</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Property Categories</h2>
+      <div class="divider-gold mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="cat-card bg-white rounded-2xl p-8 text-center cursor-pointer shadow-sm" data-aos="fade-up" data-aos-delay="0" onclick="filterProps('apartment'); document.getElementById('properties').scrollIntoView({behavior:'smooth'})">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style="background:linear-gradient(135deg,#E8F0FF,#C5D8FF)">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2D4470" stroke-width="1.8"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-navy mb-1">Apartments</h3>
+        <p class="text-slate text-sm">1BHK · 2BHK · 3BHK · 4BHK</p>
+        <div class="mt-3 text-xs font-semibold" style="color:#C9A84C">320+ Listed →</div>
+      </div>
+      <div class="cat-card bg-white rounded-2xl p-8 text-center cursor-pointer shadow-sm" data-aos="fade-up" data-aos-delay="100" onclick="filterProps('villa'); document.getElementById('properties').scrollIntoView({behavior:'smooth'})">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style="background:linear-gradient(135deg,#FFF0E0,#FFD5A8)">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A07830" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-navy mb-1">Villas</h3>
+        <p class="text-slate text-sm">Independent · Duplex · Builder Floor</p>
+        <div class="mt-3 text-xs font-semibold" style="color:#C9A84C">85+ Listed →</div>
+      </div>
+      <div class="cat-card bg-white rounded-2xl p-8 text-center cursor-pointer shadow-sm" data-aos="fade-up" data-aos-delay="200" onclick="filterProps('commercial'); document.getElementById('properties').scrollIntoView({behavior:'smooth'})">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style="background:linear-gradient(135deg,#E8FFE8,#B8F0B8)">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3A7A3A" stroke-width="1.8"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18M16 3v18M2 9h20M2 15h20"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-navy mb-1">Commercial</h3>
+        <p class="text-slate text-sm">Office · Retail · Showroom · Shop</p>
+        <div class="mt-3 text-xs font-semibold" style="color:#C9A84C">140+ Listed →</div>
+      </div>
+      <div class="cat-card bg-white rounded-2xl p-8 text-center cursor-pointer shadow-sm" data-aos="fade-up" data-aos-delay="300" onclick="filterProps('plot'); document.getElementById('properties').scrollIntoView({behavior:'smooth'})">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style="background:linear-gradient(135deg,#F0E8FF,#D8C0FF)">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6A3A9A" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-navy mb-1">Plots & Land</h3>
+        <p class="text-slate text-sm">Residential · Commercial · Farm</p>
+        <div class="mt-3 text-xs font-semibold" style="color:#C9A84C">200+ Listed →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT COMPANY ===================== -->
+<section id="about" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div data-aos="fade-right">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=600&q=80" 
+               alt="LuxeRealty office - best real estate company Delhi NCR" 
+               loading="lazy"
+               class="rounded-2xl w-full object-cover shadow-xl" style="height:480px;object-fit:cover" />
+          <div class="absolute -bottom-6 -right-6 bg-navy text-white p-6 rounded-2xl shadow-xl" style="min-width:160px">
+            <div class="font-display text-4xl font-bold" style="color:#C9A84C">10+</div>
+            <div class="text-sm text-blue-200">Years of<br/>Excellence</div>
+          </div>
+          <div class="absolute -top-5 -left-5 bg-white shadow-xl p-4 rounded-xl border border-yellow-100">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-lg">✅</div>
+              <div><div class="text-xs font-bold text-navy">RERA Verified</div><div class="text-xs text-slate">All listings</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-left">
+        <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">About LuxeRealty</span>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-6">Your Most Trusted Property Partner</h2>
+        <div class="divider-gold mb-6"></div>
+        <p class="text-slate leading-relaxed mb-6">
+          Since 2014, LuxeRealty has been Delhi NCR's most trusted real estate consultancy. We specialize in connecting buyers, sellers, and investors with the perfect property — with zero compromises on quality, transparency, or legal compliance.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-6 mb-8">
+          <div class="flex gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#FFF8EC">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-display text-lg font-bold text-navy mb-1">Our Mission</h4>
+              <p class="text-slate text-sm">Make property buying transparent, simple & stress-free for every Indian family.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#F0F8FF">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2D4470" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m12 8 3 4-3 4-3-4 3-4z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-display text-lg font-bold text-navy mb-1">Our Vision</h4>
+              <p class="text-slate text-sm">Be India's most trusted real estate brand by 2030 with 50+ city presence.</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="btn-gold px-6 py-3 rounded-xl text-sm font-semibold">Get Free Consultation</a>
+          <a href="tel:+919876543210" class="btn-outline-gold px-6 py-3 rounded-xl text-sm font-semibold">Call: +91-98765-43210</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY CHOOSE US ===================== -->
+<section class="py-20 bg-navy relative overflow-hidden">
+  <div class="absolute inset-0 opacity-5" style="background-image:radial-gradient(circle at 1px 1px, #C9A84C 1px, transparent 0);background-size:40px 40px"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Why LuxeRealty</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mt-2 mb-4">The LuxeRealty Advantage</h2>
+      <div class="divider-gold mx-auto"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition-all" data-aos="fade-up" data-aos-delay="0">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:rgba(201,168,76,0.15)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-white mb-2">Verified Properties</h3>
+        <p class="text-blue-200 text-sm leading-relaxed">100% RERA-verified with clear title deeds. Zero risk for buyers.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition-all" data-aos="fade-up" data-aos-delay="100">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:rgba(201,168,76,0.15)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-white mb-2">Best Price Deals</h3>
+        <p class="text-blue-200 text-sm leading-relaxed">Negotiate the best rates with our market intelligence and builder tie-ups.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition-all" data-aos="fade-up" data-aos-delay="200">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:rgba(201,168,76,0.15)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-white mb-2">Legal Assistance</h3>
+        <p class="text-blue-200 text-sm leading-relaxed">Expert lawyers for sale deeds, registry, NOC & documentation support.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition-all" data-aos="fade-up" data-aos-delay="300">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:rgba(201,168,76,0.15)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-white mb-2">Home Loan Support</h3>
+        <p class="text-blue-200 text-sm leading-relaxed">Tie-ups with 15+ banks for instant home loan approvals at best EMIs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services" class="py-20 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">What We Offer</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Our Services</h2>
+      <div class="divider-gold mx-auto"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white rounded-2xl p-7 shadow-sm hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="0">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,#FFF8EC,#FFE8B5)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A07830" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-navy mb-2">Buy Property</h3>
+        <p class="text-slate text-sm leading-relaxed mb-4">Find your perfect home from 700+ verified listings across Delhi NCR.</p>
+        <a href="#contact" class="text-sm font-semibold" style="color:#C9A84C">Enquire Now →</a>
+      </div>
+      <div class="bg-white rounded-2xl p-7 shadow-sm hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="100">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,#E8F5FF,#C0E0FF)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2D4470" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-navy mb-2">Sell Property</h3>
+        <p class="text-slate text-sm leading-relaxed mb-4">Get maximum value for your property with our proven marketing strategy.</p>
+        <a href="#contact" class="text-sm font-semibold" style="color:#C9A84C">List Property →</a>
+      </div>
+      <div class="bg-white rounded-2xl p-7 shadow-sm hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="200">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,#E8FFE8,#B8F0B8)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3A7A3A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-navy mb-2">Rental Services</h3>
+        <p class="text-slate text-sm leading-relaxed mb-4">Hassle-free rental matching for both landlords and tenants. Zero brokerage options available.</p>
+        <a href="#contact" class="text-sm font-semibold" style="color:#C9A84C">Find Rental →</a>
+      </div>
+      <div class="bg-white rounded-2xl p-7 shadow-sm hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="300">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,#F5E8FF,#DFC0FF)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6A3A9A" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-navy mb-2">Property Management</h3>
+        <p class="text-slate text-sm leading-relaxed mb-4">End-to-end property management for NRIs & investors. Sit back and earn returns.</p>
+        <a href="#contact" class="text-sm font-semibold" style="color:#C9A84C">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POPULAR LOCATIONS ===================== -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Top Locations in Delhi NCR</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Explore Prime Areas</h2>
+      <div class="divider-gold mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
+      <div class="location-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-md" data-aos="fade-up" data-aos-delay="0" style="height:200px">
+        <img src="https://images.unsplash.com/photo-1615380547903-1c21a44b4c64?w=300&q=75" alt="Noida real estate" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 to-transparent flex flex-col justify-end p-4">
+          <div class="text-white font-display text-lg font-bold">Noida</div>
+          <div class="text-yellow-300 text-xs">120+ Properties</div>
+        </div>
+      </div>
+      <div class="location-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-md" data-aos="fade-up" data-aos-delay="60" style="height:200px">
+        <img src="https://images.unsplash.com/photo-1599930113854-d6d7fd521f10?w=300&q=75" alt="Gurgaon real estate" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 to-transparent flex flex-col justify-end p-4">
+          <div class="text-white font-display text-lg font-bold">Gurgaon</div>
+          <div class="text-yellow-300 text-xs">95+ Properties</div>
+        </div>
+      </div>
+      <div class="location-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-md" data-aos="fade-up" data-aos-delay="120" style="height:200px">
+        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=300&q=75" alt="Delhi real estate" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 to-transparent flex flex-col justify-end p-4">
+          <div class="text-white font-display text-lg font-bold">Delhi</div>
+          <div class="text-yellow-300 text-xs">200+ Properties</div>
+        </div>
+      </div>
+      <div class="location-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-md" data-aos="fade-up" data-aos-delay="180" style="height:200px">
+        <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=300&q=75" alt="Faridabad real estate" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 to-transparent flex flex-col justify-end p-4">
+          <div class="text-white font-display text-lg font-bold">Faridabad</div>
+          <div class="text-yellow-300 text-xs">80+ Properties</div>
+        </div>
+      </div>
+      <div class="location-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-md" data-aos="fade-up" data-aos-delay="240" style="height:200px">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=75" alt="Greater Noida real estate" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 to-transparent flex flex-col justify-end p-4">
+          <div class="text-white font-display text-lg font-bold">Greater Noida</div>
+          <div class="text-yellow-300 text-xs">150+ Properties</div>
+        </div>
+      </div>
+      <div class="location-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-md" data-aos="fade-up" data-aos-delay="300" style="height:200px">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=300&q=75" alt="Indirapuram real estate" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 to-transparent flex flex-col justify-end p-4">
+          <div class="text-white font-display text-lg font-bold">Indirapuram</div>
+          <div class="text-yellow-300 text-xs">70+ Properties</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VIRTUAL TOUR / VIDEO ===================== -->
+<section class="py-20" style="background:#F0EDE6">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-10" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Virtual Tour</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Explore Properties Online</h2>
+      <div class="divider-gold mx-auto"></div>
+    </div>
+    <div class="rounded-2xl overflow-hidden shadow-2xl" data-aos="zoom-in">
+      <div class="relative" style="padding-bottom:56.25%">
+        <iframe class="absolute inset-0 w-full h-full" 
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1" 
+          title="LuxeRealty Property Virtual Tour Delhi NCR"
+          loading="lazy"
+          allowfullscreen
+          style="border:0">
+        </iframe>
+      </div>
+    </div>
+    <p class="text-center text-slate text-sm mt-5">🎥 Take a virtual walkthrough of our premium properties — from the comfort of your home</p>
+  </div>
+</section>
+
+<!-- ===================== PROPERTY ENQUIRY FORM ===================== -->
+<section id="contact" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Free Consultation</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Property Enquiry</h2>
+      <div class="divider-gold mx-auto"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-10 bg-cream rounded-3xl overflow-hidden shadow-xl">
+      <!-- LEFT: Benefits -->
+      <div class="p-10 lg:p-12 flex flex-col justify-center" style="background:linear-gradient(135deg,#1A2B4A,#2D4470)">
+        <h3 class="font-display text-3xl font-bold text-white mb-6">Why Enquire With Us?</h3>
+        <div class="space-y-6">
+          <div class="flex gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(201,168,76,0.2)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-1">Free Consultation</h4>
+              <p class="text-blue-200 text-sm">100% free property consultation with our expert advisors — no hidden charges.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(201,168,76,0.2)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-1">Verified Deals Only</h4>
+              <p class="text-blue-200 text-sm">Every property we share is legally verified and RERA compliant.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(201,168,76,0.2)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-1">Dedicated Expert</h4>
+              <p class="text-blue-200 text-sm">A personal property advisor assigned to guide you throughout your journey.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(201,168,76,0.2)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-1">Best Price Guarantee</h4>
+              <p class="text-blue-200 text-sm">We negotiate the best deal on your behalf — guaranteed lowest prices.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-white/10">
+          <div class="flex items-center gap-3 text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span class="text-sm">Call us: <strong>+91-98765-43210</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="p-10 lg:p-12" data-aos="fade-left">
+        <h3 class="font-display text-2xl font-bold text-navy mb-6">Send Your Enquiry</h3>
+        <form id="enquiry-form" class="space-y-4" novalidate>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm font-medium text-navy mb-1.5 block">Full Name *</label>
+              <input type="text" id="f-name" placeholder="Your Name" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-yellow-400 transition-colors font-body" required />
+            </div>
+            <div>
+              <label class="text-sm font-medium text-navy mb-1.5 block">Phone Number *</label>
+              <input type="tel" id="f-phone" placeholder="+91 98765 43210" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-yellow-400 transition-colors font-body" required />
+            </div>
+          </div>
+          <div>
+            <label class="text-sm font-medium text-navy mb-1.5 block">Email Address</label>
+            <input type="email" id="f-email" placeholder="you@email.com" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-yellow-400 transition-colors font-body" />
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm font-medium text-navy mb-1.5 block">Property Type *</label>
+              <select id="f-type" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-yellow-400 transition-colors font-body text-gray-600" required>
+                <option value="">Select Type</option>
+                <option>1 BHK Flat</option>
+                <option>2 BHK Flat</option>
+                <option>3 BHK Flat</option>
+                <option>Villa / House</option>
+                <option>Plot</option>
+                <option>Commercial</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-sm font-medium text-navy mb-1.5 block">Budget *</label>
+              <select id="f-budget" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-yellow-400 transition-colors font-body text-gray-600" required>
+                <option value="">Select Budget</option>
+                <option>Under ₹30 Lakhs</option>
+                <option>₹30 – 50 Lakhs</option>
+                <option>₹50 – 80 Lakhs</option>
+                <option>₹80L – 1 Cr</option>
+                <option>₹1 Cr – 2 Cr</option>
+                <option>Above ₹2 Cr</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="text-sm font-medium text-navy mb-1.5 block">Preferred Location *</label>
+            <input type="text" id="f-location" placeholder="e.g. Noida Sector 150, Gurgaon..." class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-yellow-400 transition-colors font-body" />
+          </div>
+          <div>
+            <label class="text-sm font-medium text-navy mb-1.5 block">Message</label>
+            <textarea id="f-msg" rows="3" placeholder="Any specific requirements or questions?" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-yellow-400 transition-colors font-body resize-none"></textarea>
+          </div>
+          <button type="submit" class="btn-gold w-full py-4 rounded-xl font-semibold text-sm flex items-center justify-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Send via WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BOOK SITE VISIT ===================== -->
+<section id="book-visit" class="py-20" style="background:linear-gradient(135deg,#FAF8F3,#F0EDE6)">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Schedule a Visit</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Book a Free Site Visit</h2>
+      <div class="divider-gold mx-auto mb-4"></div>
+      <p class="text-slate">Our property advisor will personally escort you to shortlisted properties at your preferred time.</p>
+    </div>
+
+    <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-xl" data-aos="fade-up" data-aos-delay="100">
+      <form id="visit-form" class="space-y-5" novalidate>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="text-sm font-medium text-navy mb-1.5 block">Your Name *</label>
+            <input type="text" id="v-name" placeholder="Full Name" class="w-full border border-gray-200 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-yellow-400 transition-colors font-body" />
+          </div>
+          <div>
+            <label class="text-sm font-medium text-navy mb-1.5 block">Phone Number *</label>
+            <input type="tel" id="v-phone" placeholder="+91 98765 43210" class="w-full border border-gray-200 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-yellow-400 transition-colors font-body" />
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="text-sm font-medium text-navy mb-1.5 block">Preferred Date *</label>
+            <input type="date" id="v-date" class="w-full border border-gray-200 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-yellow-400 transition-colors font-body" />
+          </div>
+          <div>
+            <label class="text-sm font-medium text-navy mb-1.5 block">Preferred Time *</label>
+            <select id="v-time" class="w-full border border-gray-200 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-yellow-400 transition-colors font-body text-gray-600">
+              <option value="">Select Time Slot</option>
+              <option>9:00 AM – 11:00 AM</option>
+              <option>11:00 AM – 1:00 PM</option>
+              <option>1:00 PM – 3:00 PM</option>
+              <option>3:00 PM – 5:00 PM</option>
+              <option>5:00 PM – 7:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="text-sm font-medium text-navy mb-1.5 block">Property Interest</label>
+          <input type="text" id="v-prop" placeholder="e.g. 2BHK in Noida Sector 150, Villa in Gurgaon..." class="w-full border border-gray-200 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-yellow-400 transition-colors font-body" />
+        </div>
+        <button type="submit" onclick="submitVisit()" class="btn-gold w-full py-4 rounded-xl font-semibold text-base flex items-center justify-center gap-2">
+          📅 Schedule My Free Site Visit
+        </button>
+        <p class="text-center text-slate text-xs">✅ Free of cost · No obligation · Our advisor will confirm within 30 minutes</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section id="testimonials" class="py-20 bg-navy overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Client Reviews</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mt-2 mb-4">What Our Clients Say</h2>
+      <div class="divider-gold mx-auto"></div>
+    </div>
+
+    <div class="relative overflow-hidden">
+      <div id="testimonial-track" class="testimonial-track flex gap-6 transition-transform duration-500">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-3 mt-10">
+      <button onclick="slideTestimonial(-1)" class="w-12 h-12 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-all">←</button>
+      <button onclick="slideTestimonial(1)" class="w-12 h-12 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-all">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SUCCESS STORIES ===================== -->
+<section class="py-20 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Our Achievements</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Success Stories</h2>
+      <div class="divider-gold mx-auto"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm prop-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="relative h-48">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=75" alt="Sold luxury apartment Noida" loading="lazy" class="w-full h-full object-cover"/>
+          <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">✅ SOLD</div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold text-navy mb-1">3 BHK Luxury Apartment</h3>
+          <p class="text-slate text-sm mb-2">Noida Sector 150</p>
+          <div class="font-display text-xl font-bold" style="color:#C9A84C">₹1.2 Crore</div>
+          <p class="text-slate text-xs mt-2">Sold in 18 days · Happy buyer: Sharma Family</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm prop-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative h-48">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=75" alt="Sold villa Gurgaon" loading="lazy" class="w-full h-full object-cover"/>
+          <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">✅ SOLD</div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold text-navy mb-1">4 BHK Independent Villa</h3>
+          <p class="text-slate text-sm mb-2">Gurgaon Sector 65</p>
+          <div class="font-display text-xl font-bold" style="color:#C9A84C">₹3.5 Crore</div>
+          <p class="text-slate text-xs mt-2">Sold in 30 days · Happy buyer: Gupta Family</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm prop-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative h-48">
+          <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500&q=75" alt="Sold commercial property Delhi" loading="lazy" class="w-full h-full object-cover"/>
+          <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">✅ SOLD</div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-xl font-bold text-navy mb-1">2000 sq.ft Office Space</h3>
+          <p class="text-slate text-sm mb-2">Connaught Place, Delhi</p>
+          <div class="font-display text-xl font-bold" style="color:#C9A84C">₹2.8 Crore</div>
+          <p class="text-slate text-xs mt-2">Sold in 22 days · Happy buyer: TechCorp India</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BEFORE / AFTER ===================== -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Project Progress</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Before & After</h2>
+      <div class="divider-gold mx-auto mb-4"></div>
+      <p class="text-slate max-w-lg mx-auto">Watch our projects transform from construction to completion.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-8">
+      <div data-aos="fade-right">
+        <div class="text-xs font-bold uppercase tracking-widest text-slate mb-3">⚙️ Under Construction</div>
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=75" alt="Under construction property Delhi NCR" loading="lazy" class="w-full object-cover" style="height:280px;object-fit:cover"/>
+        </div>
+        <div class="mt-4 bg-orange-50 border border-orange-200 rounded-xl p-4">
+          <div class="font-semibold text-orange-700 text-sm">🏗 LuxeVista Phase 2 — Noida Sector 128</div>
+          <div class="text-orange-600 text-xs mt-1">Expected completion: Dec 2025 · Bookings Open</div>
+        </div>
+      </div>
+      <div data-aos="fade-left">
+        <div class="text-xs font-bold uppercase tracking-widest text-slate mb-3">✅ Completed</div>
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=75" alt="Completed luxury apartment project Delhi NCR" loading="lazy" class="w-full object-cover" style="height:280px;object-fit:cover"/>
+        </div>
+        <div class="mt-4 bg-green-50 border border-green-200 rounded-xl p-4">
+          <div class="font-semibold text-green-700 text-sm">✅ LuxeVista Phase 1 — Noida Sector 128</div>
+          <div class="text-green-600 text-xs mt-1">Delivered on time · 240 happy families · RERA Compliant</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="py-20" style="background:#F0EDE6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Property Gallery</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Explore Our Projects</h2>
+      <div class="divider-gold mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="gallery-item col-span-2 row-span-2" style="height:380px" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=75" alt="Luxury property interior Delhi NCR" loading="lazy" class="w-full h-full object-cover"/>
+      </div>
+      <div class="gallery-item" style="height:180px" data-aos="fade-up" data-aos-delay="50">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&q=75" alt="Modern apartment kitchen" loading="lazy" class="w-full h-full object-cover"/>
+      </div>
+      <div class="gallery-item" style="height:180px" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1560185007-5f0bb1866cab?w=400&q=75" alt="Luxury bedroom" loading="lazy" class="w-full h-full object-cover"/>
+      </div>
+      <div class="gallery-item" style="height:180px" data-aos="fade-up" data-aos-delay="150">
+        <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400&q=75" alt="Swimming pool luxury villa" loading="lazy" class="w-full h-full object-cover"/>
+      </div>
+      <div class="gallery-item" style="height:180px" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=75" alt="Modern living room" loading="lazy" class="w-full h-full object-cover"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BLOG SECTION ===================== -->
+<section id="blog" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Real Estate Insights</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Latest from Our Blog</h2>
+      <div class="divider-gold mx-auto"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <article class="blog-card bg-cream rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+        <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=500&q=75" alt="Property investment tips Delhi NCR" loading="lazy" class="w-full object-cover" style="height:200px;object-fit:cover"/>
+        <div class="p-6">
+          <div class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#C9A84C">Investment Tips</div>
+          <h3 class="font-display text-xl font-bold text-navy mb-2 leading-tight">Top 7 Property Investment Tips for 2025 in Delhi NCR</h3>
+          <p class="text-slate text-sm mb-4 leading-relaxed">Maximise your real estate returns with expert strategies from our seasoned property advisors.</p>
+          <a href="#" class="text-sm font-semibold text-navy border-b border-yellow-400 pb-0.5 hover:text-yellow-600 transition-colors">Read More →</a>
+        </div>
+      </article>
+      <article class="blog-card bg-cream rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=500&q=75" alt="Home buying guide India" loading="lazy" class="w-full object-cover" style="height:200px;object-fit:cover"/>
+        <div class="p-6">
+          <div class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#C9A84C">Buyer's Guide</div>
+          <h3 class="font-display text-xl font-bold text-navy mb-2 leading-tight">Complete Home Buying Guide for First-Time Buyers in India</h3>
+          <p class="text-slate text-sm mb-4 leading-relaxed">Everything you need to know — from loan eligibility to registration — explained simply.</p>
+          <a href="#" class="text-sm font-semibold text-navy border-b border-yellow-400 pb-0.5 hover:text-yellow-600 transition-colors">Read More →</a>
+        </div>
+      </article>
+      <article class="blog-card bg-cream rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1554774853-aae0a22c8aa4?w=500&q=75" alt="Real estate trends 2025" loading="lazy" class="w-full object-cover" style="height:200px;object-fit:cover"/>
+        <div class="p-6">
+          <div class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#C9A84C">Market Trends</div>
+          <h3 class="font-display text-xl font-bold text-navy mb-2 leading-tight">Real Estate Market Trends in Delhi NCR — What to Expect in 2025</h3>
+          <p class="text-slate text-sm mb-4 leading-relaxed">Rising demand, metro expansion & RERA compliance are reshaping the NCR property market.</p>
+          <a href="#" class="text-sm font-semibold text-navy border-b border-yellow-400 pb-0.5 hover:text-yellow-600 transition-colors">Read More →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="py-20 bg-cream">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Common Questions</span>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Frequently Asked Questions</h2>
+      <div class="divider-gold mx-auto"></div>
+    </div>
+    <div class="space-y-4" id="faq-container">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SEO CONTENT ===================== -->
+<section class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <div data-aos="fade-up">
+      <h2 class="font-display text-4xl font-bold text-navy mb-6">Best Real Estate in Delhi NCR – Your Trusted Property Dealer</h2>
+      <div class="divider-gold mb-8"></div>
+
+      <p class="text-slate leading-relaxed mb-6">
+        Looking for the <strong>best real estate in Delhi NCR</strong>? Whether you're searching for affordable housing options, premium flats, or commercial spaces, <strong>LuxeRealty</strong> is your most trusted property dealer near you. With over a decade of experience and 1,200+ successfully closed deals, we have established ourselves as the go-to real estate consultancy for families, investors, and businesses across Delhi, Noida, Gurgaon, and Faridabad.
+      </p>
+
+      <h3 class="font-display text-2xl font-bold text-navy mb-4">Buy Flats Near Me – Verified Properties Across Delhi NCR</h3>
+      <p class="text-slate leading-relaxed mb-6">
+        If you've been searching "buy flats near me" or "property dealer near me," your search ends here. LuxeRealty maintains an actively updated database of <strong>700+ verified properties</strong> across all major locations in Delhi NCR. From 1BHK starter homes in Indirapuram to luxurious 4BHK penthouses in Gurgaon's Golf Course Road, we cater to every budget and lifestyle.
+      </p>
+      <p class="text-slate leading-relaxed mb-6">
+        All our properties are <strong>RERA registered</strong>, legally vetted by our in-house legal team, and come with clear title deeds. We follow a strict verification process that includes checking encumbrance certificates, builder approvals, occupancy certificates, and RERA compliance — so you can buy with complete confidence.
+      </p>
+
+      <h3 class="font-display text-2xl font-bold text-navy mb-4">Affordable Housing in Delhi NCR – Homes for Every Budget</h3>
+      <p class="text-slate leading-relaxed mb-6">
+        <strong>Affordable housing</strong> doesn't have to mean compromising on quality. At LuxeRealty, we specialise in matching buyers with properties that offer the best value for money. Our extensive network of builder tie-ups means you get access to pre-launch prices, early-bird discounts, and flexible payment plans that make home ownership achievable for middle-class Indian families.
+      </p>
+      <p class="text-slate leading-relaxed mb-6">
+        From the <strong>Pradhan Mantri Awas Yojana</strong> eligible properties in Greater Noida West to premium gated communities in Noida Sector 150, we guide you to the option that perfectly matches your financial plan and lifestyle aspirations.
+      </p>
+
+      <h3 class="font-display text-2xl font-bold text-navy mb-4">Why LuxeRealty is the #1 Property Dealer in Delhi NCR</h3>
+      <p class="text-slate leading-relaxed mb-6">
+        What makes LuxeRealty stand apart from other property dealers? It's our unwavering commitment to <strong>transparency, legal compliance, and client satisfaction</strong>. Our advisors are trained to prioritise your interests — not the builder's commission. We provide honest market analysis, help you avoid overpriced properties, and ensure every transaction is documented correctly.
+      </p>
+      <p class="text-slate leading-relaxed mb-6">
+        Our <strong>home loan assistance desk</strong> is tied up with 15+ leading banks and NBFCs, enabling fast loan approvals even for self-employed buyers. Our legal team handles everything from sale agreement drafting to property registration, making your entire buying journey smooth and stress-free.
+      </p>
+      <p class="text-slate leading-relaxed">
+        Whether you're a first-time homebuyer looking for your dream 2BHK, a seasoned investor seeking high-yield commercial properties, or an NRI looking to invest in Indian real estate — LuxeRealty is your one-stop property partner in Delhi NCR. <strong>Call us today for a free consultation or book a site visit online.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA BANNER ===================== -->
+<section class="py-20 relative overflow-hidden" style="background:linear-gradient(135deg,#1A2B4A 0%,#2D4470 50%,#1A2B4A 100%)">
+  <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 1px 1px, #C9A84C 1px, transparent 0);background-size:50px 50px"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+    <div data-aos="zoom-in">
+      <h2 class="font-display text-4xl sm:text-6xl font-bold text-white mb-4">
+        Find Your <span class="text-gold-grad">Dream Home</span> Today
+      </h2>
+      <p class="text-blue-200 text-lg mb-10 max-w-xl mx-auto">
+        Join 500+ happy families who trusted LuxeRealty. Book a free site visit — no obligation, completely free.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#book-visit" class="btn-gold px-8 py-4 rounded-xl font-semibold text-base inline-flex items-center gap-2 justify-center">
+          📅 Book a Free Site Visit Now
+        </a>
+        <a href="https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20find%20my%20dream%20home.%20Please%20help!" 
+           target="_blank"
+           class="btn-outline-gold px-8 py-4 rounded-xl font-semibold text-base inline-flex items-center gap-2 justify-center">
+          💬 WhatsApp Us Now
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOME LOAN ASSISTANCE ===================== -->
+<section class="py-20 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div data-aos="fade-right">
+        <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Home Loan Help</span>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-navy mt-2 mb-4">Easy Home Loan Assistance</h2>
+        <div class="divider-gold mb-6"></div>
+        <p class="text-slate leading-relaxed mb-6">
+          Getting a home loan shouldn't be complicated. We've partnered with 15+ leading banks and NBFCs to make your loan approval fast, transparent, and at the best possible interest rates.
+        </p>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+            <div class="font-display text-2xl font-bold text-navy">8.5%</div>
+            <div class="text-slate text-xs mt-1">Starting Interest Rate</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+            <div class="font-display text-2xl font-bold text-navy">30yr</div>
+            <div class="text-slate text-xs mt-1">Maximum Tenure</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+            <div class="font-display text-2xl font-bold text-navy">90%</div>
+            <div class="text-slate text-xs mt-1">Max Loan Value</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+            <div class="font-display text-2xl font-bold text-navy">48hr</div>
+            <div class="text-slate text-xs mt-1">Approval Time</div>
+          </div>
+        </div>
+
+        <!-- Bank Logos (text representations) -->
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="px-3 py-1.5 bg-white rounded-lg text-xs font-bold text-navy shadow-sm">SBI</span>
+          <span class="px-3 py-1.5 bg-white rounded-lg text-xs font-bold text-navy shadow-sm">HDFC</span>
+          <span class="px-3 py-1.5 bg-white rounded-lg text-xs font-bold text-navy shadow-sm">ICICI</span>
+          <span class="px-3 py-1.5 bg-white rounded-lg text-xs font-bold text-navy shadow-sm">Axis Bank</span>
+          <span class="px-3 py-1.5 bg-white rounded-lg text-xs font-bold text-navy shadow-sm">PNB</span>
+          <span class="px-3 py-1.5 bg-white rounded-lg text-xs font-bold text-navy shadow-sm">LIC HFL</span>
+          <span class="px-3 py-1.5 bg-white rounded-lg text-xs font-bold text-navy shadow-sm">Bajaj</span>
+          <span class="px-3 py-1.5 bg-white rounded-lg text-xs font-bold text-slate text-opacity-50 shadow-sm">+8 more</span>
+        </div>
+        <a href="#contact" class="btn-gold px-6 py-3 rounded-xl text-sm font-semibold inline-flex">Check My Loan Eligibility</a>
+      </div>
+
+      <!-- EMI Calculator -->
+      <div class="bg-white rounded-3xl p-8 shadow-xl" data-aos="fade-left">
+        <h3 class="font-display text-2xl font-bold text-navy mb-6">EMI Calculator</h3>
+        <div class="space-y-6">
+          <div>
+            <label class="text-sm font-medium text-navy mb-2 flex justify-between"><span>Loan Amount</span><span id="emi-amount-val" style="color:#C9A84C" class="font-bold">₹50 Lakhs</span></label>
+            <input type="range" id="emi-amount" min="1000000" max="50000000" step="500000" value="5000000" class="w-full" oninput="calcEMI()"/>
+          </div>
+          <div>
+            <label class="text-sm font-medium text-navy mb-2 flex justify-between"><span>Interest Rate</span><span id="emi-rate-val" style="color:#C9A84C" class="font-bold">8.5%</span></label>
+            <input type="range" id="emi-rate" min="6" max="15" step="0.1" value="8.5" class="w-full" oninput="calcEMI()"/>
+          </div>
+          <div>
+            <label class="text-sm font-medium text-navy mb-2 flex justify-between"><span>Tenure</span><span id="emi-tenure-val" style="color:#C9A84C" class="font-bold">20 Years</span></label>
+            <input type="range" id="emi-tenure" min="1" max="30" step="1" value="20" class="w-full" oninput="calcEMI()"/>
+          </div>
+          <div class="bg-navy rounded-2xl p-6 text-center">
+            <div class="text-blue-200 text-sm mb-2">Your Monthly EMI</div>
+            <div id="emi-result" class="font-display text-4xl font-bold" style="color:#C9A84C">₹43,391</div>
+            <div class="text-blue-200 text-xs mt-2">*Approximate figure · Actual may vary</div>
+          </div>
+          <a href="#contact" class="btn-gold w-full py-3 rounded-xl text-sm font-semibold text-center block">Apply for Home Loan →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RERA / LEGAL ===================== -->
+<section class="py-16 bg-navy">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="text-3xl mb-3">📋</div>
+        <h4 class="font-display text-lg font-bold text-white mb-1">RERA Registered</h4>
+        <p class="text-blue-200 text-xs">UP-RERA/PRJ/2024/0045 | Delhi-RERA/REG/2024/789</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-3xl mb-3">⚖️</div>
+        <h4 class="font-display text-lg font-bold text-white mb-1">Legal Compliance</h4>
+        <p class="text-blue-200 text-xs">All transactions governed by RERA Act 2016 & Transfer of Property Act</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-3xl mb-3">🛡️</div>
+        <h4 class="font-display text-lg font-bold text-white mb-1">Buyer Protection</h4>
+        <p class="text-blue-200 text-xs">Full escrow support, agreement vetting & title insurance assistance</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="text-3xl mb-3">🏛️</div>
+        <h4 class="font-display text-lg font-bold text-white mb-1">Licensed Agency</h4>
+        <p class="text-blue-200 text-xs">NAR India affiliated · ISO 9001:2015 Certified · MahaRERA Compliant</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOCIAL MEDIA ===================== -->
+<section class="py-16 bg-cream">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <div data-aos="fade-up">
+      <span class="text-sm font-semibold uppercase tracking-widest" style="color:#C9A84C">Follow Us</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy mt-2 mb-4">Stay Connected</h2>
+      <div class="divider-gold mx-auto mb-8"></div>
+      <p class="text-slate mb-10">Follow us for daily property updates, virtual tours, investment tips & exclusive deals.</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="#" class="flex items-center gap-3 bg-white rounded-2xl px-6 py-4 shadow-sm hover:shadow-md transition-all group">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path fill="none" stroke="white" stroke-width="2" d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line fill="none" stroke="white" stroke-width="2" x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="text-left">
+            <div class="font-bold text-navy text-sm">Instagram</div>
+            <div class="text-slate text-xs">@LuxeRealtyIndia</div>
+          </div>
+        </a>
+        <a href="#" class="flex items-center gap-3 bg-white rounded-2xl px-6 py-4 shadow-sm hover:shadow-md transition-all group">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-red-600">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#DC2626" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </div>
+          <div class="text-left">
+            <div class="font-bold text-navy text-sm">YouTube</div>
+            <div class="text-slate text-xs">LuxeRealty Official</div>
+          </div>
+        </a>
+        <a href="#" class="flex items-center gap-3 bg-white rounded-2xl px-6 py-4 shadow-sm hover:shadow-md transition-all group">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-600">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <div class="text-left">
+            <div class="font-bold text-navy text-sm">Facebook</div>
+            <div class="text-slate text-xs">LuxeRealty India</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MAP SECTION ===================== -->
+<section class="h-80 relative" data-aos="fade-up">
+  <div class="absolute inset-0 flex items-center justify-center bg-gray-200">
+    <div class="text-center">
+      <div class="text-4xl mb-3">📍</div>
+      <h3 class="font-display text-2xl font-bold text-navy mb-2">Visit Our Office</h3>
+      <p class="text-slate text-sm">42 Business District, Sector 18, Noida – 201301</p>
+      <a href="https://maps.google.com/?q=Sector+18+Noida" target="_blank" class="btn-gold mt-4 px-6 py-2.5 rounded-xl text-sm inline-block">Open in Google Maps →</a>
+    </div>
+  </div>
+  <!-- Real Google Maps embed (replace YOUR_API_KEY or use the embed URL) -->
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.7845364194764!2d77.3351716!3d28.5762321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5b28899a605%3A0xce3089e4bbdb6d61!2scozy%20homes%20&#39;A%20Real%20Estate&#39;%20Firm!5e0!3m2!1sen!2sin!4v1776450206842!5m2!1sen!2sin"
+    class="absolute inset-0 w-full h-full border-0"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="LuxeRealty Office Location - Noida Sector 18">
+  </iframe>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-navy pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <!-- Company -->
+      <div>
+        <div class="flex items-center gap-2 mb-5">
+          <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#C9A84C,#A07830)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <span class="font-display text-xl font-bold text-white"><img src="./logo/cozyhomes.png" alt="Cozy Homes"></span>
+        </div>
+        <p class="text-blue-200 text-sm leading-relaxed mb-5">Delhi NCR's most trusted RERA-verified property dealer since 2014. Buy, sell, and invest with confidence.</p>
+        <div class="space-y-2 text-sm text-blue-200">
+          <div class="flex items-center gap-2">📞 <a href="tel:+919876543210" class="hover:text-yellow-400 transition-colors">+91-98765-43210</a></div>
+          <div class="flex items-center gap-2">📧 <a href="mailto:hello@avenueproperties.in" class="hover:text-yellow-400 transition-colors">hello@avenueproperties.in</a></div>
+          <div class="flex items-start gap-2">📍 <span>Shop # 135, GF, Jaipuria Plaza, opposite DPS school, D-Block, Sector 26, Noida, Uttar Pradesh 201301</span></div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-display text-lg font-bold text-white mb-5">Quick Links</h4>
+        <ul class="space-y-2.5 text-sm text-blue-200">
+          <li><a href="#hero" class="hover:text-yellow-400 transition-colors">Home</a></li>
+          <li><a href="#about" class="hover:text-yellow-400 transition-colors">About Us</a></li>
+          <li><a href="#properties" class="hover:text-yellow-400 transition-colors">Properties</a></li>
+          <li><a href="#services" class="hover:text-yellow-400 transition-colors">Our Services</a></li>
+          <li><a href="#testimonials" class="hover:text-yellow-400 transition-colors">Reviews</a></li>
+          <li><a href="#blog" class="hover:text-yellow-400 transition-colors">Blog</a></li>
+          <li><a href="#contact" class="hover:text-yellow-400 transition-colors">Contact Us</a></li>
+          <li><a href="#book-visit" class="hover:text-yellow-400 transition-colors">Book Site Visit</a></li>
+        </ul>
+      </div>
+
+      <!-- Property Links -->
+      <div>
+        <h4 class="font-display text-lg font-bold text-white mb-5">Property Types</h4>
+        <ul class="space-y-2.5 text-sm text-blue-200">
+          <li><a href="#" class="hover:text-yellow-400 transition-colors">1 BHK Flats</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors">2 BHK Apartments</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors">3 BHK Apartments</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors">Luxury Villas</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors">Residential Plots</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors">Commercial Shops</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors">Office Spaces</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors">Builder Floors</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h4 class="font-display text-lg font-bold text-white mb-5">Stay Updated</h4>
+        <p class="text-blue-200 text-sm mb-4">Subscribe for latest property deals, investment tips & market updates.</p>
+        <div class="flex gap-2">
+          <input type="email" placeholder="Your email" class="flex-1 bg-white/10 border border-white/20 rounded-xl px-3 py-2.5 text-sm text-white placeholder-blue-300 outline-none focus:border-yellow-400"/>
+          <button class="btn-gold px-4 py-2.5 rounded-xl text-sm">→</button>
+        </div>
+        <div class="flex gap-4 mt-6">
+          <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.87z"/><polygon stroke="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+          <a href="https://wa.me/919876543210" target="_blank" class="w-9 h-9 rounded-full bg-green-600 flex items-center justify-center hover:bg-green-500 transition-all" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-blue-200 text-sm">© 2025 LuxeRealty. All rights reserved. RERA Reg: UP-RERA/PRJ/2024/0045</p>
+      <div class="flex gap-6 text-xs text-blue-300">
+        <a href="#" class="hover:text-yellow-400 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-yellow-400 transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-yellow-400 transition-colors">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Lead Capture Popup -->
+<div id="lead-popup" class="fixed bottom-0 left-0 right-0 sm:left-auto sm:bottom-6 sm:left-6 sm:right-auto z-50 hidden bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl p-6 max-w-sm w-full border-t-4" style="border-color:#C9A84C">
+  <button onclick="closeLeadPopup()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 font-bold">✕</button>
+  <div class="text-2xl mb-2">🏠</div>
+  <h3 class="font-display text-xl font-bold text-navy mb-1">Get Exclusive Deals!</h3>
+  <p class="text-slate text-sm mb-4">Leave your number & get pre-launch property prices not listed online.</p>
+  <div class="flex gap-2">
+    <input type="tel" id="popup-phone" placeholder="Your Phone Number" class="flex-1 border border-gray-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-yellow-400"/>
+    <button onclick="submitLeadPopup()" class="btn-gold px-4 py-2.5 rounded-xl text-sm">Get Deals</button>
+  </div>
+</div>
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+// =========== INIT ===========
+AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+
+// =========== NAVBAR ===========
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+
+// =========== HAMBURGER ===========
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.toggle('open');
+});
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+// =========== FILTER BUTTON STYLES ===========
+const filterStyle = () => {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    if (btn.classList.contains('active')) {
+      btn.style.background = 'linear-gradient(135deg,#C9A84C,#A07830)';
+      btn.style.color = '#fff';
+      btn.style.borderColor = 'transparent';
+    } else {
+      btn.style.background = '#fff';
+      btn.style.color = '#1A2B4A';
+      btn.style.border = '1.5px solid #e5e7eb';
+    }
+  });
+};
+
+// =========== PROPERTY DATA ===========
+const properties = [
+  { id:1, type:'apartment', title:'Luxury 3BHK Apartment', location:'Noida Sector 150', price:'₹95 Lakhs', size:'1450 sq.ft', beds:'3 BHK', baths:'3 Bath', badge:'Featured', img:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=75' },
+  { id:2, type:'villa', title:'Premium 4BHK Villa', location:'Gurgaon Sector 65', price:'₹2.8 Crore', size:'3200 sq.ft', beds:'4 BHK', baths:'4 Bath', badge:'New Launch', img:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=75' },
+  { id:3, type:'apartment', title:'Affordable 2BHK Flat', location:'Indirapuram', price:'₹48 Lakhs', size:'950 sq.ft', beds:'2 BHK', baths:'2 Bath', badge:'Best Value', img:'https://images.unsplash.com/photo-1560185008-b033106af5c3?w=500&q=75' },
+  { id:4, type:'commercial', title:'Prime Office Space', location:'Connaught Place, Delhi', price:'₹1.5 Crore', size:'1200 sq.ft', beds:'Commercial', baths:'2 WC', badge:'Investment', img:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=75' },
+  { id:5, type:'plot', title:'Residential Plot 200 Sq Yd', location:'Greater Noida West', price:'₹28 Lakhs', size:'200 sq.yd', beds:'Freehold', baths:'Clear Title', badge:'RERA', img:'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=500&q=75' },
+  { id:6, type:'apartment', title:'Ready-to-Move 2BHK', location:'Faridabad Sector 21', price:'₹55 Lakhs', size:'1100 sq.ft', beds:'2 BHK', baths:'2 Bath', badge:'Ready', img:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&q=75' },
+];
+
+let currentFilter = 'all';
+
+function renderProperties(filter) {
+  const grid = document.getElementById('property-grid');
+  const filtered = filter === 'all' ? properties : properties.filter(p => p.type === filter);
+  grid.innerHTML = filtered.map(p => `
+    <div class="prop-card bg-white rounded-2xl overflow-hidden shadow-sm" data-type="${p.type}" data-aos="fade-up">
+      <div class="relative h-52 overflow-hidden">
+        <img src="${p.img}" alt="${p.title} - ${p.location}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
+        <div class="absolute top-4 left-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">${p.badge}</div>
+        <div class="overlay absolute inset-0 bg-navy/70 flex items-center justify-center opacity-0">
+          <button onclick="openPropModal(${p.id})" class="bg-white text-navy text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-yellow-400 transition-all">Quick View</button>
+        </div>
+      </div>
+      <div class="p-5">
+        <h3 class="font-display text-xl font-bold text-navy mb-1">${p.title}</h3>
+        <p class="text-slate text-sm mb-3">📍 ${p.location}</p>
+        <div class="flex gap-3 text-xs text-slate mb-4">
+          <span>📐 ${p.size}</span>
+          <span>🛏 ${p.beds}</span>
+          <span>🚿 ${p.baths}</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="font-display text-xl font-bold" style="color:#C9A84C">${p.price}</div>
+          <button onclick="openPropModal(${p.id})" class="btn-gold px-4 py-2 rounded-xl text-xs">View Details</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  AOS.refresh();
+}
+
+function filterProps(filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.dataset.filter === filter) btn.classList.add('active');
+  });
+  filterStyle();
+  renderProperties(filter);
+}
+
+renderProperties('all');
+filterStyle();
+
+// =========== PROPERTY MODAL ===========
+function openPropModal(id) {
+  const p = properties.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('modal-img').style.backgroundImage = `url(${p.img})`;
+  document.getElementById('modal-title').textContent = p.title;
+  document.getElementById('modal-loc').textContent = '📍 ' + p.location;
+  document.getElementById('modal-size').textContent = '📐 ' + p.size;
+  document.getElementById('modal-beds').textContent = '🛏 ' + p.beds;
+  document.getElementById('modal-baths').textContent = '🚿 ' + p.baths;
+  document.getElementById('modal-price').textContent = p.price;
+  document.getElementById('modal-badge').textContent = p.badge;
+  const msg = encodeURIComponent(`Hello LuxeRealty,\n\nI am interested in:\nProperty: ${p.title}\nLocation: ${p.location}\nPrice: ${p.price}\n\nPlease share more details.`);
+  document.getElementById('modal-wa').href = `https://wa.me/919876543210?text=${msg}`;
+  document.getElementById('prop-modal').classList.remove('hidden');
+  document.getElementById('prop-modal').classList.add('flex');
+}
+function closePropModal() {
+  document.getElementById('prop-modal').classList.add('hidden');
+  document.getElementById('prop-modal').classList.remove('flex');
+}
+document.getElementById('prop-modal').addEventListener('click', function(e) {
+  if (e.target === this) closePropModal();
+});
+
+// =========== SEARCH ===========
+function searchProperties() {
+  const loc = document.getElementById('search-location').value;
+  const type = document.getElementById('search-type').value;
+  const budget = document.getElementById('search-budget').value;
+  
+  const msg = encodeURIComponent(`Hello LuxeRealty,\n\nI am looking for a property:\n📍 Location: ${loc || 'Any'}\n🏠 Type: ${type || 'Any'}\n💰 Budget: ${budget || 'Any'}\n\nPlease share matching properties.`);
+  window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+}
+
+// =========== ENQUIRY FORM ===========
+document.getElementById('enquiry-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const type = document.getElementById('f-type').value;
+  const budget = document.getElementById('f-budget').value;
+  const location = document.getElementById('f-location').value.trim();
+  const msg = document.getElementById('f-msg').value.trim();
+
+  if (!name || !phone || !type || !budget) {
+    alert('Please fill in all required fields (Name, Phone, Property Type & Budget).');
+    return;
+  }
+  if (phone.length < 10) {
+    alert('Please enter a valid phone number.');
+    return;
+  }
+
+  const waMsg = encodeURIComponent(
+    `Hello LuxeRealty,\n\nI am interested in a property:\n\n` +
+    `👤 Name: ${name}\n📞 Phone: ${phone}\n📧 Email: ${email || 'Not provided'}\n` +
+    `🏠 Property Type: ${type}\n💰 Budget: ${budget}\n📍 Preferred Location: ${location || 'Flexible'}\n` +
+    `💬 Message: ${msg || 'Please contact me with suitable options.'}`
+  );
+  window.open(`https://wa.me/919876543210?text=${waMsg}`, '_blank');
+});
+
+// =========== BOOK VISIT ===========
+function submitVisit() {
+  const name = document.getElementById('v-name').value.trim();
+  const phone = document.getElementById('v-phone').value.trim();
+  const date = document.getElementById('v-date').value;
+  const time = document.getElementById('v-time').value;
+  const prop = document.getElementById('v-prop').value.trim();
+
+  if (!name || !phone || !date || !time) {
+    alert('Please fill in Name, Phone, Date & Time Slot.');
+    return;
+  }
+
+  const waMsg = encodeURIComponent(
+    `Hello LuxeRealty,\n\nI'd like to book a site visit:\n\n` +
+    `👤 Name: ${name}\n📞 Phone: ${phone}\n📅 Date: ${date}\n⏰ Time Slot: ${time}\n` +
+    `🏠 Property Interest: ${prop || 'Please suggest suitable properties'}`
+  );
+  window.open(`https://wa.me/919876543210?text=${waMsg}`, '_blank');
+}
+
+// =========== TESTIMONIALS ===========
+const testimonials = [
+  { name:'Rajesh Sharma', role:'Bought 3BHK, Noida', stars:5, text:'LuxeRealty made our home buying dream come true! Their team was incredibly patient and helped us find the perfect apartment within our budget. The legal assistance they provided saved us so much stress.', img:'https://i.pravatar.cc/80?img=11' },
+  { name:'Priya Mehta', role:'Sold Villa, Gurgaon', stars:5, text:'Sold my villa at the best market price in just 3 weeks! The team handled everything from photography to negotiations to documentation. Truly professional service.', img:'https://i.pravatar.cc/80?img=5' },
+  { name:'Amit Gupta', role:'Bought Commercial, Delhi', stars:5, text:'As a business owner, I needed a prime commercial space fast. LuxeRealty\'s team understood my requirements and showed me shortlisted options the very next day. Excellent efficiency!', img:'https://i.pravatar.cc/80?img=33' },
+  { name:'Sunita Agarwal', role:'Rental Home, Faridabad', stars:5, text:'Found a beautiful rental home within my budget in just 2 days! The team verified the landlord, helped with the agreement, and ensured everything was in order. Great experience!', img:'https://i.pravatar.cc/80?img=9' },
+  { name:'Vikram Kapoor', role:'Bought Plot, Greater Noida', stars:5, text:'I was worried about clear title when buying a plot. LuxeRealty\'s legal team thoroughly verified everything and gave me complete peace of mind. Highly recommended!', img:'https://i.pravatar.cc/80?img=15' },
+];
+
+const track = document.getElementById('testimonial-track');
+track.innerHTML = testimonials.map(t => `
+  <div class="flex-none w-full sm:w-80 bg-white/5 border border-white/10 rounded-2xl p-7">
+    <div class="flex gap-1 mb-4">
+      ${'⭐'.repeat(t.stars)}
+    </div>
+    <p class="text-blue-100 text-sm leading-relaxed mb-6 italic">"${t.text}"</p>
+    <div class="flex items-center gap-3">
+      <img src="${t.img}" alt="${t.name} testimonial" loading="lazy" class="w-12 h-12 rounded-full object-cover"/>
+      <div>
+        <div class="font-display text-lg font-bold text-white">${t.name}</div>
+        <div class="text-yellow-400 text-xs">${t.role}</div>
+      </div>
+    </div>
+  </div>
+`).join('');
+
+let testimonialIdx = 0;
+function slideTestimonial(dir) {
+  const maxIdx = testimonials.length - 1;
+  testimonialIdx = Math.max(0, Math.min(maxIdx, testimonialIdx + dir));
+  const cardWidth = window.innerWidth < 640 ? track.offsetWidth + 24 : 320 + 24;
+  track.style.transform = `translateX(-${testimonialIdx * cardWidth}px)`;
+}
+
+// =========== FAQ ===========
+const faqs = [
+  { q:'Is LuxeRealty RERA registered?', a:'Yes, LuxeRealty is fully RERA registered and compliant with all real estate regulations in Uttar Pradesh and Delhi NCR. Our registration numbers are UP-RERA/PRJ/2024/0045 (UP) and Delhi-RERA/REG/2024/789 (Delhi).' },
+  { q:'Do you provide home loan assistance?', a:'Yes! We have tie-ups with 15+ leading banks and NBFCs including SBI, HDFC, ICICI, Axis Bank, and more. Our loan desk helps you get the best interest rates with fast approval — sometimes within 48 hours.' },
+  { q:'What types of properties do you deal in?', a:'We deal in all types: 1BHK, 2BHK, 3BHK, 4BHK apartments; independent villas; builder floors; residential plots; commercial shops; office spaces; warehouses — across Delhi NCR.' },
+  { q:'Is the site visit free?', a:'Yes! All site visits are completely free with absolutely no obligation to purchase. Our property advisor will personally escort you to all shortlisted properties.' },
+  { q:'How do you verify properties?', a:'We have a 7-step verification process: RERA check → Title deed verification → Encumbrance certificate → Builder approval → OC/CC check → Society NOC → Legal vetting. Every property is cleared before listing.' },
+  { q:'Do you have properties under ₹50 Lakhs?', a:'Yes, we have numerous affordable housing options under ₹50 Lakhs across Greater Noida West, Faridabad, and Indirapuram — many PMAY-eligible with additional government subsidy benefits.' },
+];
+
+document.getElementById('faq-container').innerHTML = faqs.map((f, i) => `
+  <div class="bg-white rounded-2xl overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="${i*60}">
+    <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between font-semibold text-navy hover:text-yellow-700 transition-colors" onclick="toggleFaq(${i})">
+      <span class="font-body text-sm sm:text-base">${f.q}</span>
+      <span class="faq-icon text-yellow-500 text-xl flex-shrink-0 ml-4 font-bold">+</span>
+    </button>
+    <div id="faq-${i}" class="faq-answer">
+      <div class="px-6 pb-5 text-slate text-sm leading-relaxed">${f.a}</div>
+    </div>
+  </div>
+`).join('');
+
+function toggleFaq(i) {
+  const answer = document.getElementById(`faq-${i}`);
+  const btn = answer.previousElementSibling;
+  answer.classList.toggle('open');
+  btn.classList.toggle('faq-open');
+  const icon = btn.querySelector('.faq-icon');
+  icon.textContent = answer.classList.contains('open') ? '×' : '+';
+}
+
+// =========== COUNTER ANIMATION ===========
+function animateCounter(el, target, duration) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = target; clearInterval(timer); }
+    else el.textContent = Math.floor(start);
+  }, 16);
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.stat-num').forEach(el => {
+        const target = parseInt(el.dataset.count);
+        animateCounter(el, target, 1500);
+      });
+      observer.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+
+const trustSection = document.querySelector('#hero + section');
+if (trustSection) observer.observe(trustSection);
+
+// =========== EMI CALCULATOR ===========
+function calcEMI() {
+  const P = parseInt(document.getElementById('emi-amount').value);
+  const r = parseFloat(document.getElementById('emi-rate').value) / 100 / 12;
+  const n = parseInt(document.getElementById('emi-tenure').value) * 12;
+  const emi = P * r * Math.pow(1+r,n) / (Math.pow(1+r,n)-1);
+  document.getElementById('emi-result').textContent = '₹' + Math.round(emi).toLocaleString('en-IN');
+  document.getElementById('emi-amount-val').textContent = '₹' + (P/100000).toFixed(0) + ' Lakhs';
+  document.getElementById('emi-rate-val').textContent = parseFloat(document.getElementById('emi-rate').value).toFixed(1) + '%';
+  document.getElementById('emi-tenure-val').textContent = document.getElementById('emi-tenure').value + ' Years';
+}
+calcEMI();
+
+// =========== LEAD POPUP ===========
+setTimeout(() => {
+  const popup = document.getElementById('lead-popup');
+  if (!sessionStorage.getItem('popupShown')) {
+    popup.classList.remove('hidden');
+    sessionStorage.setItem('popupShown', '1');
+  }
+}, 15000);
+
+function closeLeadPopup() {
+  document.getElementById('lead-popup').classList.add('hidden');
+}
+
+function submitLeadPopup() {
+  const phone = document.getElementById('popup-phone').value.trim();
+  if (phone.length < 10) { alert('Please enter a valid phone number.'); return; }
+  const msg = encodeURIComponent(`Hi, I want exclusive property deals! My phone: ${phone}`);
+  window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+  closeLeadPopup();
+}
+
+// Set min date for visit booking
+const visitDate = document.getElementById('v-date');
+if (visitDate) {
+  const today = new Date().toISOString().split('T')[0];
+  visitDate.setAttribute('min', today);
+}
+
+// Lazy loading images fallback
+document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+  img.addEventListener('error', function() {
+    this.src = 'https://via.placeholder.com/500x300/F0EDE6/1A2B4A?text=LuxeRealty';
+  });
+});
+</script>
+</body>
+</html>
