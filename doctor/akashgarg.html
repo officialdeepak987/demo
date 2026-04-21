@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Akash Garg Clinic — Physician Consultation | Noida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --navy: #0c2d3f;
+    --navy-mid: #163d52;
+    --blue: #0e7490;
+    --blue-light: #06b6d4;
+    --gold: #0ea5a0;
+    --gold-light: #5eead4;
+    --cream: #f0fafa;
+    --warm-white: #f7fdfd;
+    --gray: #6b7280;
+    --light-gray: #e0f4f4;
+    --text: #0f2330;
+    --radius: 16px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-ring {
+    0%   { transform: scale(1);   opacity: .6; }
+    100% { transform: scale(1.6); opacity: 0;  }
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-8px); }
+  }
+
+  .fade-up  { animation: fadeUp .7s ease both; }
+  .delay-1  { animation-delay: .1s; }
+  .delay-2  { animation-delay: .2s; }
+  .delay-3  { animation-delay: .3s; }
+  .delay-4  { animation-delay: .4s; }
+
+  /* ---- NAVBAR ---- */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(12,45,63,.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(94,234,212,.15);
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto;
+    padding: 0 32px; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 600;
+    color: #fff; text-decoration: none; letter-spacing: .02em;
+  }
+  .nav-logo span { color: var(--gold-light); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,.7); text-decoration: none;
+    font-size: .875rem; font-weight: 500;
+    letter-spacing: .04em; text-transform: uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--blue-light); color: var(--navy);
+    padding: 10px 22px; border-radius: 50px;
+    font-weight: 700; font-size: .875rem;
+    text-decoration: none; transition: all .2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+
+  /* ---- HERO ---- */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding-top: 72px;
+  }
+  .hero-bg-circle { position: absolute; border-radius: 50%; pointer-events: none; }
+  .hero-bg-circle.c1 {
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(14,116,144,.3) 0%, transparent 70%);
+    top: -200px; right: -200px;
+  }
+  .hero-bg-circle.c2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(6,182,212,.1) 0%, transparent 70%);
+    bottom: 0; left: -100px;
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-inner {
+    max-width: 1280px; margin: 0 auto;
+    padding: 80px 32px;
+    display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: center;
+    position: relative; z-index: 1; width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(6,182,212,.12); border: 1px solid rgba(6,182,212,.3);
+    color: var(--gold-light); padding: 7px 18px; border-radius: 50px;
+    font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    font-weight: 300; line-height: 1.05; color: #fff; margin-bottom: 24px;
+  }
+  .hero-title em { font-style: italic; color: var(--gold-light); display: block; }
+  .hero-subtitle {
+    font-size: 1.1rem; color: rgba(255,255,255,.65);
+    line-height: 1.7; max-width: 540px; margin-bottom: 40px;
+  }
+  .hero-subtitle strong { color: rgba(255,255,255,.9); font-weight: 600; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary {
+    background: var(--blue-light); color: var(--navy);
+    padding: 14px 32px; border-radius: 50px;
+    font-weight: 700; font-size: .95rem; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all .25s; box-shadow: 0 8px 30px rgba(6,182,212,.3);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-secondary {
+    border: 1.5px solid rgba(255,255,255,.25); color: #fff;
+    padding: 14px 32px; border-radius: 50px;
+    font-weight: 500; font-size: .95rem; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all .25s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.07); }
+  .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+  .hero-stat .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 700; color: var(--gold-light); line-height: 1;
+  }
+  .hero-stat .label { font-size: .75rem; color: rgba(255,255,255,.5); margin-top: 4px; text-transform: uppercase; letter-spacing: .06em; }
+  .hero-divider { width: 1px; background: rgba(255,255,255,.1); height: 40px; align-self: center; }
+
+  /* Booking card */
+  .hero-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 24px; padding: 36px;
+    backdrop-filter: blur(20px);
+    animation: fadeUp .7s .4s ease both;
+  }
+  .hero-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; color: #fff; margin-bottom: 6px;
+  }
+  .hero-card p { font-size: .85rem; color: rgba(255,255,255,.5); margin-bottom: 24px; }
+  .form-field { margin-bottom: 14px; }
+  .form-field input, .form-field select {
+    width: 100%; padding: 13px 16px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px; color: #fff;
+    font-size: .9rem; font-family: 'DM Sans', sans-serif;
+    outline: none; transition: border-color .2s;
+  }
+  .form-field input::placeholder { color: rgba(255,255,255,.35); }
+  .form-field select option { background: var(--navy); color: #fff; }
+  .form-field input:focus, .form-field select:focus { border-color: rgba(6,182,212,.6); }
+  .form-btn {
+    width: 100%; padding: 14px;
+    background: var(--blue-light); color: var(--navy);
+    border: none; border-radius: 10px;
+    font-weight: 700; font-size: 1rem; font-family: 'DM Sans', sans-serif;
+    cursor: pointer; transition: all .2s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 4px;
+  }
+  .form-btn:hover { background: var(--gold-light); }
+  .fee-tag {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 16px; padding: 10px 14px;
+    background: rgba(6,182,212,.08); border-radius: 8px;
+    font-size: .8rem; color: rgba(255,255,255,.6);
+  }
+  .fee-tag strong { color: var(--gold-light); font-size: .95rem; }
+  .whatsapp-link {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 14px; padding: 11px;
+    background: rgba(37,211,102,.1); border: 1px solid rgba(37,211,102,.25);
+    border-radius: 10px; color: #25d366;
+    font-size: .875rem; font-weight: 600; text-decoration: none; transition: all .2s;
+  }
+  .whatsapp-link:hover { background: rgba(37,211,102,.18); }
+
+  /* ---- SECTION COMMONS ---- */
+  section { padding: 100px 32px; }
+  .section-inner { max-width: 1280px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block; font-size: .75rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400; color: var(--navy); line-height: 1.15; margin-bottom: 18px;
+  }
+  .section-sub { font-size: 1.05rem; color: var(--gray); line-height: 1.7; max-width: 600px; }
+  .divider-teal {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--gold-light));
+    border-radius: 2px; margin: 20px 0 40px;
+  }
+
+  /* ---- STATS STRIP ---- */
+  #stats { background: var(--navy); padding: 60px 32px; }
+  .stats-grid {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 2px;
+  }
+  .stat-card {
+    text-align: center; padding: 48px 24px;
+    border-right: 1px solid rgba(255,255,255,.08); transition: background .3s;
+  }
+  .stat-card:last-child { border-right: none; }
+  .stat-card:hover { background: rgba(255,255,255,.04); }
+  .stat-card .big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 700; color: var(--gold-light); line-height: 1; display: block;
+  }
+  .stat-card .caption {
+    font-size: .8rem; color: rgba(255,255,255,.5);
+    text-transform: uppercase; letter-spacing: .08em; margin-top: 8px; display: block;
+  }
+  .stat-card i { color: var(--blue-light); font-size: 1.4rem; margin-bottom: 16px; display: block; }
+
+  /* ---- ABOUT ---- */
+  #about { background: var(--cream); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  .cred-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff; border: 1px solid rgba(14,116,144,.2);
+    padding: 10px 20px; border-radius: 50px;
+    font-size: .8rem; font-weight: 600; color: var(--blue);
+    margin-bottom: 32px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+  .cred-badge .dot {
+    width: 8px; height: 8px; border-radius: 50%; background: #22c55e; position: relative;
+  }
+  .cred-badge .dot::before {
+    content: ''; position: absolute; inset: -3px; border-radius: 50%;
+    background: rgba(34,197,94,.3); animation: pulse-ring .8s ease-out infinite;
+  }
+  .about-text { font-size: 1.05rem; color: #4a5568; line-height: 1.85; margin-bottom: 20px; }
+  .memberships { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .member-chip {
+    background: #fff; border: 1px solid #d4eef0;
+    padding: 8px 16px; border-radius: 8px;
+    font-size: .8rem; font-weight: 500; color: var(--navy);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .member-chip i { color: var(--blue); }
+  .edu-card {
+    background: #fff; border-radius: 16px; padding: 24px 28px;
+    border-left: 4px solid var(--blue); margin-bottom: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.05); transition: transform .2s, box-shadow .2s;
+  }
+  .edu-card:hover { transform: translateX(4px); box-shadow: 0 4px 28px rgba(0,0,0,.09); }
+  .edu-card .year { font-size: .75rem; color: var(--blue); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .edu-card .degree { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin: 4px 0; }
+  .edu-card .inst { font-size: .85rem; color: var(--gray); }
+
+  /* ---- SERVICES ---- */
+  #services { background: var(--warm-white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px;
+  }
+  .service-card {
+    background: #fff; border-radius: 20px; padding: 36px 28px;
+    border: 1px solid #d4eef0; transition: all .3s; position: relative; overflow: hidden;
+  }
+  .service-card:hover { border-color: rgba(14,116,144,.35); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(14,116,144,.1); }
+  .service-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: linear-gradient(135deg, #e0f4f8, #ccf0f5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; color: var(--blue); margin-bottom: 20px;
+  }
+  .service-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .service-card p { font-size: .875rem; color: var(--gray); line-height: 1.65; }
+  .service-card .arrow {
+    margin-top: 20px; color: var(--blue); font-size: .85rem;
+    font-weight: 600; opacity: 0; transition: opacity .2s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .service-card:hover .arrow { opacity: 1; }
+
+  /* ---- WHY US ---- */
+  #why { background: var(--cream); }
+  .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 52px; }
+  .why-card {
+    background: #fff; border-radius: 20px; padding: 36px 28px;
+    box-shadow: 0 2px 24px rgba(0,0,0,.05); border-top: 3px solid var(--blue);
+  }
+  .why-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; font-weight: 700; color: rgba(14,116,144,.1); line-height: 1; margin-bottom: 16px;
+  }
+  .why-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .why-card p { font-size: .875rem; color: var(--gray); line-height: 1.7; }
+
+  /* ---- REVIEWS ---- */
+  #reviews { background: var(--warm-white); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px; }
+  .review-card {
+    background: #fff; border-radius: 20px; padding: 28px 24px;
+    border: 1px solid #d4eef0; transition: box-shadow .2s;
+  }
+  .review-card:hover { box-shadow: 0 10px 40px rgba(14,116,144,.1); }
+  .stars { color: #f59e0b; font-size: .95rem; margin-bottom: 14px; }
+  .review-text {
+    font-size: .9rem; color: #4a5568; line-height: 1.7;
+    font-style: italic; margin-bottom: 20px;
+  }
+  .reviewer { display: flex; align-items: center; gap: 12px; }
+  .rev-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: .9rem;
+  }
+  .rev-name { font-size: .875rem; font-weight: 600; color: var(--navy); }
+  .rev-date { font-size: .75rem; color: var(--gray); }
+  .rating-summary {
+    background: var(--navy); border-radius: 20px; padding: 40px;
+    display: flex; align-items: center; gap: 40px; margin-bottom: 40px;
+  }
+  .big-rating {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem; font-weight: 700; color: var(--gold-light); line-height: 1;
+  }
+  .rating-right .stars { font-size: 1.2rem; margin-bottom: 6px; }
+  .rating-right p { color: rgba(255,255,255,.6); font-size: .9rem; }
+
+  /* ---- LOCATION ---- */
+  #locations { background: var(--cream); }
+  .loc-card {
+    background: var(--navy); color: #fff;
+    border-radius: 20px; padding: 40px;
+    position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+    margin-top: 52px;
+  }
+  .loc-card::after {
+    content: ''; position: absolute; bottom: -60px; right: -60px;
+    width: 180px; height: 180px;
+    background: rgba(6,182,212,.06); border-radius: 50%;
+  }
+  .loc-left h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+  .loc-left address {
+    font-style: normal; font-size: .9rem; color: rgba(255,255,255,.55); line-height: 1.7; margin-bottom: 16px;
+  }
+  .loc-hours-block { margin-bottom: 24px; }
+  .loc-hours-block h4 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gold-light); margin-bottom: 10px; }
+  .hours-row { display: flex; justify-content: space-between; font-size: .875rem; color: rgba(255,255,255,.65); padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row span { color: #fff; font-weight: 500; }
+  .dir-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(6,182,212,.4); color: var(--gold-light);
+    padding: 10px 22px; border-radius: 50px;
+    font-size: .85rem; font-weight: 600; text-decoration: none; transition: all .2s;
+  }
+  .dir-btn:hover { background: rgba(6,182,212,.12); }
+  .loc-right {}
+  .contact-block { margin-bottom: 28px; }
+  .contact-block h4 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gold-light); margin-bottom: 14px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px; background: rgba(255,255,255,.05);
+    border-radius: 12px; margin-bottom: 10px;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .contact-item i { color: var(--blue-light); font-size: 1.1rem; width: 20px; text-align: center; }
+  .contact-item a { color: #fff; text-decoration: none; font-weight: 500; font-size: .9rem; }
+  .contact-item a:hover { color: var(--gold-light); }
+  .open-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.25);
+    color: #4ade80; padding: 8px 18px; border-radius: 50px;
+    font-size: .8rem; font-weight: 600;
+  }
+  .open-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; }
+
+  /* ---- FAQ ---- */
+  #faq { background: var(--warm-white); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 52px; }
+  .faq-item {
+    background: #fff; border-radius: 14px; border: 1px solid #d4eef0; overflow: hidden;
+  }
+  .faq-q {
+    padding: 20px 24px; display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; font-weight: 600; font-size: .95rem; color: var(--navy);
+    gap: 16px; user-select: none;
+  }
+  .faq-q i { color: var(--blue); flex-shrink: 0; transition: transform .3s; }
+  .faq-item.open .faq-q i { transform: rotate(45deg); }
+  .faq-a {
+    padding: 0 24px; max-height: 0; overflow: hidden;
+    font-size: .875rem; color: var(--gray); line-height: 1.7;
+    transition: max-height .35s ease, padding .35s ease;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
+
+  /* ---- BLOG ---- */
+  #blog { background: var(--cream); }
+  .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px; }
+  .blog-card {
+    background: #fff; border-radius: 20px; overflow: hidden;
+    border: 1px solid #d4eef0; transition: all .3s;
+  }
+  .blog-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(14,116,144,.1); }
+  .blog-img {
+    height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3rem;
+  }
+  .blog-img.c1 { background: linear-gradient(135deg, #cffafe, #a5f3fc); }
+  .blog-img.c2 { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+  .blog-img.c3 { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+  .blog-content { padding: 24px; }
+  .blog-tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; color: var(--blue); margin-bottom: 10px; }
+  .blog-title { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.45; margin-bottom: 10px; }
+  .blog-desc { font-size: .82rem; color: var(--gray); line-height: 1.65; }
+
+  /* ---- FOOTER ---- */
+  footer { background: var(--navy); color: rgba(255,255,255,.6); padding: 64px 32px 40px; }
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; color: #fff; margin-bottom: 16px; display: block;
+  }
+  .footer-brand .logo span { color: var(--gold-light); }
+  .footer-brand p { font-size: .85rem; line-height: 1.75; max-width: 300px; }
+  .footer-col h4 { color: #fff; font-size: .9rem; font-weight: 600; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .85rem; transition: color .2s; }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.08); padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: .8rem; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-bottom a { color: rgba(255,255,255,.4); text-decoration: none; }
+
+  /* ---- FLOATING BUTTONS ---- */
+  .floating-wa {
+    position: fixed; bottom: 28px; left: 24px; z-index: 500;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25d366; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; text-decoration: none;
+    box-shadow: 0 6px 24px rgba(37,211,102,.4);
+    animation: float 3s ease-in-out infinite; transition: transform .2s;
+  }
+  .floating-wa:hover { transform: scale(1.1); }
+  .floating-call {
+    position: fixed; bottom: 28px; right: 24px; z-index: 500;
+    background: var(--blue-light); color: var(--navy);
+    padding: 14px 24px; border-radius: 50px;
+    font-weight: 700; font-size: .9rem; text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 6px 24px rgba(6,182,212,.35); transition: all .2s;
+  }
+  .floating-call:hover { transform: translateY(-2px); }
+
+  /* ---- MOBILE MENU ---- */
+  #mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: var(--navy); padding: 100px 32px 40px;
+    flex-direction: column; gap: 32px;
+  }
+  #mobile-menu.open { display: flex; }
+  #mobile-menu a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: rgba(255,255,255,.8); text-decoration: none;
+  }
+  #mobile-menu a:hover { color: var(--gold-light); }
+  .close-menu {
+    position: absolute; top: 24px; right: 24px;
+    background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { max-width: 480px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: repeat(2,1fr); }
+    .why-grid { grid-template-columns: repeat(2,1fr); }
+    .reviews-grid { grid-template-columns: repeat(2,1fr); }
+    .loc-card { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .stats-grid { grid-template-columns: repeat(2,1fr); }
+    .faq-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    section { padding: 72px 20px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2,1fr); }
+    .rating-summary { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Dr. Akash <span>GARG CLINIC</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#locations">Clinic</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:+919711120711"><i class="fa-solid fa-phone-volume"></i> Call Now</a>
+    <div class="hamburger" id="ham" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu">
+  <button class="close-menu" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></button>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#reviews" onclick="toggleMenu()">Reviews</a>
+  <a href="#locations" onclick="toggleMenu()">Clinic</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="tel:+919711120711" style="color:var(--gold-light)"><i class="fa-solid fa-phone"></i> +91 9711120711</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge fade-up"><i class="fa-solid fa-certificate"></i> Expert Physician Consultation · Sector 22, Noida</div>
+      <h1 class="hero-title fade-up delay-1">
+        Your Health,<br>
+        <em>Our Priority.</em>
+      </h1>
+      <p class="hero-subtitle fade-up delay-2">
+        <strong>Dr. Akash Garg</strong> — Physician, MBBS.<br>
+        The best medical facility and best medical services in Noida. Trusted by hundreds of patients.
+      </p>
+      <div class="hero-ctas fade-up delay-3">
+        <a class="btn-primary" href="#booking-form"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
+        <a class="btn-secondary" href="#services"><i class="fa-solid fa-list-ul"></i> View Services</a>
+      </div>
+      <div class="hero-stats fade-up delay-4">
+        <div class="hero-stat"><div class="num">₹1000</div><div class="label">In-Clinic Fee</div></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><div class="num">₹1200</div><div class="label">Online Fee</div></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><div class="num">10 min</div><div class="label">Per Session</div></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><div class="num">9-12, 5-8</div><div class="label">OPD Hours</div></div>
+      </div>
+    </div>
+
+    <div class="hero-card" id="booking-form">
+      <h3>Book Appointment</h3>
+      <p>Online or In-Clinic Consultation</p>
+      <form onsubmit="handleBook(event)">
+        <div class="form-field">
+          <input type="text" placeholder="Patient Name" required>
+        </div>
+        <div class="form-field">
+          <input type="tel" placeholder="Mobile Number" required>
+        </div>
+        <div class="form-field">
+          <select required>
+            <option value="">Consultation Type</option>
+            <option>In-Clinic Consultation</option>
+            <option>Online Consultation</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <select required>
+            <option value="">Preferred Time</option>
+            <option>Morning: 9:00 AM – 12:00 PM</option>
+            <option>Evening: 5:00 PM – 8:00 PM</option>
+          </select>
+        </div>
+        <button class="form-btn" type="submit"><i class="fa-solid fa-check-circle"></i> Confirm Appointment</button>
+      </form>
+      <div class="fee-tag">
+        <span>In-Clinic ₹1000 | Online ₹1200</span>
+        <strong>Valid for 3 days</strong>
+      </div>
+      <a class="whatsapp-link" href="https://wa.me/919711120711" target="_blank">
+        <i class="fa-brands fa-whatsapp" style="font-size:1.3rem"></i> Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <i class="fa-solid fa-stethoscope"></i>
+      <span class="big">500+</span>
+      <span class="caption">Happy Patients</span>
+    </div>
+    <div class="stat-card">
+      <i class="fa-solid fa-clock"></i>
+      <span class="big">6 Hrs</span>
+      <span class="caption">Daily OPD Hours</span>
+    </div>
+    <div class="stat-card">
+      <i class="fa-solid fa-laptop"></i>
+      <span class="big">24/7</span>
+      <span class="caption">Online Booking</span>
+    </div>
+    <div class="stat-card">
+      <i class="fa-solid fa-location-dot"></i>
+      <span class="big">Sector 22</span>
+      <span class="caption">Noida, Easy Access</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-left">
+        <span class="section-tag">About the Doctor</span>
+        <h2 class="section-title">Dr. Akash Garg<br>MBBS, MD (Medicine)</h2>
+        <div class="divider-teal"></div>
+        <div class="cred-badge"><div class="dot"></div> Founder & Chief Physician</div>
+        <p class="about-text">Dr. Akash Garg, MBBS, MD (Medicine), is the founder of Dr. Akash Garg Clinic. He is deeply committed to providing <strong>affordable healthcare to every patient</strong> without compromising on quality.</p>
+        <p class="about-text">Located at <strong>B 5, Sector 22, Noida (Opposite Noida Stadium, Near Adobe)</strong>, our clinic offers comprehensive medicine consultation, pathology laboratory services, and indoor pharmacy. Dr. Garg is known for his patient-centered approach and professional, honest consultation.</p>
+        <p class="about-text">With a strong commitment to preventive healthcare, Dr. Garg regularly conducts health camps and believes in helping society. He is guided by core values of <strong>Passion, Trust, Reliability, and Values</strong> in every patient interaction.</p>
+        <div class="memberships">
+          <div class="member-chip"><i class="fa-solid fa-stethoscope"></i> MBBS, MD (Medicine)</div>
+          <div class="member-chip"><i class="fa-solid fa-graduation-cap"></i> Founder & Chief Physician</div>
+          <div class="member-chip"><i class="fa-solid fa-hospital"></i> B 5 Sector 22, Noida</div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="edu-card">
+          <div class="year">Education</div>
+          <div class="degree">MBBS</div>
+          <div class="inst">Bachelor of Medicine &amp; Bachelor of Surgery</div>
+        </div>
+        <div class="edu-card" style="border-left-color: var(--blue-light)">
+          <div class="year" style="color:var(--blue-light)">Qualification</div>
+          <div class="degree">General Physician</div>
+          <div class="inst">Comprehensive Medical Practice</div>
+        </div>
+        <div class="edu-card" style="border-left-color: #22c55e">
+          <div class="year" style="color:#22c55e">Experience</div>
+          <div class="degree">Extensive Clinical Practice</div>
+          <div class="inst">Patient Care &amp; Diagnosis</div>
+        </div>
+        <div class="edu-card" style="border-left-color: var(--navy); background: var(--navy);">
+          <div class="year" style="color:var(--gold-light)">Qualifications</div>
+          <div class="degree" style="color:#fff">MD (Medicine)</div>
+          <div class="inst" style="color:rgba(255,255,255,.55)">Postgraduate in Internal Medicine</div>
+        </div>
+        <div class="edu-card">
+          <div class="year">Clinic</div>
+          <div class="degree">Dr. Akash Garg Clinic</div>
+          <div class="inst">B 5, Sector 22, Noida | Mon-Sat: 8AM-8PM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLINIC GALLERY -->
+<section id="gallery" style="background: var(--warm-white); padding: 100px 32px;">
+  <div class="section-inner">
+    <span class="section-tag">Our Clinic</span>
+    <h2 class="section-title">Clinic Gallery &amp; Facilities</h2>
+    <div class="divider-teal"></div>
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px;">
+      <div style="border-radius:16px; overflow:hidden; box-shadow: 0 4px 24px rgba(0,0,0,.1); background: linear-gradient(135deg, var(--blue), var(--navy));" class="fade-up">
+        <img src="https://www.akashgarg.co.in/wp-content/uploads/elementor/thumbs/neve-doctor-01-p2bzpgrwooxkny8sqbwgq70wp4ej6zq19xtvxx1rc0.jpg" alt="Clinic Reception" style="width:100%; height:280px; object-fit:cover;" onerror="this.style.display='none';">
+        <div style="padding: 20px; color: #fff; text-align: center; min-height: 280px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+          🏥
+        </div>
+      </div>
+      <div style="border-radius:16px; overflow:hidden; box-shadow: 0 4px 24px rgba(0,0,0,.1); background: linear-gradient(135deg, var(--blue-light), var(--gold-light));" class="fade-up">
+        <img src="https://www.akashgarg.co.in/wp-content/uploads/elementor/thumbs/neve-doctor-02-p2bzqhfm38br8qrjs9qwxfrvv5duj6rkez9tnpjelc.jpg" alt="Doctor Chamber" style="width:100%; height:280px; object-fit:cover;" onerror="this.style.display='none';">
+        <div style="padding: 20px; color: var(--navy); text-align: center; min-height: 280px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+          👨‍⚕️
+        </div>
+      </div>
+      <div style="border-radius:16px; overflow:hidden; box-shadow: 0 4px 24px rgba(0,0,0,.1); background: linear-gradient(135deg, var(--gold), #5eead4);" class="fade-up">
+        <img src="https://www.akashgarg.co.in/wp-content/uploads/elementor/thumbs/neve-doctor-14-p2bzq2e71vsb061yw8lsvr8j4ocdnt287vtq177ng0.jpg" alt="Clinic Interior" style="width:100%; height:280px; object-fit:cover;" onerror="this.style.display='none';">
+        <div style="padding: 20px; color: var(--navy); text-align: center; min-height: 280px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+          🏨
+        </div>
+      </div>
+    </div>
+    <div style="background: var(--navy); border-radius: 20px; padding: 40px; margin-top: 40px; text-align: center; color: #fff;">
+      <h3 style="font-size: 1.3rem; margin-bottom: 12px; font-family: 'Cormorant Garamond', serif; font-weight: 600;">Modern &amp; Hygienic Clinic Facility</h3>
+      <p style="color: rgba(255,255,255,.7); font-size: .95rem; max-width: 700px; margin: 0 auto; line-height: 1.7;">Our clinic is equipped with modern medical facilities, maintaining the highest standards of hygiene and cleanliness. We focus on providing a comfortable and professional environment for patient consultations and treatment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section id="mission" style="background: var(--navy); color: #fff; padding: 100px 32px;">
+  <div class="section-inner">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+      <div>
+        <span class="section-tag" style="color: var(--gold-light);">Our Purpose</span>
+        <h2 class="section-title" style="color: #fff; margin-bottom: 30px;">Mission &amp; Vision</h2>
+        <div class="divider-teal" style="margin-bottom: 40px;"></div>
+        
+        <div style="margin-bottom: 40px;">
+          <h3 style="font-size: 1.2rem; color: var(--gold-light); margin-bottom: 15px; font-weight: 600;">Our Mission</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 12px; padding-left: 28px; position: relative; color: rgba(255,255,255,.8); line-height: 1.6;">
+              <i class="fa-solid fa-check" style="position: absolute; left: 0; color: var(--gold-light);"></i>
+              To provide affordable health care to every patient
+            </li>
+            <li style="margin-bottom: 12px; padding-left: 28px; position: relative; color: rgba(255,255,255,.8); line-height: 1.6;">
+              <i class="fa-solid fa-check" style="position: absolute; left: 0; color: var(--gold-light);"></i>
+              To give professional &amp; honest consultation to our patients
+            </li>
+            <li style="margin-bottom: 12px; padding-left: 28px; position: relative; color: rgba(255,255,255,.8); line-height: 1.6;">
+              <i class="fa-solid fa-check" style="position: absolute; left: 0; color: var(--gold-light);"></i>
+              To help society by regular health camps from time to time
+            </li>
+            <li style="margin-bottom: 12px; padding-left: 28px; position: relative; color: rgba(255,255,255,.8); line-height: 1.6;">
+              <i class="fa-solid fa-check" style="position: absolute; left: 0; color: var(--gold-light);"></i>
+              To prevent diseases by preventive health check-ups and tests
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 style=\"font-size: 1.2rem; color: var(--gold-light); margin-bottom: 15px; font-weight: 600;\">Our Vision</h3>
+          <ul style=\"list-style: none; padding: 0;\">
+            <li style=\"margin-bottom: 12px; padding-left: 28px; position: relative; color: rgba(255,255,255,.8); line-height: 1.6;\">
+              <i class=\"fa-solid fa-star\" style=\"position: absolute; left: 0; color: var(--gold-light);\"></i>
+              To be centre of excellence with trust in patient consultation
+            </li>
+            <li style=\"margin-bottom: 12px; padding-left: 28px; position: relative; color: rgba(255,255,255,.8); line-height: 1.6;\">
+              <i class=\"fa-solid fa-star\" style=\"position: absolute; left: 0; color: var(--gold-light);\"></i>
+              Earn loyalty of persons we serve
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <span class="section-tag" style="color: var(--gold-light);">Our Values</span>
+        <h2 class="section-title" style="color: #fff; margin-bottom: 30px;">Quality Policy</h2>
+        <div class="divider-teal" style="margin-bottom: 40px;"></div>
+        
+        <p style="color: rgba(255,255,255,.7); font-size: 1rem; line-height: 1.8; margin-bottom: 30px;">We are committed to serve quality medical consultations and tests at affordable cost and continual improvement through:</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div style="background: rgba(6,182,212,.15); padding: 24px; border-radius: 12px; border: 1px solid rgba(6,182,212,.3); text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">❤️</div>
+            <h4 style="color: var(--gold-light); font-weight: 600; margin-bottom: 8px;">Passion</h4>
+            <p style="color: rgba(255,255,255,.6); font-size: .9rem;">Dedicated to excellent patient care</p>
+          </div>
+          <div style="background: rgba(6,182,212,.15); padding: 24px; border-radius: 12px; border: 1px solid rgba(6,182,212,.3); text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🤝</div>
+            <h4 style="color: var(--gold-light); font-weight: 600; margin-bottom: 8px;">Trust</h4>
+            <p style="color: rgba(255,255,255,.6); font-size: .9rem;">Building strong patient relationships</p>
+          </div>
+          <div style="background: rgba(6,182,212,.15); padding: 24px; border-radius: 12px; border: 1px solid rgba(6,182,212,.3); text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">✅</div>
+            <h4 style="color: var(--gold-light); font-weight: 600; margin-bottom: 8px;">Reliability</h4>
+            <p style="color: rgba(255,255,255,.6); font-size: .9rem;">Consistent quality &amp; service</p>
+          </div>
+          <div style="background: rgba(6,182,212,.15); padding: 24px; border-radius: 12px; border: 1px solid rgba(6,182,212,.3); text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">⭐</div>
+            <h4 style="color: var(--gold-light); font-weight: 600; margin-bottom: 8px;">Values</h4>
+            <p style="color: rgba(255,255,255,.6); font-size: .9rem;">Ethical practice &amp; integrity</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET OUR TEAM -->
+<section id="team" style="background: var(--cream, #f9f9f2); padding: 100px 32px; font-family: sans-serif;">
+  <div class="section-inner" style="max-width: 1200px; margin: 0 auto;">
+    <span class="section-tag" style="color: var(--blue, #0e7490); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; text-align: center; margin-bottom: 8px;">Our Team</span>
+    <h2 class="section-title" style="text-align: center; font-size: 2.5rem; color: var(--navy, #0f172a); margin-bottom: 20px;">Meet Our Team</h2>
+    <div class="divider-teal" style="width: 80px; height: 4px; background: #2dd4bf; margin: 0 auto;"></div>
+    
+    <div style="margin-top: 52px; margin-bottom: 60px;">
+      <h3 style="text-align: center; font-size: 1.3rem; color: var(--navy, #0f172a); font-weight: 600; margin-bottom: 15px;">Advanced Medical Facility</h3>
+      <p style="text-align: center; font-size: 1rem; color: var(--gray, #64748b); max-width: 800px; margin: 0 auto; line-height: 1.7;">
+        Our clinic has best medical facilities including Physician Consultation, Indoor Pharmacy &amp; Indoor Pathology Laboratory. We are committed to providing comprehensive healthcare with professional medical staff and modern diagnostic capabilities.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 36px; margin-top: 60px;">
+      
+      <div class="fade-up" style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); transition: all .3s; text-align: center;">
+        <div style="background: linear-gradient(135deg, #3b82f6, #0f172a); padding: 60px 20px; display: flex; align-items: center; justify-content: center;">
+          <div style="width: 100px; height: 100px; background: rgba(255,255,255,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+            👨‍⚕️
+          </div>
+        </div>
+        <div style="padding: 28px 24px;">
+          <h3 style="font-size: 1.2rem; color: var(--navy, #0f172a); font-weight: 700; margin-bottom: 6px;">Dr. Akash Garg</h3>
+          <p style="color: #0e7490; font-weight: 600; font-size: .95rem; margin-bottom: 12px;">MBBS, MD (Medicine)</p>
+          <p style="color: var(--gray, #64748b); font-size: .9rem; line-height: 1.6; margin-bottom: 20px;">Physician &amp; Owner<br>Founder of Dr. Akash Garg Clinic</p>
+          <p style="color: var(--gray, #64748b); font-size: .85rem; line-height: 1.6; margin-bottom: 20px; border-top: 1px solid #e0f4f4; padding-top: 20px;">Committed to affordable healthcare and patient well-being with professional consultation.</p>
+          <div style="display: flex; justify-content: center; gap: 12px;">
+            <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(14,116,144,.1); display: flex; align-items: center; justify-content: center; color: #0e7490; text-decoration: none;">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(14,116,144,.1); display: flex; align-items: center; justify-content: center; color: #0e7490; text-decoration: none;">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(14,116,144,.1); display: flex; align-items: center; justify-content: center; color: #0e7490; text-decoration: none;">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up" style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); transition: all .3s; text-align: center;">
+        <div style="background: linear-gradient(135deg, #06b6d4, #0891b2); padding: 60px 20px; display: flex; align-items: center; justify-content: center;">
+          <div style="width: 100px; height: 100px; background: rgba(255,255,255,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+            👩‍⚕️
+          </div>
+        </div>
+        <div style="padding: 28px 24px;">
+          <h3 style="font-size: 1.2rem; color: var(--navy, #0f172a); font-weight: 700; margin-bottom: 6px;">Dr. Surabhi Garg</h3>
+          <p style="color: #0e7490; font-weight: 600; font-size: .95rem; margin-bottom: 12px;">Pathologist</p>
+          <p style="color: var(--gray, #64748b); font-size: .9rem; line-height: 1.6; margin-bottom: 20px;">Pathologist &amp; Owner<br>Laboratory Services Director</p>
+          <p style="color: var(--gray, #64748b); font-size: .85rem; line-height: 1.6; margin-bottom: 20px; border-top: 1px solid #e0f4f4; padding-top: 20px;">Expert in pathology services with focus on accuracy and quality diagnostic testing.</p>
+          <div style="display: flex; justify-content: center; gap: 12px;">
+            <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(14,116,144,.1); display: flex; align-items: center; justify-content: center; color: #0e7490; text-decoration: none;">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(14,116,144,.1); display: flex; align-items: center; justify-content: center; color: #0e7490; text-decoration: none;">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(14,116,144,.1); display: flex; align-items: center; justify-content: center; color: #0e7490; text-decoration: none;">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up" style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); transition: all .3s; text-align: center;">
+        <div style="background: linear-gradient(135deg, #f59e0b, #5eead4); padding: 60px 20px; display: flex; align-items: center; justify-content: center;">
+          <div style="width: 100px; height: 100px; background: rgba(255,255,255,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+            👨‍💼
+          </div>
+        </div>
+        <div style="padding: 28px 24px;">
+          <h3 style="font-size: 1.2rem; color: var(--navy, #0f172a); font-weight: 700; margin-bottom: 6px;">Dhannjay Patel</h3>
+          <p style="color: #0e7490; font-weight: 600; font-size: .95rem; margin-bottom: 12px;">BSc MLT</p>
+          <p style="color: var(--gray, #64748b); font-size: .9rem; line-height: 1.6; margin-bottom: 20px;">Administrator &amp; Lab Technician<br>Clinic Operations Manager</p>
+          <p style="color: var(--gray, #64748b); font-size: .85rem; line-height: 1.6; margin-bottom: 20px; border-top: 1px solid #e0f4f4; padding-top: 20px;">Skilled laboratory technician ensuring smooth clinic operations and quality lab procedures.</p>
+          <div style="display: flex; justify-content: center; gap: 12px;">
+            <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(14,116,144,.1); display: flex; align-items: center; justify-content: center; color: #0e7490; text-decoration: none;">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(14,116,144,.1); display: flex; align-items: center; justify-content: center; color: #0e7490; text-decoration: none;">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(14,116,144,.1); display: flex; align-items: center; justify-content: center; color: #0e7490; text-decoration: none;">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <span class="section-tag">Our Services</span>
+    <h2 class="section-title">Comprehensive Medical Care</h2>
+    <div class="divider-teal"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-stethoscope"></i></div>
+        <h3>General Physician Consultation</h3>
+        <p>Comprehensive medical consultation for acute and chronic conditions. Expert diagnosis and treatment planning for overall health and wellness.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <h3>Preventive Healthcare</h3>
+        <p>Routine health check-ups, vaccinations, health screening packages, and preventive care counseling for long-term wellness.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-pills"></i></div>
+        <h3>Medication Management</h3>
+        <p>Expert prescription guidance, chronic disease management, and medication optimization for conditions like diabetes and hypertension.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-virus"></i></div>
+        <h3>Acute Illness Treatment</h3>
+        <p>Rapid diagnosis and effective treatment for fever, cough, cold, infection, and other acute medical conditions.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-laptop"></i></div>
+        <h3>Online Consultation</h3>
+        <p>Convenient remote medical consultation via video call. Perfect for follow-ups, minor concerns, and prescription refills from home.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Chronic Disease Management</h3>
+        <p>Ongoing care for diabetes, hypertension, asthma, and other chronic conditions with regular monitoring and treatment adjustment.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-weight-scale"></i></div>
+        <h3>Weight Management &amp; Lifestyle</h3>
+        <p>Personalized nutrition counseling, weight loss guidance, and lifestyle modification plans for better health outcomes.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+        <h3>Mental Health Support</h3>
+        <p>Compassionate counseling for stress management, anxiety, and emotional well-being. Referrals to specialists when needed.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-flask-vial"></i></div>
+        <h3>Diagnostic Testing</h3>
+        <p>Blood tests, pathology investigations, and diagnostic imaging coordination to support accurate diagnosis and treatment.</p>
+        <div class="arrow">Learn more <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="section-inner">
+    <span class="section-tag">Why Choose Us</span>
+    <h2 class="section-title">Dr. Akash GARG CLINIC</h2>
+    <div class="divider-teal"></div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h3>Perfect 5-Star Rating</h3>
+        <p>180+ verified Google reviews with a flawless 5.0 rating — a testament to consistent care quality, outcomes, and patient experience.</p>
+      </div>
+      <div class="why-card" style="border-top-color:var(--blue-light)">
+        <div class="why-num">02</div>
+        <h3>Skilled & Qualified Surgeon</h3>
+        <p>Dr. Komal Yadav holds MS in Ophthalmology and brings 10+ years of specialist experience in eye surgery and medical management.</p>
+      </div>
+      <div class="why-card" style="border-top-color:#22c55e">
+        <div class="why-num">03</div>
+        <h3>Transparent Pricing</h3>
+        <p>Consultation at just ₹500 with no hidden costs. Patients are always informed clearly before any procedure or investigation.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h3>Convenient Location</h3>
+        <p>Centrally located in Sector 27, Noida at D-192 — easily accessible from across the city with ample parking nearby.</p>
+      </div>
+      <div class="why-card" style="border-top-color:var(--blue-light)">
+        <div class="why-num">05</div>
+        <h3>Flexible Timings</h3>
+        <p>Open Monday to Saturday with both morning (10 AM–2 PM) and evening (5–8 PM) slots to fit around your schedule.</p>
+      </div>
+      <div class="why-card" style="border-top-color:#22c55e">
+        <div class="why-num">06</div>
+        <h3>Patient-First Approach</h3>
+        <p>Patients consistently praise the doctor's patience, clarity of explanation, and the supportive, professional clinic staff.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-inner">
+    <span class="section-tag">Patient Stories</span>
+    <h2 class="section-title">What Our Patients Say</h2>
+    <div class="divider-teal"></div>
+    <div class="rating-summary">
+      <div class="big-rating">4.9</div>
+      <div class="rating-right">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>Based on patient reviews · Highly trusted physician</p>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Dr. Akash Garg is very attentive and thorough. He listens carefully and provides excellent medical advice. The clinic is clean and well-organized. Highly recommended!"</p>
+        <div class="reviewer">
+          <div class="rev-avatar">R</div>
+          <div><div class="rev-name">Rajesh M.</div><div class="rev-date">Verified Patient</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Dr. Garg is very patient and explains everything clearly. He takes time to understand your concerns and provides effective treatment. Best physician in Sector 22!"</p>
+        <div class="reviewer">
+          <div class="rev-avatar">A</div>
+          <div><div class="rev-name">Anjali P.</div><div class="rev-date">Verified Patient</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Excellent experience with online consultation. Dr. Garg provided proper diagnosis and medication guidance. Very professional and caring. Will definitely visit again!"</p>
+        <div class="reviewer">
+          <div class="rev-avatar">V</div>
+          <div><div class="rev-name">Vikram S.</div><div class="rev-date">Verified Patient</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Took my family for check-up. Dr. Garg is very thorough and compassionate. Staff is polite and helpful. Clinic is hygienic and well-maintained. Highly satisfied!"</p>
+        <div class="reviewer">
+          <div class="rev-avatar">N</div>
+          <div><div class="rev-name">Neha K.</div><div class="rev-date">Verified Patient</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Dr. Garg helped me manage my diabetes effectively. Very knowledgeable and gives detailed health counseling. Easy appointment booking. Highly recommendable physician!"</p>
+        <div class="reviewer">
+          <div class="rev-avatar">S</div>
+          <div><div class="rev-name">Suresh D.</div><div class="rev-date">Verified Patient</div></div>
+        </div>
+      </div>
+      <div class="review-card" style="background: linear-gradient(135deg, var(--navy), #163d52); border-color: rgba(6,182,212,.2);">
+        <div style="font-size:2.5rem; margin-bottom:12px;">🏥</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--gold-light); font-weight:600; margin-bottom:8px;">Best Medical Care</div>
+        <p style="font-size:.875rem; color:rgba(255,255,255,.6); line-height:1.7;">Dr. Akash Garg Clinic provides <strong style="color:#fff">the best medical facility</strong> and services with a focus on patient well-being and comprehensive healthcare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="locations">
+  <div class="section-inner">
+    <span class="section-tag">Find Us</span>
+    <h2 class="section-title">Visit Dr. Akash Garg Clinic</h2>
+    <div class="divider-teal"></div>
+    <div class="loc-card">
+      <div class="loc-left">
+        <div class="open-badge" style="margin-bottom:20px"><div class="open-dot"></div> Open Today</div>
+        <h3>Dr. Akash Garg Clinic</h3>
+        <address>B 5, Sector 22,<br>Noida, Uttar Pradesh<br>Opposite Noida Stadium</address>
+        <div class="loc-hours-block">
+          <h4>OPD Timings</h4>
+          <div class="hours-row">Monday – Saturday <span>9:00 AM – 12:00 PM</span></div>
+          <div class="hours-row">Monday – Saturday <span>5:00 PM – 8:00 PM</span></div>
+          <div class="hours-row">Sunday <span>Closed</span></div>
+        </div>
+        <a class="dir-btn" href="https://maps.app.goo.gl/" target="_blank"><i class="fa-solid fa-location-arrow"></i> Get Directions</a>
+      </div>
+      <div class="loc-right">
+        <div class="contact-block">
+          <h4>Contact Information</h4>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+919711120711">+91 9711120711</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <a href="https://wa.me/919711120711" target="_blank">Chat on WhatsApp</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-calendar-check"></i>
+            <a href="#booking-form">Book Online Appointment</a>
+          </div>
+        </div>
+        <div class="contact-block">
+          <h4>Consultation Fees</h4>
+          <div class="contact-item">
+            <i class="fa-solid fa-hospital"></i>
+            <div>
+              <div style="color:#fff;font-weight:600;font-size:.9rem">In-Clinic: ₹1000</div>
+              <div style="color:rgba(255,255,255,.5);font-size:.8rem">Valid for 3 days</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-laptop"></i>
+            <div>
+              <div style="color:#fff;font-weight:600;font-size:.9rem">Online: ₹1200</div>
+              <div style="color:rgba(255,255,255,.5);font-size:.8rem">10 minutes per session</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <span class="section-tag">Frequently Asked</span>
+    <h2 class="section-title">Common Questions</h2>
+    <div class="divider-teal"></div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What are the consultation fees?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">In-clinic consultation is ₹1000 and online consultation is ₹1200 for 10 minutes. Fees are valid for 3 days from the date of consultation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What are the clinic timings?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">The clinic is open Monday to Saturday. Morning hours are 9:00 AM – 12:00 PM and evening hours are 5:00 PM – 8:00 PM. The clinic is closed on Sundays.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is online consultation available?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">Yes, online consultations are available for ₹1200 for 10 minutes. This is convenient for follow-ups, minor health concerns, and prescription refills from home.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do I need an appointment?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">Yes, we recommend calling beforehand at +91 9711120711 for an appointment. However, walk-in patients are also accommodated based on availability.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How do I reach the clinic?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">The clinic is located at B 5, Sector 22, Noida, opposite Noida Stadium. You can call +91 9711120711 for directions or check Google Maps for navigation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What services are provided?
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="faq-a">We provide comprehensive general physician consultation, preventive healthcare, chronic disease management, acute illness treatment, and online consultations for overall wellness.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-inner">
+    <span class="section-tag">Health Insights</span>
+    <h2 class="section-title">Medical Tips & Wellness</h2>
+    <div class="divider-teal"></div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-img c1">🏥</div>
+        <div class="blog-content">
+          <div class="blog-tag">General Health</div>
+          <div class="blog-title">When Should You Visit a General Physician?</div>
+          <div class="blog-desc">Learn about common symptoms and conditions that require a physician's consultation for proper diagnosis and treatment planning.</div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img c2">💊</div>
+        <div class="blog-content">
+          <div class="blog-tag">Prevention</div>
+          <div class="blog-title">The Importance of Regular Health Check-ups</div>
+          <div class="blog-desc">Preventive healthcare through regular check-ups can detect health issues early and help you maintain optimal wellness throughout life.</div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img c3">🌡️</div>
+        <div class="blog-content">
+          <div class="blog-tag">Wellness</div>
+          <div class="blog-title">How to Manage Chronic Diseases Effectively</div>
+          <div class="blog-desc">Expert guidance on managing diabetes, hypertension, and other chronic conditions with proper medication and lifestyle changes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Dr. Akash <span>GARG CLINIC</span></span>
+        <p>Expert general physician consultation in Sector 22, Noida. Providing the best medical facility and services with a focus on comprehensive patient care and wellness.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">General Consultation</a></li>
+          <li><a href="#services">Health Check-ups</a></li>
+          <li><a href="#services">Chronic Disease Management</a></li>
+          <li><a href="#services">Online Consultation</a></li>
+          <li><a href="#services">Preventive Care</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Clinic Info</h4>
+        <ul>
+          <li><a href="#locations">B 5, Sector 22, Noida</a></li>
+          <li><a href="#locations">Mon–Sat: 9AM–12PM</a></li>
+          <li><a href="#locations">Mon–Sat: 5PM–8PM</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919711120711">📞 +91 9711120711</a></li>
+          <li><a href="https://wa.me/919711120711">💬 WhatsApp</a></li>
+          <li><a href="#booking-form">📅 Book Online</a></li>
+          <li><a href="#faq">❓ FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dr. Akash Garg Clinic, Sector 22, Noida. All rights reserved.</span>
+      <div style="display:flex;gap:20px">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a class="floating-wa" href="https://wa.me/919711120711" target="_blank" title="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+<a class="floating-call" href="tel:+919711120711">
+  <i class="fa-solid fa-phone"></i> +91 9711120711
+</a>
+
+<script>
+  // Initialize date picker if it exists
+  const dateInput = document.querySelector('input[type="date"]');
+  if (dateInput) {
+    dateInput.min = new Date().toISOString().split('T')[0];
+  }
+
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  function handleBook(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-btn');
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Appointment Confirmed!';
+    btn.style.background = '#22c55e';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> Confirm Appointment';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.animation = 'fadeUp .65s ease both';
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .why-card, .review-card, .blog-card, .edu-card, .faq-item').forEach(el => {
+    el.style.opacity = '0';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>

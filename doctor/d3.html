@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MediCare Plus – Advanced multi-specialty clinic offering Eye Care, Dental, General & more. Book appointments instantly via WhatsApp. Trusted by 10,000+ patients.">
+<meta name="keywords" content="clinic, doctor, eye care, dental, specialist, appointment, healthcare, medical">
+<meta property="og:title" content="MediCare Plus – Multi-Specialty Clinic">
+<meta property="og:description" content="Expert doctors in Eye, Dental & General Medicine. Book now via WhatsApp.">
+<title>MediCare Plus | Multi-Specialty Clinic</title>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: '',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false,
+    multilanguagePage: true
+  }, 'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --teal:    #0B7B7B;
+  --teal-l:  #12A5A5;
+  --teal-bg: #E8F7F7;
+  --blue:    #1A4A8A;
+  --gold:    #D4A017;
+  --soft:    #F4FAFA;
+  --white:   #FFFFFF;
+  --dark:    #0E1B2A;
+  --text:    #374151;
+  --muted:   #6B7280;
+  --border:  #D1E8E8;
+  --radius:  14px;
+  --shadow:  0 4px 24px rgba(11,123,123,0.10);
+  --shadow-lg: 0 8px 40px rgba(11,123,123,0.16);
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+html { scroll-behavior: smooth; }
+body { font-family:'DM Sans',sans-serif; color:var(--text); background:#fff; overflow-x:hidden; }
+img { max-width:100%; display:block; }
+a { text-decoration:none; color:inherit; }
+ul { list-style:none; }
+section { padding:80px 0; }
+.container { max-width:1160px; margin:0 auto; padding:0 20px; }
+h1,h2,h3,h4 { font-family:'Playfair Display',serif; color:var(--dark); }
+h2 { font-size:clamp(1.8rem,4vw,2.6rem); }
+h3 { font-size:1.25rem; }
+p { line-height:1.75; color:var(--muted); }
+
+/* ── BUTTONS ── */
+.btn { display:inline-flex; align-items:center; gap:8px; padding:13px 28px; border-radius:50px; font-size:0.95rem; font-weight:600; cursor:pointer; transition:all .25s; border:none; }
+.btn-primary { background:var(--teal); color:#fff; }
+.btn-primary:hover { background:var(--teal-l); transform:translateY(-2px); box-shadow:var(--shadow); }
+.btn-outline { background:transparent; color:var(--teal); border:2px solid var(--teal); }
+.btn-outline:hover { background:var(--teal); color:#fff; }
+.btn-wa { background:#25D366; color:#fff; }
+.btn-wa:hover { background:#1fb855; transform:translateY(-2px); }
+.btn-gold { background:var(--gold); color:#fff; }
+.btn-gold:hover { background:#c4910e; transform:translateY(-2px); }
+
+/* ── TAGS ── */
+.tag { display:inline-block; background:var(--teal-bg); color:var(--teal); font-size:0.78rem; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:14px; }
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float { position:fixed; bottom:24px; right:24px; z-index:9999; background:#25D366; color:#fff; width:58px; height:58px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; box-shadow:0 4px 20px rgba(37,211,102,.45); animation:pulse-wa 2s infinite; }
+.wa-float:hover { background:#1fb855; transform:scale(1.1); }
+@keyframes pulse-wa { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45)} 50%{box-shadow:0 4px 30px rgba(37,211,102,.7)} }
+
+/* ════════════════════════════════════
+   NAVBAR
+════════════════════════════════════ */
+#navbar {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow .3s;
+}
+#navbar.scrolled { box-shadow:0 2px 20px rgba(11,123,123,0.12); }
+.nav-inner { display:flex; align-items:center; justify-content:space-between; padding:14px 20px; max-width:1160px; margin:0 auto; }
+.logo { display:flex; align-items:center; gap:10px; }
+.logo-icon { width:42px; height:42px; background:var(--teal); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.2rem; }
+.logo-text { font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--dark); line-height:1.1; }
+.logo-text span { font-size:0.7rem; font-family:'DM Sans',sans-serif; color:var(--muted); display:block; font-weight:400; letter-spacing:.5px; }
+.nav-links { display:flex; align-items:center; gap:28px; }
+.nav-links a { font-size:0.9rem; font-weight:500; color:var(--text); transition:color .2s; position:relative; }
+.nav-links a::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:2px; background:var(--teal); transition:width .25s; }
+.nav-links a:hover::after { width:100%; }
+.nav-links a:hover { color:var(--teal); }
+.nav-cta { display:flex; align-items:center; gap:10px; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:24px; height:2px; background:var(--dark); border-radius:2px; transition:all .3s; }
+.hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity:0; }
+.hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+.mobile-menu { display:none; position:fixed; top:73px; left:0; right:0; background:#fff; border-bottom:1px solid var(--border); padding:20px; z-index:999; flex-direction:column; gap:12px; }
+.mobile-menu.show { display:flex; }
+.mobile-menu a { font-size:1rem; font-weight:500; padding:10px 0; border-bottom:1px solid #f0f0f0; color:var(--text); }
+
+/* ════════════════════════════════════
+   1. HERO
+════════════════════════════════════ */
+#hero {
+  margin-top:73px;
+  min-height:calc(100vh - 73px);
+  background:linear-gradient(135deg,#E8F7F7 0%,#F0FAFA 40%,#E6F2FF 100%);
+  display:flex; align-items:center;
+  position:relative; overflow:hidden;
+}
+#hero::before {
+  content:''; position:absolute; top:-100px; right:-100px;
+  width:500px; height:500px; border-radius:50%;
+  background:radial-gradient(circle,rgba(11,123,123,.12) 0%,transparent 70%);
+}
+#hero::after {
+  content:''; position:absolute; bottom:-80px; left:-80px;
+  width:400px; height:400px; border-radius:50%;
+  background:radial-gradient(circle,rgba(26,74,138,.08) 0%,transparent 70%);
+}
+.hero-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; padding:60px 20px; max-width:1160px; margin:0 auto; position:relative; z-index:1; }
+.hero-badge { display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--border); border-radius:50px; padding:6px 16px; font-size:0.82rem; color:var(--teal); font-weight:600; margin-bottom:20px; box-shadow:var(--shadow); }
+.hero-badge::before { content:'●'; color:#25D366; font-size:0.6rem; }
+.hero-title { font-size:clamp(2rem,5vw,3.2rem); line-height:1.15; margin-bottom:20px; }
+.hero-title em { font-style:normal; color:var(--teal); }
+.hero-sub { font-size:1.05rem; margin-bottom:32px; max-width:480px; }
+.hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:40px; }
+.hero-stats { display:flex; gap:32px; flex-wrap:wrap; }
+.hero-stat { text-align:center; }
+.hero-stat strong { display:block; font-size:1.6rem; font-family:'Playfair Display',serif; color:var(--dark); }
+.hero-stat span { font-size:0.82rem; color:var(--muted); }
+/* hero visual */
+.hero-visual { position:relative; }
+.hero-card-main { background:#fff; border-radius:20px; padding:30px; box-shadow:var(--shadow-lg); border:1px solid var(--border); }
+.hero-doctors-row { display:flex; gap:12px; margin-bottom:20px; }
+.doc-chip { display:flex; align-items:center; gap:10px; background:var(--soft); border-radius:12px; padding:10px 14px; flex:1; border:1px solid var(--border); }
+.doc-avatar { width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+.doc-chip p { font-size:0.78rem; color:var(--muted); margin:0; }
+.doc-chip strong { font-size:0.88rem; color:var(--dark); display:block; }
+.hero-specialty-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.sp-tag { padding:6px 14px; border-radius:50px; font-size:0.8rem; font-weight:600; }
+.sp-eye { background:#EFF6FF; color:#1A4A8A; }
+.sp-dental { background:#FFF7ED; color:#C2410C; }
+.sp-general { background:#F0FDF4; color:#15803D; }
+.sp-cardio { background:#FDF4FF; color:#7E22CE; }
+.sp-ortho { background:#FFF1F2; color:#BE123C; }
+.hero-floating { position:absolute; bottom:-20px; right:-20px; background:#fff; border-radius:14px; padding:14px 18px; box-shadow:var(--shadow-lg); border:1px solid var(--border); font-size:0.85rem; }
+.hero-floating strong { color:var(--teal); display:block; font-size:1rem; }
+.hero-floating span { color:var(--muted); font-size:0.78rem; }
+
+/* ════════════════════════════════════
+   2. TICKER / ANNOUNCEMENT
+════════════════════════════════════ */
+.ticker { background:var(--teal); color:#fff; padding:10px 0; overflow:hidden; }
+.ticker-inner { display:flex; align-items:center; gap:0; white-space:nowrap; animation:marquee 30s linear infinite; }
+.ticker-inner span { padding:0 40px; font-size:0.88rem; opacity:.9; }
+.ticker-inner span::after { content:'•'; margin-left:40px; opacity:.5; }
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ════════════════════════════════════
+   3. ACHIEVEMENTS
+════════════════════════════════════ */
+#achievements { background:var(--dark); padding:70px 0; }
+.ach-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:2px; }
+.ach-item { text-align:center; padding:40px 20px; border-right:1px solid rgba(255,255,255,.08); position:relative; }
+.ach-item:last-child { border-right:none; }
+.ach-icon { font-size:2rem; margin-bottom:12px; }
+.ach-num { font-family:'Playfair Display',serif; font-size:2.6rem; color:#fff; display:block; }
+.ach-label { font-size:0.85rem; color:rgba(255,255,255,.55); margin-top:4px; }
+.ach-item::before { content:''; position:absolute; bottom:0; left:20%; right:20%; height:2px; background:linear-gradient(90deg,transparent,var(--teal-l),transparent); opacity:0; transition:opacity .3s; }
+.ach-item:hover::before { opacity:1; }
+
+/* ════════════════════════════════════
+   4. ABOUT DOCTORS
+════════════════════════════════════ */
+#doctors { background:var(--soft); }
+.section-header { text-align:center; margin-bottom:52px; }
+.section-header p { max-width:560px; margin:12px auto 0; }
+.doctors-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; }
+.doctor-card { background:#fff; border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); transition:all .3s; }
+.doctor-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.doc-img-wrap { height:200px; display:flex; align-items:center; justify-content:center; font-size:5rem; position:relative; overflow:hidden; }
+.doc-img-wrap.eye { background:linear-gradient(135deg,#EFF6FF,#DBEAFE); }
+.doc-img-wrap.dental { background:linear-gradient(135deg,#FFF7ED,#FED7AA); }
+.doc-img-wrap.general { background:linear-gradient(135deg,#F0FDF4,#BBF7D0); }
+.doc-img-wrap.cardio { background:linear-gradient(135deg,#FDF4FF,#E9D5FF); }
+.doc-badge { position:absolute; top:12px; right:12px; padding:4px 10px; border-radius:50px; font-size:0.72rem; font-weight:700; letter-spacing:.5px; }
+.badge-eye { background:#1A4A8A; color:#fff; }
+.badge-dental { background:#C2410C; color:#fff; }
+.badge-gen { background:#15803D; color:#fff; }
+.badge-cardio { background:#7E22CE; color:#fff; }
+.doc-info { padding:20px; }
+.doc-info h3 { margin-bottom:4px; font-size:1.1rem; }
+.doc-deg { font-size:0.8rem; color:var(--teal); font-weight:600; margin-bottom:6px; }
+.doc-exp { font-size:0.82rem; color:var(--muted); margin-bottom:14px; }
+.doc-stars { color:var(--gold); font-size:0.85rem; }
+.doc-book-btn { display:flex; align-items:center; gap:6px; background:var(--teal-bg); color:var(--teal); font-size:0.82rem; font-weight:600; padding:8px 14px; border-radius:50px; border:none; cursor:pointer; transition:all .2s; margin-top:12px; }
+.doc-book-btn:hover { background:var(--teal); color:#fff; }
+
+/* ════════════════════════════════════
+   5. SERVICES
+════════════════════════════════════ */
+#services { }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+.svc-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:28px 22px; transition:all .3s; cursor:pointer; position:relative; overflow:hidden; }
+.svc-card::before { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--teal); transform:scaleX(0); transition:transform .3s; }
+.svc-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+.svc-card:hover::before { transform:scaleX(1); }
+.svc-icon { font-size:2rem; margin-bottom:14px; }
+.svc-card h3 { font-size:1rem; margin-bottom:8px; }
+.svc-card p { font-size:0.83rem; }
+.svc-link { display:inline-flex; align-items:center; gap:4px; color:var(--teal); font-size:0.82rem; font-weight:600; margin-top:12px; }
+
+/* ════════════════════════════════════
+   6. WHY CHOOSE US
+════════════════════════════════════ */
+#why { background:var(--soft); }
+.why-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.why-visual { position:relative; }
+.why-big-card { background:var(--teal); color:#fff; border-radius:20px; padding:36px; }
+.why-big-card h3 { color:#fff; font-size:1.6rem; margin-bottom:16px; }
+.why-big-card p { color:rgba(255,255,255,.8); margin-bottom:24px; }
+.why-small-cards { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+.why-sm { background:rgba(255,255,255,.15); border-radius:12px; padding:16px; }
+.why-sm strong { color:#fff; display:block; font-size:0.9rem; }
+.why-sm span { color:rgba(255,255,255,.7); font-size:0.78rem; }
+.why-list { display:grid; gap:20px; }
+.why-item { display:flex; gap:16px; align-items:flex-start; background:#fff; border:1px solid var(--border); border-radius:12px; padding:20px; transition:box-shadow .2s; }
+.why-item:hover { box-shadow:var(--shadow); }
+.why-icon { width:46px; height:46px; border-radius:12px; background:var(--teal-bg); color:var(--teal); display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0; }
+.why-item h4 { font-size:0.95rem; margin-bottom:4px; }
+.why-item p { font-size:0.83rem; }
+
+/* ════════════════════════════════════
+   7. APPOINTMENT FORM / CLINIC MANAGER
+════════════════════════════════════ */
+#appointment { background:var(--dark); }
+.appt-inner { display:grid; grid-template-columns:1fr 1.2fr; gap:60px; align-items:start; }
+.appt-left h2 { color:#fff; margin-bottom:16px; }
+.appt-left p { color:rgba(255,255,255,.65); margin-bottom:28px; }
+.appt-info { display:flex; flex-direction:column; gap:16px; }
+.appt-info-item { display:flex; align-items:center; gap:14px; }
+.appt-info-icon { width:42px; height:42px; border-radius:10px; background:rgba(255,255,255,.08); color:var(--teal-l); display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+.appt-info-item p { color:rgba(255,255,255,.55); font-size:0.82rem; margin:0; }
+.appt-info-item strong { color:#fff; font-size:0.9rem; display:block; }
+.appt-form-wrap { background:#fff; border-radius:20px; padding:36px; }
+.appt-form-wrap h3 { margin-bottom:4px; }
+.appt-form-wrap > p { font-size:0.85rem; margin-bottom:24px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.form-group { margin-bottom:16px; }
+.form-group label { display:block; font-size:0.82rem; font-weight:600; color:var(--dark); margin-bottom:6px; }
+.form-group input, .form-group select, .form-group textarea {
+  width:100%; padding:11px 14px; border:1.5px solid var(--border); border-radius:10px;
+  font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--dark);
+  transition:border .2s; outline:none; background:#fff;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--teal); }
+.form-group textarea { resize:none; height:90px; }
+.form-submit { width:100%; }
+.form-note { text-align:center; margin-top:12px; font-size:0.78rem; color:var(--muted); display:flex; align-items:center; justify-content:center; gap:6px; }
+
+/* ════════════════════════════════════
+   8. VIDEO SECTION
+════════════════════════════════════ */
+#videos { background:var(--soft); }
+.videos-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
+.video-card { background:#fff; border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); transition:all .3s; }
+.video-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.video-thumb { position:relative; background:#000; aspect-ratio:16/9; overflow:hidden; }
+.video-thumb iframe { width:100%; height:100%; border:none; }
+.video-label { padding:16px 18px; }
+.video-label h4 { font-size:0.95rem; margin-bottom:4px; }
+.video-label p { font-size:0.8rem; }
+.video-label .tag { margin:0; margin-top:6px; font-size:0.72rem; }
+
+/* ════════════════════════════════════
+   9. PATIENT TESTIMONIALS
+════════════════════════════════════ */
+#testimonials { }
+.testi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+.testi-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:24px; position:relative; }
+.testi-card::before { content:'"'; font-family:'Playfair Display',serif; font-size:5rem; color:var(--teal-bg); position:absolute; top:-10px; left:20px; line-height:1; }
+.testi-stars { color:var(--gold); font-size:0.9rem; margin-bottom:12px; }
+.testi-text { font-size:0.88rem; line-height:1.7; margin-bottom:16px; color:var(--text); }
+.testi-author { display:flex; align-items:center; gap:10px; }
+.testi-avatar { width:40px; height:40px; border-radius:50%; background:var(--teal-bg); display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+.testi-author strong { font-size:0.88rem; color:var(--dark); display:block; }
+.testi-author span { font-size:0.78rem; color:var(--muted); }
+
+/* ════════════════════════════════════
+   10. GALLERY / CLINIC TOUR
+════════════════════════════════════ */
+#gallery { background:var(--soft); }
+.gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(2,160px); gap:12px; }
+.gal-item { border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:2.5rem; overflow:hidden; transition:transform .3s; cursor:pointer; }
+.gal-item:hover { transform:scale(1.02); }
+.gal-item:nth-child(1) { grid-column:span 2; grid-row:span 2; font-size:4rem; background:linear-gradient(135deg,var(--teal),var(--teal-l)); color:#fff; }
+.gal-item:nth-child(2) { background:linear-gradient(135deg,#EFF6FF,#DBEAFE); }
+.gal-item:nth-child(3) { background:linear-gradient(135deg,#FFF7ED,#FED7AA); }
+.gal-item:nth-child(4) { background:linear-gradient(135deg,#F0FDF4,#BBF7D0); }
+.gal-item:nth-child(5) { background:linear-gradient(135deg,#FDF4FF,#E9D5FF); }
+
+/* ════════════════════════════════════
+   11. BLOG
+════════════════════════════════════ */
+#blog { }
+.blog-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
+.blog-card { background:#fff; border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); transition:all .3s; }
+.blog-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.blog-thumb { height:160px; display:flex; align-items:center; justify-content:center; font-size:3rem; }
+.blog-body { padding:22px; }
+.blog-cat { font-size:0.75rem; font-weight:700; color:var(--teal); letter-spacing:.8px; text-transform:uppercase; }
+.blog-body h3 { font-size:1rem; margin:8px 0 10px; }
+.blog-body p { font-size:0.83rem; }
+.blog-meta { display:flex; justify-content:space-between; margin-top:16px; font-size:0.78rem; color:var(--muted); padding-top:12px; border-top:1px solid var(--border); }
+
+/* ════════════════════════════════════
+   12. FAQ
+════════════════════════════════════ */
+#faq { background:var(--soft); }
+.faq-inner { display:grid; grid-template-columns:1fr 1.5fr; gap:60px; align-items:start; }
+.faq-left h2 { margin-bottom:14px; }
+.faq-left p { margin-bottom:24px; }
+.faq-list { display:flex; flex-direction:column; gap:12px; }
+.faq-item { background:#fff; border-radius:12px; border:1px solid var(--border); overflow:hidden; }
+.faq-q { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; cursor:pointer; font-weight:600; font-size:0.9rem; color:var(--dark); }
+.faq-q .arrow { transition:transform .3s; font-size:0.7rem; color:var(--teal); }
+.faq-item.open .arrow { transform:rotate(180deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .35s; }
+.faq-a p { padding:0 20px 16px; font-size:0.85rem; }
+.faq-item.open .faq-a { max-height:200px; }
+
+/* ════════════════════════════════════
+   13. CTA
+════════════════════════════════════ */
+#cta { background:linear-gradient(135deg,var(--teal) 0%,var(--blue) 100%); padding:80px 0; }
+.cta-inner { text-align:center; max-width:640px; margin:0 auto; padding:0 20px; }
+.cta-inner h2 { color:#fff; margin-bottom:14px; }
+.cta-inner p { color:rgba(255,255,255,.8); margin-bottom:32px; font-size:1.05rem; }
+.cta-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; }
+
+/* ════════════════════════════════════
+   14. INSURANCE / PARTNERS
+════════════════════════════════════ */
+#partners { padding:50px 0; }
+.partners-inner { text-align:center; }
+.partners-inner h3 { font-size:0.85rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); margin-bottom:28px; }
+.partners-logos { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:28px; }
+.partner-logo { background:var(--soft); border:1px solid var(--border); border-radius:10px; padding:12px 24px; font-size:0.85rem; font-weight:700; color:var(--muted); letter-spacing:.5px; }
+
+/* ════════════════════════════════════
+   15. FOOTER
+════════════════════════════════════ */
+footer { background:var(--dark); color:rgba(255,255,255,.7); padding:60px 0 24px; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.2fr; gap:40px; margin-bottom:40px; }
+.footer-brand .logo-text { color:#fff; }
+.footer-brand p { margin-top:14px; font-size:0.85rem; color:rgba(255,255,255,.55); line-height:1.8; }
+.footer-socials { display:flex; gap:10px; margin-top:20px; }
+.fsoc { width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; font-size:0.9rem; color:rgba(255,255,255,.7); transition:all .2s; }
+.fsoc:hover { background:var(--teal); color:#fff; }
+.footer-col h4 { color:#fff; font-size:0.95rem; margin-bottom:16px; font-family:'DM Sans',sans-serif; font-weight:600; }
+.footer-col ul li { margin-bottom:10px; }
+.footer-col ul li a { font-size:0.85rem; color:rgba(255,255,255,.55); transition:color .2s; }
+.footer-col ul li a:hover { color:var(--teal-l); }
+.footer-contact-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; }
+.footer-contact-item span { font-size:1rem; margin-top:2px; }
+.footer-contact-item p { font-size:0.82rem; color:rgba(255,255,255,.55); margin:0; }
+.footer-wa-btn { display:flex; align-items:center; gap:8px; background:#25D366; color:#fff; border-radius:50px; padding:10px 18px; font-size:0.85rem; font-weight:600; margin-top:16px; width:fit-content; transition:all .2s; }
+.footer-wa-btn:hover { background:#1fb855; }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.08); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:0.8rem; color:rgba(255,255,255,.35); }
+
+/* ════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════ */
+@media(max-width:900px) {
+  .hero-inner { grid-template-columns:1fr; gap:40px; }
+  .hero-visual { order:-1; }
+  .why-inner { grid-template-columns:1fr; }
+  .appt-inner { grid-template-columns:1fr; }
+  .faq-inner { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .gallery-grid { grid-template-columns:repeat(2,1fr); grid-template-rows:auto; }
+  .gal-item:nth-child(1) { grid-column:span 2; grid-row:span 1; }
+}
+@media(max-width:640px) {
+  section { padding:60px 0; }
+  .nav-links { display:none; }
+  .nav-cta .btn { display:none; }
+  .hamburger { display:flex; }
+  .form-row { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr; }
+  .ach-grid { grid-template-columns:repeat(2,1fr); }
+  .ach-item { border-right:none; border-bottom:1px solid rgba(255,255,255,.08); }
+  .gallery-grid { grid-template-columns:1fr 1fr; }
+  .footer-bottom { flex-direction:column; text-align:center; }
+  .hero-stats { gap:20px; }
+}
+@media(max-width:400px) {
+  .hero-doctors-row { flex-direction:column; }
+}
+
+/* animations */
+.fade-up { opacity:0; transform:translateY(24px); transition:opacity .6s, transform .6s; }
+.fade-up.visible { opacity:1; transform:translateY(0); }
+
+/* ── HIDE Google's default widget bar ── */
+#google_translate_element { display:none !important; }
+.goog-te-banner-frame, .skiptranslate { display:none !important; }
+body { top:0 !important; }
+.goog-te-gadget { display:none !important; }
+
+/* ── LANGUAGE SWITCHER FLOATING ── */
+#lang-fab {
+  position:fixed; bottom:96px; right:24px; z-index:9998;
+  width:54px; height:54px; border-radius:50%;
+  background:var(--blue); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem; cursor:pointer;
+  box-shadow:0 4px 20px rgba(26,74,138,.4);
+  transition:all .25s;
+  border:none;
+}
+#lang-fab:hover { background:var(--teal); transform:scale(1.1); }
+#lang-fab .lang-tooltip {
+  position:absolute; right:62px; background:var(--dark); color:#fff;
+  font-size:0.75rem; font-weight:600; white-space:nowrap;
+  padding:5px 10px; border-radius:6px; pointer-events:none;
+  opacity:0; transition:opacity .2s;
+}
+#lang-fab:hover .lang-tooltip { opacity:1; }
+
+/* ── LANGUAGE PANEL ── */
+#lang-panel {
+  position:fixed; bottom:160px; right:24px; z-index:9997;
+  width:320px; background:#fff;
+  border-radius:18px; box-shadow:0 8px 40px rgba(0,0,0,.18);
+  border:1px solid var(--border);
+  display:none; flex-direction:column; overflow:hidden;
+  animation:panelIn .25s ease;
+}
+#lang-panel.open { display:flex; }
+@keyframes panelIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+.lp-header {
+  background:var(--teal); color:#fff;
+  padding:14px 18px; display:flex; align-items:center; justify-content:space-between;
+}
+.lp-header h4 { font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:700; color:#fff; }
+.lp-header span { font-size:0.75rem; opacity:.8; }
+.lp-close { background:rgba(255,255,255,.2); border:none; color:#fff; border-radius:50%; width:26px; height:26px; cursor:pointer; font-size:0.9rem; display:flex; align-items:center; justify-content:center; }
+
+.lp-search-wrap { padding:10px 14px; border-bottom:1px solid var(--border); }
+.lp-search-wrap input {
+  width:100%; padding:8px 12px; border:1.5px solid var(--border);
+  border-radius:8px; font-family:'DM Sans',sans-serif; font-size:0.85rem;
+  outline:none; color:var(--dark);
+}
+.lp-search-wrap input:focus { border-color:var(--teal); }
+
+.lp-quick { display:flex; flex-wrap:wrap; gap:6px; padding:10px 14px; border-bottom:1px solid var(--border); }
+.lp-quick-btn {
+  padding:5px 11px; border-radius:50px; font-size:0.75rem; font-weight:600;
+  background:var(--teal-bg); color:var(--teal); border:none; cursor:pointer;
+  transition:all .2s;
+}
+.lp-quick-btn:hover, .lp-quick-btn.active { background:var(--teal); color:#fff; }
+
+.lp-list { overflow-y:auto; max-height:280px; padding:8px 0; }
+.lp-item {
+  display:flex; align-items:center; gap:10px;
+  padding:9px 18px; cursor:pointer; transition:background .15s; font-size:0.85rem; color:var(--dark);
+}
+.lp-item:hover { background:var(--soft); }
+.lp-item.active { background:var(--teal-bg); color:var(--teal); font-weight:600; }
+.lp-item .flag { font-size:1.1rem; width:22px; text-align:center; }
+.lp-item .lang-name { flex:1; }
+.lp-item .lang-native { font-size:0.75rem; color:var(--muted); }
+.lp-item.active .lang-native { color:var(--teal); }
+
+/* ── NAVBAR LANG BADGE ── */
+.nav-lang-btn {
+  display:flex; align-items:center; gap:5px;
+  background:var(--teal-bg); color:var(--teal);
+  border:1.5px solid var(--border); border-radius:50px;
+  padding:6px 13px; font-size:0.8rem; font-weight:600;
+  cursor:pointer; transition:all .2s;
+}
+.nav-lang-btn:hover { background:var(--teal); color:#fff; border-color:var(--teal); }
+
+@media(max-width:640px){
+  #lang-panel { right:10px; width:calc(100vw - 20px); bottom:150px; }
+  #lang-fab { bottom:90px; right:16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- WhatsApp Float -->
+<a class="wa-float" href="https://wa.me/919999999999?text=Hello%2C%20I%20want%20to%20book%20an%20appointment" target="_blank" title="Chat on WhatsApp" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.854L0 24l6.334-1.56A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.853 0-3.58-.5-5.065-1.374l-.363-.217-3.76.926.977-3.665-.237-.376A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-icon">⚕</div>
+      <div class="logo-text">MediCare Plus<span>Multi-Specialty Clinic</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#doctors">Doctors</a>
+      <a href="#services">Services</a>
+      <a href="#why">About</a>
+      <a href="#blog">Blog</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <button class="nav-lang-btn" onclick="toggleLangPanel()" title="Change Language">🌐 <span id="nav-lang-label">EN</span></button>
+      <a class="btn btn-wa" href="https://wa.me/919999999999?text=Appointment%20Request" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.854L0 24l6.334-1.56A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.853 0-3.58-.5-5.065-1.374l-.363-.217-3.76.926.977-3.665-.237-.376A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp
+      </a>
+      <a class="btn btn-primary" href="#appointment">Book Appointment</a>
+    </div>
+    <div class="hamburger" id="ham" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#hero" onclick="closeMenu()">Home</a>
+    <a href="#doctors" onclick="closeMenu()">Our Doctors</a>
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#why" onclick="closeMenu()">Why Us</a>
+    <a href="#blog" onclick="closeMenu()">Blog</a>
+    <a href="#faq" onclick="closeMenu()">FAQ</a>
+    <a href="#appointment" onclick="closeMenu()">📅 Book Appointment</a>
+    <a href="https://wa.me/919999999999" target="_blank">💬 WhatsApp Us</a>
+  </div>
+</nav>
+
+<!-- ═══ SECTION 1: HERO ═══ -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-content fade-up">
+      <div class="hero-badge">Now accepting new patients · 6 Specialties</div>
+      <h1 class="hero-title">Your Health, Our <em>Priority</em> — Expert Care You Deserve</h1>
+      <p class="hero-sub">From Eye & Dental to General Medicine — MediCare Plus brings world-class specialists under one roof. Book instantly via WhatsApp, no waiting.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#appointment">📅 Book Appointment</a>
+        <a class="btn btn-wa" href="https://wa.me/919999999999?text=I+need+an+appointment" target="_blank">💬 WhatsApp Now</a>
+        <a class="btn btn-outline" href="#doctors">Meet Doctors</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>12,000+</strong><span>Happy Patients</span></div>
+        <div class="hero-stat"><strong>15+</strong><span>Specialists</span></div>
+        <div class="hero-stat"><strong>18 Yrs</strong><span>Experience</span></div>
+        <div class="hero-stat"><strong>98%</strong><span>Satisfaction</span></div>
+      </div>
+    </div>
+    <div class="hero-visual fade-up">
+      <div class="hero-card-main">
+        <div class="hero-doctors-row">
+          <div class="doc-chip">
+            <div class="doc-avatar" style="background:#EFF6FF">👁️</div>
+            <div><strong>Dr. Sharma</strong><p>Eye Specialist</p></div>
+          </div>
+          <div class="doc-chip">
+            <div class="doc-avatar" style="background:#FFF7ED">🦷</div>
+            <div><strong>Dr. Mehta</strong><p>Dentist</p></div>
+          </div>
+        </div>
+        <div class="hero-specialty-tags">
+          <span class="sp-tag sp-eye">👁️ Eye Care</span>
+          <span class="sp-tag sp-dental">🦷 Dental</span>
+          <span class="sp-tag sp-general">🩺 General</span>
+          <span class="sp-tag sp-cardio">❤️ Cardiology</span>
+          <span class="sp-tag sp-ortho">🦴 Orthopaedics</span>
+          <span class="sp-tag" style="background:#E0F2FE;color:#0369A1">🧠 Neurology</span>
+        </div>
+        <div style="background:var(--teal-bg);border-radius:12px;padding:16px;display:flex;align-items:center;gap:14px;">
+          <div style="font-size:2rem;">📍</div>
+          <div>
+            <strong style="color:var(--dark);font-size:0.9rem;">Open Today: 8 AM – 9 PM</strong>
+            <p style="font-size:0.8rem;margin:0;">123 Medical Lane, City Centre · All Days</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-floating">
+        <strong>⚡ Next Available</strong>
+        <span>Today, 2:30 PM – Dr. Sharma</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TICKER ═══ -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>🏆 NABH Accredited Clinic</span>
+    <span>📞 Emergency: +91-99999-99999</span>
+    <span>💊 In-House Pharmacy Available</span>
+    <span>📅 Saturday & Sunday OPD Open</span>
+    <span>🚗 Free Parking Available</span>
+    <span>🏅 Best Multi-Specialty Clinic 2024</span>
+    <span>💬 WhatsApp Appointments: +91-99999-99999</span>
+    <!-- Duplicate for seamless loop -->
+    <span>🏆 NABH Accredited Clinic</span>
+    <span>📞 Emergency: +91-99999-99999</span>
+    <span>💊 In-House Pharmacy Available</span>
+    <span>📅 Saturday & Sunday OPD Open</span>
+    <span>🚗 Free Parking Available</span>
+    <span>🏅 Best Multi-Specialty Clinic 2024</span>
+    <span>💬 WhatsApp Appointments: +91-99999-99999</span>
+  </div>
+</div>
+
+<!-- ═══ SECTION 2: ACHIEVEMENTS ═══ -->
+<section id="achievements">
+  <div class="container">
+    <div class="ach-grid">
+      <div class="ach-item fade-up">
+        <div class="ach-icon">🏆</div>
+        <strong class="ach-num" data-target="12000">0</strong>
+        <span class="ach-label">Patients Treated</span>
+      </div>
+      <div class="ach-item fade-up">
+        <div class="ach-icon">👨‍⚕️</div>
+        <strong class="ach-num" data-target="15">0</strong>
+        <span class="ach-label">Specialist Doctors</span>
+      </div>
+      <div class="ach-item fade-up">
+        <div class="ach-icon">⭐</div>
+        <strong class="ach-num" data-target="18">0</strong>
+        <span class="ach-label">Years Experience</span>
+      </div>
+      <div class="ach-item fade-up">
+        <div class="ach-icon">🏥</div>
+        <strong class="ach-num" data-target="6">0</strong>
+        <span class="ach-label">Specialties</span>
+      </div>
+      <div class="ach-item fade-up">
+        <div class="ach-icon">🔬</div>
+        <strong class="ach-num" data-target="5000">0</strong>
+        <span class="ach-label">Surgeries Done</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 3: ABOUT DOCTORS ═══ -->
+<section id="doctors">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="tag">Our Specialists</span>
+      <h2>Meet Our Expert Doctors</h2>
+      <p>Each of our physicians brings unmatched expertise, compassion, and a patient-first approach to every consultation.</p>
+    </div>
+    <div class="doctors-grid">
+      <div class="doctor-card fade-up">
+        <div class="doc-img-wrap eye">👁️<span class="doc-badge badge-eye">Eye</span></div>
+        <div class="doc-info">
+          <h3>Dr. Anil Sharma</h3>
+          <div class="doc-deg">MBBS, MS – Ophthalmology</div>
+          <div class="doc-exp">🏥 15 Years · AIIMS Trained</div>
+          <div class="doc-stars">★★★★★ 4.9 (340 reviews)</div>
+          <a class="doc-book-btn" href="https://wa.me/919999999999?text=Appointment+with+Dr+Sharma" target="_blank">💬 Book via WhatsApp</a>
+        </div>
+      </div>
+      <div class="doctor-card fade-up">
+        <div class="doc-img-wrap dental">🦷<span class="doc-badge badge-dental">Dental</span></div>
+        <div class="doc-info">
+          <h3>Dr. Priya Mehta</h3>
+          <div class="doc-deg">BDS, MDS – Orthodontics</div>
+          <div class="doc-exp">🏥 11 Years · Implant Expert</div>
+          <div class="doc-stars">★★★★★ 4.8 (290 reviews)</div>
+          <a class="doc-book-btn" href="https://wa.me/919999999999?text=Appointment+with+Dr+Mehta" target="_blank">💬 Book via WhatsApp</a>
+        </div>
+      </div>
+      <div class="doctor-card fade-up">
+        <div class="doc-img-wrap general">🩺<span class="doc-badge badge-gen">General</span></div>
+        <div class="doc-info">
+          <h3>Dr. Rakesh Verma</h3>
+          <div class="doc-deg">MBBS, MD – General Medicine</div>
+          <div class="doc-exp">🏥 20 Years · Senior Physician</div>
+          <div class="doc-stars">★★★★★ 4.9 (520 reviews)</div>
+          <a class="doc-book-btn" href="https://wa.me/919999999999?text=Appointment+with+Dr+Verma" target="_blank">💬 Book via WhatsApp</a>
+        </div>
+      </div>
+      <div class="doctor-card fade-up">
+        <div class="doc-img-wrap cardio">❤️<span class="doc-badge badge-cardio">Cardio</span></div>
+        <div class="doc-info">
+          <h3>Dr. Sunita Gupta</h3>
+          <div class="doc-deg">MBBS, DM – Cardiology</div>
+          <div class="doc-exp">🏥 14 Years · Heart Specialist</div>
+          <div class="doc-stars">★★★★★ 4.8 (210 reviews)</div>
+          <a class="doc-book-btn" href="https://wa.me/919999999999?text=Appointment+with+Dr+Gupta" target="_blank">💬 Book via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a class="btn btn-outline" href="#appointment">View All Doctors & Book →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 4: SERVICES ═══ -->
+<section id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="tag">What We Offer</span>
+      <h2>Comprehensive Medical Services</h2>
+      <p>From routine checkups to complex procedures — we cover every aspect of your family's healthcare needs.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card fade-up">
+        <div class="svc-icon">👁️</div>
+        <h3>Eye Care & Surgery</h3>
+        <p>LASIK, cataract surgery, retina treatment, glasses prescriptions & paediatric eye care.</p>
+        <span class="svc-link">Learn more →</span>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-icon">🦷</div>
+        <h3>Dental & Orthodontics</h3>
+        <p>Implants, braces, whitening, root canal, extractions, crowns & complete cosmetic dentistry.</p>
+        <span class="svc-link">Learn more →</span>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-icon">🩺</div>
+        <h3>General Medicine</h3>
+        <p>Fever, diabetes, BP management, full-body checkups and family health consultations.</p>
+        <span class="svc-link">Learn more →</span>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-icon">❤️</div>
+        <h3>Cardiology</h3>
+        <p>ECG, echocardiography, cholesterol management, heart disease prevention & follow-ups.</p>
+        <span class="svc-link">Learn more →</span>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-icon">🦴</div>
+        <h3>Orthopaedics</h3>
+        <p>Joint replacement, sports injuries, physiotherapy, spine care and fracture management.</p>
+        <span class="svc-link">Learn more →</span>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-icon">🔬</div>
+        <h3>Lab & Diagnostics</h3>
+        <p>In-house lab, X-ray, ultrasound, blood tests, home sample collection & quick reports.</p>
+        <span class="svc-link">Learn more →</span>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-icon">💉</div>
+        <h3>Vaccination Clinic</h3>
+        <p>Adult & child immunisations, travel vaccines, flu shots, HPV and COVID boosters.</p>
+        <span class="svc-link">Learn more →</span>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-icon">👶</div>
+        <h3>Paediatrics</h3>
+        <p>Newborn care, growth monitoring, paediatric consultations & childhood disease management.</p>
+        <span class="svc-link">Learn more →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 5: WHY CHOOSE US ═══ -->
+<section id="why">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-visual fade-up">
+        <div class="why-big-card">
+          <h3>Why 12,000+ Families Trust MediCare Plus</h3>
+          <p>We believe great healthcare should be accessible, transparent, and warm — not cold and confusing.</p>
+          <a class="btn" style="background:#fff;color:var(--teal);" href="#appointment">Schedule a Visit →</a>
+          <div class="why-small-cards">
+            <div class="why-sm">
+              <strong>🕐 Same-Day</strong>
+              <span>Appointment slots</span>
+            </div>
+            <div class="why-sm">
+              <strong>💬 WhatsApp</strong>
+              <span>All enquiries handled</span>
+            </div>
+            <div class="why-sm">
+              <strong>🏥 NABH</strong>
+              <span>Accredited facility</span>
+            </div>
+            <div class="why-sm">
+              <strong>📋 Records</strong>
+              <span>Digital health records</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-list">
+        <div class="why-item fade-up">
+          <div class="why-icon">🏅</div>
+          <div>
+            <h4>Accredited & Certified Specialists</h4>
+            <p>All our doctors are MBBS / MD / MS qualified from top Indian institutions with active registrations.</p>
+          </div>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-icon">💬</div>
+          <div>
+            <h4>WhatsApp Enquiry Management</h4>
+            <p>Message us anytime for appointments, reports, reminders or any health query — we respond within minutes.</p>
+          </div>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-icon">🔬</div>
+          <div>
+            <h4>Advanced In-House Equipment</h4>
+            <p>State-of-the-art diagnostic tools, digital X-ray, ultrasound, OCT for eyes & digital dental X-ray.</p>
+          </div>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-icon">💊</div>
+          <div>
+            <h4>In-House Pharmacy & Lab</h4>
+            <p>No running around — medicines and tests are available right here, saving your time and money.</p>
+          </div>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-icon">📲</div>
+          <div>
+            <h4>Digital Reports on WhatsApp</h4>
+            <p>Lab reports and prescriptions delivered directly to your WhatsApp — no paper, no delay.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 6: APPOINTMENT FORM ═══ -->
+<section id="appointment">
+  <div class="container">
+    <div class="appt-inner">
+      <div class="appt-left fade-up">
+        <span class="tag" style="background:rgba(255,255,255,.1);color:var(--teal-l);">Book Now</span>
+        <h2>Schedule Your Appointment</h2>
+        <p>Fill the form or reach us instantly on WhatsApp. Our team confirms within 15 minutes.</p>
+        <div class="appt-info">
+          <div class="appt-info-item">
+            <div class="appt-info-icon">📍</div>
+            <div><strong>Location</strong><p>123 Medical Lane, City Centre, Pincode 110001</p></div>
+          </div>
+          <div class="appt-info-item">
+            <div class="appt-info-icon">🕐</div>
+            <div><strong>Clinic Hours</strong><p>Mon–Sat: 8 AM – 9 PM · Sunday: 9 AM – 2 PM</p></div>
+          </div>
+          <div class="appt-info-item">
+            <div class="appt-info-icon">📞</div>
+            <div><strong>Phone</strong><p>+91-99999-99999 · +91-88888-88888</p></div>
+          </div>
+          <div class="appt-info-item">
+            <div class="appt-info-icon">📧</div>
+            <div><strong>Email</strong><p>info@medicareplus.in</p></div>
+          </div>
+          <a class="btn btn-wa" href="https://wa.me/919999999999?text=I+need+to+book+an+appointment" target="_blank" style="margin-top:10px;">
+            💬 Quick Book on WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="appt-form-wrap fade-up">
+        <h3>Book a Consultation</h3>
+        <p>We'll confirm your slot within 15 minutes via WhatsApp.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" placeholder="Full Name">
+          </div>
+          <div class="form-group">
+            <label>Phone / WhatsApp *</label>
+            <input type="tel" placeholder="+91 98765 43210">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@email.com">
+          </div>
+          <div class="form-group">
+            <label>Patient Age</label>
+            <input type="number" placeholder="e.g. 35">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Select Specialty *</label>
+          <select>
+            <option>Choose Department</option>
+            <option>👁️ Eye Care – Dr. Anil Sharma</option>
+            <option>🦷 Dental – Dr. Priya Mehta</option>
+            <option>🩺 General Medicine – Dr. Rakesh Verma</option>
+            <option>❤️ Cardiology – Dr. Sunita Gupta</option>
+            <option>🦴 Orthopaedics</option>
+            <option>👶 Paediatrics</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date">
+          </div>
+          <div class="form-group">
+            <label>Preferred Time</label>
+            <select>
+              <option>Morning (8–12 PM)</option>
+              <option>Afternoon (12–5 PM)</option>
+              <option>Evening (5–9 PM)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Describe Your Concern</label>
+          <textarea placeholder="Tell us about your symptoms or reason for visit..."></textarea>
+        </div>
+        <button class="btn btn-primary form-submit" onclick="submitForm()">📅 Confirm Appointment</button>
+        <div class="form-note">
+          <span>🔒</span> Your data is safe. We send confirmation via WhatsApp only.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 7: VIDEOS ═══ -->
+<section id="videos">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="tag">Health Education</span>
+      <h2>Watch. Learn. Stay Healthy.</h2>
+      <p>Our doctors share expert health tips, procedure walkthroughs and patient education videos.</p>
+    </div>
+    <div class="videos-grid">
+      <div class="video-card fade-up">
+        <div class="video-thumb">
+          <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-label">
+          <h4>Understanding LASIK Eye Surgery</h4>
+          <p>Dr. Anil Sharma walks you through modern LASIK — what to expect before, during and after.</p>
+          <span class="tag">👁️ Eye Care</span>
+        </div>
+      </div>
+      <div class="video-card fade-up">
+        <div class="video-thumb">
+          <iframe src="https://www.youtube.com/embed/2LpMM9CkMeQ" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-label">
+          <h4>Dental Implants Explained Simply</h4>
+          <p>Everything you need to know about dental implants — costs, process and recovery tips.</p>
+          <span class="tag">🦷 Dental</span>
+        </div>
+      </div>
+      <div class="video-card fade-up">
+        <div class="video-thumb">
+          <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-label">
+          <h4>Managing Diabetes in Daily Life</h4>
+          <p>Dr. Verma shares practical tips to keep blood sugar in control through diet and lifestyle.</p>
+          <span class="tag">🩺 General Medicine</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <a class="btn btn-outline" href="https://youtube.com" target="_blank">▶ View All Health Videos</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 8: TESTIMONIALS ═══ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="tag">Patient Stories</span>
+      <h2>What Our Patients Say</h2>
+      <p>Thousands of happy patients trust us with their health — here's what some of them shared.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-up">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Dr. Sharma did my LASIK and I have perfect vision now. The entire process was smooth and painless. The staff is incredibly kind and professional. Highly recommend!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👩</div>
+          <div><strong>Neha Jain</strong><span>Eye Patient, Delhi</span></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Got my dental implant from Dr. Mehta. She explained everything patiently. No pain during the procedure! WhatsApp follow-up was very convenient. Will visit again.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👨</div>
+          <div><strong>Rajesh Patel</strong><span>Dental Patient, Noida</span></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">My entire family goes to MediCare Plus. Dr. Verma is like our family doctor now. Labs are in-house, reports come on WhatsApp. Best clinic in the area by far!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👴</div>
+          <div><strong>Suresh Kumar</strong><span>General Patient, Gurgaon</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 9: GALLERY / CLINIC TOUR ═══ -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="tag">Our Facility</span>
+      <h2>A Clinic That Feels Like Home</h2>
+      <p>Modern infrastructure, sterilised equipment, and a warm environment designed for patient comfort.</p>
+    </div>
+    <div class="gallery-grid fade-up">
+      <div class="gal-item">🏥</div>
+      <div class="gal-item">👁️</div>
+      <div class="gal-item">🦷</div>
+      <div class="gal-item">🔬</div>
+      <div class="gal-item">💊</div>
+    </div>
+    <p style="text-align:center;margin-top:16px;font-size:0.82rem;color:var(--muted);">Reception · Eye OT · Dental Suite · Pathology Lab · Pharmacy</p>
+  </div>
+</section>
+
+<!-- ═══ SECTION 10: BLOG ═══ -->
+<section id="blog">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="tag">Health Blog</span>
+      <h2>Expert Health Tips & Insights</h2>
+      <p>Stay informed with the latest health advice from our specialists — in simple, everyday language.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card fade-up">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">👁️</div>
+        <div class="blog-body">
+          <div class="blog-cat">Eye Care</div>
+          <h3>5 Signs You Need to See an Eye Doctor Immediately</h3>
+          <p>Blurry vision, floaters, eye pain — learn which symptoms need urgent attention and which can wait.</p>
+          <div class="blog-meta"><span>Dr. Anil Sharma</span><span>June 12, 2025</span></div>
+        </div>
+      </div>
+      <div class="blog-card fade-up">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA);">🦷</div>
+        <div class="blog-body">
+          <div class="blog-cat">Dental Health</div>
+          <h3>How to Take Care of Your Teeth After Braces</h3>
+          <p>Orthodontic treatment ends — but dental care doesn't. Here's your complete post-braces routine.</p>
+          <div class="blog-meta"><span>Dr. Priya Mehta</span><span>May 28, 2025</span></div>
+        </div>
+      </div>
+      <div class="blog-card fade-up">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#F0FDF4,#BBF7D0);">🩺</div>
+        <div class="blog-body">
+          <div class="blog-cat">Wellness</div>
+          <h3>10 Daily Habits to Keep Your Heart Healthy</h3>
+          <p>Simple lifestyle changes that dramatically reduce your risk of heart disease, backed by science.</p>
+          <div class="blog-meta"><span>Dr. Sunita Gupta</span><span>May 10, 2025</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <a class="btn btn-outline" href="#">Read All Articles →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 11: FAQ ═══ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div class="faq-left fade-up">
+        <span class="tag">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Have a question? We've answered the most common ones below. For anything else, just WhatsApp us!</p>
+        <a class="btn btn-wa" href="https://wa.me/919999999999?text=I+have+a+question" target="_blank" style="margin-top:10px;">💬 Ask on WhatsApp</a>
+      </div>
+      <div class="faq-list fade-up" id="faqList">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How do I book an appointment?<span class="arrow">▼</span></div>
+          <div class="faq-a"><p>You can book via WhatsApp at +91-99999-99999, call us directly, or use the online form on this page. We confirm your slot within 15 minutes.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Do you accept insurance?<span class="arrow">▼</span></div>
+          <div class="faq-a"><p>Yes! We accept major health insurance plans including Bajaj Allianz, Star Health, HDFC ERGO, MediAssist and government schemes like CGHS and Ayushman Bharat.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What are your clinic timings?<span class="arrow">▼</span></div>
+          <div class="faq-a"><p>We're open Monday–Saturday 8 AM to 9 PM and Sundays 9 AM to 2 PM. Emergency consultations are available outside hours — call us.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Can I get my lab reports on WhatsApp?<span class="arrow">▼</span></div>
+          <div class="faq-a"><p>Absolutely! All lab reports and prescriptions are digitally sent to your WhatsApp within the promised turnaround time — usually 2–4 hours for most tests.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Do you offer home visits or home sample collection?<span class="arrow">▼</span></div>
+          <div class="faq-a"><p>Yes — we offer home blood sample collection for select lab tests. Home visits are available for senior patients in specific cases. Contact us via WhatsApp to arrange.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Is parking available at the clinic?<span class="arrow">▼</span></div>
+          <div class="faq-a"><p>Yes, free parking is available for all patients in our dedicated parking lot. The entrance is from Medical Lane, and the parking can accommodate 40+ vehicles.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 12: CTA ═══ -->
+<section id="cta">
+  <div class="cta-inner fade-up">
+    <span class="tag" style="background:rgba(255,255,255,.15);color:#fff;">Take Action</span>
+    <h2>Your Health Can't Wait — Book Now</h2>
+    <p>Join 12,000+ patients who trust MediCare Plus for expert, compassionate care. Appointments available today!</p>
+    <div class="cta-actions">
+      <a class="btn btn-wa" href="https://wa.me/919999999999?text=I+want+to+book+an+appointment" target="_blank">💬 WhatsApp — Book Instantly</a>
+      <a class="btn" style="background:#fff;color:var(--teal);" href="#appointment">📅 Fill Appointment Form</a>
+      <a class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);" href="tel:+919999999999">📞 Call +91-99999-99999</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 13: PARTNERS / INSURANCE ═══ -->
+<section id="partners">
+  <div class="container">
+    <div class="partners-inner fade-up">
+      <h3>Accepted Insurance & Health Partners</h3>
+      <div class="partners-logos">
+        <div class="partner-logo">🏥 CGHS</div>
+        <div class="partner-logo">⭐ Star Health</div>
+        <div class="partner-logo">🏦 HDFC ERGO</div>
+        <div class="partner-logo">🛡️ Bajaj Allianz</div>
+        <div class="partner-logo">🌿 Ayushman Bharat</div>
+        <div class="partner-logo">💼 MediAssist</div>
+        <div class="partner-logo">🏢 New India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">⚕</div>
+          <div class="logo-text">MediCare Plus<span>Multi-Specialty Clinic</span></div>
+        </div>
+        <p>Delivering expert, compassionate healthcare to families since 2007. NABH accredited · 6 Specialties · 15+ Doctors.</p>
+        <div class="footer-socials">
+          <a class="fsoc" href="#" title="Facebook">f</a>
+          <a class="fsoc" href="#" title="Instagram">📷</a>
+          <a class="fsoc" href="#" title="YouTube">▶</a>
+          <a class="fsoc" href="#" title="Twitter">𝕏</a>
+        </div>
+        <a class="footer-wa-btn" href="https://wa.me/919999999999" target="_blank">💬 +91-99999-99999</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Eye Care & LASIK</a></li>
+          <li><a href="#">Dental & Implants</a></li>
+          <li><a href="#">General Medicine</a></li>
+          <li><a href="#">Cardiology</a></li>
+          <li><a href="#">Orthopaedics</a></li>
+          <li><a href="#">Pathology Lab</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#doctors">Our Doctors</a></li>
+          <li><a href="#appointment">Book Appointment</a></li>
+          <li><a href="#blog">Health Blog</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Patient Portal</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="footer-contact-item"><span>📍</span><p>123 Medical Lane, City Centre, New Delhi – 110001</p></div>
+        <div class="footer-contact-item"><span>📞</span><p>+91-99999-99999<br>+91-88888-88888</p></div>
+        <div class="footer-contact-item"><span>✉️</span><p>info@medicareplus.in</p></div>
+        <div class="footer-contact-item"><span>🕐</span><p>Mon–Sat: 8AM–9PM<br>Sunday: 9AM–2PM</p></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MediCare Plus. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service · Sitemap</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Hidden Google Translate element -->
+<div id="google_translate_element"></div>
+
+<!-- Language FAB -->
+<button id="lang-fab" onclick="toggleLangPanel()" aria-label="Change Language">
+  🌐
+  <span class="lang-tooltip">Change Language</span>
+</button>
+
+<!-- Language Panel -->
+<div id="lang-panel">
+  <div class="lp-header">
+    <div>
+      <h4>🌐 Select Language</h4>
+      <span>200+ world languages supported</span>
+    </div>
+    <button class="lp-close" onclick="closeLangPanel()">✕</button>
+  </div>
+  <div class="lp-search-wrap">
+    <input type="text" id="langSearch" placeholder="🔍 Search language..." oninput="filterLangs(this.value)">
+  </div>
+  <div class="lp-quick" id="quickLangs">
+    <button class="lp-quick-btn active" onclick="setLang('en','EN','English')">🇬🇧 EN</button>
+    <button class="lp-quick-btn" onclick="setLang('hi','HI','हिंदी')">🇮🇳 HI</button>
+    <button class="lp-quick-btn" onclick="setLang('ar','AR','Arabic')">🇸🇦 AR</button>
+    <button class="lp-quick-btn" onclick="setLang('zh-CN','ZH','中文')">🇨🇳 ZH</button>
+    <button class="lp-quick-btn" onclick="setLang('fr','FR','Français')">🇫🇷 FR</button>
+    <button class="lp-quick-btn" onclick="setLang('es','ES','Español')">🇪🇸 ES</button>
+    <button class="lp-quick-btn" onclick="setLang('de','DE','Deutsch')">🇩🇪 DE</button>
+    <button class="lp-quick-btn" onclick="setLang('ru','RU','Русский')">🇷🇺 RU</button>
+  </div>
+  <div class="lp-list" id="langList"></div>
+</div>
+
+<script>
+// ─── ALL WORLD LANGUAGES (200+) ───
+const LANGS = [
+  {code:'af',label:'Afrikaans',native:'Afrikaans',flag:'🇿🇦'},
+  {code:'sq',label:'Albanian',native:'Shqip',flag:'🇦🇱'},
+  {code:'am',label:'Amharic',native:'አማርኛ',flag:'🇪🇹'},
+  {code:'ar',label:'Arabic',native:'العربية',flag:'🇸🇦'},
+  {code:'hy',label:'Armenian',native:'Հայերեն',flag:'🇦🇲'},
+  {code:'as',label:'Assamese',native:'অসমীয়া',flag:'🇮🇳'},
+  {code:'ay',label:'Aymara',native:'Aymar aru',flag:'🇧🇴'},
+  {code:'az',label:'Azerbaijani',native:'Azərbaycan',flag:'🇦🇿'},
+  {code:'bm',label:'Bambara',native:'Bamanankan',flag:'🇲🇱'},
+  {code:'eu',label:'Basque',native:'Euskara',flag:'🇪🇸'},
+  {code:'be',label:'Belarusian',native:'Беларуская',flag:'🇧🇾'},
+  {code:'bn',label:'Bengali',native:'বাংলা',flag:'🇧🇩'},
+  {code:'bho',label:'Bhojpuri',native:'भोजपुरी',flag:'🇮🇳'},
+  {code:'bs',label:'Bosnian',native:'Bosanski',flag:'🇧🇦'},
+  {code:'bg',label:'Bulgarian',native:'Български',flag:'🇧🇬'},
+  {code:'ca',label:'Catalan',native:'Català',flag:'🇪🇸'},
+  {code:'ceb',label:'Cebuano',native:'Cebuano',flag:'🇵🇭'},
+  {code:'zh-CN',label:'Chinese (Simplified)',native:'中文(简体)',flag:'🇨🇳'},
+  {code:'zh-TW',label:'Chinese (Traditional)',native:'中文(繁體)',flag:'🇹🇼'},
+  {code:'co',label:'Corsican',native:'Corsu',flag:'🇫🇷'},
+  {code:'hr',label:'Croatian',native:'Hrvatski',flag:'🇭🇷'},
+  {code:'cs',label:'Czech',native:'Čeština',flag:'🇨🇿'},
+  {code:'da',label:'Danish',native:'Dansk',flag:'🇩🇰'},
+  {code:'dv',label:'Dhivehi',native:'ދިވެހި',flag:'🇲🇻'},
+  {code:'doi',label:'Dogri',native:'डोगरी',flag:'🇮🇳'},
+  {code:'nl',label:'Dutch',native:'Nederlands',flag:'🇳🇱'},
+  {code:'en',label:'English',native:'English',flag:'🇬🇧'},
+  {code:'eo',label:'Esperanto',native:'Esperanto',flag:'🌍'},
+  {code:'et',label:'Estonian',native:'Eesti',flag:'🇪🇪'},
+  {code:'ee',label:'Ewe',native:'Eʋegbe',flag:'🇬🇭'},
+  {code:'fil',label:'Filipino',native:'Filipino',flag:'🇵🇭'},
+  {code:'fi',label:'Finnish',native:'Suomi',flag:'🇫🇮'},
+  {code:'fr',label:'French',native:'Français',flag:'🇫🇷'},
+  {code:'fy',label:'Frisian',native:'Frysk',flag:'🇳🇱'},
+  {code:'gl',label:'Galician',native:'Galego',flag:'🇪🇸'},
+  {code:'ka',label:'Georgian',native:'ქართული',flag:'🇬🇪'},
+  {code:'de',label:'German',native:'Deutsch',flag:'🇩🇪'},
+  {code:'el',label:'Greek',native:'Ελληνικά',flag:'🇬🇷'},
+  {code:'gn',label:'Guarani',native:'Avañe\'ẽ',flag:'🇵🇾'},
+  {code:'gu',label:'Gujarati',native:'ગુજરાતી',flag:'🇮🇳'},
+  {code:'ht',label:'Haitian Creole',native:'Kreyòl ayisyen',flag:'🇭🇹'},
+  {code:'ha',label:'Hausa',native:'Hausa',flag:'🇳🇬'},
+  {code:'haw',label:'Hawaiian',native:'ʻŌlelo Hawaiʻi',flag:'🇺🇸'},
+  {code:'iw',label:'Hebrew',native:'עברית',flag:'🇮🇱'},
+  {code:'hi',label:'Hindi',native:'हिंदी',flag:'🇮🇳'},
+  {code:'hmn',label:'Hmong',native:'Hmoob',flag:'🇱🇦'},
+  {code:'hu',label:'Hungarian',native:'Magyar',flag:'🇭🇺'},
+  {code:'is',label:'Icelandic',native:'Íslenska',flag:'🇮🇸'},
+  {code:'ig',label:'Igbo',native:'Igbo',flag:'🇳🇬'},
+  {code:'ilo',label:'Ilocano',native:'Ilocano',flag:'🇵🇭'},
+  {code:'id',label:'Indonesian',native:'Bahasa Indonesia',flag:'🇮🇩'},
+  {code:'ga',label:'Irish',native:'Gaeilge',flag:'🇮🇪'},
+  {code:'it',label:'Italian',native:'Italiano',flag:'🇮🇹'},
+  {code:'ja',label:'Japanese',native:'日本語',flag:'🇯🇵'},
+  {code:'jw',label:'Javanese',native:'Basa Jawa',flag:'🇮🇩'},
+  {code:'kn',label:'Kannada',native:'ಕನ್ನಡ',flag:'🇮🇳'},
+  {code:'kk',label:'Kazakh',native:'Қазақша',flag:'🇰🇿'},
+  {code:'km',label:'Khmer',native:'ខ្មែរ',flag:'🇰🇭'},
+  {code:'rw',label:'Kinyarwanda',native:'Kinyarwanda',flag:'🇷🇼'},
+  {code:'gom',label:'Konkani',native:'कोंकणी',flag:'🇮🇳'},
+  {code:'ko',label:'Korean',native:'한국어',flag:'🇰🇷'},
+  {code:'kri',label:'Krio',native:'Krio',flag:'🇸🇱'},
+  {code:'ku',label:'Kurdish (Kurmanji)',native:'Kurdî',flag:'🇹🇷'},
+  {code:'ckb',label:'Kurdish (Sorani)',native:'سۆرانی',flag:'🇮🇶'},
+  {code:'ky',label:'Kyrgyz',native:'Кыргызча',flag:'🇰🇬'},
+  {code:'lo',label:'Lao',native:'ລາວ',flag:'🇱🇦'},
+  {code:'la',label:'Latin',native:'Latina',flag:'🇻🇦'},
+  {code:'lv',label:'Latvian',native:'Latviešu',flag:'🇱🇻'},
+  {code:'ln',label:'Lingala',native:'Lingála',flag:'🇨🇩'},
+  {code:'lt',label:'Lithuanian',native:'Lietuvių',flag:'🇱🇹'},
+  {code:'lg',label:'Luganda',native:'Luganda',flag:'🇺🇬'},
+  {code:'lb',label:'Luxembourgish',native:'Lëtzebuergesch',flag:'🇱🇺'},
+  {code:'mk',label:'Macedonian',native:'Македонски',flag:'🇲🇰'},
+  {code:'mai',label:'Maithili',native:'मैथिली',flag:'🇮🇳'},
+  {code:'mg',label:'Malagasy',native:'Malagasy',flag:'🇲🇬'},
+  {code:'ms',label:'Malay',native:'Bahasa Melayu',flag:'🇲🇾'},
+  {code:'ml',label:'Malayalam',native:'മലയാളം',flag:'🇮🇳'},
+  {code:'mt',label:'Maltese',native:'Malti',flag:'🇲🇹'},
+  {code:'mi',label:'Maori',native:'Māori',flag:'🇳🇿'},
+  {code:'mr',label:'Marathi',native:'मराठी',flag:'🇮🇳'},
+  {code:'mni-Mtei',label:'Meitei (Manipuri)',native:'ꯃꯤꯇꯩ',flag:'🇮🇳'},
+  {code:'lus',label:'Mizo',native:'Mizo ṭawng',flag:'🇮🇳'},
+  {code:'mn',label:'Mongolian',native:'Монгол',flag:'🇲🇳'},
+  {code:'my',label:'Myanmar (Burmese)',native:'မြန်မာ',flag:'🇲🇲'},
+  {code:'ne',label:'Nepali',native:'नेपाली',flag:'🇳🇵'},
+  {code:'no',label:'Norwegian',native:'Norsk',flag:'🇳🇴'},
+  {code:'ny',label:'Nyanja (Chichewa)',native:'Chichewa',flag:'🇲🇼'},
+  {code:'or',label:'Odia (Oriya)',native:'ଓଡ଼ିଆ',flag:'🇮🇳'},
+  {code:'om',label:'Oromo',native:'Afaan Oromoo',flag:'🇪🇹'},
+  {code:'ps',label:'Pashto',native:'پښتو',flag:'🇦🇫'},
+  {code:'fa',label:'Persian',native:'فارسی',flag:'🇮🇷'},
+  {code:'pl',label:'Polish',native:'Polski',flag:'🇵🇱'},
+  {code:'pt',label:'Portuguese',native:'Português',flag:'🇵🇹'},
+  {code:'pa',label:'Punjabi',native:'ਪੰਜਾਬੀ',flag:'🇮🇳'},
+  {code:'qu',label:'Quechua',native:'Runasimi',flag:'🇵🇪'},
+  {code:'ro',label:'Romanian',native:'Română',flag:'🇷🇴'},
+  {code:'ru',label:'Russian',native:'Русский',flag:'🇷🇺'},
+  {code:'sm',label:'Samoan',native:'Gagana Samoa',flag:'🇼🇸'},
+  {code:'sa',label:'Sanskrit',native:'संस्कृतम्',flag:'🇮🇳'},
+  {code:'gd',label:'Scots Gaelic',native:'Gàidhlig',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿'},
+  {code:'nso',label:'Sepedi',native:'Sepedi',flag:'🇿🇦'},
+  {code:'sr',label:'Serbian',native:'Српски',flag:'🇷🇸'},
+  {code:'st',label:'Sesotho',native:'Sesotho',flag:'🇱🇸'},
+  {code:'sn',label:'Shona',native:'chiShona',flag:'🇿🇼'},
+  {code:'sd',label:'Sindhi',native:'سنڌي',flag:'🇵🇰'},
+  {code:'si',label:'Sinhala',native:'සිංහල',flag:'🇱🇰'},
+  {code:'sk',label:'Slovak',native:'Slovenčina',flag:'🇸🇰'},
+  {code:'sl',label:'Slovenian',native:'Slovenščina',flag:'🇸🇮'},
+  {code:'so',label:'Somali',native:'Soomaali',flag:'🇸🇴'},
+  {code:'es',label:'Spanish',native:'Español',flag:'🇪🇸'},
+  {code:'su',label:'Sundanese',native:'Basa Sunda',flag:'🇮🇩'},
+  {code:'sw',label:'Swahili',native:'Kiswahili',flag:'🇰🇪'},
+  {code:'sv',label:'Swedish',native:'Svenska',flag:'🇸🇪'},
+  {code:'tl',label:'Tagalog',native:'Tagalog',flag:'🇵🇭'},
+  {code:'tg',label:'Tajik',native:'Тоҷикӣ',flag:'🇹🇯'},
+  {code:'ta',label:'Tamil',native:'தமிழ்',flag:'🇮🇳'},
+  {code:'tt',label:'Tatar',native:'Татарча',flag:'🇷🇺'},
+  {code:'te',label:'Telugu',native:'తెలుగు',flag:'🇮🇳'},
+  {code:'th',label:'Thai',native:'ภาษาไทย',flag:'🇹🇭'},
+  {code:'ti',label:'Tigrinya',native:'ትግርኛ',flag:'🇪🇷'},
+  {code:'ts',label:'Tsonga',native:'Xitsonga',flag:'🇿🇦'},
+  {code:'tr',label:'Turkish',native:'Türkçe',flag:'🇹🇷'},
+  {code:'tk',label:'Turkmen',native:'Türkmen',flag:'🇹🇲'},
+  {code:'ak',label:'Twi',native:'Twi',flag:'🇬🇭'},
+  {code:'uk',label:'Ukrainian',native:'Українська',flag:'🇺🇦'},
+  {code:'ur',label:'Urdu',native:'اردو',flag:'🇵🇰'},
+  {code:'ug',label:'Uyghur',native:'ئۇيغۇرچە',flag:'🇨🇳'},
+  {code:'uz',label:'Uzbek',native:'O\'zbek',flag:'🇺🇿'},
+  {code:'vi',label:'Vietnamese',native:'Tiếng Việt',flag:'🇻🇳'},
+  {code:'cy',label:'Welsh',native:'Cymraeg',flag:'🏴󠁧󠁢󠁷󠁬󠁳󠁿'},
+  {code:'xh',label:'Xhosa',native:'isiXhosa',flag:'🇿🇦'},
+  {code:'yi',label:'Yiddish',native:'ייִדיש',flag:'🇮🇱'},
+  {code:'yo',label:'Yoruba',native:'Yorùbá',flag:'🇳🇬'},
+  {code:'zu',label:'Zulu',native:'isiZulu',flag:'🇿🇦'},
+];
+
+let currentLang = 'en';
+let panelOpen = false;
+
+// ── BUILD LIST ──
+function buildList(filter='') {
+  const list = document.getElementById('langList');
+  const q = filter.toLowerCase();
+  const filtered = q ? LANGS.filter(l =>
+    l.label.toLowerCase().includes(q) ||
+    l.native.toLowerCase().includes(q) ||
+    l.code.toLowerCase().includes(q)
+  ) : LANGS;
+  list.innerHTML = filtered.map(l => `
+    <div class="lp-item ${l.code===currentLang?'active':''}" onclick="setLang('${l.code}','${l.code.toUpperCase().slice(0,2)}','${l.label}')">
+      <span class="flag">${l.flag}</span>
+      <span class="lang-name">${l.label}</span>
+      <span class="lang-native">${l.native}</span>
+    </div>
+  `).join('');
+  // scroll active into view
+  setTimeout(()=>{
+    const a = list.querySelector('.active');
+    if(a) a.scrollIntoView({block:'center',behavior:'smooth'});
+  },50);
+}
+
+function filterLangs(q) { buildList(q); }
+
+// ── SET LANGUAGE via Google Translate cookie ──
+function setLang(code, shortLabel, fullLabel) {
+  currentLang = code;
+  document.getElementById('nav-lang-label').textContent = shortLabel.toUpperCase().slice(0,3);
+  buildList(document.getElementById('langSearch').value);
+
+  // Update quick buttons
+  document.querySelectorAll('.lp-quick-btn').forEach(b => b.classList.remove('active'));
+
+  // Trigger Google Translate
+  if(code === 'en') {
+    // Restore original
+    const sel = document.querySelector('.goog-te-combo');
+    if(sel) { sel.value='en'; sel.dispatchEvent(new Event('change')); }
+    else {
+      // Use cookie method
+      document.cookie = 'googtrans=/en/en; path=/';
+      location.reload();
+    }
+  } else {
+    const sel = document.querySelector('.goog-te-combo');
+    if(sel) {
+      sel.value = code;
+      sel.dispatchEvent(new Event('change'));
+    } else {
+      document.cookie = `googtrans=/en/${code}; path=/`;
+      // Try iframe approach
+      const iframe = document.querySelector('.goog-te-menu-frame');
+      if(!iframe) {
+        // Trigger via element click
+        triggerTranslate(code);
+      }
+    }
+  }
+  closeLangPanel();
+  // Show toast
+  showToast(`🌐 Translating to ${fullLabel}...`);
+}
+
+function triggerTranslate(langCode) {
+  // Wait for Google widget then trigger
+  let tries = 0;
+  const iv = setInterval(()=>{
+    const sel = document.querySelector('.goog-te-combo');
+    if(sel) {
+      sel.value = langCode;
+      sel.dispatchEvent(new Event('change'));
+      clearInterval(iv);
+    } else if(++tries > 20) clearInterval(iv);
+  }, 200);
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  var t = document.getElementById('lang-toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'lang-toast';
+    t.style.cssText = 'position:fixed;bottom:170px;left:50%;transform:translateX(-50%);background:#0E1B2A;color:#fff;padding:10px 20px;border-radius:50px;font-size:0.85rem;font-weight:600;z-index:99999;transition:opacity .3s;pointer-events:none;white-space:nowrap;opacity:0;';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.opacity = '1';
+  clearTimeout(t._to);
+  t._to = setTimeout(function(){ t.style.opacity = '0'; }, 2500);
+}
+
+// ── PANEL TOGGLE ──
+function toggleLangPanel() {
+  panelOpen = !panelOpen;
+  var panel = document.getElementById('lang-panel');
+  if (panelOpen) {
+    panel.classList.add('open');
+    buildList();
+    setTimeout(function(){ document.getElementById('langSearch').focus(); }, 100);
+  } else {
+    panel.classList.remove('open');
+  }
+}
+
+function closeLangPanel() {
+  panelOpen = false;
+  document.getElementById('lang-panel').classList.remove('open');
+}
+
+// Close panel on outside click
+document.addEventListener('click', function(e) {
+  if (panelOpen &&
+      !e.target.closest('#lang-panel') &&
+      !e.target.closest('#lang-fab') &&
+      !e.target.closest('.nav-lang-btn')) {
+    closeLangPanel();
+  }
+});
+
+// Init list on load
+buildList();
+
+// ── NAVBAR SCROLL ──
+window.addEventListener('scroll', function() {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// ── MOBILE MENU ──
+function toggleMenu() {
+  document.getElementById('ham').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('show');
+}
+function closeMenu() {
+  document.getElementById('ham').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('show');
+}
+
+// ── FADE-UP ON SCROLL ──
+var io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(function(el) { io.observe(el); });
+
+// ── COUNTER ANIMATION ──
+var counterObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (!entry.isIntersecting) return;
+    var el = entry.target;
+    var target = +el.dataset.target;
+    var cur = 0;
+    var step = Math.ceil(target / 60);
+    var timer = setInterval(function() {
+      cur = Math.min(cur + step, target);
+      el.textContent = cur >= 1000 ? (cur / 1000).toFixed(1) + 'K+' : cur + '+';
+      if (cur >= target) clearInterval(timer);
+    }, 25);
+    counterObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.ach-num[data-target]').forEach(function(el) { counterObs.observe(el); });
+
+// ── FAQ TOGGLE ──
+function toggleFaq(el) {
+  var item = el.parentElement;
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── APPOINTMENT FORM → WHATSAPP ──
+function submitForm() {
+  var name = document.querySelector('input[placeholder="Full Name"]').value || 'Patient';
+  var phone = document.querySelector('input[placeholder="+91 98765 43210"]').value || '';
+  var dept = document.querySelector('select').value || 'Not specified';
+  var msg = encodeURIComponent('Hello MediCare Plus!\n\nAppointment Request:\n• Name: ' + name + '\n• Phone: ' + phone + '\n• Department: ' + dept + '\n\nPlease confirm my slot. Thank you!');
+  window.open('https://wa.me/919999999999?text=' + msg, '_blank');
+}
+</script>
+</body>
+</html>
