@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azure Shores Resort & Travel – Luxury Hotel & Tour Packages | Book Your Dream Stay</title>
+  <meta name="description" content="Experience unparalleled luxury at Azure Shores Resort. Book premium rooms, honeymoon packages, family tours & adventure trips. Best price guarantee. Instant confirmation." />
+  <meta name="keywords" content="luxury resort, hotel booking, honeymoon packages, family tours, adventure trips, beach resort, luxury travel" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Flatpickr date picker -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#C9A84C',
+            'gold-light': '#E8C97A',
+            'ocean': '#1A6B8A',
+            'ocean-dark': '#0F4A62',
+            'ocean-light': '#4A9DC0',
+            'cream': '#F8F4EE',
+            'beige': '#EDE8DF',
+            'sand': '#D4C5A9',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            body: ['Jost', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --ocean: #1A6B8A;
+      --ocean-dark: #0F4A62;
+      --cream: #F8F4EE;
+      --beige: #EDE8DF;
+    }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: #fff; color: #2c2c2c; overflow-x: hidden; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ── NAVBAR ── */
+    #navbar { transition: all 0.4s ease; }
+    #navbar.scrolled { background: rgba(15,74,98,0.97) !important; backdrop-filter: blur(12px); box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+    .nav-link { position: relative; }
+    .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:1px; background:var(--gold); transition:width .3s; }
+    .nav-link:hover::after { width:100%; }
+
+    /* ── HERO ── */
+    #hero { position: relative; height: 100vh; min-height: 680px; overflow: hidden; }
+    #hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,40,60,0.75) 0%, rgba(15,74,98,0.5) 50%, rgba(0,0,0,0.4) 100%); z-index: 1; }
+    .hero-content { position: relative; z-index: 2; }
+
+    /* ── GOLD DIVIDER ── */
+    .gold-divider { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto; }
+    .gold-divider-left { width: 60px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
+
+    /* ── BOOKING BAR ── */
+    .booking-bar { background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); border-top: 3px solid var(--gold); }
+
+    /* ── CARDS ── */
+    .room-card { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+    .room-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.15); }
+    .room-card img { transition: transform 0.6s ease; }
+    .room-card:hover img { transform: scale(1.05); }
+
+    /* ── PACKAGE CARD ── */
+    .pkg-card { transition: all 0.4s ease; border: 1px solid transparent; }
+    .pkg-card:hover { border-color: var(--gold); box-shadow: 0 20px 50px rgba(201,168,76,0.15); transform: translateY(-6px); }
+
+    /* ── TESTIMONIAL SLIDER ── */
+    .testimonial-slide { display: none; }
+    .testimonial-slide.active { display: block; animation: fadeIn 0.5s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ── GALLERY ── */
+    .gallery-item { overflow: hidden; cursor: pointer; }
+    .gallery-item img { transition: transform 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.08); }
+
+    /* ── LIGHTBOX ── */
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 9999; align-items: center; justify-content: center; }
+    #lightbox.active { display: flex; }
+    #lightbox img { max-width: 90vw; max-height: 88vh; border: 2px solid var(--gold); border-radius: 4px; }
+
+    /* ── ACCORDION ── */
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-answer.open { max-height: 400px; }
+    .faq-icon { transition: transform 0.3s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* ── FLOATING BTNS ── */
+    .floating-wa { position: fixed; bottom: 28px; right: 28px; z-index: 1000; animation: pulse 2.5s infinite; }
+    @keyframes pulse { 0%,100%{ box-shadow:0 0 0 0 rgba(37,211,102,0.5); } 70%{ box-shadow:0 0 0 14px rgba(37,211,102,0); } }
+    .sticky-book-btn { position: fixed; bottom: 28px; left: 28px; z-index: 1000; }
+
+    /* ── POPUP ── */
+    #offer-popup { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:10000; align-items:center; justify-content:center; }
+    #offer-popup.active { display:flex; }
+
+    /* ── SECTION HEADINGS ── */
+    .section-tag { font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    h1, h2, .display-font { font-family: 'Cormorant Garamond', serif; }
+
+    /* ── FORM ── */
+    .form-input { width:100%; padding:12px 16px; border:1px solid #d1c9bc; border-radius:4px; font-family:'Jost',sans-serif; font-size:0.9rem; background:#fff; transition:border-color .3s; outline:none; }
+    .form-input:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,168,76,0.1); }
+
+    /* ── AMENITY ICON ── */
+    .amenity-icon { width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:#fff; font-size:1.4rem; margin:0 auto; transition:transform .3s; }
+    .amenity-card:hover .amenity-icon { transform:scale(1.1) rotate(5deg); }
+
+    /* ── BTN ── */
+    .btn-gold { background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:#fff; font-family:'Jost',sans-serif; font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:.85rem; padding:14px 32px; border-radius:2px; border:none; cursor:pointer; transition:all .3s; box-shadow:0 4px 20px rgba(201,168,76,.3); }
+    .btn-gold:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(201,168,76,.45); }
+    .btn-ocean { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:#fff; font-family:'Jost',sans-serif; font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:.85rem; padding:14px 32px; border-radius:2px; border:none; cursor:pointer; transition:all .3s; }
+    .btn-ocean:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(26,107,138,.4); }
+    .btn-outline { background:transparent; color:#fff; font-family:'Jost',sans-serif; font-weight:500; letter-spacing:.08em; text-transform:uppercase; font-size:.85rem; padding:13px 30px; border-radius:2px; border:1.5px solid rgba(255,255,255,0.7); cursor:pointer; transition:all .3s; }
+    .btn-outline:hover { background:rgba(255,255,255,0.12); border-color:#fff; }
+
+    /* ── STAR RATING ── */
+    .stars { color:var(--gold); }
+
+    /* ── MAP ── */
+    .map-wrapper { position:relative; overflow:hidden; border:3px solid var(--gold); }
+
+    /* Fade in up animation */
+    @keyframes slideUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+
+    @media (max-width: 768px) {
+      .floating-wa { bottom:90px; }
+      .sticky-book-btn { display:none; }
+    }
+  </style>
+
+  <!-- JSON-LD: Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Azure Shores Resort & Travel",
+    "description": "Luxury resort offering premium rooms, suites, villas, honeymoon packages, family tours, and adventure travel experiences.",
+    "url": "https://azureshoresresort.com",
+    "telephone": "+91-9876543210",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Paradise Beach Road",
+      "addressLocality": "Goa",
+      "addressRegion": "Goa",
+      "postalCode": "403001",
+      "addressCountry": "IN"
+    },
+    "starRating": { "@type": "Rating", "ratingValue": "5" },
+    "priceRange": "₹₹₹₹",
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "5000" }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is the check-in and check-out time?", "acceptedAnswer": { "@type": "Answer", "text": "Check-in is at 2:00 PM and check-out is at 12:00 PM (noon). Early check-in and late check-out are available upon request." } },
+      { "@type": "Question", "name": "Do you offer airport transfers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we offer complimentary airport pickup for bookings of 3 nights or more. Private transfers can also be arranged." } },
+      { "@type": "Question", "name": "Are meals included in the room rate?", "acceptedAnswer": { "@type": "Answer", "text": "Breakfast is included in most room packages. Full board (breakfast, lunch & dinner) is available and can be added at booking." } },
+      { "@type": "Question", "name": "Can I customize a tour package?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely! We specialize in tailor-made travel experiences. Contact our team via WhatsApp or the enquiry form for a custom itinerary." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     OFFER POPUP
+═══════════════════════════════════════════════ -->
+<div id="offer-popup">
+  <div class="bg-white rounded-lg max-w-lg w-full mx-4 overflow-hidden shadow-2xl relative">
+    <div class="bg-gradient-to-r from-ocean-dark to-ocean p-8 text-white text-center">
+      <div class="text-gold text-5xl mb-3">🏖️</div>
+      <p class="section-tag text-gold-light mb-2">Limited Time Offer</p>
+      <h2 class="display-font text-4xl font-light mb-2">20% OFF</h2>
+      <p class="font-body text-lg opacity-90">On all bookings this season!</p>
+    </div>
+    <div class="p-8 text-center">
+      <p class="text-gray-600 mb-6 font-body">Use code <strong class="text-gold">AZURE20</strong> at checkout. Valid for stays between May–September 2025.</p>
+      <div class="flex gap-3 justify-center">
+        <button onclick="closePopup()" class="btn-gold">Claim Offer</button>
+        <button onclick="closePopup()" class="text-gray-400 hover:text-gray-600 text-sm font-body underline self-center">No thanks</button>
+      </div>
+    </div>
+    <button onclick="closePopup()" class="absolute top-4 right-4 text-white opacity-70 hover:opacity-100 text-2xl">✕</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     LIGHTBOX
+═══════════════════════════════════════════════ -->
+<div id="lightbox" onclick="closeLightbox()">
+  <div class="relative">
+    <img id="lightbox-img" src="" alt="Gallery Image" />
+    <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white text-3xl hover:text-gold">✕</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     1. NAVBAR
+═══════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-transparent py-4 px-6">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center">
+        <i class="fas fa-umbrella-beach text-white text-sm"></i>
+      </div>
+      <div>
+        <div class="display-font text-white text-xl font-semibold leading-tight">Azure Shores</div>
+        <div class="text-gold-light text-xs tracking-widest uppercase font-body">Resort & Travel</div>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul class="hidden lg:flex items-center gap-8">
+      <li><a href="#rooms" class="nav-link text-white/90 hover:text-white font-body text-sm tracking-wide">Rooms</a></li>
+      <li><a href="#packages" class="nav-link text-white/90 hover:text-white font-body text-sm tracking-wide">Packages</a></li>
+      <li><a href="#gallery" class="nav-link text-white/90 hover:text-white font-body text-sm tracking-wide">Gallery</a></li>
+      <li><a href="#blog" class="nav-link text-white/90 hover:text-white font-body text-sm tracking-wide">Blog</a></li>
+      <li><a href="#contact" class="nav-link text-white/90 hover:text-white font-body text-sm tracking-wide">Contact</a></li>
+    </ul>
+
+    <!-- CTA -->
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="https://wa.me/919876543210" target="_blank" class="flex items-center gap-2 text-white/80 hover:text-white font-body text-sm">
+        <i class="fab fa-whatsapp text-green-400 text-lg"></i> WhatsApp
+      </a>
+      <a href="#booking" class="btn-gold text-sm px-6 py-3">Book Now</a>
+    </div>
+
+    <!-- Hamburger -->
+    <button id="hamburger" onclick="toggleMenu()" class="lg:hidden text-white text-2xl">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-ocean-dark/97 backdrop-blur-lg absolute top-full left-0 right-0 py-6 px-6 border-t border-gold/30">
+    <ul class="flex flex-col gap-4">
+      <li><a href="#rooms" onclick="toggleMenu()" class="text-white font-body text-base block py-1">Rooms</a></li>
+      <li><a href="#packages" onclick="toggleMenu()" class="text-white font-body text-base block py-1">Packages</a></li>
+      <li><a href="#gallery" onclick="toggleMenu()" class="text-white font-body text-base block py-1">Gallery</a></li>
+      <li><a href="#blog" onclick="toggleMenu()" class="text-white font-body text-base block py-1">Blog</a></li>
+      <li><a href="#contact" onclick="toggleMenu()" class="text-white font-body text-base block py-1">Contact</a></li>
+      <li class="pt-2"><a href="#booking" onclick="toggleMenu()" class="btn-gold inline-block text-sm px-6 py-3">Book Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     2. HERO
+═══════════════════════════════════════════════ -->
+<section id="hero">
+  <!-- Video BG (fallback: a gradient) -->
+  <video id="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&q=80">
+    <source src="" type="video/mp4">
+  </video>
+  <!-- Fallback image if video fails -->
+  <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1800&q=80') center/cover no-repeat;z-index:0;"></div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content h-full flex flex-col justify-center items-center text-center px-4 pt-20" style="min-height:100vh;">
+    <div data-aos="fade-down" data-aos-duration="800">
+      <p class="section-tag text-gold-light mb-4">Welcome to Paradise</p>
+      <h1 class="display-font text-white text-5xl md:text-7xl lg:text-8xl font-light leading-tight mb-4 max-w-5xl mx-auto">
+        Luxury Resort & Travel<br/>
+        <em class="text-gold-light">Packages in Goa</em>
+      </h1>
+      <p class="font-body text-white/80 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light">
+        Where azure waters meet golden sands. Book your dream stay and experience five-star luxury at India's most coveted destination.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center mb-12">
+        <a href="#booking" class="btn-gold">Book Your Stay</a>
+        <a href="https://wa.me/919876543210" target="_blank" class="btn-outline flex items-center gap-2">
+          <i class="fab fa-whatsapp text-green-400"></i> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Booking Bar -->
+    <div class="booking-bar w-full max-w-5xl rounded-lg shadow-2xl px-6 py-5" data-aos="fade-up" data-aos-delay="300">
+      <div class="flex flex-wrap gap-4 items-end">
+        <div class="flex-1 min-w-36">
+          <label class="section-tag text-ocean text-xs block mb-1">Check-In</label>
+          <input type="text" id="hero-checkin" class="form-input datepicker" placeholder="Select date" />
+        </div>
+        <div class="flex-1 min-w-36">
+          <label class="section-tag text-ocean text-xs block mb-1">Check-Out</label>
+          <input type="text" id="hero-checkout" class="form-input datepicker" placeholder="Select date" />
+        </div>
+        <div class="flex-1 min-w-28">
+          <label class="section-tag text-ocean text-xs block mb-1">Guests</label>
+          <select class="form-input">
+            <option>1 Guest</option>
+            <option selected>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4+ Guests</option>
+          </select>
+        </div>
+        <div class="flex-1 min-w-28">
+          <label class="section-tag text-ocean text-xs block mb-1">Package</label>
+          <select class="form-input">
+            <option>Any Package</option>
+            <option>Honeymoon</option>
+            <option>Family Tour</option>
+            <option>Adventure</option>
+            <option>Custom</option>
+          </select>
+        </div>
+        <button onclick="scrollToBooking()" class="btn-gold whitespace-nowrap flex-shrink-0">
+          <i class="fas fa-search mr-2"></i>Check Availability
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     3. TRUST HIGHLIGHTS
+═══════════════════════════════════════════════ -->
+<section class="bg-ocean-dark py-8">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div data-aos="fade-up" data-aos-delay="0" class="flex flex-col items-center gap-1">
+        <i class="fas fa-award text-gold text-3xl mb-2"></i>
+        <div class="display-font text-white text-3xl font-semibold">10+</div>
+        <div class="text-white/70 font-body text-sm tracking-wide">Years Experience</div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100" class="flex flex-col items-center gap-1">
+        <i class="fas fa-users text-gold text-3xl mb-2"></i>
+        <div class="display-font text-white text-3xl font-semibold">5,000+</div>
+        <div class="text-white/70 font-body text-sm tracking-wide">Happy Guests</div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col items-center gap-1">
+        <i class="fas fa-tag text-gold text-3xl mb-2"></i>
+        <div class="display-font text-white text-3xl font-semibold">Best</div>
+        <div class="text-white/70 font-body text-sm tracking-wide">Price Guarantee</div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col items-center gap-1">
+        <i class="fas fa-star text-gold text-3xl mb-2"></i>
+        <div class="display-font text-white text-3xl font-semibold">4.9 ★</div>
+        <div class="text-white/70 font-body text-sm tracking-wide">Top Rated Resort</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     4. ABOUT
+═══════════════════════════════════════════════ -->
+<section class="py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div data-aos="fade-right">
+        <p class="section-tag mb-4">Our Story</p>
+        <div class="gold-divider-left mb-6"></div>
+        <h2 class="display-font text-5xl md:text-6xl font-light text-ocean-dark mb-6 leading-tight">
+          Where Every Moment<br/><em>Becomes a Memory</em>
+        </h2>
+        <p class="font-body text-gray-600 leading-relaxed mb-6">
+          Nestled between lush tropical gardens and pristine white sands, Azure Shores Resort has been Goa's most coveted luxury destination for over a decade. We believe travel is not just about a place — it's about how it makes you feel.
+        </p>
+        <p class="font-body text-gray-600 leading-relaxed mb-8">
+          From curated honeymoon escapes to thrilling adventure packages, every experience here is crafted with extraordinary attention to detail, genuine warmth, and the quiet magic of the sea.
+        </p>
+        <div class="grid grid-cols-2 gap-6 mb-8">
+          <div class="bg-white p-5 rounded border-l-4 border-gold shadow-sm">
+            <div class="display-font text-3xl text-ocean-dark font-semibold">50+</div>
+            <div class="text-gray-500 font-body text-sm mt-1">Luxury Rooms & Villas</div>
+          </div>
+          <div class="bg-white p-5 rounded border-l-4 border-gold shadow-sm">
+            <div class="display-font text-3xl text-ocean-dark font-semibold">25+</div>
+            <div class="text-gray-500 font-body text-sm mt-1">Tour Destinations</div>
+          </div>
+        </div>
+        <a href="#booking" class="btn-ocean inline-block">Explore & Book</a>
+      </div>
+      <div data-aos="fade-left" class="relative">
+        <div class="grid grid-cols-2 gap-4">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Azure Shores Resort pool view" class="rounded-lg w-full h-64 object-cover shadow-lg mt-10" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1582610116397-edb72e0fe5d8?w=600&q=80" alt="Luxury beach resort room" class="rounded-lg w-full h-64 object-cover shadow-lg" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80" alt="Resort dining experience" class="rounded-lg w-full h-64 object-cover shadow-lg" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Spa treatment at resort" class="rounded-lg w-full h-64 object-cover shadow-lg mt-10" loading="lazy" />
+        </div>
+        <!-- Gold badge -->
+        <div class="absolute -bottom-6 -left-6 bg-gold rounded-full w-28 h-28 flex flex-col items-center justify-center text-center shadow-xl">
+          <div class="display-font text-white text-2xl font-semibold leading-none">10+</div>
+          <div class="text-white text-xs font-body tracking-wide leading-tight">Years of<br/>Excellence</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     5. ROOMS
+═══════════════════════════════════════════════ -->
+<section id="rooms" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="section-tag mb-4">Accommodations</p>
+      <div class="gold-divider mb-5"></div>
+      <h2 class="display-font text-5xl md:text-6xl font-light text-ocean-dark mb-4">Our Rooms & Stays</h2>
+      <p class="font-body text-gray-500 max-w-xl mx-auto">Thoughtfully designed spaces where luxury meets comfort — every room tells a story of coastal elegance.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Room Card Template -->
+      <div class="room-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+        <div class="overflow-hidden h-56 relative">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="Deluxe Room at Azure Shores Resort" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute top-3 left-3 bg-gold text-white text-xs font-body px-3 py-1 rounded-full tracking-wide">Most Popular</div>
+        </div>
+        <div class="p-5">
+          <h3 class="display-font text-2xl text-ocean-dark font-semibold mb-1">Deluxe Room</h3>
+          <div class="stars text-sm mb-3">★★★★★</div>
+          <ul class="font-body text-gray-500 text-sm space-y-1 mb-4">
+            <li><i class="fas fa-check text-gold mr-2"></i>King-size bed</li>
+            <li><i class="fas fa-check text-gold mr-2"></i>Sea-view balcony</li>
+            <li><i class="fas fa-check text-gold mr-2"></i>Free WiFi & Breakfast</li>
+          </ul>
+          <div class="flex items-center justify-between">
+            <div><span class="display-font text-2xl text-ocean-dark font-semibold">₹7,500</span><span class="font-body text-gray-400 text-sm">/night</span></div>
+            <a href="#booking" class="btn-gold text-xs px-4 py-2">Book</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <div class="overflow-hidden h-56">
+          <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&q=80" alt="Luxury Suite at Azure Shores" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="p-5">
+          <h3 class="display-font text-2xl text-ocean-dark font-semibold mb-1">Luxury Suite</h3>
+          <div class="stars text-sm mb-3">★★★★★</div>
+          <ul class="font-body text-gray-500 text-sm space-y-1 mb-4">
+            <li><i class="fas fa-check text-gold mr-2"></i>Living room + Jacuzzi</li>
+            <li><i class="fas fa-check text-gold mr-2"></i>Butler service</li>
+            <li><i class="fas fa-check text-gold mr-2"></i>Premium minibar</li>
+          </ul>
+          <div class="flex items-center justify-between">
+            <div><span class="display-font text-2xl text-ocean-dark font-semibold">₹14,000</span><span class="font-body text-gray-400 text-sm">/night</span></div>
+            <a href="#booking" class="btn-gold text-xs px-4 py-2">Book</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <div class="overflow-hidden h-56 relative">
+          <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80" alt="Private Villa Azure Shores" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute top-3 left-3 bg-ocean text-white text-xs font-body px-3 py-1 rounded-full tracking-wide">Private Pool</div>
+        </div>
+        <div class="p-5">
+          <h3 class="display-font text-2xl text-ocean-dark font-semibold mb-1">Private Villa</h3>
+          <div class="stars text-sm mb-3">★★★★★</div>
+          <ul class="font-body text-gray-500 text-sm space-y-1 mb-4">
+            <li><i class="fas fa-check text-gold mr-2"></i>Private infinity pool</li>
+            <li><i class="fas fa-check text-gold mr-2"></i>3 bedrooms</li>
+            <li><i class="fas fa-check text-gold mr-2"></i>Chef on request</li>
+          </ul>
+          <div class="flex items-center justify-between">
+            <div><span class="display-font text-2xl text-ocean-dark font-semibold">₹32,000</span><span class="font-body text-gray-400 text-sm">/night</span></div>
+            <a href="#booking" class="btn-gold text-xs px-4 py-2">Book</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+        <div class="overflow-hidden h-56">
+          <img src="https://images.unsplash.com/photo-1587213811864-35b1c7c36c14?w=600&q=80" alt="Garden Cottage Azure Shores" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="p-5">
+          <h3 class="display-font text-2xl text-ocean-dark font-semibold mb-1">Garden Cottage</h3>
+          <div class="stars text-sm mb-3">★★★★★</div>
+          <ul class="font-body text-gray-500 text-sm space-y-1 mb-4">
+            <li><i class="fas fa-check text-gold mr-2"></i>Tropical garden view</li>
+            <li><i class="fas fa-check text-gold mr-2"></i>Outdoor rain shower</li>
+            <li><i class="fas fa-check text-gold mr-2"></i>Private deck</li>
+          </ul>
+          <div class="flex items-center justify-between">
+            <div><span class="display-font text-2xl text-ocean-dark font-semibold">₹9,500</span><span class="font-body text-gray-400 text-sm">/night</span></div>
+            <a href="#booking" class="btn-gold text-xs px-4 py-2">Book</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     6. PACKAGES
+═══════════════════════════════════════════════ -->
+<section id="packages" class="py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="section-tag mb-4">Curated Experiences</p>
+      <div class="gold-divider mb-5"></div>
+      <h2 class="display-font text-5xl md:text-6xl font-light text-ocean-dark mb-4">Tour Packages</h2>
+      <p class="font-body text-gray-500 max-w-xl mx-auto">Handcrafted itineraries for every kind of traveller — romantic escapes, family adventures, and everything in between.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Honeymoon -->
+      <div class="pkg-card bg-white rounded-lg overflow-hidden shadow" data-aos="fade-up" data-aos-delay="0">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&q=80" alt="Honeymoon package Goa beach" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+            <span class="text-white font-body text-sm">💕 Romance</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="display-font text-xl text-ocean-dark font-semibold mb-2">Honeymoon Bliss</h3>
+          <div class="flex gap-4 mb-3 font-body text-sm text-gray-500">
+            <span><i class="fas fa-clock text-gold mr-1"></i>5 Nights</span>
+            <span><i class="fas fa-users text-gold mr-1"></i>2 Persons</span>
+          </div>
+          <ul class="font-body text-sm text-gray-500 space-y-1 mb-4">
+            <li>✦ Couples spa treatment</li>
+            <li>✦ Candlelight beach dinner</li>
+            <li>✦ Sunset cruise</li>
+            <li>✦ Rose & champagne arrival</li>
+          </ul>
+          <div class="border-t border-beige pt-4 flex items-center justify-between">
+            <div><span class="display-font text-2xl text-gold font-semibold">₹28,999</span><br/><span class="font-body text-xs text-gray-400">per couple</span></div>
+            <a href="#booking" class="btn-gold text-xs px-4 py-2">Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Family -->
+      <div class="pkg-card bg-white rounded-lg overflow-hidden shadow" data-aos="fade-up" data-aos-delay="100">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=600&q=80" alt="Family tour package beach holiday" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+            <span class="text-white font-body text-sm">👨‍👩‍👧 Family</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="display-font text-xl text-ocean-dark font-semibold mb-2">Family Funscape</h3>
+          <div class="flex gap-4 mb-3 font-body text-sm text-gray-500">
+            <span><i class="fas fa-clock text-gold mr-1"></i>7 Nights</span>
+            <span><i class="fas fa-users text-gold mr-1"></i>4 Persons</span>
+          </div>
+          <ul class="font-body text-sm text-gray-500 space-y-1 mb-4">
+            <li>✦ Kids activity program</li>
+            <li>✦ Guided sightseeing tours</li>
+            <li>✦ Water sports day</li>
+            <li>✦ All meals included</li>
+          </ul>
+          <div class="border-t border-beige pt-4 flex items-center justify-between">
+            <div><span class="display-font text-2xl text-gold font-semibold">₹52,999</span><br/><span class="font-body text-xs text-gray-400">per family</span></div>
+            <a href="#booking" class="btn-gold text-xs px-4 py-2">Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adventure -->
+      <div class="pkg-card bg-white rounded-lg overflow-hidden shadow" data-aos="fade-up" data-aos-delay="200">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&q=80" alt="Adventure tour package Goa" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute top-3 right-3 bg-gold text-white text-xs font-body px-3 py-1 rounded-full">🔥 Hot Pick</div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+            <span class="text-white font-body text-sm">🏄 Adventure</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="display-font text-xl text-ocean-dark font-semibold mb-2">Adventure Rush</h3>
+          <div class="flex gap-4 mb-3 font-body text-sm text-gray-500">
+            <span><i class="fas fa-clock text-gold mr-1"></i>4 Nights</span>
+            <span><i class="fas fa-users text-gold mr-1"></i>2+ Persons</span>
+          </div>
+          <ul class="font-body text-sm text-gray-500 space-y-1 mb-4">
+            <li>✦ Scuba & snorkeling</li>
+            <li>✦ Kayaking & parasailing</li>
+            <li>✦ Waterfall trekking</li>
+            <li>✦ Bonfire & beach party</li>
+          </ul>
+          <div class="border-t border-beige pt-4 flex items-center justify-between">
+            <div><span class="display-font text-2xl text-gold font-semibold">₹18,499</span><br/><span class="font-body text-xs text-gray-400">per person</span></div>
+            <a href="#booking" class="btn-gold text-xs px-4 py-2">Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom -->
+      <div class="pkg-card bg-ocean-dark rounded-lg overflow-hidden shadow" data-aos="fade-up" data-aos-delay="300">
+        <div class="h-52 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Custom luxury travel package" class="w-full h-full object-cover opacity-60" loading="lazy" />
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white">
+              <div class="text-5xl mb-2">✦</div>
+              <div class="display-font text-2xl">Your Dream Trip</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="display-font text-xl text-white font-semibold mb-2">Custom Package</h3>
+          <p class="font-body text-white/70 text-sm mb-4">Tell us your dream, we'll make it happen. Fully personalized itineraries crafted just for you.</p>
+          <ul class="font-body text-sm text-white/60 space-y-1 mb-4">
+            <li>✦ Any duration you choose</li>
+            <li>✦ Exclusive experiences</li>
+            <li>✦ Personal travel concierge</li>
+          </ul>
+          <a href="https://wa.me/919876543210?text=Hi!%20I%20want%20a%20custom%20travel%20package." target="_blank" class="btn-gold w-full text-center block text-xs py-3">Plan My Trip</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     7. AMENITIES
+═══════════════════════════════════════════════ -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="section-tag mb-4">What We Offer</p>
+      <div class="gold-divider mb-5"></div>
+      <h2 class="display-font text-5xl md:text-6xl font-light text-ocean-dark">Services & Amenities</h2>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="0">
+        <div class="amenity-icon mb-3"><i class="fas fa-swimming-pool"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">Infinity Pool</div>
+      </div>
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="80">
+        <div class="amenity-icon mb-3"><i class="fas fa-wifi"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">Free WiFi</div>
+      </div>
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="160">
+        <div class="amenity-icon mb-3"><i class="fas fa-utensils"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">Fine Dining</div>
+      </div>
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="240">
+        <div class="amenity-icon mb-3"><i class="fas fa-spa"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">Luxury Spa</div>
+      </div>
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="320">
+        <div class="amenity-icon mb-3"><i class="fas fa-car"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">Airport Transfer</div>
+      </div>
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="400">
+        <div class="amenity-icon mb-3"><i class="fas fa-dumbbell"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">Fitness Centre</div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 mt-8">
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="0">
+        <div class="amenity-icon mb-3"><i class="fas fa-cocktail"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">Beach Bar</div>
+      </div>
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="80">
+        <div class="amenity-icon mb-3"><i class="fas fa-umbrella-beach"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">Private Beach</div>
+      </div>
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="160">
+        <div class="amenity-icon mb-3"><i class="fas fa-baby"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">Kids Club</div>
+      </div>
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="240">
+        <div class="amenity-icon mb-3"><i class="fas fa-concierge-bell"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">24/7 Concierge</div>
+      </div>
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="320">
+        <div class="amenity-icon mb-3"><i class="fas fa-water"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">Water Sports</div>
+      </div>
+      <div class="amenity-card text-center" data-aos="zoom-in" data-aos-delay="400">
+        <div class="amenity-icon mb-3"><i class="fas fa-moon"></i></div>
+        <div class="font-body text-sm text-gray-600 font-medium">Night Events</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     8. WHY CHOOSE US
+═══════════════════════════════════════════════ -->
+<section class="py-24 bg-ocean-dark relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80') center/cover no-repeat;"></div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="section-tag text-gold-light mb-4">Our Promise</p>
+      <div class="gold-divider mb-5"></div>
+      <h2 class="display-font text-5xl md:text-6xl font-light text-white mb-4">Why Choose Azure Shores?</h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-7 text-center" data-aos="fade-up" data-aos-delay="0">
+        <div class="text-gold text-4xl mb-4"><i class="fas fa-map-marker-alt"></i></div>
+        <h3 class="display-font text-white text-xl font-semibold mb-2">Prime Location</h3>
+        <p class="font-body text-white/70 text-sm">Beachfront property steps away from Goa's most pristine and exclusive coastline.</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-7 text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-gold text-4xl mb-4"><i class="fas fa-hand-holding-heart"></i></div>
+        <h3 class="display-font text-white text-xl font-semibold mb-2">Personalized Service</h3>
+        <p class="font-body text-white/70 text-sm">Every guest experience is tailored — from room preferences to bespoke dining arrangements.</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-7 text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-gold text-4xl mb-4"><i class="fas fa-gem"></i></div>
+        <h3 class="display-font text-white text-xl font-semibold mb-2">Luxury Experience</h3>
+        <p class="font-body text-white/70 text-sm">Five-star amenities, world-class spa, gourmet cuisine, and breathtaking design at every turn.</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-7 text-center" data-aos="fade-up" data-aos-delay="300">
+        <div class="text-gold text-4xl mb-4"><i class="fas fa-rupee-sign"></i></div>
+        <h3 class="display-font text-white text-xl font-semibold mb-2">Affordable Packages</h3>
+        <p class="font-body text-white/70 text-sm">Luxury should be accessible. We offer best price guarantee and flexible payment options.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     9. VIDEO SECTION
+═══════════════════════════════════════════════ -->
+<section class="py-24 bg-cream">
+  <div class="max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
+    <p class="section-tag mb-4">Experience Azure Shores</p>
+    <div class="gold-divider mb-5"></div>
+    <h2 class="display-font text-5xl md:text-6xl font-light text-ocean-dark mb-6">Feel the Magic<br/><em>Before You Arrive</em></h2>
+    <p class="font-body text-gray-500 mb-10 max-w-xl mx-auto">Take a cinematic journey through our resort — pool, beach, rooms, and the moments that last a lifetime.</p>
+    <div class="relative rounded-xl overflow-hidden shadow-2xl map-wrapper aspect-video">
+      <iframe
+        class="w-full h-full"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
+        title="Azure Shores Resort Experience Video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     10. GALLERY
+═══════════════════════════════════════════════ -->
+<section id="gallery" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <p class="section-tag mb-4">Visual Stories</p>
+      <div class="gold-divider mb-5"></div>
+      <h2 class="display-font text-5xl md:text-6xl font-light text-ocean-dark mb-4">Our Gallery</h2>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex flex-wrap gap-3 justify-center mb-10" data-aos="fade-up">
+      <button onclick="filterGallery('all')" class="gallery-tab active font-body text-sm px-5 py-2 border border-gold rounded-full text-gold">All</button>
+      <button onclick="filterGallery('rooms')" class="gallery-tab font-body text-sm px-5 py-2 border border-gray-200 rounded-full text-gray-500 hover:border-gold hover:text-gold transition-colors">Rooms</button>
+      <button onclick="filterGallery('outdoor')" class="gallery-tab font-body text-sm px-5 py-2 border border-gray-200 rounded-full text-gray-500 hover:border-gold hover:text-gold transition-colors">Outdoor</button>
+      <button onclick="filterGallery('activities')" class="gallery-tab font-body text-sm px-5 py-2 border border-gray-200 rounded-full text-gray-500 hover:border-gold hover:text-gold transition-colors">Activities</button>
+    </div>
+
+    <div id="gallery-grid" class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+      <div class="gallery-item rounded-lg overflow-hidden break-inside-avoid" data-cat="rooms" data-aos="zoom-in" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="Deluxe Room" class="w-full object-cover" loading="lazy" />
+      </div>
+      <div class="gallery-item rounded-lg overflow-hidden break-inside-avoid" data-cat="outdoor" data-aos="zoom-in" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="Beach view" class="w-full object-cover" loading="lazy" />
+      </div>
+      <div class="gallery-item rounded-lg overflow-hidden break-inside-avoid" data-cat="activities" data-aos="zoom-in" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&q=80" alt="Water activities" class="w-full object-cover" loading="lazy" />
+      </div>
+      <div class="gallery-item rounded-lg overflow-hidden break-inside-avoid" data-cat="rooms" data-aos="zoom-in" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&q=80" alt="Luxury Suite" class="w-full object-cover" loading="lazy" />
+      </div>
+      <div class="gallery-item rounded-lg overflow-hidden break-inside-avoid" data-cat="outdoor" data-aos="zoom-in" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Pool area" class="w-full object-cover" loading="lazy" />
+      </div>
+      <div class="gallery-item rounded-lg overflow-hidden break-inside-avoid" data-cat="activities" data-aos="zoom-in" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Spa treatment" class="w-full object-cover" loading="lazy" />
+      </div>
+      <div class="gallery-item rounded-lg overflow-hidden break-inside-avoid" data-cat="outdoor" data-aos="zoom-in" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Beach sunset" class="w-full object-cover" loading="lazy" />
+      </div>
+      <div class="gallery-item rounded-lg overflow-hidden break-inside-avoid" data-cat="rooms" data-aos="zoom-in" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80" alt="Private Villa" class="w-full object-cover" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     11. BOOKING / ENQUIRY
+═══════════════════════════════════════════════ -->
+<section id="booking" class="py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Left: Benefits -->
+      <div data-aos="fade-right">
+        <p class="section-tag mb-4">Reserve Your Stay</p>
+        <div class="gold-divider-left mb-6"></div>
+        <h2 class="display-font text-5xl md:text-6xl font-light text-ocean-dark mb-6 leading-tight">
+          Book Your<br/><em>Dream Vacation Today</em>
+        </h2>
+        <p class="font-body text-gray-600 mb-8 leading-relaxed">Fill in your details and we'll get back to you instantly with the best available rates and a custom itinerary.</p>
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-tag text-gold"></i>
+            </div>
+            <div>
+              <div class="font-body font-semibold text-ocean-dark">Best Price Guarantee</div>
+              <div class="font-body text-gray-500 text-sm">Find it cheaper elsewhere? We'll match it + give 5% off.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-bolt text-gold"></i>
+            </div>
+            <div>
+              <div class="font-body font-semibold text-ocean-dark">Instant Confirmation</div>
+              <div class="font-body text-gray-500 text-sm">Receive booking confirmation within minutes, 24/7.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-sliders-h text-gold"></i>
+            </div>
+            <div>
+              <div class="font-body font-semibold text-ocean-dark">Custom Packages</div>
+              <div class="font-body text-gray-500 text-sm">We tailor each trip to your preferences and budget.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+              <i class="fab fa-whatsapp text-gold"></i>
+            </div>
+            <div>
+              <div class="font-body font-semibold text-ocean-dark">WhatsApp Support</div>
+              <div class="font-body text-gray-500 text-sm">Reach our team instantly on WhatsApp for any queries.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 p-5 bg-ocean-dark rounded-lg text-white flex items-center gap-4">
+          <i class="fas fa-phone-alt text-gold text-2xl"></i>
+          <div>
+            <div class="font-body text-sm opacity-70">Call us directly</div>
+            <div class="display-font text-2xl font-semibold">+91-98765 43210</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div data-aos="fade-left">
+        <div class="bg-white rounded-xl shadow-xl p-8 border border-beige">
+          <h3 class="display-font text-3xl text-ocean-dark mb-6">Enquiry Form</h3>
+          <div class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="font-body text-xs text-gray-500 block mb-1">Full Name *</label>
+                <input type="text" id="f-name" class="form-input" placeholder="Your name" />
+              </div>
+              <div>
+                <label class="font-body text-xs text-gray-500 block mb-1">Phone *</label>
+                <input type="tel" id="f-phone" class="form-input" placeholder="+91 XXXXX XXXXX" />
+              </div>
+            </div>
+            <div>
+              <label class="font-body text-xs text-gray-500 block mb-1">Email</label>
+              <input type="email" id="f-email" class="form-input" placeholder="you@email.com" />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="font-body text-xs text-gray-500 block mb-1">Check-In *</label>
+                <input type="text" id="f-checkin" class="form-input datepicker" placeholder="Select date" />
+              </div>
+              <div>
+                <label class="font-body text-xs text-gray-500 block mb-1">Check-Out *</label>
+                <input type="text" id="f-checkout" class="form-input datepicker" placeholder="Select date" />
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="font-body text-xs text-gray-500 block mb-1">Guests</label>
+                <select id="f-guests" class="form-input">
+                  <option>1 Guest</option>
+                  <option selected>2 Guests</option>
+                  <option>3 Guests</option>
+                  <option>4 Guests</option>
+                  <option>5+ Guests</option>
+                </select>
+              </div>
+              <div>
+                <label class="font-body text-xs text-gray-500 block mb-1">Package</label>
+                <select id="f-package" class="form-input">
+                  <option>Select Package</option>
+                  <option>Honeymoon Bliss</option>
+                  <option>Family Funscape</option>
+                  <option>Adventure Rush</option>
+                  <option>Custom Package</option>
+                  <option>Room Only</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="font-body text-xs text-gray-500 block mb-1">Message</label>
+              <textarea id="f-message" class="form-input resize-none" rows="3" placeholder="Special requests, preferences..."></textarea>
+            </div>
+            <button onclick="submitEnquiry()" class="btn-gold w-full py-4 text-sm tracking-widest">
+              <i class="fab fa-whatsapp mr-2"></i>Send Enquiry via WhatsApp
+            </button>
+            <p class="font-body text-center text-xs text-gray-400">Your enquiry will be sent directly to our WhatsApp. No spam, ever.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     12. TESTIMONIALS
+═══════════════════════════════════════════════ -->
+<section class="py-24 bg-ocean-dark relative overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <p class="section-tag text-gold-light mb-4" data-aos="fade-up">Guest Voices</p>
+    <div class="gold-divider mb-5" data-aos="fade-up"></div>
+    <h2 class="display-font text-5xl md:text-6xl font-light text-white mb-12" data-aos="fade-up">What Our Guests Say</h2>
+    <div id="testimonial-container" class="relative min-h-64" data-aos="fade-up">
+      <div class="testimonial-slide active text-center">
+        <div class="stars text-3xl mb-6">★★★★★</div>
+        <blockquote class="display-font text-white text-2xl md:text-3xl italic font-light leading-relaxed mb-8">
+          "Absolutely magical — from the moment we arrived to the tearful goodbye. The honeymoon package was beyond our dreams."
+        </blockquote>
+        <div class="flex items-center justify-center gap-3">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Priya Sharma" class="w-12 h-12 rounded-full object-cover border-2 border-gold" />
+          <div class="text-left">
+            <div class="font-body text-white font-medium">Priya & Rahul Sharma</div>
+            <div class="font-body text-white/60 text-sm">Mumbai, India</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-slide text-center">
+        <div class="stars text-3xl mb-6">★★★★★</div>
+        <blockquote class="display-font text-white text-2xl md:text-3xl italic font-light leading-relaxed mb-8">
+          "Best family vacation we've ever had. The kids loved the activities and we loved the spa. We're already planning our return visit!"
+        </blockquote>
+        <div class="flex items-center justify-center gap-3">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Rohan Mehta" class="w-12 h-12 rounded-full object-cover border-2 border-gold" />
+          <div class="text-left">
+            <div class="font-body text-white font-medium">The Mehta Family</div>
+            <div class="font-body text-white/60 text-sm">Bangalore, India</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-slide text-center">
+        <div class="stars text-3xl mb-6">★★★★★</div>
+        <blockquote class="display-font text-white text-2xl md:text-3xl italic font-light leading-relaxed mb-8">
+          "The Adventure Rush package was thrilling! Scuba, kayaking, bonfire — Azure Shores knows how to deliver unforgettable experiences."
+        </blockquote>
+        <div class="flex items-center justify-center gap-3">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Arjun Kapoor" class="w-12 h-12 rounded-full object-cover border-2 border-gold" />
+          <div class="text-left">
+            <div class="font-body text-white font-medium">Arjun Kapoor</div>
+            <div class="font-body text-white/60 text-sm">Delhi, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-3 justify-center mt-10">
+      <button onclick="changeSlide(-1)" class="w-10 h-10 rounded-full border border-white/30 text-white hover:border-gold hover:text-gold transition-colors"><i class="fas fa-chevron-left"></i></button>
+      <button onclick="changeSlide(1)" class="w-10 h-10 rounded-full border border-white/30 text-white hover:border-gold hover:text-gold transition-colors"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     13. BLOG
+═══════════════════════════════════════════════ -->
+<section id="blog" class="py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <p class="section-tag mb-4">Travel Insights</p>
+      <div class="gold-divider mb-5"></div>
+      <h2 class="display-font text-5xl md:text-6xl font-light text-ocean-dark mb-4">Travel Guide & Blog</h2>
+      <p class="font-body text-gray-500 max-w-lg mx-auto">Expert tips, hidden gems, and insider guides to make your travels extraordinary.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <article class="bg-white rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="0">
+        <div class="overflow-hidden h-52">
+          <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&q=80" alt="Best beaches in Goa travel guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+        </div>
+        <div class="p-6">
+          <span class="font-body text-xs text-gold tracking-widest uppercase">Travel Guide</span>
+          <h3 class="display-font text-xl text-ocean-dark font-semibold mt-2 mb-3">Top 10 Beaches in Goa You Must Visit in 2025</h3>
+          <p class="font-body text-gray-500 text-sm mb-4 leading-relaxed">From the vibrant shores of Baga to the serene sands of Palolem, discover Goa's most breathtaking coastal escapes.</p>
+          <a href="#" class="font-body text-ocean text-sm font-medium hover:text-gold transition-colors">Read More →</a>
+        </div>
+      </article>
+      <article class="bg-white rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
+        <div class="overflow-hidden h-52">
+          <img src="https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&q=80" alt="Honeymoon planning tips India" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+        </div>
+        <div class="p-6">
+          <span class="font-body text-xs text-gold tracking-widest uppercase">Honeymoon</span>
+          <h3 class="display-font text-xl text-ocean-dark font-semibold mt-2 mb-3">Planning the Perfect Honeymoon: A Complete Guide</h3>
+          <p class="font-body text-gray-500 text-sm mb-4 leading-relaxed">Everything from best season to travel to romantic activities — our expert guide helps you plan an unforgettable first trip together.</p>
+          <a href="#" class="font-body text-ocean text-sm font-medium hover:text-gold transition-colors">Read More →</a>
+        </div>
+      </article>
+      <article class="bg-white rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+        <div class="overflow-hidden h-52">
+          <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&q=80" alt="Adventure travel tips Goa" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+        </div>
+        <div class="p-6">
+          <span class="font-body text-xs text-gold tracking-widest uppercase">Adventure</span>
+          <h3 class="display-font text-xl text-ocean-dark font-semibold mt-2 mb-3">5 Adventure Activities in Goa You Haven't Tried Yet</h3>
+          <p class="font-body text-gray-500 text-sm mb-4 leading-relaxed">Beyond the beaches, Goa hides thrilling adventures — from spice plantation treks to midnight kayaking under the stars.</p>
+          <a href="#" class="font-body text-ocean text-sm font-medium hover:text-gold transition-colors">Read More →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     14. FAQ
+═══════════════════════════════════════════════ -->
+<section class="py-24 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <p class="section-tag mb-4">Got Questions?</p>
+      <div class="gold-divider mb-5"></div>
+      <h2 class="display-font text-5xl font-light text-ocean-dark">Frequently Asked Questions</h2>
+    </div>
+    <div class="space-y-4" data-aos="fade-up">
+      <div class="faq-item border border-beige rounded-lg overflow-hidden" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-5 cursor-pointer bg-cream/50 hover:bg-cream transition-colors">
+          <h3 class="display-font text-lg text-ocean-dark font-semibold">What is the check-in and check-out time?</h3>
+          <span class="faq-icon text-gold text-xl font-light">+</span>
+        </div>
+        <div class="faq-answer px-5 pb-0">
+          <p class="font-body text-gray-600 text-sm pb-5 leading-relaxed">Check-in is at 2:00 PM and check-out is at 12:00 PM (noon). Early check-in and late check-out are subject to availability and may be arranged upon request at no extra charge for loyalty guests.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border border-beige rounded-lg overflow-hidden" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-5 cursor-pointer bg-cream/50 hover:bg-cream transition-colors">
+          <h3 class="display-font text-lg text-ocean-dark font-semibold">Do you offer airport transfers?</h3>
+          <span class="faq-icon text-gold text-xl font-light">+</span>
+        </div>
+        <div class="faq-answer px-5 pb-0">
+          <p class="font-body text-gray-600 text-sm pb-5 leading-relaxed">Yes! Complimentary airport pickup is included for bookings of 3 nights or more. Private transfers with luxury vehicles can also be arranged for an additional fee.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border border-beige rounded-lg overflow-hidden" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-5 cursor-pointer bg-cream/50 hover:bg-cream transition-colors">
+          <h3 class="display-font text-lg text-ocean-dark font-semibold">Are meals included in the room rate?</h3>
+          <span class="faq-icon text-gold text-xl font-light">+</span>
+        </div>
+        <div class="faq-answer px-5 pb-0">
+          <p class="font-body text-gray-600 text-sm pb-5 leading-relaxed">Breakfast is included with all our standard room bookings. Full board (breakfast, lunch & dinner) is available as an add-on and is included in all package deals.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border border-beige rounded-lg overflow-hidden" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-5 cursor-pointer bg-cream/50 hover:bg-cream transition-colors">
+          <h3 class="display-font text-lg text-ocean-dark font-semibold">Can I customize a tour package?</h3>
+          <span class="faq-icon text-gold text-xl font-light">+</span>
+        </div>
+        <div class="faq-answer px-5 pb-0">
+          <p class="font-body text-gray-600 text-sm pb-5 leading-relaxed">Absolutely! We specialize in fully bespoke travel experiences. Contact our concierge via WhatsApp or the enquiry form and we'll craft a personalized itinerary based on your preferences, budget, and travel dates.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border border-beige rounded-lg overflow-hidden" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-5 cursor-pointer bg-cream/50 hover:bg-cream transition-colors">
+          <h3 class="display-font text-lg text-ocean-dark font-semibold">What is your cancellation policy?</h3>
+          <span class="faq-icon text-gold text-xl font-light">+</span>
+        </div>
+        <div class="faq-answer px-5 pb-0">
+          <p class="font-body text-gray-600 text-sm pb-5 leading-relaxed">Free cancellation is available up to 7 days before check-in. Cancellations within 7 days are subject to a 50% charge. No-shows are charged the full amount. Package bookings may have different terms — please enquire directly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     15. CTA BANNER
+═══════════════════════════════════════════════ -->
+<section class="py-20 relative overflow-hidden" style="background:linear-gradient(135deg,#0F4A62 0%,#1A6B8A 50%,#0F4A62 100%)">
+  <div class="absolute inset-0 opacity-20" style="background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80') center/cover;"></div>
+  <div class="relative z-10 text-center px-6" data-aos="zoom-in">
+    <div class="text-gold text-5xl mb-4">✦</div>
+    <h2 class="display-font text-5xl md:text-7xl font-light text-white mb-4">Book Your Dream<br/>Vacation Today</h2>
+    <p class="font-body text-white/80 text-xl mb-4">⏰ Limited Time Offer — Reserve Now & Save 20%</p>
+    <p class="font-body text-gold-light text-sm tracking-widest mb-10 uppercase">Use code: AZURE20 · Valid through September 2025</p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="#booking" class="btn-gold text-base px-10 py-4">Reserve Now</a>
+      <a href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20know%20about%20the%20AZURE20%20offer." target="_blank" class="btn-outline text-base px-10 py-4 flex items-center gap-2">
+        <i class="fab fa-whatsapp text-green-400 text-xl"></i> WhatsApp Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     16. MAP + FOOTER
+═══════════════════════════════════════════════ -->
+<section id="contact" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <p class="section-tag mb-4">Find Us</p>
+      <div class="gold-divider mb-5"></div>
+      <h2 class="display-font text-5xl font-light text-ocean-dark">Our Location</h2>
+    </div>
+    <div class="map-wrapper rounded-xl overflow-hidden shadow-xl h-96" data-aos="fade-up">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15302.278349830694!2d73.9120!3d15.4989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc0c5b8ae14a3%3A0x6fed50e7aa24e7b!2sGoa%2C%20India!5e0!3m2!1sen!2sin!4v1700000000000"
+        width="100%" height="100%" style="border:0" allowfullscreen loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-ocean-dark pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center">
+            <i class="fas fa-umbrella-beach text-white text-sm"></i>
+          </div>
+          <div>
+            <div class="display-font text-white text-xl font-semibold leading-tight">Azure Shores</div>
+            <div class="text-gold-light text-xs tracking-widest uppercase font-body">Resort & Travel</div>
+          </div>
+        </div>
+        <p class="font-body text-white/60 text-sm leading-relaxed mb-5">Your gateway to paradise — where every sunset is a masterpiece and every moment a memory.</p>
+        <div class="flex gap-3">
+          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold hover:text-gold transition-colors"><i class="fab fa-facebook-f text-sm"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold hover:text-gold transition-colors"><i class="fab fa-instagram text-sm"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold hover:text-gold transition-colors"><i class="fab fa-youtube text-sm"></i></a>
+          <a href="https://wa.me/919876543210" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-green-400 hover:text-green-400 transition-colors"><i class="fab fa-whatsapp text-sm"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-body text-white font-semibold tracking-wider text-sm mb-5 uppercase">Quick Links</h4>
+        <ul class="space-y-3">
+          <li><a href="#rooms" class="font-body text-white/60 hover:text-gold text-sm transition-colors">Rooms & Villas</a></li>
+          <li><a href="#packages" class="font-body text-white/60 hover:text-gold text-sm transition-colors">Tour Packages</a></li>
+          <li><a href="#gallery" class="font-body text-white/60 hover:text-gold text-sm transition-colors">Gallery</a></li>
+          <li><a href="#blog" class="font-body text-white/60 hover:text-gold text-sm transition-colors">Travel Blog</a></li>
+          <li><a href="#booking" class="font-body text-white/60 hover:text-gold text-sm transition-colors">Book Now</a></li>
+        </ul>
+      </div>
+
+      <!-- Packages -->
+      <div>
+        <h4 class="font-body text-white font-semibold tracking-wider text-sm mb-5 uppercase">Our Packages</h4>
+        <ul class="space-y-3">
+          <li><a href="#packages" class="font-body text-white/60 hover:text-gold text-sm transition-colors">Honeymoon Bliss</a></li>
+          <li><a href="#packages" class="font-body text-white/60 hover:text-gold text-sm transition-colors">Family Funscape</a></li>
+          <li><a href="#packages" class="font-body text-white/60 hover:text-gold text-sm transition-colors">Adventure Rush</a></li>
+          <li><a href="#packages" class="font-body text-white/60 hover:text-gold text-sm transition-colors">Custom Package</a></li>
+          <li><a href="#booking" class="font-body text-white/60 hover:text-gold text-sm transition-colors">Corporate Events</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-body text-white font-semibold tracking-wider text-sm mb-5 uppercase">Contact Us</h4>
+        <ul class="space-y-4">
+          <li class="flex gap-3">
+            <i class="fas fa-map-marker-alt text-gold mt-1 flex-shrink-0"></i>
+            <span class="font-body text-white/60 text-sm">Paradise Beach Road, North Goa, 403001, India</span>
+          </li>
+          <li class="flex gap-3">
+            <i class="fas fa-phone text-gold mt-1 flex-shrink-0"></i>
+            <a href="tel:+919876543210" class="font-body text-white/60 hover:text-gold text-sm transition-colors">+91-98765 43210</a>
+          </li>
+          <li class="flex gap-3">
+            <i class="fas fa-envelope text-gold mt-1 flex-shrink-0"></i>
+            <a href="mailto:hello@azureshores.com" class="font-body text-white/60 hover:text-gold text-sm transition-colors">hello@azureshores.com</a>
+          </li>
+          <li class="flex gap-3">
+            <i class="fab fa-whatsapp text-green-400 mt-1 flex-shrink-0"></i>
+            <a href="https://wa.me/919876543210" target="_blank" class="font-body text-white/60 hover:text-green-400 text-sm transition-colors">Chat on WhatsApp</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="font-body text-white/50 text-sm text-center md:text-left">© 2025 Azure Shores Resort & Travel. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#" class="font-body text-white/50 hover:text-white text-xs transition-colors">Privacy Policy</a>
+        <a href="#" class="font-body text-white/50 hover:text-white text-xs transition-colors">Terms of Service</a>
+        <a href="#" class="font-body text-white/50 hover:text-white text-xs transition-colors">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     FLOATING BUTTONS
+═══════════════════════════════════════════════ -->
+<a href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20enquire%20about%20rooms%20and%20packages." target="_blank"
+   class="floating-wa w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl transition-colors"
+   aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp text-white text-3xl"></i>
+</a>
+
+<a href="#booking" class="sticky-book-btn btn-gold text-sm px-6 py-3 shadow-xl" aria-label="Book Now">
+  <i class="fas fa-calendar-check mr-2"></i>Book Now
+</a>
+
+<!-- Back to top -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  class="fixed bottom-28 right-28 w-10 h-10 rounded-full bg-ocean text-white flex items-center justify-center shadow-lg hover:bg-gold transition-colors opacity-0 transition-opacity z-50"
+  aria-label="Back to top">
+  <i class="fas fa-chevron-up text-sm"></i>
+</button>
+
+<!-- ═══════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════ -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+// ─── INIT ─────────────────────────────────
+AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
+
+flatpickr('.datepicker', {
+  minDate: 'today',
+  dateFormat: 'd M Y',
+  disableMobile: false,
+});
+
+// ─── NAVBAR SCROLL ────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  const backTop = document.getElementById('back-top');
+  backTop.style.opacity = window.scrollY > 400 ? '1' : '0';
+});
+
+// ─── MOBILE MENU ──────────────────────────
+function toggleMenu() {
+  const m = document.getElementById('mobile-menu');
+  m.classList.toggle('hidden');
+}
+
+// ─── SCROLL TO BOOKING ────────────────────
+function scrollToBooking() {
+  document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ─── OFFER POPUP ──────────────────────────
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('offer-popup').classList.add('active');
+  }, 2500);
+});
+function closePopup() {
+  document.getElementById('offer-popup').classList.remove('active');
+}
+
+// ─── LIGHTBOX ─────────────────────────────
+function openLightbox(el) {
+  const src = el.querySelector('img').src;
+  const alt = el.querySelector('img').alt;
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-img').alt = alt;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// ─── GALLERY FILTER ───────────────────────
+function filterGallery(cat) {
+  document.querySelectorAll('.gallery-tab').forEach(t => {
+    t.classList.remove('bg-gold', 'text-white', 'border-gold');
+    t.classList.add('text-gray-500', 'border-gray-200');
+  });
+  event.target.classList.add('bg-gold', 'text-white', 'border-gold');
+  event.target.classList.remove('text-gray-500', 'border-gray-200');
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat === cat) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// ─── TESTIMONIAL SLIDER ───────────────────
+let currentSlide = 0;
+const slides = document.querySelectorAll('.testimonial-slide');
+function changeSlide(dir) {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + dir + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+}
+setInterval(() => changeSlide(1), 5000);
+
+// ─── FAQ ACCORDION ────────────────────────
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-answer').classList.remove('open');
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    item.querySelector('.faq-answer').classList.add('open');
+  }
+}
+
+// ─── WHATSAPP FORM SUBMIT ─────────────────
+function submitEnquiry() {
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const checkin = document.getElementById('f-checkin').value.trim();
+  const checkout = document.getElementById('f-checkout').value.trim();
+  const guests = document.getElementById('f-guests').value;
+  const pkg = document.getElementById('f-package').value;
+  const msg = document.getElementById('f-message').value.trim();
+
+  if (!name) { alert('Please enter your name.'); return; }
+  if (!phone) { alert('Please enter your phone number.'); return; }
+  if (!checkin) { alert('Please select a check-in date.'); return; }
+  if (!checkout) { alert('Please select a check-out date.'); return; }
+
+  const waMsg = `Hello Azure Shores! 🏖️ I would like to make an enquiry:
+
+*Name:* ${name}
+*Phone:* ${phone}
+*Email:* ${email || 'Not provided'}
+*Check-In:* ${checkin}
+*Check-Out:* ${checkout}
+*Guests:* ${guests}
+*Package:* ${pkg}
+*Message:* ${msg || 'None'}
+
+Please confirm availability. Thank you!`;
+
+  const encoded = encodeURIComponent(waMsg);
+  window.open(`https://wa.me/919876543210?text=${encoded}`, '_blank');
+}
+</script>
+</body>
+</html>
