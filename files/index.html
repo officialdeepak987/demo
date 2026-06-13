@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LookCool — Men's Grooming & Style</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">LOOK<span>COOL</span></a>
+    <ul class="nav-links">
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="grooming.html">Grooming</a></li>
+      <li><a href="style.html">Style</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <button class="nav-cta">Get the guide</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="blog.html" onclick="closeMenu()">Blog</a></li>
+      <li><a href="grooming.html" onclick="closeMenu()">Grooming</a></li>
+      <li><a href="style.html" onclick="closeMenu()">Style</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-text">STYLE</div>
+    <div class="hero-content">
+      <div class="hero-tag reveal">Men's Grooming & Style</div>
+      <h1 class="hero-title reveal delay-1">
+        Look sharp.<br />
+        <em>Feel confident.</em>
+      </h1>
+      <p class="hero-sub reveal delay-2">Real grooming advice for real Indian men. No fluff, no filter — just honest style that works.</p>
+      <div class="hero-actions reveal delay-3">
+        <a href="blog.html" class="btn-primary">Explore articles</a>
+        <a href="grooming.html" class="btn-ghost">Grooming 101 →</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal delay-2">
+      <div class="hero-card">
+        <div class="hero-card-label">Trending now</div>
+        <div class="hero-card-title">The Perfect Beard Fade</div>
+        <div class="hero-card-meta">5 min read · Beard Care</div>
+      </div>
+      <div class="hero-stat-stack">
+        <div class="stat-pill"><span class="stat-num">50K+</span><span class="stat-lbl">Monthly readers</span></div>
+        <div class="stat-pill"><span class="stat-num">200+</span><span class="stat-lbl">Style guides</span></div>
+        <div class="stat-pill"><span class="stat-num">4.9★</span><span class="stat-lbl">Reader rating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Beard Care</span><span>·</span>
+      <span>Skincare</span><span>·</span>
+      <span>Haircuts</span><span>·</span>
+      <span>Outfit Guides</span><span>·</span>
+      <span>Fragrances</span><span>·</span>
+      <span>Fitness Style</span><span>·</span>
+      <span>Office Looks</span><span>·</span>
+      <span>Beard Care</span><span>·</span>
+      <span>Skincare</span><span>·</span>
+      <span>Haircuts</span><span>·</span>
+      <span>Outfit Guides</span><span>·</span>
+      <span>Fragrances</span><span>·</span>
+      <span>Fitness Style</span><span>·</span>
+      <span>Office Looks</span>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="categories section">
+    <div class="section-header reveal">
+      <div class="section-tag">What we cover</div>
+      <h2 class="section-title">Everything a man<br/><em>needs to look good</em></h2>
+    </div>
+    <div class="cat-grid">
+      <a href="grooming.html" class="cat-card cat-card--large reveal">
+        <div class="cat-number">01</div>
+        <div class="cat-body">
+          <div class="cat-icon">&#9641;</div>
+          <h3>Beard Care</h3>
+          <p>Trimming, shaping, oils & balms. Everything for the perfect beard.</p>
+          <span class="cat-link">Explore →</span>
+        </div>
+      </a>
+      <a href="grooming.html" class="cat-card reveal delay-1">
+        <div class="cat-number">02</div>
+        <div class="cat-body">
+          <div class="cat-icon">&#9670;</div>
+          <h3>Skincare</h3>
+          <p>Simple routines for Indian skin. No complicated 10-step BS.</p>
+          <span class="cat-link">Explore →</span>
+        </div>
+      </a>
+      <a href="style.html" class="cat-card reveal delay-2">
+        <div class="cat-number">03</div>
+        <div class="cat-body">
+          <div class="cat-icon">&#9645;</div>
+          <h3>Outfit Guides</h3>
+          <p>Casual, office, date night — dressed right for every situation.</p>
+          <span class="cat-link">Explore →</span>
+        </div>
+      </a>
+      <a href="grooming.html" class="cat-card reveal delay-3">
+        <div class="cat-number">04</div>
+        <div class="cat-body">
+          <div class="cat-icon">&#9632;</div>
+          <h3>Haircuts</h3>
+          <p>Find the right cut for your face shape. Trends that actually work.</p>
+          <span class="cat-link">Explore →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURED ARTICLES -->
+  <section class="articles section">
+    <div class="section-header reveal">
+      <div class="section-tag">Latest reads</div>
+      <h2 class="section-title">Fresh from<br/><em>the barbershop</em></h2>
+    </div>
+    <div class="articles-grid">
+      <article class="article-card article-card--featured reveal">
+        <div class="article-img article-img--1">
+          <div class="article-category-badge">Beard Care</div>
+        </div>
+        <div class="article-body">
+          <h3>How to Trim Your Beard at Home Like a Pro Barber</h3>
+          <p>Save ₹300 every week. Master the fade, the neckline, and the cheek line in 10 minutes flat.</p>
+          <div class="article-meta">
+            <span>8 min read</span>
+            <a href="blog.html" class="article-read">Read →</a>
+          </div>
+        </div>
+      </article>
+      <article class="article-card reveal delay-1">
+        <div class="article-img article-img--2">
+          <div class="article-category-badge">Skincare</div>
+        </div>
+        <div class="article-body">
+          <h3>Best Face Wash for Indian Men (Under ₹300)</h3>
+          <p>Tested 12 products. These 4 actually work for oily and dry skin types.</p>
+          <div class="article-meta">
+            <span>5 min read</span>
+            <a href="blog.html" class="article-read">Read →</a>
+          </div>
+        </div>
+      </article>
+      <article class="article-card reveal delay-2">
+        <div class="article-img article-img--3">
+          <div class="article-category-badge">Style</div>
+        </div>
+        <div class="article-body">
+          <h3>5 Outfits Every Indian Man Should Own</h3>
+          <p>Built around pieces from H&M, Zara, and local brands that won't break the bank.</p>
+          <div class="article-meta">
+            <span>6 min read</span>
+            <a href="blog.html" class="article-read">Read →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="articles-cta reveal">
+      <a href="blog.html" class="btn-outline">View all articles</a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter section reveal">
+    <div class="newsletter-inner">
+      <div class="newsletter-text">
+        <div class="section-tag">Free weekly guide</div>
+        <h2>Level up your look.<br/><em>Every Sunday.</em></h2>
+        <p>Join 50,000+ Indian men getting one grooming or style tip each week. No spam. Unsubscribe anytime.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Subscribe free</button>
+        <span class="form-note" id="formNote"></span>
+      </form>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials section">
+    <div class="section-header reveal">
+      <div class="section-tag">What readers say</div>
+      <h2 class="section-title">Real men,<br/><em>real results</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Finally a grooming site that gets Indian skin. My skin has never looked better and I'm spending less on products."</p>
+        <div class="testi-author">— Rahul M., Pune</div>
+      </div>
+      <div class="testi-card reveal delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The beard trimming guide saved me so much money. I used to go to the barber every week. Now I barely need to."</p>
+        <div class="testi-author">— Arjun K., Delhi</div>
+      </div>
+      <div class="testi-card reveal delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Outfit guides are so practical. Budget-friendly picks that actually look good on regular Indian body types."</p>
+        <div class="testi-author">— Vikram S., Mumbai</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">LOOK<span>COOL</span></a>
+        <p>Real grooming and style advice for Indian men. No fluff, just results.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="YouTube">YT</a>
+          <a href="#" aria-label="Pinterest">PT</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Topics</h4>
+          <ul>
+            <li><a href="grooming.html">Beard care</a></li>
+            <li><a href="grooming.html">Skincare</a></li>
+            <li><a href="grooming.html">Haircuts</a></li>
+            <li><a href="style.html">Outfit guides</a></li>
+            <li><a href="style.html">Fragrances</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Contact</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 LookCool. All rights reserved.</span>
+      <span>Made with care for Indian men.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

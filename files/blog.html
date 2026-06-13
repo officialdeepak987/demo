@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — LookCool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">LOOK<span>COOL</span></a>
+    <ul class="nav-links">
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="grooming.html">Grooming</a></li>
+      <li><a href="style.html">Style</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <button class="nav-cta">Get the guide</button>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="blog.html" onclick="closeMenu()">Blog</a></li>
+      <li><a href="grooming.html" onclick="closeMenu()">Grooming</a></li>
+      <li><a href="style.html" onclick="closeMenu()">Style</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+    </ul>
+  </div>
+
+  <div class="page-hero reveal">
+    <div class="section-tag">All articles</div>
+    <h1>The <em>LookCool</em> Blog</h1>
+    <p>Grooming tips, style guides, and product reviews — all tested and written for Indian men.</p>
+  </div>
+
+  <div class="posts-grid">
+    <article class="article-card reveal">
+      <div class="article-img article-img--1"><div class="article-category-badge">Beard Care</div></div>
+      <div class="article-body">
+        <h3>How to Trim Your Beard at Home Like a Pro Barber</h3>
+        <p>Save ₹300 every week. Master the fade, neckline, and cheek line in 10 minutes.</p>
+        <div class="article-meta"><span>8 min read</span><a href="#" class="article-read">Read →</a></div>
+      </div>
+    </article>
+    <article class="article-card reveal delay-1">
+      <div class="article-img article-img--2"><div class="article-category-badge">Skincare</div></div>
+      <div class="article-body">
+        <h3>Best Face Wash for Indian Men (Under ₹300)</h3>
+        <p>Tested 12 products. These 4 actually work for oily and dry skin types.</p>
+        <div class="article-meta"><span>5 min read</span><a href="#" class="article-read">Read →</a></div>
+      </div>
+    </article>
+    <article class="article-card reveal delay-2">
+      <div class="article-img article-img--3"><div class="article-category-badge">Style</div></div>
+      <div class="article-body">
+        <h3>5 Outfits Every Indian Man Should Own</h3>
+        <p>Casual, office, date night — dressed right for every occasion.</p>
+        <div class="article-meta"><span>6 min read</span><a href="#" class="article-read">Read →</a></div>
+      </div>
+    </article>
+    <article class="article-card reveal">
+      <div class="article-img article-img--1"><div class="article-category-badge">Haircut</div></div>
+      <div class="article-body">
+        <h3>Best Haircuts for Round Face Shape Men in India</h3>
+        <p>The right cut can change how your face looks. Here's what works best.</p>
+        <div class="article-meta"><span>4 min read</span><a href="#" class="article-read">Read →</a></div>
+      </div>
+    </article>
+    <article class="article-card reveal delay-1">
+      <div class="article-img article-img--2"><div class="article-category-badge">Fragrance</div></div>
+      <div class="article-body">
+        <h3>Best Perfumes for Men Under ₹1000 in India</h3>
+        <p>You don't need to spend ₹5000 to smell great. Our top picks.</p>
+        <div class="article-meta"><span>5 min read</span><a href="#" class="article-read">Read →</a></div>
+      </div>
+    </article>
+    <article class="article-card reveal delay-2">
+      <div class="article-img article-img--3"><div class="article-category-badge">Grooming</div></div>
+      <div class="article-body">
+        <h3>Men's Morning Grooming Routine — 10 Minutes or Less</h3>
+        <p>Face wash, moisturiser, hair — the only morning routine you need.</p>
+        <div class="article-meta"><span>3 min read</span><a href="#" class="article-read">Read →</a></div>
+      </div>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">LOOK<span>COOL</span></a>
+        <p>Real grooming and style advice for Indian men.</p>
+        <div class="footer-social">
+          <a href="#">IG</a><a href="#">YT</a><a href="#">PT</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Topics</h4>
+          <ul>
+            <li><a href="grooming.html">Beard care</a></li>
+            <li><a href="grooming.html">Skincare</a></li>
+            <li><a href="grooming.html">Haircuts</a></li>
+            <li><a href="style.html">Outfit guides</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Contact</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 LookCool. All rights reserved.</span>
+      <span>Made with care for Indian men.</span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

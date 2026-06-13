@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — bestneurosurgeoningurgaon.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy2: #0f2040;
+    --teal: #00bfa6;
+    --teal2: #00d4b8;
+    --red: #ff4d4d;
+    --amber: #ffb703;
+    --green: #29d67a;
+    --blue: #3b82f6;
+    --light: #e8f0fe;
+    --muted: #8fa3c8;
+    --card: #101e36;
+    --border: #1e3356;
+    --white: #f0f6ff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.2; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #0a1628 0%, #0d2347 60%, #102e55 100%);
+    border-bottom: 2px solid var(--teal);
+    padding: 48px 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 340px; height: 340px;
+    background: radial-gradient(circle, rgba(0,191,166,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(0,191,166,0.15);
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    border-radius: 4px;
+    padding: 3px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .header h1 { font-size: 2.6rem; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+  .header h1 span { color: var(--teal); }
+  .header-sub { color: var(--muted); font-size: 14px; }
+  .header-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+  .meta-item { display: flex; flex-direction: column; }
+  .meta-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; }
+  .meta-value { font-size: 14px; font-weight: 500; color: var(--white); }
+
+  /* SCORE BANNER */
+  .score-banner {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 60px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .score-card {
+    background: var(--navy2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 28px;
+    min-width: 160px;
+    text-align: center;
+    flex: 1;
+  }
+  .score-card .score-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .score-card .score-label { font-size: 11px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+  .score-red { color: var(--red); border-color: rgba(255,77,77,0.3); }
+  .score-amber { color: var(--amber); border-color: rgba(255,183,3,0.3); }
+  .score-green { color: var(--green); border-color: rgba(41,214,122,0.3); }
+  .score-blue { color: var(--blue); border-color: rgba(59,130,246,0.3); }
+  .score-teal { color: var(--teal); border-color: rgba(0,191,166,0.3); }
+
+  /* MAIN LAYOUT */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+  .section { padding: 48px 0 0; }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-heading h2 { font-size: 1.3rem; font-weight: 700; color: var(--white); }
+  .section-icon {
+    width: 34px; height: 34px;
+    background: rgba(0,191,166,0.12);
+    border: 1px solid rgba(0,191,166,0.3);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .card h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card p, .card li { font-size: 13.5px; color: #b8cce0; line-height: 1.65; }
+  .card ul { padding-left: 18px; }
+  .card ul li { margin-bottom: 4px; }
+
+  /* BADGE */
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge-red { background: rgba(255,77,77,0.15); color: var(--red); border: 1px solid rgba(255,77,77,0.3); }
+  .badge-amber { background: rgba(255,183,3,0.15); color: var(--amber); border: 1px solid rgba(255,183,3,0.3); }
+  .badge-green { background: rgba(41,214,122,0.15); color: var(--green); border: 1px solid rgba(41,214,122,0.3); }
+  .badge-blue { background: rgba(59,130,246,0.15); color: var(--blue); border: 1px solid rgba(59,130,246,0.3); }
+
+  /* ISSUE LIST */
+  .issue-list { display: flex; flex-direction: column; gap: 10px; }
+  .issue-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .issue-item.critical { border-left: 3px solid var(--red); }
+  .issue-item.warning { border-left: 3px solid var(--amber); }
+  .issue-item.info { border-left: 3px solid var(--blue); }
+  .issue-item .issue-icon { font-size: 20px; margin-top: 2px; flex-shrink: 0; }
+  .issue-item .issue-body { flex: 1; }
+  .issue-item .issue-title { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .issue-item .issue-desc { font-size: 13px; color: #9ab0c9; }
+  .issue-item .issue-fix { font-size: 12px; color: var(--teal); margin-top: 6px; font-style: italic; }
+
+  /* TABLE */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .data-table th {
+    background: var(--navy2);
+    color: var(--teal);
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: #b8cce0;
+    vertical-align: top;
+  }
+  .data-table tr:hover td { background: rgba(0,191,166,0.04); }
+  .data-table .url { color: var(--teal2); font-size: 12px; word-break: break-all; }
+
+  /* PRIORITY LIST */
+  .priority-list { display: flex; flex-direction: column; gap: 8px; counter-reset: priority; }
+  .priority-item {
+    counter-increment: priority;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    position: relative;
+  }
+  .priority-item::before {
+    content: counter(priority);
+    width: 28px; height: 28px;
+    background: rgba(0,191,166,0.15);
+    border: 1px solid var(--teal);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--teal);
+    flex-shrink: 0;
+  }
+  .priority-item .p-title { font-weight: 600; font-size: 14px; margin-bottom: 3px; }
+  .priority-item .p-desc { font-size: 13px; color: #9ab0c9; }
+  .priority-item .p-impact {
+    margin-left: auto;
+    font-size: 11px;
+    white-space: nowrap;
+    align-self: center;
+    flex-shrink: 0;
+  }
+
+  /* KW TABLE */
+  .kw-chip {
+    display: inline-block;
+    background: rgba(59,130,246,0.12);
+    color: #93c5fd;
+    border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 12px;
+    margin: 2px;
+  }
+
+  /* COMPETITOR CARD */
+  .comp-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .comp-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--navy2);
+  }
+  .comp-rank {
+    width: 32px; height: 32px;
+    background: rgba(0,191,166,0.1);
+    border: 1px solid var(--teal);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--teal);
+    flex-shrink: 0;
+  }
+  .comp-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; }
+  .comp-url { font-size: 11px; color: var(--muted); }
+  .comp-body { padding: 16px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .comp-section h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--teal); margin-bottom: 6px; }
+  .comp-section ul { padding-left: 16px; }
+  .comp-section li { font-size: 13px; color: #9ab0c9; margin-bottom: 3px; }
+
+  /* CHECKLIST */
+  .checklist { display: flex; flex-direction: column; gap: 8px; }
+  .check-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13.5px;
+  }
+  .check-item .ci { font-size: 16px; }
+  .check-done { border-left: 3px solid var(--green); }
+  .check-todo { border-left: 3px solid var(--red); }
+
+  /* FOOTER */
+  .report-footer {
+    margin-top: 60px;
+    background: var(--card);
+    border-top: 2px solid var(--teal);
+    padding: 32px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .report-footer p { font-size: 12px; color: var(--muted); }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--border); margin: 40px 0; }
+
+  @media (max-width: 768px) {
+    .header, .score-banner, .container, .report-footer { padding-left: 20px; padding-right: 20px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .comp-body { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.8rem; }
+    .score-banner { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-tag">Confidential SEO Audit</div>
+  <h1>SEO Audit Report<br><span>bestneurosurgeoningurgaon.com</span></h1>
+  <p class="header-sub">Dr. Vikas Kathuria — Brain & Spine Neuro Center, Gurgaon</p>
+  <div class="header-meta">
+    <div class="meta-item"><span class="meta-label">Prepared</span><span class="meta-value">May 2026</span></div>
+    <div class="meta-item"><span class="meta-label">Platform</span><span class="meta-value">WordPress / Elementor</span></div>
+    <div class="meta-item"><span class="meta-label">Niche</span><span class="meta-value">Medical — Neurosurgery (Gurgaon)</span></div>
+    <div class="meta-item"><span class="meta-label">Target Market</span><span class="meta-value">Gurgaon / Delhi NCR / International Patients</span></div>
+    <div class="meta-item"><span class="meta-label">Report Type</span><span class="meta-value">Full Technical + On-Page + Off-Page + Competitive</span></div>
+  </div>
+</div>
+
+<!-- SCORE BANNER -->
+<div class="score-banner">
+  <div style="flex:1; min-width:200px;">
+    <p style="font-size:13px; color:var(--muted);">Overall SEO Health Score</p>
+    <p style="font-family:'Syne',sans-serif; font-size:3rem; font-weight:800; color:var(--amber);">42<span style="font-size:1.5rem; color:var(--muted);">/100</span></p>
+    <p style="font-size:12px; color:var(--amber);">⚠ Needs Significant Improvement</p>
+  </div>
+  <div class="score-card score-red"><div class="score-num">7</div><div class="score-label">Critical Issues</div></div>
+  <div class="score-card score-amber"><div class="score-num">11</div><div class="score-label">Warnings</div></div>
+  <div class="score-card score-green"><div class="score-num">6</div><div class="score-label">Passed</div></div>
+  <div class="score-card score-blue"><div class="score-num">38+</div><div class="score-label">Keywords Opportunity</div></div>
+  <div class="score-card score-teal"><div class="score-num">9</div><div class="score-label">Competitors Mapped</div></div>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1: WEBSITE OVERVIEW -->
+<div class="section">
+  <div class="section-heading">
+    <div class="section-icon">🔍</div>
+    <h2>Section 1 — Website Overview & Current State</h2>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <h3>🌐 Domain & Identity</h3>
+      <ul>
+        <li><strong>Domain:</strong> bestneurosurgeoningurgaon.com</li>
+        <li><strong>CMS:</strong> WordPress with Elementor 3.34.2</li>
+        <li><strong>Doctor:</strong> Dr. Vikas Kathuria (MBBS, MS, M.Ch Neurosurgery)</li>
+        <li><strong>Clinic Name:</strong> Brain & Spine Neuro Center / Skin Aura & Spine Neuro Center</li>
+        <li><strong>Location:</strong> DLF Phase 4, Gurgaon – 122002</li>
+        <li><strong>Phone Numbers:</strong> 3 different numbers found (inconsistency!)</li>
+        <li><strong>Email:</strong> Care@sabclinic.com</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📄 Page Inventory</h3>
+      <ul>
+        <li>Home, About Us, Meet The Doctor</li>
+        <li>Brain Procedures (8 sub-pages)</li>
+        <li>Spine Procedures (6 sub-pages)</li>
+        <li>Other Neurological Problems (5 sub-pages)</li>
+        <li>International Patient Portal (4 sub-pages)</li>
+        <li>Testimonials, Gallery, Patient Gallery, Video, Blog, Contact</li>
+        <li><strong>Estimated Total Pages: ~30+</strong></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>✅ What's Working (Positives)</h3>
+      <ul>
+        <li>Rich service pages with clear hierarchy</li>
+        <li>Good social media linking (FB, IG, YT, Twitter)</li>
+        <li>Google & Practo reviews embedded</li>
+        <li>International Patient section exists</li>
+        <li>Schema-triggering stats (15,000+ patients, 25 yrs exp)</li>
+        <li>Blog section exists</li>
+        <li>SSL enabled, canonical tags set</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🚨 Critical Observations</h3>
+      <ul>
+        <li>Title tag inconsistency — says "Best Neurologist" but doctor is a Neurosurgeon</li>
+        <li>3 different phone numbers across pages</li>
+        <li>Clinic name inconsistency (Skin Aura vs Brain & Spine)</li>
+        <li>No Schema markup (Local Business / MedicalBusiness)</li>
+        <li>Thin blog content (only 3 recent posts visible)</li>
+        <li>No FAQ schema on service pages</li>
+        <li>No patient reviews schema</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: TECHNICAL SEO -->
+<div class="section">
+  <div class="section-heading">
+    <div class="section-icon">⚙️</div>
+    <h2>Section 2 — Technical SEO Audit</h2>
+  </div>
+  <div class="issue-list">
+    <div class="issue-item critical">
+      <div class="issue-icon">🔴</div>
+      <div class="issue-body">
+        <div class="issue-title">Page Speed & Core Web Vitals — CRITICAL</div>
+        <div class="issue-desc">Elementor-based sites are typically slow due to large CSS/JS bundles, render-blocking resources, and unoptimized image loading. Medical sites require LCP under 2.5s. Heavy slider on homepage and multiple images without lazy loading are likely causing poor CWV scores.</div>
+        <div class="issue-fix">Fix: Use WP Rocket or LiteSpeed Cache. Convert all images to WebP. Enable lazy loading. Defer non-critical JS. Remove unused Elementor widgets/CSS. Target LCP &lt;2.5s, TBT &lt;200ms, CLS &lt;0.1.</div>
+      </div>
+      <span class="badge badge-red">Critical</span>
+    </div>
+    <div class="issue-item critical">
+      <div class="issue-icon">🔴</div>
+      <div class="issue-body">
+        <div class="issue-title">Missing Structured Data / Schema Markup — CRITICAL</div>
+        <div class="issue-desc">No LocalBusiness, MedicalBusiness, Physician, or FAQPage schema detected. Google uses schema to power rich results, knowledge panels, and local pack listings. Competitors with schema will consistently outrank this site.</div>
+        <div class="issue-fix">Fix: Add LocalBusiness + MedicalBusiness schema on homepage. Add Physician schema on Meet The Doctor page. Add FAQPage schema on all service pages. Add AggregateRating schema to embed review data.</div>
+      </div>
+      <span class="badge badge-red">Critical</span>
+    </div>
+    <div class="issue-item critical">
+      <div class="issue-icon">🔴</div>
+      <div class="issue-body">
+        <div class="issue-title">Title Tag Inconsistency — Neurologist vs Neurosurgeon</div>
+        <div class="issue-desc">Browser tab says "Best Neurologist In Gurgaon" while OG title says "Neurosurgeon in Gurgaon." Neurologist and Neurosurgeon are completely different specialties. This confuses Google and patients, and dilutes keyword targeting. This is a YMYL (Your Money Your Life) domain — accuracy is critical for E-E-A-T.</div>
+        <div class="issue-fix">Fix: Standardize all title tags to "Best Neurosurgeon in Gurgaon | Dr. Vikas Kathuria | Brain & Spine Clinic." Remove all "Neurologist" references if doctor is not a neurologist.</div>
+      </div>
+      <span class="badge badge-red">Critical</span>
+    </div>
+    <div class="issue-item critical">
+      <div class="issue-icon">🔴</div>
+      <div class="issue-body">
+        <div class="issue-title">NAP Inconsistency (Name, Address, Phone)</div>
+        <div class="issue-desc">Three different phone numbers found: 9267939247 (header click-to-call), +91-8377080260 (logo area), 9215151260 (WhatsApp). Google cross-references NAP across your website, GMB, Practo, Justdial, and other directories. Inconsistencies hurt local SEO significantly.</div>
+        <div class="issue-fix">Fix: Choose ONE canonical phone number. Update it consistently across the website, Google Business Profile, Practo, Justdial, Sulekha, IndiaMART, and all other listings.</div>
+      </div>
+      <span class="badge badge-red">Critical</span>
+    </div>
+    <div class="issue-item critical">
+      <div class="issue-icon">🔴</div>
+      <div class="issue-body">
+        <div class="issue-title">Google Business Profile Not Fully Optimized</div>
+        <div class="issue-desc">The website links to GBP but the profile likely lacks full optimization — no services listed with descriptions, no posts, no Q&A section populated, no attributes set (e.g., "Specializes in Brain Tumor Surgery"). GBP is the #1 factor for local map pack ranking.</div>
+        <div class="issue-fix">Fix: Add all 20+ services to GBP with keyword-rich descriptions. Post weekly updates. Answer all Q&A. Add all attributes. Upload 50+ real photos. Get more Google reviews (currently on Practo — need Google reviews too).</div>
+      </div>
+      <span class="badge badge-red">Critical</span>
+    </div>
+    <div class="issue-item warning">
+      <div class="issue-icon">🟡</div>
+      <div class="issue-body">
+        <div class="issue-title">XML Sitemap & Robots.txt — Unverified</div>
+        <div class="issue-desc">Cannot confirm if sitemap.xml is submitted to Google Search Console or if robots.txt is properly configured. Elementor sites sometimes block CSS/JS files in robots.txt which hinders Googlebot rendering.</div>
+        <div class="issue-fix">Fix: Submit sitemap to GSC. Check robots.txt allows Googlebot access to all CSS and JS. Verify all important pages are indexed via GSC.</div>
+      </div>
+      <span class="badge badge-amber">Warning</span>
+    </div>
+    <div class="issue-item warning">
+      <div class="issue-icon">🟡</div>
+      <div class="issue-body">
+        <div class="issue-title">Mobile Usability — Elementor Breakpoints</div>
+        <div class="issue-desc">Elementor sites frequently have mobile rendering issues — overlapping elements, large tap targets, text too small. With 65%+ of medical searches on mobile in India, any mobile UX issue directly kills conversions and rankings.</div>
+        <div class="issue-fix">Fix: Audit all pages on mobile (iPhone 12 + Android). Check tap targets ≥48px. Ensure no horizontal scroll. Use Elementor's responsive mode to fix breakpoint issues.</div>
+      </div>
+      <span class="badge badge-amber">Warning</span>
+    </div>
+    <div class="issue-item warning">
+      <div class="issue-icon">🟡</div>
+      <div class="issue-body">
+        <div class="issue-title">Image Optimization — Missing ALT Tags & File Names</div>
+        <div class="issue-desc">Multiple images have generic names (1.jpg, 2.jpg, about.jpg) and ALT text shows only "Best Neurosurgeon in Gurgaon" repeated. This is a missed keyword opportunity and accessibility violation.</div>
+        <div class="issue-fix">Fix: Rename all images descriptively (e.g., dr-vikas-kathuria-brain-tumor-surgery-gurgaon.webp). Write unique, descriptive ALT text for every image. Convert to WebP. Compress all images below 100KB.</div>
+      </div>
+      <span class="badge badge-amber">Warning</span>
+    </div>
+    <div class="issue-item info">
+      <div class="issue-icon">🔵</div>
+      <div class="issue-body">
+        <div class="issue-title">Elementor 3.34.2 — Keep Updated</div>
+        <div class="issue-desc">Running on Elementor 3.34.2. Outdated plugins are a security risk and can cause compatibility issues with newer WordPress versions.</div>
+        <div class="issue-fix">Fix: Keep Elementor, WordPress core, and all plugins updated. Use a staging environment before major updates.</div>
+      </div>
+      <span class="badge badge-blue">Info</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: ON-PAGE SEO -->
+<div class="section">
+  <div class="section-heading">
+    <div class="section-icon">📝</div>
+    <h2>Section 3 — On-Page SEO Audit</h2>
+  </div>
+  <div class="issue-list">
+    <div class="issue-item critical">
+      <div class="issue-icon">🔴</div>
+      <div class="issue-body">
+        <div class="issue-title">Thin Content on Service Pages</div>
+        <div class="issue-desc">Service pages like Brain Tumor, Cervical Spine Surgery, etc. likely have under 500 words of actual content. Google's Helpful Content Update penalizes thin medical content. Competitors have 1500–3000 word in-depth pages for the same procedures.</div>
+        <div class="issue-fix">Fix: Expand every service page to minimum 1200–2000 words. Include: What is the condition, Symptoms, Causes, Diagnosis, Treatment options, Why choose Dr. Kathuria, Recovery, FAQs. Add schema.</div>
+      </div>
+      <span class="badge badge-red">Critical</span>
+    </div>
+    <div class="issue-item critical">
+      <div class="issue-icon">🔴</div>
+      <div class="issue-body">
+        <div class="issue-title">Weak Meta Descriptions (Same text reused)</div>
+        <div class="issue-desc">The same meta description "Brain & Spine Neuro Center offers consultation and care for brain and spine conditions..." appears to be used for all pages. Each page needs a unique, compelling meta description with the target keyword and a call-to-action. Click-through rate (CTR) from search depends on this.</div>
+        <div class="issue-fix">Fix: Write unique 150–160 character meta descriptions for every page. Include primary keyword, doctor name or specialty, and action phrase like "Book Consultation Today."</div>
+      </div>
+      <span class="badge badge-red">Critical</span>
+    </div>
+    <div class="issue-item warning">
+      <div class="issue-icon">🟡</div>
+      <div class="issue-body">
+        <div class="issue-title">H1 Tag Issues</div>
+        <div class="issue-desc">Homepage H1 appears to be "About Brain & Spine Neuro Center" rather than the primary keyword. The H1 should contain the most important target keyword.</div>
+        <div class="issue-fix">Fix: Change homepage H1 to "Best Neurosurgeon in Gurgaon – Dr. Vikas Kathuria" or similar. Each page should have exactly one H1 containing the page's primary keyword.</div>
+      </div>
+      <span class="badge badge-amber">Warning</span>
+    </div>
+    <div class="issue-item warning">
+      <div class="issue-icon">🟡</div>
+      <div class="issue-body">
+        <div class="issue-title">Internal Linking — Not Strategic</div>
+        <div class="issue-desc">Internal links exist via the menu, but service pages don't cross-link to related pages, blog posts don't link to service pages, and there's no clear "hub and spoke" linking architecture to pass authority efficiently.</div>
+        <div class="issue-fix">Fix: Build a linking matrix. Each blog post links to 2–3 relevant service pages. Each service page links to related services. Add "You May Also Be Interested In" sections. Link doctor page from all service pages.</div>
+      </div>
+      <span class="badge badge-amber">Warning</span>
+    </div>
+    <div class="issue-item warning">
+      <div class="issue-icon">🟡</div>
+      <div class="issue-body">
+        <div class="issue-title">Blog Content — Low Volume & Frequency</div>
+        <div class="issue-desc">Only 3 recent blog posts found. Blog was last updated March 2026. To compete for informational keywords and build topical authority, a neurosurgery website needs 4–8 high-quality posts per month.</div>
+        <div class="issue-fix">Fix: Create a content calendar. Publish at minimum 2 posts/week covering: symptoms, conditions, treatment comparisons, patient education, "best doctor for X in Gurgaon" type posts. Target long-tail keywords with low competition.</div>
+      </div>
+      <span class="badge badge-amber">Warning</span>
+    </div>
+    <div class="issue-item warning">
+      <div class="issue-icon">🟡</div>
+      <div class="issue-body">
+        <div class="issue-title">No E-E-A-T Signals on Key Pages</div>
+        <div class="issue-desc">YMYL (health) pages require high E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness). The doctor's credentials page exists but qualifications, publications, hospital affiliations, media mentions, and awards are not prominently featured on service pages.</div>
+        <div class="issue-fix">Fix: Add "Medically reviewed by Dr. Vikas Kathuria, M.Ch (Neurosurgery)" to every article. Display credentials on all service pages. Link to PubMed/research if available. List all hospital affiliations prominently.</div>
+      </div>
+      <span class="badge badge-amber">Warning</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: KEYWORD RESEARCH -->
+<div class="section">
+  <div class="section-heading">
+    <div class="section-icon">🔑</div>
+    <h2>Section 4 — Keyword Research & Target Map</h2>
+  </div>
+  <p style="color:var(--muted); margin-bottom:20px; font-size:13px;">Keywords grouped by priority. Currently the site is likely ranking for some brand terms only. All below are opportunities to capture.</p>
+  <table class="data-table" style="margin-bottom:20px;">
+    <thead>
+      <tr>
+        <th>Keyword</th>
+        <th>Intent</th>
+        <th>Priority</th>
+        <th>Target Page</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>best neurosurgeon in gurgaon</td><td>Commercial</td><td><span class="badge badge-red">High</span></td><td>Homepage</td></tr>
+      <tr><td>neurosurgeon in gurgaon</td><td>Commercial</td><td><span class="badge badge-red">High</span></td><td>Homepage</td></tr>
+      <tr><td>brain surgeon in gurgaon</td><td>Commercial</td><td><span class="badge badge-red">High</span></td><td>Homepage</td></tr>
+      <tr><td>spine surgeon gurgaon</td><td>Commercial</td><td><span class="badge badge-red">High</span></td><td>Homepage / Spine page</td></tr>
+      <tr><td>brain tumor surgery gurgaon</td><td>Commercial</td><td><span class="badge badge-red">High</span></td><td>Brain Tumor page</td></tr>
+      <tr><td>brain tumor treatment gurgaon</td><td>Commercial</td><td><span class="badge badge-red">High</span></td><td>Brain Tumor page</td></tr>
+      <tr><td>cervical spine surgery gurgaon</td><td>Commercial</td><td><span class="badge badge-red">High</span></td><td>Cervical Spine page</td></tr>
+      <tr><td>lumbar spine surgery gurgaon</td><td>Commercial</td><td><span class="badge badge-red">High</span></td><td>Lumbar Spine page</td></tr>
+      <tr><td>minimally invasive spine surgery gurgaon</td><td>Commercial</td><td><span class="badge badge-amber">Medium</span></td><td>MISS page</td></tr>
+      <tr><td>deep brain stimulation gurgaon</td><td>Commercial</td><td><span class="badge badge-amber">Medium</span></td><td>DBS page</td></tr>
+      <tr><td>brain aneurysm treatment gurgaon</td><td>Commercial</td><td><span class="badge badge-amber">Medium</span></td><td>Aneurysm page</td></tr>
+      <tr><td>epilepsy treatment gurgaon</td><td>Commercial</td><td><span class="badge badge-amber">Medium</span></td><td>Epilepsy page</td></tr>
+      <tr><td>migraine specialist gurgaon</td><td>Commercial</td><td><span class="badge badge-amber">Medium</span></td><td>Migraine page</td></tr>
+      <tr><td>back pain specialist gurgaon</td><td>Commercial</td><td><span class="badge badge-amber">Medium</span></td><td>Back Pain page</td></tr>
+      <tr><td>neck pain treatment gurgaon</td><td>Commercial</td><td><span class="badge badge-amber">Medium</span></td><td>Neck Pain page</td></tr>
+      <tr><td>neurosurgeon in delhi ncr</td><td>Commercial</td><td><span class="badge badge-amber">Medium</span></td><td>New landing page</td></tr>
+      <tr><td>best neurosurgeon delhi ncr</td><td>Commercial</td><td><span class="badge badge-amber">Medium</span></td><td>New landing page</td></tr>
+      <tr><td>dr vikas kathuria</td><td>Navigational</td><td><span class="badge badge-green">Brand</span></td><td>Homepage / Doctor page</td></tr>
+      <tr><td>brain stroke treatment gurgaon</td><td>Commercial</td><td><span class="badge badge-amber">Medium</span></td><td>Brain Stroke page</td></tr>
+      <tr><td>trigeminal neuralgia specialist gurgaon</td><td>Commercial</td><td><span class="badge badge-blue">Long-tail</span></td><td>Trigeminal Neuralgia page</td></tr>
+      <tr><td>brain hemorrhage treatment gurgaon</td><td>Informational/Comm</td><td><span class="badge badge-amber">Medium</span></td><td>Brain Hemorrhage page</td></tr>
+      <tr><td>brachial plexus injury treatment india</td><td>Commercial</td><td><span class="badge badge-blue">Long-tail</span></td><td>Brachial Plexus page</td></tr>
+      <tr><td>spine tumor surgery india</td><td>Commercial</td><td><span class="badge badge-blue">Long-tail</span></td><td>Spine Tumor page</td></tr>
+      <tr><td>cost of brain tumor surgery gurgaon</td><td>Commercial</td><td><span class="badge badge-blue">Long-tail</span></td><td>New page needed</td></tr>
+      <tr><td>neurosurgeon in dlf gurgaon</td><td>Local</td><td><span class="badge badge-blue">Long-tail</span></td><td>Homepage / Contact</td></tr>
+      <tr><td>international patient neurosurgery india</td><td>Commercial</td><td><span class="badge badge-amber">Medium</span></td><td>International Portal</td></tr>
+      <tr><td>what is brain hemorrhage symptoms treatment</td><td>Informational</td><td><span class="badge badge-blue">Blog</span></td><td>Blog post</td></tr>
+      <tr><td>how to treat slipped disc without surgery</td><td>Informational</td><td><span class="badge badge-blue">Blog</span></td><td>Blog post</td></tr>
+      <tr><td>parkinsons disease treatment india</td><td>Commercial</td><td><span class="badge badge-blue">Long-tail</span></td><td>Blog/New page</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card" style="margin-top:16px;">
+    <h3>💡 New Pages to Create</h3>
+    <p style="margin-bottom:10px;">These pages don't exist but competitors rank for them — create them to capture traffic:</p>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+      <span class="kw-chip">Neurosurgeon in Delhi NCR</span>
+      <span class="kw-chip">Cost of Brain Tumor Surgery in Gurgaon</span>
+      <span class="kw-chip">Cost of Spine Surgery India</span>
+      <span class="kw-chip">Parkinson's Disease Treatment Page</span>
+      <span class="kw-chip">Sciatica Treatment Gurgaon</span>
+      <span class="kw-chip">Disc Herniation / Slip Disc Page</span>
+      <span class="kw-chip">Skull Base Surgery Gurgaon</span>
+      <span class="kw-chip">Patient Success Stories (dedicated)</span>
+      <span class="kw-chip">Before & After Surgery Gallery</span>
+      <span class="kw-chip">Video Testimonials Page (SEO-optimized)</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: OFF-PAGE SEO -->
+<div class="section">
+  <div class="section-heading">
+    <div class="section-icon">🔗</div>
+    <h2>Section 5 — Off-Page SEO & Link Building</h2>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <h3>📋 Current Citations (Likely)</h3>
+      <ul>
+        <li>✅ Google Business Profile</li>
+        <li>✅ Practo (linked from website)</li>
+        <li>❓ Justdial — Verify & Optimize</li>
+        <li>❓ Sulekha — Verify & Optimize</li>
+        <li>❓ IndiaMART — Likely missing</li>
+        <li>❌ Credihealth — Not listed prominently</li>
+        <li>❌ Vaidam Health — Not listed</li>
+        <li>❌ Healthgrades / Lybrate — Unverified</li>
+        <li>❌ Wikipedia / Wikidata — Not present</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🏗 Priority Link Building Actions</h3>
+      <ul>
+        <li>List on Credihealth, Vaidam, MediJourney (competitors use these)</li>
+        <li>Guest posts on health blogs (Times of India Health, NDTV Doctor)</li>
+        <li>Get featured in "Best Neurosurgeon Gurgaon" list articles</li>
+        <li>Submit to Neurosurgery Society of India website</li>
+        <li>Hospital websites where Dr. Kathuria practices should link back</li>
+        <li>YouTube channel: optimize videos & link back to site</li>
+        <li>Local newspaper / magazine features (Tribune, Hindustan Times)</li>
+        <li>LinkedIn articles — builds E-E-A-T</li>
+        <li>Quora answers for neurology questions → link to blog</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>⭐ Review Strategy</h3>
+      <ul>
+        <li>Currently reviews on Practo & Google (limited)</li>
+        <li>Target: 100+ Google reviews (4.8+ rating)</li>
+        <li>Set up post-consultation WhatsApp review request flow</li>
+        <li>Add reviews on: Lybrate, Credihealth, Justdial, Facebook</li>
+        <li>Respond to ALL existing reviews (shows trust)</li>
+        <li>Video testimonials are gold — optimize for YouTube + embed on site</li>
+        <li>Request reviews in Practo follow-up emails</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🗺 Local SEO Actions</h3>
+      <ul>
+        <li>Google Business Profile — complete 100% profile</li>
+        <li>Add weekly GBP posts (case types, health tips, news)</li>
+        <li>Enable GBP messaging & booking link</li>
+        <li>Embed Google Map on Contact page</li>
+        <li>Add landmark references in content (DLF Phase 4, near Supermart 2)</li>
+        <li>Create area landing pages: "Neurosurgeon in DLF Gurgaon", "Brain Surgeon Sector 47 Gurgaon"</li>
+        <li>Bing Places & Apple Maps listing</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: COMPETITOR ANALYSIS -->
+<div class="section">
+  <div class="section-heading">
+    <div class="section-icon">🏁</div>
+    <h2>Section 6 — Competitor Analysis</h2>
+  </div>
+  <p style="color:var(--muted); margin-bottom:24px; font-size:13px;">These are the websites competing for the same keywords in Gurgaon / Delhi NCR. Listed by threat level (highest first).</p>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-rank">1</div>
+      <div>
+        <div class="comp-name">NeurosurgeryIndia.in <span class="badge badge-red" style="margin-left:8px;">Highest Threat</span></div>
+        <div class="comp-url">https://neurosurgeryindia.in/ — Dr. Manish Rawat, PARK Group of Hospitals</div>
+      </div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-section">
+        <h4>What They Do Better</h4>
+        <ul>
+          <li>Multi-doctor clinic (3 senior surgeons) — higher authority signals</li>
+          <li>Very high content volume — 30+ blog posts, detailed service pages</li>
+          <li>Actively publishing "Top 10 Neurosurgeons" list articles (self-promoting)</li>
+          <li>Strong internal linking & topical clusters</li>
+          <li>Better E-E-A-T presentation of all doctors</li>
+          <li>Ranks for Delhi NCR and Gurgaon both</li>
+          <li>Listed on Credihealth, Vaidam, MediJourney</li>
+        </ul>
+      </div>
+      <div class="comp-section">
+        <h4>Weaknesses to Exploit</h4>
+        <ul>
+          <li>Multi-doctor = diluted individual brand</li>
+          <li>Dr. Kathuria has more personal credibility — use it</li>
+          <li>Less focus on international patients</li>
+          <li>Video content is weaker</li>
+          <li>No DLF Phase 4 local targeting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-rank">2</div>
+      <div>
+        <div class="comp-name">Medanta.org <span class="badge badge-red" style="margin-left:8px;">Highest Threat</span></div>
+        <div class="comp-url">https://www.medanta.org/doctor-listing/neurosurgery-doctors-in-gurugram</div>
+      </div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-section">
+        <h4>What They Do Better</h4>
+        <ul>
+          <li>Hospital brand authority (DA 70+)</li>
+          <li>Multiple top surgeons (Dr. Sudhir Dubey, Dr. V.P. Singh)</li>
+          <li>10,000+ complex surgeries credibility</li>
+          <li>GammaKnife, advanced tech positioning</li>
+          <li>Insurance tie-ups, EMI options</li>
+          <li>Massive review base</li>
+        </ul>
+      </div>
+      <div class="comp-section">
+        <h4>Weaknesses to Exploit</h4>
+        <ul>
+          <li>Impersonal — corporate feel vs Dr. Kathuria's personal touch</li>
+          <li>Expensive — Dr. Kathuria can win on cost-conscious patients</li>
+          <li>Appointments harder to get — Dr. Kathuria offers easier access</li>
+          <li>Can't compete directly — differentiate, don't fight</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-rank">3</div>
+      <div>
+        <div class="comp-name">MaxHealthcare.in — Gurgaon <span class="badge badge-amber" style="margin-left:8px;">High Threat</span></div>
+        <div class="comp-url">https://www.maxhealthcare.in/doctor/neurosurgeons-in-gurgaon</div>
+      </div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-section">
+        <h4>What They Do Better</h4>
+        <ul>
+          <li>Hospital brand with high DA</li>
+          <li>Online appointment booking system</li>
+          <li>Insurance empanelment</li>
+          <li>Wide media coverage</li>
+        </ul>
+      </div>
+      <div class="comp-section">
+        <h4>Weaknesses to Exploit</h4>
+        <ul>
+          <li>Same as Medanta — impersonal, expensive</li>
+          <li>Dr. Kathuria can offer Sunday OPD (Max may not)</li>
+          <li>Personalized second opinion possible</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-rank">4</div>
+      <div>
+        <div class="comp-name">Artemis Hospital — Dr. Aditya Gupta <span class="badge badge-amber" style="margin-left:8px;">High Threat</span></div>
+        <div class="comp-url">artemishospitals.com / artemisneurology</div>
+      </div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-section">
+        <h4>What They Do Better</h4>
+        <ul>
+          <li>30 years experience, very strong brand</li>
+          <li>Ranks strongly for "DBS surgeon Gurgaon"</li>
+          <li>Multiple research publications</li>
+          <li>Listed on all aggregators</li>
+        </ul>
+      </div>
+      <div class="comp-section">
+        <h4>Weaknesses to Exploit</h4>
+        <ul>
+          <li>Less accessible clinic hours</li>
+          <li>Less personal website — opportunity for Dr. Kathuria</li>
+          <li>Video content — can be beaten here</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-rank">5</div>
+      <div>
+        <div class="comp-name">Credihealth.com / Vaidam.com / MediJourney <span class="badge badge-blue" style="margin-left:8px;">Directory Threat</span></div>
+        <div class="comp-url">Aggregator sites that rank above individual doctor sites</div>
+      </div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-section">
+        <h4>What They Do Better</h4>
+        <ul>
+          <li>Extremely high DA (60–75) — rank for almost every doctor keyword</li>
+          <li>List Dr. Kathuria's competitors prominently</li>
+          <li>Appear in top 3 for nearly all "neurosurgeon gurgaon" searches</li>
+        </ul>
+      </div>
+      <div class="comp-section">
+        <h4>Strategy</h4>
+        <ul>
+          <li>Get listed on ALL these platforms (free)</li>
+          <li>Optimize profile with photos, credentials, services</li>
+          <li>Collect reviews on each platform</li>
+          <li>Use them as backlink sources — they link back to your site</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-rank">6</div>
+      <div>
+        <div class="comp-name">Practo.com <span class="badge badge-blue" style="margin-left:8px;">Directory</span></div>
+        <div class="comp-url">https://www.practo.com/gurgaon/doctor/vikas-kathuria-neurosurgeon</div>
+      </div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-section">
+        <h4>Current Status</h4>
+        <ul>
+          <li>Already listed — good</li>
+          <li>Reviews present — continue growing</li>
+          <li>Practo ranks very high for most doctor searches</li>
+        </ul>
+      </div>
+      <div class="comp-section">
+        <h4>Optimization Actions</h4>
+        <ul>
+          <li>Add all services with detailed descriptions</li>
+          <li>Add procedures & treatments list</li>
+          <li>Upload 15+ clinic photos</li>
+          <li>Respond to all reviews</li>
+          <li>Add educational articles on Practo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-rank">7</div>
+      <div>
+        <div class="comp-name">Paras Hospital Gurgaon <span class="badge badge-amber" style="margin-left:8px;">Medium Threat</span></div>
+        <div class="comp-url">parashospitals.com — Dr. Vipul Gupta (Neurointervention)</div>
+      </div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-section">
+        <h4>What They Do Better</h4>
+        <ul>
+          <li>Strong in endovascular / interventional side</li>
+          <li>Hospital DA advantage</li>
+        </ul>
+      </div>
+      <div class="comp-section">
+        <h4>Weaknesses to Exploit</h4>
+        <ul>
+          <li>Dr. Kathuria covers more general neurosurgery</li>
+          <li>International patient focus is weaker</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-rank">8</div>
+      <div>
+        <div class="comp-name">Dr. Arun Saroha (Medium.com + Personal Site) <span class="badge badge-green" style="margin-left:8px;">Lower Threat</span></div>
+        <div class="comp-url">drarunsaroha.medium.com + possible personal site</div>
+      </div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-section">
+        <h4>What They Do Better</h4>
+        <ul>
+          <li>Uses Medium for content marketing</li>
+          <li>29 years experience, 8000+ surgeries</li>
+          <li>Listed on Vaidam</li>
+        </ul>
+      </div>
+      <div class="comp-section">
+        <h4>Weaknesses to Exploit</h4>
+        <ul>
+          <li>No dedicated, well-optimized website</li>
+          <li>Dr. Kathuria can outrank with a strong site easily</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-rank">9</div>
+      <div>
+        <div class="comp-name">AIIMS Delhi / Fortis Hospital <span class="badge badge-red" style="margin-left:8px;">Unbeatable — Avoid Direct Competition</span></div>
+        <div class="comp-url">National brand hospitals — differentiate, don't fight</div>
+      </div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-section">
+        <h4>What They Do Better</h4>
+        <ul>
+          <li>National brand, DA 75+</li>
+          <li>Government hospital (AIIMS) — trusted by default</li>
+          <li>Massive budget for digital</li>
+        </ul>
+      </div>
+      <div class="comp-section">
+        <h4>Strategy</h4>
+        <ul>
+          <li>Target patients who CANNOT get AIIMS appointments</li>
+          <li>Position as premium private alternative</li>
+          <li>Target "second opinion neurosurgeon gurgaon" keywords</li>
+          <li>Focus on same-day/next-day appointment availability</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: ACTION PRIORITY LIST -->
+<div class="section">
+  <div class="section-heading">
+    <div class="section-icon">🚀</div>
+    <h2>Section 7 — Action Plan (Prioritized)</h2>
+  </div>
+  <p style="color:var(--muted); margin-bottom:20px; font-size:13px;">Execute in this order. Month 1–2 builds the foundation. Month 3–6 builds authority. Month 6–12 compounds results.</p>
+
+  <h3 style="font-size:14px; color:var(--red); margin-bottom:12px; font-family:'DM Sans',sans-serif;">🔴 MONTH 1 — Foundation Fixes (Do These First)</h3>
+  <div class="priority-list" style="margin-bottom:28px;">
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Fix Title Tag — Remove "Neurologist", use "Neurosurgeon" consistently</div>
+        <div class="p-desc">Update all meta titles, H1s, and on-page copy to say Neurosurgeon everywhere. This is a factual and SEO error.</div>
+      </div>
+      <span class="p-impact badge badge-red">Day 1</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Standardize NAP — One phone number across entire website</div>
+        <div class="p-desc">Pick one number. Update header, footer, contact page, schema, GBP, Practo, all directories.</div>
+      </div>
+      <span class="p-impact badge badge-red">Day 1</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Install & Implement Schema Markup (JSON-LD)</div>
+        <div class="p-desc">Add LocalBusiness + MedicalBusiness + Physician + FAQPage + AggregateRating schema. Use Rank Math or Schema Pro plugin.</div>
+      </div>
+      <span class="p-impact badge badge-red">Week 1</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Speed Optimization — Install WP Rocket + WebP images</div>
+        <div class="p-desc">Target PageSpeed score 80+ on mobile. Fix LCP, TBT, CLS. This alone can move rankings 3–5 positions.</div>
+      </div>
+      <span class="p-impact badge badge-red">Week 1–2</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Google Business Profile Full Optimization</div>
+        <div class="p-desc">Complete every field. Add 20+ services. Upload 50 clinic photos. Add posts. Enable messaging. Respond to all reviews.</div>
+      </div>
+      <span class="p-impact badge badge-red">Week 1–2</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Set Up Google Search Console & Analytics 4</div>
+        <div class="p-desc">Verify ownership, submit sitemap, check coverage errors, identify any manual actions. Connect GA4 for conversion tracking.</div>
+      </div>
+      <span class="p-impact badge badge-red">Week 1</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">List on Credihealth, Vaidam, MediJourney, Lybrate</div>
+        <div class="p-desc">These are high-DA sites that rank above individual sites. Being listed gives backlinks + referral traffic + review sources.</div>
+      </div>
+      <span class="p-impact badge badge-amber">Week 2–3</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Write Unique Meta Descriptions for Every Page</div>
+        <div class="p-desc">30+ pages need unique, keyword-rich 150-character descriptions. Priority: Homepage, all Brain/Spine procedure pages, Doctor page.</div>
+      </div>
+      <span class="p-impact badge badge-amber">Week 2</span>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px; color:var(--amber); margin-bottom:12px; font-family:'DM Sans',sans-serif;">🟡 MONTH 2–3 — Content Expansion</h3>
+  <div class="priority-list" style="margin-bottom:28px;">
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Expand All Service Pages to 1500+ Words Each</div>
+        <div class="p-desc">Brain Tumor, Brain Hemorrhage, Cervical Spine, Lumbar Spine, Brain Aneurysm — all need expanded content with symptoms, treatment, FAQs, costs, recovery.</div>
+      </div>
+      <span class="p-impact badge badge-amber">Month 2</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Create 2 Blog Posts Per Week</div>
+        <div class="p-desc">Publish consistently. Topics: "Brain Tumor Symptoms to Watch For", "When Back Pain Needs Surgery", "Cost of Spine Surgery in Gurgaon 2026", "What is Deep Brain Stimulation?", etc.</div>
+      </div>
+      <span class="p-impact badge badge-amber">Month 2–6</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Add E-E-A-T Elements to All Pages</div>
+        <div class="p-desc">Author bio box on every blog post. Credential display on service pages. Hospital affiliations list. Link to any published research. Medical review date on all content.</div>
+      </div>
+      <span class="p-impact badge badge-amber">Month 2</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Create New Landing Pages for Missing Keywords</div>
+        <div class="p-desc">Create: "Neurosurgeon in Delhi NCR", "Cost of Brain Tumor Surgery", "Parkinson's Disease Treatment", "Slip Disc / Sciatica Treatment"</div>
+      </div>
+      <span class="p-impact badge badge-amber">Month 2–3</span>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px; color:var(--green); margin-bottom:12px; font-family:'DM Sans',sans-serif;">🟢 MONTH 3–6 — Authority Building</h3>
+  <div class="priority-list">
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Active Review Generation Campaign</div>
+        <div class="p-desc">Send every patient a WhatsApp message post-consultation with direct Google review link. Target 10+ new reviews per month. Respond to all reviews.</div>
+      </div>
+      <span class="p-impact badge badge-green">Ongoing</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">YouTube Channel Optimization</div>
+        <div class="p-desc">Optimize all existing videos with keyword-rich titles/descriptions. Upload patient education videos monthly. Link all videos to relevant website pages.</div>
+      </div>
+      <span class="p-impact badge badge-green">Month 3+</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Link Building — Guest Posts & Medical Directories</div>
+        <div class="p-desc">Target 5–10 quality backlinks per month from health blogs, news sites, hospital websites, and medical associations.</div>
+      </div>
+      <span class="p-impact badge badge-green">Month 3+</span>
+    </div>
+    <div class="priority-item">
+      <div>
+        <div class="p-title">Monthly GBP Posts & Q&A Management</div>
+        <div class="p-desc">Post weekly updates to GBP (case studies, health tips, awards). Answer all questions in the Q&A section. This directly impacts map pack rankings.</div>
+      </div>
+      <span class="p-impact badge badge-green">Ongoing</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8: COMPLETE CHECKLIST -->
+<div class="section">
+  <div class="section-heading">
+    <div class="section-icon">✅</div>
+    <h2>Section 8 — Complete SEO Checklist</h2>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Technical SEO</h3>
+      <div class="checklist" style="margin-top:10px;">
+        <div class="check-item check-done"><span class="ci">✅</span> SSL Certificate active</div>
+        <div class="check-item check-done"><span class="ci">✅</span> Canonical tags set</div>
+        <div class="check-item check-done"><span class="ci">✅</span> OG / Twitter meta present</div>
+        <div class="check-item check-done"><span class="ci">✅</span> Google verification meta tag</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Page speed optimized (target 80+ mobile)</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Schema / Structured data added</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> XML sitemap submitted to GSC</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Core Web Vitals passing</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Image optimization (WebP + ALT)</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Mobile UX fully verified</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>On-Page SEO</h3>
+      <div class="checklist" style="margin-top:10px;">
+        <div class="check-item check-done"><span class="ci">✅</span> Service pages exist for all procedures</div>
+        <div class="check-item check-done"><span class="ci">✅</span> Social media links present</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Title tags consistent (no "Neurologist" error)</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Unique meta descriptions per page</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> H1 tags optimized per page</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Content length 1500+ on service pages</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> FAQ sections on service pages</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Internal linking strategy implemented</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> E-E-A-T signals on all pages</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Blog publishing 2x/week</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Local SEO</h3>
+      <div class="checklist" style="margin-top:10px;">
+        <div class="check-item check-done"><span class="ci">✅</span> Google Business Profile exists</div>
+        <div class="check-item check-done"><span class="ci">✅</span> Practo profile linked</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> GBP fully optimized (all fields)</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> NAP consistent across all platforms</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> 100+ Google reviews (4.8+)</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Weekly GBP posts</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Listed on Credihealth, Vaidam, Lybrate</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Bing Places listing</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Justdial / Sulekha optimized</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Local area landing pages created</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Off-Page & Authority</h3>
+      <div class="checklist" style="margin-top:10px;">
+        <div class="check-item check-done"><span class="ci">✅</span> Facebook / Instagram active</div>
+        <div class="check-item check-done"><span class="ci">✅</span> YouTube channel exists</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> 50+ quality backlinks from health sites</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Guest posts on health publications</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> YouTube channel optimized + linked</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> LinkedIn profile & articles</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Media mentions / press coverage</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Quora / HealthUnlocked presence</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Video testimonials optimized</div>
+        <div class="check-item check-todo"><span class="ci">❌</span> Neurosurgery Society listing</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 9: EXPECTED RESULTS TIMELINE -->
+<div class="section">
+  <div class="section-heading">
+    <div class="section-icon">📈</div>
+    <h2>Section 9 — Expected Results Timeline</h2>
+  </div>
+  <table class="data-table">
+    <thead>
+      <tr><th>Timeframe</th><th>Expected Outcome</th><th>Key Metric</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Month 1</strong></td>
+        <td>Technical fixes in place. GSC showing improved crawl coverage. GBP fully optimized. NAP consistent.</td>
+        <td>Impressions +20%, Crawl errors resolved</td>
+      </tr>
+      <tr>
+        <td><strong>Month 2–3</strong></td>
+        <td>Ranking for brand keywords on Page 1. Service pages starting to rank for long-tail queries. Blog traffic beginning.</td>
+        <td>Organic clicks +40–60%</td>
+      </tr>
+      <tr>
+        <td><strong>Month 3–4</strong></td>
+        <td>Ranking in Google Maps Pack for "neurosurgeon gurgaon" and 3–4 service keywords. Referral traffic from directories.</td>
+        <td>Map Pack appearances, +30 new monthly visitors</td>
+      </tr>
+      <tr>
+        <td><strong>Month 4–6</strong></td>
+        <td>Page 1–2 rankings for 15+ target keywords. Consistent patient inquiries from organic. Blog driving informational traffic.</td>
+        <td>5–10 organic patient inquiries/month</td>
+      </tr>
+      <tr>
+        <td><strong>Month 6–12</strong></td>
+        <td>Competing with NeurosurgeryIndia.in for top-3 positions. Multiple procedure pages ranking Page 1. Established topical authority.</td>
+        <td>30+ keywords on Page 1, 20+ monthly organic leads</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="divider"></div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<div class="report-footer">
+  <div>
+    <p style="font-family:'Syne',sans-serif; font-size:14px; color:var(--white); font-weight:700; margin-bottom:4px;">SEO Audit Report — Dr. Vikas Kathuria</p>
+    <p>bestneurosurgeoningurgaon.com · Prepared May 2026 · Confidential</p>
+  </div>
+  <div style="text-align:right;">
+    <p>Overall Score: <span style="color:var(--amber); font-weight:700;">42/100</span></p>
+    <p>7 Critical Issues · 11 Warnings · 38+ Keyword Opportunities</p>
+  </div>
+</div>
+
+</body>
+</html>

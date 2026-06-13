@@ -1,0 +1,1768 @@
+
+
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #0a2540;
+      --navy2: #0d3060;
+      --blue: #1a56db;
+      --blue-lt: #3b82f6;
+      --sky: #e8f0fe;
+      --sky2: #dbeafe;
+      --accent: #f97316;
+      --accent2: #fb923c;
+      --green: #059669;
+      --green-lt: #ecfdf5;
+      --red: #dc2626;
+      --red-lt: #fef2f2;
+      --text: #0f1c2e;
+      --muted: #526070;
+      --border: #dde4ee;
+      --bg: #f7f9fc;
+      --white: #ffffff;
+      --r-sm: 10px;
+      --r-md: 16px;
+      --r-lg: 22px;
+      --r-xl: 30px;
+      --sh-sm: 0 2px 12px rgba(10,37,64,.07);
+      --sh-md: 0 8px 32px rgba(10,37,64,.10);
+      --sh-lg: 0 20px 60px rgba(10,37,64,.14);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { width: 100%; display: block; }
+
+    .container { width: min(100% - 32px, 1180px); margin: 0 auto; }
+    .section { padding: 88px 0; }
+    .section-sm { padding: 56px 0; }
+
+    /* ── TAG ── */
+    .tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--sky);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      border: 1px solid var(--sky2);
+    }
+
+    /* ── HEADINGS ── */
+    .h-serif {
+      font-size: clamp(30px, 4.2vw, 50px);
+      color: var(--text);
+      line-height: 1.12;
+      margin-bottom: 16px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .h-serif em { font-style: normal; color: var(--blue); }
+
+    .lead {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.78;
+      max-width: 680px;
+      margin: 0 auto 44px;
+    }
+
+    .text-center { text-align: center; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      transition: all .22s ease;
+      font-family: inherit;
+    }
+
+    .btn-blue { background: var(--blue); color: #fff; }
+    .btn-blue:hover { background: #1344b5; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,86,219,.35); }
+
+    .btn-wa { background: #25d366; color: #fff; }
+    .btn-wa:hover { background: #1db954; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.4); }
+
+    .btn-ghost { background: rgba(255,255,255,.12); color: #fff; border: 1.5px solid rgba(255,255,255,.28); }
+    .btn-ghost:hover { background: rgba(255,255,255,.2); }
+
+    .btn-outline-blue { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+    .btn-outline-blue:hover { background: var(--sky); }
+
+    .btn-accent { background: var(--accent); color: #fff; }
+    .btn-accent:hover { background: #e25d0a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(249,115,22,.35); }
+
+    /* ─────────────────────────────
+       STICKY NAV
+    ───────────────────────────── */
+    .sticky-nav {
+      position: fixed; top: 0; width: 100%; z-index: 999;
+      background: rgba(10,37,64,.96);
+      backdrop-filter: blur(12px);
+      padding: 13px 0;
+    }
+
+    .sticky-nav .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .nav-logo {
+      color: #fff;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -.3px;
+    }
+    .nav-logo span { color: #93c5fd; }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .nav-phone-pill {
+      display: flex; align-items: center; gap: 7px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 18px;
+      background: rgba(255,255,255,.13);
+      border-radius: 50px;
+    }
+
+    /* ─────────────────────────────
+       HERO
+    ───────────────────────────── */
+    .hero {
+      background:
+        linear-gradient(90deg, rgba(3,20,38,.94) 0%, rgba(10,37,64,.88) 48%, rgba(10,37,64,.62) 100%),
+        url('https://www.bestneurosurgeoningurgaon.com/wp-content/uploads/2026/05/2.jpg') center/cover no-repeat;
+      padding: 130px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.16);
+      color: #93c5fd;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 5.2vw, 64px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.07;
+      margin-bottom: 20px;
+      letter-spacing: 0;
+    }
+    .hero-title em { font-style: normal; color: #93c5fd; }
+    .hero-title strong { font-style: normal; color: #fff; }
+
+    .hero-sub {
+      font-size: 16px;
+      color: #94a3b8;
+      line-height: 1.75;
+      margin-bottom: 34px;
+      max-width: 500px;
+    }
+
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 42px; }
+
+    .hero-proof {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: #7fb3d3;
+    }
+    .live-dot {
+      width: 8px; height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(74,222,128,.2);
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 3px rgba(74,222,128,.2)} 50%{box-shadow:0 0 0 6px rgba(74,222,128,.1)} }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .hero-stat {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .hero-stat .n { font-size: 34px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 5px; }
+    .hero-stat .l { font-size: 12px; color: #93c5fd; font-weight: 500; }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: #fff;
+      border-radius: var(--r-xl);
+      padding: 34px 32px;
+      box-shadow: 0 32px 80px rgba(0,0,0,.28);
+      position: sticky;
+      top: 88px;
+    }
+
+    .form-header { margin-bottom: 22px; }
+    .form-header h2 { font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+    .form-header p { font-size: 13px; color: var(--muted); }
+    .form-header .wa-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #ecfdf5; color: #059669;
+      font-size: 11px; font-weight: 700;
+      padding: 4px 12px; border-radius: 50px;
+      margin-top: 8px; border: 1px solid #a7f3d0;
+    }
+
+    .fgrp { margin-bottom: 12px; }
+    .fgrp label {
+      display: block;
+      font-size: 11px; font-weight: 700;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: .8px; margin-bottom: 5px;
+    }
+    .fgrp input, .fgrp select, .fgrp textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: var(--r-sm);
+      border: 1.5px solid var(--border);
+      font-size: 13px;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: border-color .2s, background .2s;
+      appearance: none;
+    }
+    .fgrp input:focus, .fgrp select:focus, .fgrp textarea:focus {
+      border-color: var(--blue);
+      background: #fff;
+    }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .form-submit-wa {
+      width: 100%;
+      padding: 15px;
+      background: #25d366;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .22s;
+      font-family: inherit;
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      margin-top: 6px;
+    }
+    .form-submit-wa:hover { background: #1db954; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.4); }
+    .form-submit-wa svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
+
+    .form-note {
+      text-align: center;
+      font-size: 11px;
+      color: #a0aec0;
+      margin-top: 11px;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+    }
+
+    .also-call {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .also-call a { color: var(--blue); font-weight: 700; }
+
+    /* ─────────────────────────────
+       TRUST BAR
+    ───────────────────────────── */
+    .trust-bar { background: var(--navy); padding: 18px 0; }
+    .trust-items { display: flex; align-items: center; justify-content: space-around; gap: 16px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 9px; color: #93c5fd; font-size: 13px; font-weight: 500; }
+    .trust-ico { font-size: 18px; }
+
+    /* ─────────────────────────────
+       SYMPTOMS
+    ───────────────────────────── */
+    .symptom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .symptom-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 26px 22px;
+      transition: all .22s;
+      position: relative;
+    }
+    .symptom-card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: var(--sh-md); }
+    .symptom-card .s-ico { font-size: 28px; margin-bottom: 13px; }
+    .symptom-card h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 7px; }
+    .symptom-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .urgency { display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 50px; }
+    .urg-warn { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+    .urg-emergency { background: var(--red-lt); color: var(--red); border: 1px solid #fecaca; }
+
+    /* ─────────────────────────────
+       WHY BACK PAIN
+    ───────────────────────────── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .why-img-wrap {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      position: relative;
+    }
+    .why-img-wrap img { height: 480px; object-fit: cover; display: block; width: 100%; }
+    .why-img-badge {
+      position: absolute; bottom: 22px; left: 22px;
+      background: rgba(10,37,64,.88);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 13px; font-weight: 600;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .why-img-badge span { display: block; font-size: 22px; font-weight: 800; color: #4ade80; }
+
+    .section-photo {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--sh-sm);
+      background: #fff;
+      margin: 28px 0;
+    }
+    .section-photo img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+    }
+    .section-photo.captioned p {
+      padding: 12px 16px;
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+      background: #fff;
+    }
+    .image-split {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 30px;
+      align-items: center;
+      margin-top: 34px;
+    }
+    .image-split .section-photo { margin: 0; }
+
+    .check-list { margin-top: 22px; }
+    .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .check-item:last-child { border-bottom: none; }
+    .check-dot {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--sky); color: var(--blue);
+      font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .check-item strong { font-size: 14px; color: var(--text); font-weight: 700; display: block; }
+    .check-item span { font-size: 13px; color: var(--muted); }
+
+
+    /* cta */
+
+    .cta-img-wrap{
+    /* display:block;
+    border-radius:20px;
+    overflow:hidden; */
+}
+
+.cta-img{
+    width:100%;
+    height:auto;
+    object-fit:cover;
+    display:block;
+    border-radius:20px;
+}
+
+.image-cta {
+    background: var(--white);
+}
+
+.image-cta img {
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--sh-sm);
+}
+
+@media(max-width:768px){
+    .cta-img{
+        height:auto;
+    }
+}
+
+
+    /* cta end */
+    /* ─────────────────────────────
+       ANATOMY (dark)
+    ───────────────────────────── */
+    .anatomy-section { background: var(--navy); }
+
+    .anatomy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .spine-visual { max-width: 310px; }
+    .spine-region {
+      border-radius: 12px; padding: 15px 20px;
+      margin-bottom: 8px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .spine-label { font-size: 14px; font-weight: 700; }
+    .spine-sub { font-size: 11px; opacity: .7; margin-top: 2px; }
+    .spine-vert { font-size: 13px; font-weight: 700; margin-left: auto; opacity: .55; white-space: nowrap; }
+
+    .anatomy-parts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .anat-part {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: var(--r-sm);
+      padding: 15px;
+    }
+    .anat-part h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .anat-part p { font-size: 12px; color: #7fa4c0; line-height: 1.55; }
+
+    /* ─────────────────────────────
+       CAUSES
+    ───────────────────────────── */
+    .causes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .cause-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 26px 20px;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .cause-card:hover { box-shadow: var(--sh-md); transform: translateY(-2px); }
+    .cause-num { font-size: 38px; font-weight: 800; color: #d1dff0; line-height: 1; margin-bottom: 8px; }
+    .cause-card h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 7px; }
+    .cause-card p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* ─────────────────────────────
+       TYPES
+    ───────────────────────────── */
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .type-card {
+      border-radius: var(--r-lg);
+      padding: 34px 26px;
+      border: 1.5px solid transparent;
+    }
+    .type-card .t-bar { height: 4px; border-radius: 4px; margin-bottom: 22px; }
+    .type-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+    .t-dur { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 50px; display: inline-block; margin-bottom: 14px; }
+    .type-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .type-card ul { margin-top: 12px; }
+    .type-card ul li { font-size: 12px; color: var(--muted); padding: 4px 0; border-bottom: 1px solid rgba(0,0,0,.06); }
+    .type-card ul li:last-child { border-bottom: none; }
+    .type-card ul li::before { content: '→ '; font-weight: 700; }
+
+    /* ─────────────────────────────
+       RISK FACTORS
+    ───────────────────────────── */
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 18px;
+    }
+
+    .risk-card {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 22px;
+      transition: box-shadow .2s;
+    }
+    .risk-card:hover { box-shadow: var(--sh-md); }
+    .risk-ico { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .risk-card h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .risk-card p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* ─────────────────────────────
+       RED FLAGS
+    ───────────────────────────── */
+    .redflags-wrap {
+      background: linear-gradient(135deg, #fff5f5, #fef2f2);
+      border: 1px solid #fecaca;
+      border-radius: var(--r-xl);
+      padding: 56px;
+    }
+
+    .redflag-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .redflag-card {
+      background: #fff;
+      border: 1.5px solid #fecaca;
+      border-radius: var(--r-md);
+      padding: 20px 18px;
+    }
+    .redflag-card .rf-ico { font-size: 26px; margin-bottom: 10px; }
+    .redflag-card h3 { font-size: 14px; font-weight: 700; color: var(--red); margin-bottom: 5px; }
+    .redflag-card p { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+    .redflag-cta-strip {
+      background: #fff;
+      border-radius: var(--r-md);
+      padding: 22px 26px;
+      margin-top: 28px;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: space-between;
+      border: 1px solid var(--border);
+    }
+
+    /* ─────────────────────────────
+       DIAGNOSIS STEPS
+    ───────────────────────────── */
+    .diag-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      background: var(--bg);
+      border-radius: var(--r-xl);
+      padding: 48px 36px;
+      position: relative;
+    }
+
+    .d-step { padding: 24px 16px; text-align: center; position: relative; }
+    .d-step:not(:last-child)::after {
+      content: '›';
+      position: absolute; right: -8px; top: 36px;
+      font-size: 26px; color: var(--border); font-weight: 700;
+    }
+    .d-num {
+      width: 54px; height: 54px;
+      background: var(--blue);
+      color: #fff; font-size: 20px; font-weight: 800;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+      font-weight: 800;
+    }
+    .d-step h3 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .d-step p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    .diag-tests {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .diag-test {
+      text-align: center; padding: 20px 14px;
+      border-radius: var(--r-md);
+    }
+    .diag-test .dt-ico { font-size: 28px; margin-bottom: 8px; }
+    .diag-test h4 { font-size: 13px; font-weight: 700; margin-bottom: 5px; }
+    .diag-test p { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+    /* ─────────────────────────────
+       TREATMENT TABS
+    ───────────────────────────── */
+    .treat-tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 38px; flex-wrap: wrap; }
+    .t-tab {
+      padding: 10px 22px; border-radius: 50px;
+      font-size: 13px; font-weight: 600;
+      cursor: pointer; border: 2px solid var(--border);
+      background: #fff; color: var(--muted);
+      transition: all .2s; font-family: inherit;
+    }
+    .t-tab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+    .t-panel { display: none; }
+    .t-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+    .t-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--r-md); padding: 20px;
+      transition: box-shadow .2s;
+    }
+    .t-item:hover { box-shadow: var(--sh-md); }
+    .t-icon {
+      width: 44px; height: 44px; border-radius: 11px;
+      background: var(--sky); display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .t-item h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .t-item p { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+    /* ─────────────────────────────
+       SURGERY
+    ───────────────────────────── */
+    .surgery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 18px;
+    }
+    .surg-card {
+      background: var(--sky);
+      border: 1px solid var(--sky2);
+      border-radius: var(--r-md);
+      padding: 26px 20px;
+    }
+    .surg-tag {
+      display: inline-block; background: var(--blue); color: #fff;
+      font-size: 10px; font-weight: 700; padding: 3px 10px;
+      border-radius: 50px; margin-bottom: 12px; letter-spacing: .5px;
+    }
+    .surg-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 7px; }
+    .surg-card p { font-size: 12px; color: var(--text); line-height: 1.6; }
+    .surg-card .surg-benefit {
+      margin-top: 10px; font-size: 11px; font-weight: 700;
+      color: var(--green); display: flex; align-items: center; gap: 5px;
+    }
+
+    /* ─────────────────────────────
+       PREVENTION
+    ───────────────────────────── */
+    .prev-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
+    }
+    .prev-card {
+      background: var(--green-lt);
+      border: 1px solid #a7f3d0;
+      border-radius: var(--r-md);
+      padding: 26px 20px;
+    }
+    .prev-card .p-ico { font-size: 30px; margin-bottom: 14px; }
+    .prev-card h3 { font-size: 14px; font-weight: 700; color: #065f46; margin-bottom: 7px; }
+    .prev-card p { font-size: 12px; color: #4b7c5c; line-height: 1.6; }
+
+    /* ─────────────────────────────
+       DOCTOR
+    ───────────────────────────── */
+    .doctor-wrap {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 54px;
+      align-items: center;
+      background: var(--bg);
+      border-radius: var(--r-xl);
+      padding: 56px;
+    }
+    .doc-img { border-radius: var(--r-lg); overflow: hidden; position: relative; }
+    .doc-img img { height: 530px; object-fit: cover; display: block; width: 100%; border-radius: var(--r-lg); }
+    .doc-badge {
+      position: absolute; bottom: 20px; left: 20px;
+      background: rgba(10,37,64,.88);
+      backdrop-filter: blur(8px);
+      color: #fff; padding: 10px 16px;
+      border-radius: 10px; font-size: 12px; font-weight: 600;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .doc-badge .db-num { font-size: 22px; font-weight: 800; color: #4ade80; display: block; }
+
+    .doc-info .tag { margin-bottom: 12px; }
+    .doc-info h2 { font-size: clamp(26px, 3vw, 38px); font-weight: 800; color: var(--text); margin-bottom: 6px; }
+    .doc-info .desig { font-size: 14px; color: var(--blue); font-weight: 700; margin-bottom: 18px; }
+    .doc-info p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 14px; }
+
+    .creds { display: flex; gap: 8px; flex-wrap: wrap; margin: 20px 0; }
+    .cred {
+      background: var(--sky); color: var(--blue);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px; border-radius: 50px;
+      border: 1px solid var(--sky2);
+    }
+
+    /* ─────────────────────────────
+       TESTIMONIALS
+    ───────────────────────────── */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .testi-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 28px;
+      position: relative;
+    }
+    .quote-mark { font-size: 64px; line-height: .55; color: var(--sky2); margin-bottom: 14px; font-weight: 800; }
+    .testi-card p { font-size: 14px; color: var(--text); line-height: 1.72; margin-bottom: 20px; font-style: italic; }
+    .reviewer { display: flex; align-items: center; gap: 12px; }
+    .r-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .r-name { font-size: 13px; font-weight: 700; color: var(--text); }
+    .r-info { font-size: 11px; color: var(--muted); }
+    .stars { color: #f59e0b; font-size: 12px; margin-top: 2px; }
+    .verified { font-size: 10px; color: var(--green); font-weight: 700; margin-top: 2px; }
+
+    /* ─────────────────────────────
+       BEFORE/AFTER RESULTS
+    ───────────────────────────── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .result-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .result-before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .r-before { background: #fef2f2; padding: 18px 16px; text-align: center; }
+    .r-after { background: var(--green-lt); padding: 18px 16px; text-align: center; }
+    .r-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .r-before .r-label { color: var(--red); }
+    .r-after .r-label { color: var(--green); }
+    .r-val { font-size: 26px; font-weight: 800; }
+    .r-before .r-val { color: var(--red); }
+    .r-after .r-val { color: var(--green); }
+    .r-info { padding: 16px; }
+    .r-info h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .r-info p { font-size: 12px; color: var(--muted); }
+
+    /* ─────────────────────────────
+       FAQ
+    ───────────────────────────── */
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--r-md); margin-bottom: 12px; overflow: hidden;
+    }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 22px; cursor: pointer;
+      font-size: 15px; font-weight: 600; color: var(--text); gap: 16px;
+    }
+    .faq-arrow {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--sky); color: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0;
+      transition: transform .25s;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a {
+      padding: 0 22px;
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .25s;
+      font-size: 13px; color: var(--muted); line-height: 1.78;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 20px; }
+
+    /* ─────────────────────────────
+       CTA SECTION
+    ───────────────────────────── */
+    .cta-section {
+      background:
+        linear-gradient(90deg, rgba(3,20,38,.92), rgba(10,37,64,.74)),
+        url('https://www.bestneurosurgeoningurgaon.com/wp-content/uploads/2026/05/2.jpg') center/cover no-repeat;
+      border-radius: var(--r-xl);
+      padding: 76px 56px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before { display: none; }
+    .cta-section h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 800; margin-bottom: 16px; }
+    .cta-section h2 em { color: #93c5fd; }
+    .cta-section p { font-size: 16px; color: #94a3b8; max-width: 620px; margin: 0 auto 36px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .contact-strip {
+      display: flex; gap: 26px; justify-content: center; margin-top: 34px; flex-wrap: wrap;
+    }
+    .contact-item { display: flex; align-items: center; gap: 9px; color: #7fb3d3; font-size: 14px; }
+    .contact-item strong { color: #fff; }
+
+    /* ─────────────────────────────
+       FOOTER
+    ───────────────────────────── */
+    .footer { background: #060f1c; color: #64748b; padding: 50px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 38px; }
+    .footer-logo { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .footer-logo span { color: #93c5fd; }
+    .footer p { font-size: 12px; line-height: 1.75; }
+    .footer-col h4 { font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .8px; }
+    .footer-col ul li { margin-bottom: 9px; }
+    .footer-col ul li a { font-size: 12px; color: #64748b; transition: color .2s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-disc { font-size: 11px; color: #3d4f60; line-height: 1.7; margin-top: 14px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding-top: 22px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 11px; flex-wrap: wrap; gap: 10px;
+    }
+
+    /* ─────────────────────────────
+       STICKY MOBILE CTA
+    ───────────────────────────── */
+    .mobile-cta {
+      position: fixed; bottom: 0; left: 0; width: 100%;
+      background: #fff;
+      display: none;
+      gap: 10px;
+      padding: 10px 14px;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.12);
+      z-index: 9999;
+    }
+    .mobile-cta a { flex: 1; text-align: center; padding: 13px; border-radius: 10px; font-weight: 700; font-size: 13px; color: #fff; }
+
+    /* ─────────────────────────────
+       RESPONSIVE
+    ───────────────────────────── */
+    @media(max-width:960px) {
+      .hero-grid, .why-grid, .anatomy-grid, .doctor-wrap, .footer-grid { grid-template-columns: 1fr; }
+      .image-split { grid-template-columns: 1fr; }
+      .types-grid { grid-template-columns: 1fr; }
+      .t-panel.active { grid-template-columns: 1fr; }
+      .diag-steps { grid-template-columns: repeat(2, 1fr); }
+      .diag-tests { grid-template-columns: repeat(3, 1fr); }
+      .d-step:not(:last-child)::after { display: none; }
+      .redflags-wrap { padding: 36px 24px; }
+      .cta-section { padding: 50px 28px; }
+      .doctor-wrap { padding: 36px 24px; }
+      .mobile-cta { display: flex; }
+      body { padding-bottom: 76px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media(max-width:600px) {
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .frow { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .anatomy-parts { grid-template-columns: 1fr; }
+      .diag-steps { grid-template-columns: 1fr; }
+      .diag-tests { grid-template-columns: 1fr 1fr; }
+      .section-photo img { height: 240px; }
+    }
+
+    /* ── WhatsApp float btn ── */
+    .wa-float {
+      position: fixed;
+      bottom: 88px; right: 20px;
+      width: 54px; height: 54px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 20px rgba(37,211,102,.5);
+      z-index: 9998;
+      animation: wa-bounce 2.5s ease-in-out infinite;
+    }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+    @keyframes wa-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    @media(min-width:961px) { .wa-float { bottom: 30px; } }
+
+    /* number highlight */
+    .highlight { color: var(--blue); font-weight: 700; }
+  </style>
+
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-eyebrow">🏅 Trusted by 5,000+ Patients Across India</div>
+      <h1 class="hero-title">Stop Living With <em>Back Pain</em> — You Don't Have To</h1>
+      <p class="hero-sub">Expert diagnosis and advanced treatment for slip disc, sciatica, cervical pain and all spine conditions. Real doctors. Real results. Right here.</p>
+      <div class="hero-ctas">
+        <a href="#consult" class="btn btn-wa">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Consultation
+        </a>
+        <a href="tel:+919215151260" class="btn btn-ghost">📞 Call Now</a>
+      </div>
+      <div class="hero-proof">
+        <span class="live-dot"></span>
+        Specialists available now &nbsp;·&nbsp; Same-day appointments &nbsp;·&nbsp; Insurance accepted
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="n">5000+</div><div class="l">Patients Treated</div></div>
+        <div class="hero-stat"><div class="n">10+</div><div class="l">Years Experience</div></div>
+        <div class="hero-stat"><div class="n">95%</div><div class="l">Success Rate</div></div>
+        <div class="hero-stat"><div class="n">24/7</div><div class="l">Patient Support</div></div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-card" id="consult">
+      <div class="form-header">
+        <h2>Get Free Consultation</h2>
+        <p>Describe your problem — we'll reply on WhatsApp instantly</p>
+        <div class="wa-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:14px;height:14px;fill:#059669;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Replies on WhatsApp within 5 min
+        </div>
+      </div>
+
+      <form id="waForm">
+        <div class="frow">
+          <div class="fgrp">
+            <label>Your Name</label>
+            <input type="text" id="fname" placeholder="Full name" required>
+          </div>
+          <div class="fgrp">
+            <label>Phone Number</label>
+            <input type="tel" id="fphone" placeholder="+91 XXXXX XXXXX" required>
+          </div>
+        </div>
+        <div class="fgrp">
+          <label>Your Condition</label>
+          <select id="fcondition">
+            <option value="">Select your problem</option>
+            <option>Lower Back Pain</option>
+            <option>Sciatica / Leg Pain</option>
+            <option>Slip Disc / Herniated Disc</option>
+            <option>Cervical / Neck Pain</option>
+            <option>Spinal Stenosis</option>
+            <option>Spondylosis</option>
+            <option>Post-surgery Pain</option>
+            <option>Other Spine Problem</option>
+          </select>
+        </div>
+        <div class="fgrp">
+          <label>How Long Are You Suffering?</label>
+          <select id="fduration">
+            <option value="">Select duration</option>
+            <option>Less than 1 week</option>
+            <option>1–4 weeks</option>
+            <option>1–3 months</option>
+            <option>3–6 months</option>
+            <option>More than 6 months</option>
+            <option>More than 1 year</option>
+          </select>
+        </div>
+        <div class="fgrp">
+          <label>Describe Your Symptoms</label>
+          <textarea id="fsymptoms" rows="3" placeholder="E.g. Pain shoots down left leg, worse when sitting, started after lifting..."></textarea>
+        </div>
+        <button type="submit" class="form-submit-wa">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send on WhatsApp →
+        </button>
+      </form>
+      <div class="form-note">🔒 Your information is 100% private and secure</div>
+      <div class="also-call">Or call us directly: <a href="tel:+919215151260">+91 9215151260</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRUST BAR ========== -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item"><span class="trust-ico">🏥</span> Advanced Spine Centre</div>
+      <div class="trust-item"><span class="trust-ico">👨‍⚕️</span> Expert Neurosurgeons</div>
+      <div class="trust-item"><span class="trust-ico">🔬</span> Latest MRI & CT Technology</div>
+      <div class="trust-item"><span class="trust-ico">💉</span> Minimally Invasive Surgery</div>
+      <div class="trust-item"><span class="trust-ico">🇮🇳</span> Serving Pan-India Patients</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SYMPTOMS ========== -->
+<section class="section" id="symptoms">
+  <div class="container">
+    <div class="tag">Symptom Checker</div>
+    <h2 class="h-serif text-center">Are You Experiencing <em>Any of These?</em></h2>
+    <p class="lead text-center">Early recognition of symptoms leads to faster, more effective treatment. Don't ignore what your body is telling you.</p>
+
+    <div class="symptom-grid">
+      <div class="symptom-card"><h3>Lower Back Pain</h3><p>Persistent dull ache or sharp pain in the lower back, often worse when sitting or standing for long.</p></div>
+      <div class="symptom-card"><h3>Sciatica / Shooting Leg Pain</h3><p>Electric-shock pain starting in the lower back and shooting down one or both legs, sometimes to the foot.</p></div>
+      <div class="symptom-card"><h3>Numbness & Tingling</h3><p>Pins-and-needles sensation, numbness or weakness in legs, feet, arms or fingers — sign of nerve involvement.</p><span class="urgency urg-warn">⚠️ See doctor soon</span></div>
+      <div class="symptom-card"><h3>Neck & Cervical Pain</h3><p>Stiffness, pain or reduced range of motion in the neck, sometimes spreading to shoulders and arms.</p></div>
+      <div class="symptom-card"><h3>Morning Stiffness</h3><p>Back that feels locked up or very stiff on waking, loosening after 30–60 minutes of gentle movement.</p></div>
+      <div class="symptom-card"><h3>Pain While Walking</h3><p>Cramping or leg pain that forces you to stop walking — classic spinal stenosis sign, relieved by sitting.</p></div>
+      <div class="symptom-card"><h3>Bladder / Bowel Changes</h3><p>Sudden loss of bladder or bowel control associated with back pain — requires immediate emergency evaluation.</p><span class="urgency urg-emergency">🚨 Go to ER immediately</span></div>
+      <div class="symptom-card"><h3>Pain That Worsens at Rest</h3><p>Back pain that does NOT improve with lying down and worsens at night may indicate a serious underlying condition.</p><span class="urgency urg-warn">⚠️ See doctor soon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHY BACK PAIN ========== -->
+<section class="section" style="background:var(--bg);" id="why">
+  <div class="container why-grid">
+    <div class="why-img-wrap">
+      <img src="https://www.bestneurosurgeoningurgaon.com/wp-content/uploads/2026/05/2.jpg" alt="Understanding back pain" loading="lazy">
+      <div class="why-img-badge">
+        <span>5000+</span>
+        patients successfully treated
+      </div>
+    </div>
+    <div>
+      <div class="tag">Understanding Back Pain</div>
+      <h2 class="h-serif" style="text-align:left;">Why Does <em>Back Pain</em> Happen?</h2>
+      <p style="color:var(--muted); font-size:15px; line-height:1.78; margin-bottom:14px;">Back pain occurs when structures supporting your spine — bones, discs, muscles, ligaments or nerves — are damaged, compressed, inflamed or worn down. It is the #1 reason for disability worldwide.</p>
+      <p style="color:var(--muted); font-size:15px; line-height:1.78;">The spine has 33 vertebrae, 23 discs, hundreds of ligaments and a vast nerve network. A problem anywhere in this chain can trigger pain ranging from mild discomfort to debilitating agony.</p>
+      <div class="check-list">
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Disc-related problems</strong><span>Herniated, bulging or degenerated discs press on nearby nerves causing pain, numbness and weakness.</span></div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Muscle & ligament injuries</strong><span>Sprains, strains and spasms from poor posture, overuse or sudden awkward movements.</span></div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Nerve compression</strong><span>Bone spurs, disc herniations or narrowed spinal canals squeeze nerves, causing radiating pain.</span></div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Inflammatory conditions</strong><span>Conditions like ankylosing spondylitis cause progressive spine inflammation and stiffness.</span></div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Age-related degeneration</strong><span>Discs lose water content and height over time, reducing their ability to cushion the vertebrae.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ANATOMY (DARK) ========== -->
+<section class="section anatomy-section" id="anatomy">
+  <div class="container anatomy-grid">
+    <div>
+      <div class="tag" style="background:rgba(255,255,255,.09); color:#93c5fd; border-color:rgba(255,255,255,.15);">🦴 Spine Anatomy</div>
+      <h2 class="h-serif" style="text-align:left; color:#fff;">Understanding Your <em>Spine's Anatomy</em></h2>
+      <p style="color:#7fa4c0; font-size:14px; line-height:1.78; margin-bottom:28px;">The spine is divided into four regions, each serving a specific function. Problems in any region cause different types of pain.</p>
+
+      <div class="section-photo">
+        <img src="https://www.bestneurosurgeoningurgaon.com/wp-content/uploads/2026/05/2.jpg" alt="Spine care consultation" loading="lazy">
+      </div>
+
+      <div class="spine-visual">
+        <div class="spine-region" style="background:rgba(147,197,253,.14); border:1px solid rgba(147,197,253,.22);">
+          <div><div class="spine-label" style="color:#93c5fd;">Cervical Spine</div><div class="spine-sub" style="color:#bfdbfe;">Neck — supports head, enables rotation</div></div>
+          <div class="spine-vert">C1–C7</div>
+        </div>
+        <div class="spine-region" style="background:rgba(196,181,253,.12); border:1px solid rgba(196,181,253,.18);">
+          <div><div class="spine-label" style="color:#c4b5fd;">Thoracic Spine</div><div class="spine-sub" style="color:#ddd6fe;">Mid-back — connects to rib cage</div></div>
+          <div class="spine-vert">T1–T12</div>
+        </div>
+        <div class="spine-region" style="background:rgba(110,231,183,.12); border:1px solid rgba(110,231,183,.18);">
+          <div><div class="spine-label" style="color:#6ee7b7;">Lumbar Spine</div><div class="spine-sub" style="color:#a7f3d0;">Lower back — most common pain source</div></div>
+          <div class="spine-vert">L1–L5</div>
+        </div>
+        <div class="spine-region" style="background:rgba(253,186,116,.11); border:1px solid rgba(253,186,116,.18);">
+          <div><div class="spine-label" style="color:#fbbf24;">Sacrum & Coccyx</div><div class="spine-sub" style="color:#fde68a;">Connects to pelvis, base of spine</div></div>
+          <div class="spine-vert">S1–S5</div>
+        </div>
+      </div>
+    </div>
+    <div class="anatomy-parts">
+      <div class="anat-part"><h4>Vertebrae</h4><p>33 stacked bones protecting the spinal cord. Each has a central canal through which the cord passes.</p></div>
+      <div class="anat-part"><h4>Spinal Cord</h4><p>Main nerve highway carrying signals between your brain and body. Runs from brainstem to L1/L2.</p></div>
+      <div class="anat-part"><h4>Intervertebral Discs</h4><p>Gel-filled cushions between vertebrae acting as shock absorbers. Prone to herniation and degeneration.</p></div>
+      <div class="anat-part"><h4>Nerve Roots</h4><p>Branches off the spinal cord exiting through small gaps. Compression causes radiculopathy (sciatica).</p></div>
+      <div class="anat-part"><h4>Facet Joints</h4><p>Small joints at the back of each vertebra allowing movement. Arthritis here causes facet joint pain.</p></div>
+      <div class="anat-part"><h4>Muscles & Ligaments</h4><p>Support system holding the spine upright. Sprains and spasms are among the most common pain causes.</p></div>
+      <div class="anat-part"><h4>Spinal Canal</h4><p>The hollow channel housing the spinal cord. Narrowing (stenosis) compresses nerves, causing leg pain.</p></div>
+      <div class="anat-part"><h4>Sacroiliac Joints</h4><p>Connect spine to pelvis. Often overlooked source of lower back and buttock pain.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TYPES ========== -->
+<section class="section" id="types">
+  <div class="container">
+    <div class="tag text-center" style="display:block;">Types of Back Pain</div>
+    <h2 class="h-serif text-center">How Is Back Pain <em>Classified?</em></h2>
+    <p class="lead text-center">Understanding which type of back pain you have is the first step to choosing the right treatment.</p>
+
+    <div class="types-grid">
+      <div class="type-card" style="background:#eff6ff; border-color:var(--sky2);">
+        <div class="t-bar" style="background:#3b82f6;"></div>
+        <h3 style="color:var(--blue);">Acute Back Pain</h3>
+        <div class="t-dur" style="background:#dbeafe; color:#1d4ed8;">Under 4 weeks</div>
+        <p>Comes on suddenly after injury or strain. Usually heals with rest, medication and physiotherapy. Most people recover completely.</p>
+        <ul>
+          <li>Muscle strain or ligament sprain</li>
+          <li>Sudden injury or fall</li>
+          <li>Lifting something too heavy</li>
+          <li>Sports-related injury</li>
+        </ul>
+      </div>
+      <div class="type-card" style="background:#fff7ed; border-color:#fed7aa;">
+        <div class="t-bar" style="background:#f97316;"></div>
+        <h3 style="color:#c2410c;">Subacute Back Pain</h3>
+        <div class="t-dur" style="background:#ffedd5; color:#c2410c;">4–12 weeks</div>
+        <p>Pain persisting beyond 4 weeks. Requires structured physiotherapy, lifestyle changes, sometimes medication. Risk of becoming chronic if untreated.</p>
+        <ul>
+          <li>Partially healed disc injury</li>
+          <li>Ongoing muscle dysfunction</li>
+          <li>Poor posture habits</li>
+          <li>Inadequate treatment of acute pain</li>
+        </ul>
+      </div>
+      <div class="type-card" style="background:var(--red-lt); border-color:#fecaca;">
+        <div class="t-bar" style="background:#ef4444;"></div>
+        <h3 style="color:var(--red);">Chronic Back Pain</h3>
+        <div class="t-dur" style="background:#ffe4e6; color:#dc2626;">More than 12 weeks</div>
+        <p>Daily pain for 3+ months significantly affecting quality of life. Requires comprehensive multidisciplinary treatment — physical, psychological and medical.</p>
+        <ul>
+          <li>Disc degeneration or herniation</li>
+          <li>Spinal stenosis or arthritis</li>
+          <li>Failed previous treatment</li>
+          <li>Psychological and lifestyle factors</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:24px;">
+      <div style="background:var(--bg); border-radius:var(--r-md); padding:28px; border:1px solid var(--border);">
+        <div style="font-size:26px; margin-bottom:12px;"></div>
+        <h3 style="font-size:17px; font-weight:700; color:var(--text); margin-bottom:9px;">Non-Specific Back Pain <span style="color:var(--muted); font-weight:400; font-size:14px;">(90% of cases)</span></h3>
+        <p style="font-size:13px; color:var(--muted); line-height:1.7;">No specific structural cause identified. Often linked to poor posture, muscle weakness, stress and lifestyle. Responds well to physiotherapy and lifestyle changes.</p>
+      </div>
+      <div style="background:var(--sky); border:1px solid var(--sky2); border-radius:var(--r-md); padding:28px;">
+        <div style="font-size:26px; margin-bottom:12px;"></div>
+        <h3 style="font-size:17px; font-weight:700; color:var(--blue); margin-bottom:9px;">Specific Back Pain <span style="color:var(--muted); font-weight:400; font-size:14px;">(10% of cases)</span></h3>
+        <p style="font-size:13px; color:var(--text); line-height:1.7;">Caused by an identifiable condition — disc herniation, fracture, infection, tumour or inflammatory disease. Requires targeted investigation and tailored treatment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- cta -->
+<section class="section-sm image-cta">
+    <div class="container">
+        <a href="#consult" class="cta-img-wrap">
+             <img src="https://www.bestneurosurgeoningurgaon.com/wp-content/uploads/2026/05/2.jpg" alt="Back pain consultation" loading="lazy">
+        </a>
+    </div>
+</section>
+
+<!-- ========== CAUSES ========== -->
+<section class="section" style="background:var(--bg);" id="causes">
+  <div class="container">
+    <div class="tag text-center" style="display:block;"> Root Causes</div>
+    <h2 class="h-serif text-center">What <em>Causes</em> Back Pain?</h2>
+    <p class="lead text-center">Back pain rarely has a single cause. Multiple factors often interact. Here are the most common medical and lifestyle causes.</p>
+    <div class="causes-grid">
+      <div class="cause-card"><div class="cause-num">01</div><h3>Herniated / Slip Disc</h3><p>The soft inner core bulges or ruptures through the tough outer ring, pressing on nearby nerves causing severe radiating pain.</p></div>
+      <div class="cause-card"><div class="cause-num">02</div><h3>Muscle & Ligament Strain</h3><p>Sudden or awkward movements or heavy lifting can sprain spinal ligaments or strain back muscles, leading to painful spasms.</p></div>
+      <div class="cause-card"><div class="cause-num">03</div><h3>Degenerative Disc Disease</h3><p>Ageing causes discs to lose height, hydration and flexibility. They can no longer properly cushion vertebrae, leading to chronic pain.</p></div>
+      <div class="cause-card"><div class="cause-num">04</div><h3>Spinal Stenosis</h3><p>Narrowing of the spinal canal compresses the spinal cord and nerve roots, causing leg pain, weakness and difficulty walking.</p></div>
+      <div class="cause-card"><div class="cause-num">05</div><h3>Spondylolisthesis</h3><p>One vertebra slips forward over the one below, stressing nerves and muscles, often causing chronic lower back and leg pain.</p></div>
+      <div class="cause-card"><div class="cause-num">06</div><h3>Osteoarthritis (Spondylosis)</h3><p>Cartilage protecting facet joints wears down with age. Bone rubbing on bone and bone spur formation cause stiffness and pain.</p></div>
+      <div class="cause-card"><div class="cause-num">07</div><h3>Ankylosing Spondylitis</h3><p>An inflammatory arthritis of the spine causing chronic pain and progressive stiffness, often starting in young adults under 40.</p></div>
+      <div class="cause-card"><div class="cause-num">08</div><h3>Sciatica</h3><p>Compression of the sciatic nerve — usually by a herniated disc or bone spur — causes pain radiating from the lower back down the leg.</p></div>
+      <div class="cause-card"><div class="cause-num">09</div><h3>Poor Posture & Sedentary Life</h3><p>Hours of sitting with poor ergonomics places abnormal loads on spinal discs and muscles, accelerating wear and tear.</p></div>
+      <div class="cause-card"><div class="cause-num">10</div><h3>Osteoporosis</h3><p>Thinning bones may fracture under everyday stress, causing sudden severe pain — especially in older women.</p></div>
+      <div class="cause-card"><div class="cause-num">11</div><h3>Scoliosis</h3><p>Abnormal lateral curvature of the spine places uneven stress on muscles, discs and joints, causing chronic pain and postural imbalance.</p></div>
+      <div class="cause-card"><div class="cause-num">12</div><h3>Referred Pain from Organs</h3><p>Kidney stones, infections, endometriosis and aortic aneurysm can all cause back pain that mimics musculoskeletal conditions.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RISK FACTORS ========== -->
+<section class="section" id="risk">
+  <div class="container">
+    <div class="tag text-center" style="display:block;">👤 Who Is at Risk?</div>
+    <h2 class="h-serif text-center">Risk Factors for <em>Back Pain</em></h2>
+    <p class="lead text-center">These factors increase your chance of developing chronic back pain. Knowing them helps you take preventive action.</p>
+    <div class="risk-grid">
+      <div class="risk-card"><div class="risk-ico" style="background:#eff6ff;"></div><div><h3>Age (Over 45)</h3><p>Disc degeneration, arthritis and bone density loss accelerate after 40–45. Back pain becomes more common and severe with each decade.</p></div></div>
+      <div class="risk-card"><div class="risk-ico" style="background:#fff7ed;"></div><div><h3>Obesity & Being Overweight</h3><p>Every extra kg adds compressive load on the lumbar spine. Obesity strongly linked to disc degeneration, osteoarthritis and chronic pain.</p></div></div>
+      <div class="risk-card"><div class="risk-ico" style="background:var(--red-lt);"></div><div><h3>Sedentary / Desk-job Lifestyle</h3><p>Sitting for 8+ hours daily weakens core muscles and places 40% more pressure on lumbar discs than standing.</p></div></div>
+      <div class="risk-card"><div class="risk-ico" style="background:#faf5ff;"></div><div><h3>Heavy Physical Work</h3><p>Occupations requiring repetitive lifting, bending, twisting or whole-body vibration significantly raise injury risk.</p></div></div>
+      <div class="risk-card"><div class="risk-ico" style="background:var(--green-lt);"></div><div><h3>Smoking</h3><p>Nicotine reduces blood flow to discs, accelerating degeneration. Smokers have 1.5× higher risk of chronic back pain.</p></div></div>
+      <div class="risk-card"><div class="risk-ico" style="background:#fffbeb;"></div><div><h3>Psychological Stress & Anxiety</h3><p>Chronic stress causes muscle tension. Depression and anxiety are strongly associated with severity and chronicity of back pain.</p></div></div>
+      <div class="risk-card"><div class="risk-ico" style="background:#eff6ff;"></div><div><h3>Genetics / Family History</h3><p>Disc degeneration and ankylosing spondylitis have genetic components. Parents with chronic back pain raises your risk.</p></div></div>
+      <div class="risk-card"><div class="risk-ico" style="background:var(--red-lt);"></div><div><h3>Pregnancy</h3><p>Hormonal changes loosen ligaments, while the growing uterus shifts the centre of gravity placing extra strain on the lumbar spine.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RED FLAGS ========== -->
+<section class="section" style="background:var(--bg);" id="when-to-see">
+  <div class="container">
+    <div class="redflags-wrap">
+      <div class="tag" style="background:#fee2e2; color:var(--red); border-color:#fecaca;">🚨 Red Flag Warning Signs</div>
+      <h2 class="h-serif" style="text-align:left;">When Should You See a <em>Spine Specialist?</em></h2>
+      <p style="color:var(--muted); font-size:15px; max-width:680px; line-height:1.78;">Most back pain improves in 2–4 weeks. However, certain symptoms require immediate medical attention. Never ignore these red flags:</p>
+      <div class="redflag-grid">
+        <div class="redflag-card"><h3>Loss of Bladder/Bowel Control</h3><p>Go to the ER immediately. May indicate cauda equina syndrome — a surgical emergency.</p></div>
+        <div class="redflag-card"><h3>Pain After a Fall or Accident</h3><p>Needs urgent imaging to rule out fractures, dislocation or spinal cord injury.</p></div>
+        <div class="redflag-card"><h3>Weakness in Legs</h3><p>Progressive weakness or foot drop indicates serious nerve compression requiring urgent evaluation.</p></div>
+        <div class="redflag-card"><h3>Back Pain with Fever</h3><p>May indicate spinal infection (discitis, epidural abscess) — a potentially life-threatening condition.</p></div>
+        <div class="redflag-card"><h3>Unexplained Weight Loss</h3><p>Back pain with unintentional weight loss needs cancer screening. Spinal tumours must be ruled out.</p></div>
+        <div class="redflag-card"><h3>Severe Nighttime Pain</h3><p>Pain worst at night that doesn't improve with any position change is a red flag for infection or malignancy.</p></div>
+        <div class="redflag-card"><h3>Pain Lasting Over 6 Weeks</h3><p>Any back pain lasting 6+ weeks without improvement despite rest and OTC medications needs evaluation.</p></div>
+        <div class="redflag-card"><h3>Severe Pain Not Responding to Meds</h3><p>Pain preventing normal activity and unresponsive to standard painkillers warrants urgent assessment.</p></div>
+      </div>
+      <div class="redflag-cta-strip">
+        <div>
+          <strong style="font-size:15px; color:var(--text);">Not sure if your symptoms are serious?</strong>
+          <p style="font-size:13px; color:var(--muted); margin-top:4px;">Our specialists will evaluate you honestly — WhatsApp or call us now.</p>
+        </div>
+        <a href="#consult" class="btn btn-blue" style="flex-shrink:0;">Get Free Evaluation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DIAGNOSIS ========== -->
+<section class="section" id="diagnosis">
+  <div class="container">
+    <div class="tag text-center" style="display:block;">🔬 How We Diagnose</div>
+    <h2 class="h-serif text-center">Our Step-by-Step <em>Diagnosis Process</em></h2>
+    <p class="lead text-center">Accurate diagnosis is the foundation of effective treatment. We use a thorough process to find the exact cause of your pain.</p>
+
+    <div class="section-photo captioned">
+      <img src="https://www.bestneurosurgeoningurgaon.com/wp-content/uploads/2026/05/2.jpg" alt="Doctor reviewing spine condition" loading="lazy">
+      <p>Consultation, examination and imaging review are kept clear and practical.</p>
+    </div>
+
+    <div class="diag-steps">
+      <div class="d-step"><div class="d-num">1</div><h3>Medical History</h3><p>Detailed review of symptoms, onset, duration, aggravating factors and previous treatments.</p></div>
+      <div class="d-step"><div class="d-num">2</div><h3>Physical Exam</h3><p>Neurological testing, reflex checks, range of motion and muscle strength assessment.</p></div>
+      <div class="d-step"><div class="d-num">3</div><h3>Advanced Imaging</h3><p>MRI (best for discs/nerves), CT scan (bone), X-rays to visualise spine in detail.</p></div>
+      <div class="d-step"><div class="d-num">4</div><h3>Nerve Studies</h3><p>EMG/NCS to measure nerve and muscle function and pinpoint exact damage location.</p></div>
+      <div class="d-step"><div class="d-num">5</div><h3>Diagnosis & Plan</h3><p>Clear diagnosis communicated with a personalised treatment plan tailored to your condition.</p></div>
+    </div>
+
+    <div class="diag-tests">
+      <div class="diag-test" style="background:var(--sky); border:1px solid var(--sky2); border-radius:var(--r-md);">
+        <h4 style="color:var(--blue);">MRI Scan</h4><p>Gold standard for discs, nerves and soft tissue evaluation.</p>
+      </div>
+      <div class="diag-test" style="background:var(--bg); border:1px solid var(--border); border-radius:var(--r-md);">
+        <h4>CT Scan</h4><p>Detailed bone structure imaging. Useful for fractures and bony stenosis.</p>
+      </div>
+      <div class="diag-test" style="background:var(--bg); border:1px solid var(--border); border-radius:var(--r-md);">
+        <h4>X-Ray</h4><p>First-line imaging for alignment, fractures and disc space assessment.</p>
+      </div>
+      <div class="diag-test" style="background:var(--bg); border:1px solid var(--border); border-radius:var(--r-md);">
+        <h4>EMG / NCS</h4><p>Measures nerve conduction speed to pinpoint exact nerve damage level.</p>
+      </div>
+      <div class="diag-test" style="background:var(--bg); border:1px solid var(--border); border-radius:var(--r-md);">
+        <h4>Blood Tests</h4><p>Detect infections, inflammatory markers, vitamin deficiencies and tumour markers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TREATMENT ========== -->
+<section class="section" style="background:var(--bg);" id="treatment">
+  <div class="container">
+    <div class="tag text-center" style="display:block;">💊 Advanced Treatment</div>
+    <h2 class="h-serif text-center">Treatment Options for <em>Back Pain</em></h2>
+    <p class="lead text-center">Treatment is tailored to the type, severity and duration of your pain. We always start with the least invasive approach.</p>
+
+    <div class="section-photo">
+      <img src="https://www.bestneurosurgeoningurgaon.com/wp-content/uploads/2026/05/2.jpg" alt="Back pain treatment options" loading="lazy">
+    </div>
+
+    <div class="treat-tabs">
+      <button class="t-tab active" onclick="switchTab('physio',this)">Physiotherapy</button>
+      <button class="t-tab" onclick="switchTab('pain',this)">Pain Management</button>
+      <button class="t-tab" onclick="switchTab('injections',this)">Injections</button>
+      <button class="t-tab" onclick="switchTab('surgery',this)">Surgical</button>
+    </div>
+
+    <div id="physio" class="t-panel active">
+      <div class="t-item"><div><h3>Exercise Therapy</h3><p>Targeted strengthening of core, back extensor and hip muscles. Includes McKenzie exercises, Pilates-based rehab and graded activity programs.</p></div></div>
+      <div class="t-item"><div><h3>Manual Therapy</h3><p>Hands-on mobilisation and manipulation of the spine and surrounding joints to restore movement, reduce stiffness and relieve acute pain.</p></div></div>
+      <div class="t-item"><div><h3>TENS & Electrotherapy</h3><p>Electrical stimulation modalities including TENS, interferential therapy and ultrasound to reduce pain and promote tissue healing.</p></div></div>
+      <div class="t-item"><div><h3>Posture & Ergonomics Training</h3><p>Education on correct sitting, standing, lifting and sleeping positions to reduce spinal load and prevent recurrence.</p></div></div>
+      <div class="t-item"><div><h3>Heat & Cold Therapy</h3><p>Targeted heat relaxes muscle spasms; cold reduces inflammation and acute pain. Both used strategically by our physios.</p></div></div>
+      <div class="t-item"><div><h3>Dry Needling / IMS</h3><p>Fine needles inserted into trigger points to release chronic spasms and myofascial pain. Highly effective for long-standing muscular back pain.</p></div></div>
+    </div>
+
+    <div id="pain" class="t-panel">
+      <div class="t-item"><div><h3>Anti-inflammatory Medications (NSAIDs)</h3><p>Medications like ibuprofen and naproxen reduce inflammation and pain. Used short-term for acute flare-ups.</p></div></div>
+      <div class="t-item"><div><h3>Muscle Relaxants</h3><p>Prescribed for severe muscle spasms accompanying acute back pain. Used for short durations due to side-effect profiles.</p></div></div>
+      <div class="t-item"><div><h3>Neuropathic Pain Medications</h3><p>Medications like pregabalin and duloxetine address nerve pain components, especially useful in sciatica and chronic radiculopathy.</p></div></div>
+      <div class="t-item"><div><h3>Cognitive Behavioural Therapy (CBT)</h3><p>Structured psychological therapy addressing pain catastrophising, fear-avoidance and mood disorders that perpetuate chronic back pain.</p></div></div>
+    </div>
+
+    <div id="injections" class="t-panel">
+      <div class="t-item"><div><h3>Epidural Steroid Injection</h3><p>Corticosteroid injected into the epidural space to dramatically reduce inflammation and nerve pain. Relief lasting weeks to months.</p></div></div>
+      <div class="t-item"><div><h3>Facet Joint Injection</h3><p>Steroid injected directly into the facet joint to treat arthritis-related joint pain. Combined with medial branch nerve blocks for diagnosis and treatment.</p></div></div>
+      <div class="t-item"><div><h3>Radiofrequency Ablation (RFA)</h3><p>Heat used to deactivate nerves supplying painful facet joints, providing long-lasting pain relief for 6 months to 2 years.</p></div></div>
+      <div class="t-item"><div><h3>PRP / Regenerative Injections</h3><p>Platelet-Rich Plasma injections harness the body's own growth factors to promote healing of damaged discs, ligaments and tendons.</p></div></div>
+    </div>
+
+    <div id="surgery" class="t-panel">
+      <div class="t-item"><div><h3>Microdiscectomy</h3><p>Minimally invasive removal of the herniated disc fragment pressing on the nerve. Keyhole surgery, small scar, fast recovery. Most common spine surgery for sciatica.</p></div></div>
+      <div class="t-item"><div><h3>Endoscopic Spine Surgery</h3><p>Ultra-minimally invasive surgery through a tiny tube with a camera. Minimal blood loss, same-day discharge possible, fastest recovery of all surgical options.</p></div></div>
+      <div class="t-item"><div><h3>Spinal Fusion</h3><p>Two or more vertebrae are permanently joined with bone graft and hardware to stabilise the spine. Used for spondylolisthesis, severe degeneration and fractures.</p></div></div>
+      <div class="t-item"><div><h3>Laminectomy / Decompression</h3><p>The lamina (roof of the vertebra) is removed to create space and relieve pressure on nerves. Primary treatment for spinal stenosis causing severe leg pain.</p></div></div>
+      <div class="t-item"><div><h3>Artificial Disc Replacement</h3><p>The damaged disc is replaced with an artificial implant that preserves spine motion. Alternative to fusion that maintains flexibility at the treated level.</p></div></div>
+      <div class="t-item"><div><h3>Spinal Cord Stimulation</h3><p>A device implanted near the spinal cord sends mild electrical pulses to mask pain signals. For patients with chronic pain not responding to other treatments.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SURGERY QUICK CARDS ========== -->
+<section class="section" id="surgeries">
+  <div class="container">
+    <div class="tag text-center" style="display:block;">🔬 Minimally Invasive Surgery</div>
+    <h2 class="h-serif text-center">Our Surgical <em>Specialisations</em></h2>
+    <p class="lead text-center">We perform advanced spine surgeries with minimal incisions, faster recovery and lower complication rates than traditional open surgery.</p>
+
+    <div class="surgery-grid">
+      <div class="surg-card"><span class="surg-tag">MINIMALLY INVASIVE</span><h3>Endoscopic Discectomy</h3><p>Keyhole removal of herniated disc fragments under direct vision. Day-care procedure with return to work in 1–2 weeks.</p><div class="surg-benefit">✅ Recovery: 1–2 weeks</div></div>
+      <div class="surg-card"><span class="surg-tag">MOST COMMON</span><h3>Microdiscectomy</h3><p>Microscope-assisted removal of disc pressing on the sciatic nerve. Gold standard surgery for sciatica not responding to conservative care.</p><div class="surg-benefit">✅ Recovery: 2–4 weeks</div></div>
+      <div class="surg-card"><span class="surg-tag">DECOMPRESSION</span><h3>Laminectomy</h3><p>Removal of bone compressing nerves in spinal stenosis. Significantly improves walking ability and leg pain in stenosis patients.</p><div class="surg-benefit">✅ Recovery: 4–6 weeks</div></div>
+      <div class="surg-card"><span class="surg-tag">STABILISATION</span><h3>TLIF / PLIF Fusion</h3><p>Transforaminal or posterior lumbar interbody fusion with pedicle screws and cages. Used for spondylolisthesis and severe instability.</p><div class="surg-benefit">✅ Recovery: 6–12 weeks</div></div>
+      <div class="surg-card"><span class="surg-tag">MOTION SPARING</span><h3>Artificial Disc Replacement</h3><p>Replace damaged cervical or lumbar disc with a prosthesis that preserves natural spine motion. Avoids fusion stiffness.</p><div class="surg-benefit">✅ Recovery: 3–6 weeks</div></div>
+      <div class="surg-card"><span class="surg-tag">CERVICAL</span><h3>ACDF (Neck Surgery)</h3><p>Anterior cervical discectomy and fusion for cervical disc herniation causing arm pain, numbness or weakness. Excellent outcomes.</p><div class="surg-benefit">✅ Recovery: 4–8 weeks</div></div>
+    </div>
+
+    <div style="background:var(--sky); border-radius:var(--r-md); padding:28px 32px; margin-top:30px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; justify-content:space-between; border:1px solid var(--sky2);">
+      <div>
+        <strong style="font-size:15px; color:var(--navy);">Surgery is always the LAST resort</strong>
+        <p style="font-size:13px; color:var(--muted); margin-top:4px;">We exhaust all non-surgical options first. Only 5–10% of our patients require surgery.</p>
+      </div>
+      <a href="#consult" class="btn btn-blue" style="flex-shrink:0;">Get Expert Opinion →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PREVENTION ========== -->
+<section class="section" style="background:var(--bg);" id="prevention">
+  <div class="container">
+    <div class="tag text-center" style="display:block;">🌿 Prevention</div>
+    <h2 class="h-serif text-center">How to <em>Prevent</em> Back Pain</h2>
+    <p class="lead text-center">Many back pain episodes are preventable. These evidence-based strategies protect your spine for the long term.</p>
+    <div class="section-photo captioned">
+      <img src="https://www.bestneurosurgeoningurgaon.com/wp-content/uploads/2026/05/2.jpg" alt="Patient guidance for back pain prevention" loading="lazy">
+      <p>Small daily posture, movement and lifting habits make treatment results easier to maintain.</p>
+    </div>
+    <div class="prev-grid">
+      <div class="prev-card"><h3>Strengthen Your Core</h3><p>Strong abdominal and back muscles act as a natural corset for the spine. Daily core exercises reduce back pain risk by up to 60%.</p></div>
+      <div class="prev-card"><h3>Stay Active</h3><p>Regular low-impact exercise — walking, swimming, cycling — keeps discs hydrated and muscles healthy. Even 30 minutes daily makes a huge difference.</p></div>
+      <div class="prev-card"><h3>Fix Your Posture</h3><p>Sit with your back straight, feet flat on the floor, screen at eye level. Use a lumbar support cushion for long desk sessions.</p></div>
+      <div class="prev-card"><h3>Lift Correctly</h3><p>Always bend at the knees, not the waist, when lifting. Keep loads close to your body and never twist while carrying heavy items.</p></div>
+      <div class="prev-card"><h3>Maintain Healthy Weight</h3><p>Every 5 kg of extra weight adds significant compressive load to the lumbar spine. Weight loss relieves back pain in overweight patients.</p></div>
+      <div class="prev-card"><h3>Sleep Right</h3><p>Sleep on your side with a pillow between your knees, or on your back with a pillow under your knees. Avoid sleeping on your stomach.</p></div>
+      <div class="prev-card"><h3>Quit Smoking</h3><p>Smoking restricts blood flow to discs, accelerating degeneration. Quitting significantly slows the progression of disc disease.</p></div>
+      <div class="prev-card"><h3>Manage Stress</h3><p>Chronic stress causes persistent muscle tension in the back and neck. Yoga, meditation or regular deep breathing reduce musculoskeletal pain.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DOCTOR ========== -->
+<section class="section" id="doctor">
+  <div class="container">
+    <div class="doctor-wrap">
+      <div class="doc-img">
+        <img src="https://www.brainspinewellness.com/assets/drvikaskathuria/img/about/about_dr.png" alt="Dr. Vikas Kathuria - Best Neurosurgeon in India" loading="lazy">
+
+        <div class="doc-badge">
+          <span class="db-num">1L+</span>
+          Patients Treated
+        </div>
+      </div>
+
+      <div class="doc-info">
+        <div class="tag">Who We Are</div>
+
+        <h2>Best Neurosurgeon in India – Dr. Vikas Kathuria</h2>
+
+        <div class="desig">
+          Senior Consultant Neurosurgeon & Spine Specialist | Max Hospital, Gurgaon
+        </div>
+
+        <p>
+          Dr. Vikas Kathuria is one of the Best Neurosurgeons in India and is recognized among the top neurosurgeons in Gurgaon and Delhi NCR. He specializes in advanced brain and spine treatments, offering both surgical and non-surgical solutions for neurological disorders.
+        </p>
+
+        <p>
+          Currently serving as a Senior Consultant at Max Hospital, Gurgaon, Dr. Vikas Kathuria has extensive expertise in treating complex brain and spine conditions using advanced neurosurgical techniques and modern medical technology.
+        </p>
+
+        <h3 style="margin-top:20px; font-size:22px; color:#0b5ed7;">
+          Why Choose Dr. Vikas Kathuria?
+        </h3>
+
+        <div class="creds">
+          <span class="cred">25+ Years Experience</span>
+          <span class="cred">1L+ Patients Treated</span>
+          <span class="cred">Advanced Brain & Spine Surgery</span>
+          <span class="cred">Trusted Neurosurgeon in NCR</span>
+          <span class="cred">Personalized Treatment Plans</span>
+          <span class="cred">Advanced Medical Technology</span>
+        </div>
+
+        <ul style="margin-top:20px; padding-left:18px; line-height:1.8;">
+          <li>Expertise in complex neurosurgical procedures</li>
+          <li>Personalized treatment plans for every patient</li>
+          <li>State-of-the-art medical technology & facilities</li>
+          <li>Compassionate care throughout the treatment journey</li>
+        </ul>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:25px;">
+          <a href="#consult" class="btn btn-blue">
+            Book Consultation
+          </a>
+
+          <a href="tel:+919215151260" class="btn btn-outline-blue">
+            📞 Call Us Today: +91-9215151260
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RESULTS / BEFORE-AFTER ========== -->
+<section class="section" style="background:var(--bg);" id="results">
+  <div class="container">
+    <div class="tag text-center" style="display:block;">Real Patient Results</div>
+    <h2 class="h-serif text-center">Before & After <em>Treatment</em></h2>
+    <p class="lead text-center">Here's what our patients experienced after completing their treatment plans at Brain Spine Wellness.</p>
+
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-before-after">
+          <div class="r-before"><div class="r-label">Before</div><div class="r-val">8/10</div><div style="font-size:11px;color:var(--red);margin-top:3px;">Pain Score</div></div>
+          <div class="r-after"><div class="r-label">After</div><div class="r-val">1/10</div><div style="font-size:11px;color:var(--green);margin-top:3px;">Pain Score</div></div>
+        </div>
+        <div class="r-info"><h4>Suresh K., 47 — Slip Disc</h4><p>Microdiscectomy after 8 months of failed conservative treatment. Back to driving within 3 weeks.</p></div>
+      </div>
+      <div class="result-card">
+        <div class="result-before-after">
+          <div class="r-before"><div class="r-label">Before</div><div class="r-val">Can't walk</div></div>
+          <div class="r-after"><div class="r-label">After</div><div class="r-val">Walking 5 km</div></div>
+        </div>
+        <div class="r-info"><h4>Priya M., 58 — Spinal Stenosis</h4><p>Laminectomy decompression. Resumed her daily walking routine within 6 weeks of surgery.</p></div>
+      </div>
+      <div class="result-card">
+        <div class="result-before-after">
+          <div class="r-before"><div class="r-label">Before</div><div class="r-val">Bed-bound</div></div>
+          <div class="r-after"><div class="r-label">After</div><div class="r-val">Back to work</div></div>
+        </div>
+        <div class="r-info"><h4>Amit R., 35 — Sciatica</h4><p>Physiotherapy + epidural injection. Avoided surgery completely. Back at his desk job in 6 weeks.</p></div>
+      </div>
+      <div class="result-card">
+        <div class="result-before-after">
+          <div class="r-before"><div class="r-label">Before</div><div class="r-val">9/10</div><div style="font-size:11px;color:var(--red);margin-top:3px;">Pain Score</div></div>
+          <div class="r-after"><div class="r-label">After</div><div class="r-val">0/10</div><div style="font-size:11px;color:var(--green);margin-top:3px;">Pain Score</div></div>
+        </div>
+        <div class="r-info"><h4>Nisha T., 42 — Cervical Disc</h4><p>ACDF surgery for cervical herniation causing arm weakness. Complete neurological recovery at 3 months.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="tag text-center" style="display:block;">⭐ Patient Stories</div>
+    <h2 class="h-serif text-center">What Our Patients <em>Say</em></h2>
+    <p class="lead text-center">Real patients. Real recoveries. We let their stories speak for us.</p>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p>I had sciatica for 2 years and visited 4 different doctors before coming here. Dr. Sharma was the first one who properly explained my MRI and gave me a clear treatment plan. Within 8 weeks of physiotherapy I was 90% better — without surgery.</p>
+        <div class="reviewer">
+          <div class="r-avatar" style="background:#3b82f6;">RK</div>
+          <div>
+            <div class="r-name">Rajan K.</div>
+            <div class="r-info">Software Engineer, Bangalore • Sciatica</div>
+            <div class="stars">★★★★★</div>
+            <div class="verified">✔ Verified Patient</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p>After my slip disc surgery I was terrified about recovery. The team here guided me through every step. I was walking the next day, discharged in 2 days, and back to work in 3 weeks. The care and attention was beyond what I expected.</p>
+        <div class="reviewer">
+          <div class="r-avatar" style="background:#059669;">SM</div>
+          <div>
+            <div class="r-name">Sneha M.</div>
+            <div class="r-info">Teacher, Mumbai • Slip Disc Surgery</div>
+            <div class="stars">★★★★★</div>
+            <div class="verified">✔ Verified Patient</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p>I was about to cancel my daughter's wedding because I couldn't stand for more than 5 minutes. After the decompression surgery, I not only attended — I danced! The doctor changed my life completely. Forever grateful.</p>
+        <div class="reviewer">
+          <div class="r-avatar" style="background:#7c3aed;">AP</div>
+          <div>
+            <div class="r-name">Arvind P.</div>
+            <div class="r-info">Retired, Delhi • Spinal Stenosis</div>
+            <div class="stars">★★★★★</div>
+            <div class="verified">✔ Verified Patient</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p>My neck pain was causing numbness in both hands. I was scared it was something serious. The team ran all the tests quickly, diagnosed my cervical herniation, and treated it non-surgically. My hands are completely normal now.</p>
+        <div class="reviewer">
+          <div class="r-avatar" style="background:#d97706;">NV</div>
+          <div>
+            <div class="r-name">Nandini V.</div>
+            <div class="r-info">CA, Chennai • Cervical Herniation</div>
+            <div class="stars">★★★★★</div>
+            <div class="verified">✔ Verified Patient</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p>I was on painkillers for 3 years and no doctor could help me. The team here did a nerve block injection that gave me relief within 24 hours. They then built a long-term plan so I can manage without medication. Life changing.</p>
+        <div class="reviewer">
+          <div class="r-avatar" style="background:#0891b2;">VR</div>
+          <div>
+            <div class="r-name">Vikram R.</div>
+            <div class="r-info">Businessman, Hyderabad • Chronic Back Pain</div>
+            <div class="stars">★★★★★</div>
+            <div class="verified">✔ Verified Patient</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p>WhatsApp consultation was so convenient. I sent my MRI reports, got a video call within 2 hours, and had a complete treatment plan by evening. I'm from Pune but got world-class care without travelling to a big city.</p>
+        <div class="reviewer">
+          <div class="r-avatar" style="background:#dc2626;">PD</div>
+          <div>
+            <div class="r-name">Pooja D.</div>
+            <div class="r-info">Homemaker, Pune • L4-L5 Disc Bulge</div>
+            <div class="stars">★★★★★</div>
+            <div class="verified">✔ Verified Patient</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google review strip -->
+    <div style="background:var(--bg); border-radius:var(--r-md); padding:24px 28px; margin-top:30px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; justify-content:space-between; border:1px solid var(--border);">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="font-size:36px;">⭐</div>
+        <div>
+          <div style="font-size:24px; font-weight:800; color:var(--text);">4.9 / 5.0</div>
+          <div style="font-size:13px; color:var(--muted);">Based on 380+ Google Reviews</div>
+        </div>
+      </div>
+      <a href="https://g.page/r/YOURLINK" target="_blank" class="btn btn-outline-blue" style="font-size:13px;">Read All Reviews on Google →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="section" style="background:var(--bg);" id="faq">
+  <div class="container">
+    <div class="tag text-center" style="display:block;">❓ FAQ</div>
+    <h2 class="h-serif text-center">Frequently Asked <em>Questions</em></h2>
+    <p class="lead text-center">Answers to the questions our patients ask most often.</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can back pain be cured without surgery?<div class="faq-arrow">▾</div></div>
+        <div class="faq-a">Yes — over 90% of back pain cases, including most slip disc and sciatica cases, can be treated successfully without surgery using physiotherapy, medication, lifestyle changes and/or injections. Surgery is recommended only when conservative treatment fails after a sufficient trial, or when there are neurological red flags like progressive weakness or bladder/bowel symptoms.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How do I know if my back pain is serious?<div class="faq-arrow">▾</div></div>
+        <div class="faq-a">Most back pain is mechanical and not dangerous. However, seek immediate care if you have: loss of bladder or bowel control, pain after a trauma, weakness in the legs, back pain with fever, or pain that is progressively worsening despite rest. Pain lasting more than 6 weeks without improvement also needs evaluation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How long does back pain treatment take?<div class="faq-arrow">▾</div></div>
+        <div class="faq-a">Acute back pain typically resolves in 2–6 weeks with appropriate treatment. Subacute pain takes 6–12 weeks. Chronic back pain may require 3–6 months of structured treatment for meaningful improvement. Surgical patients often return to daily activities within 2–6 weeks depending on the procedure. We set realistic expectations at your first consultation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is physiotherapy effective for slip disc / sciatica?<div class="faq-arrow">▾</div></div>
+        <div class="faq-a">Yes. Physiotherapy is a cornerstone of slip disc and sciatica treatment. Specific exercises like the McKenzie method reduce disc bulge, take pressure off nerves and strengthen the muscles supporting the spine. Most patients see significant improvement within 4–8 weeks of consistent physiotherapy.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What is minimally invasive spine surgery and is it safe?<div class="faq-arrow">▾</div></div>
+        <div class="faq-a">Minimally invasive spine surgery (MISS) uses small keyhole incisions instead of large open cuts. Advantages include: less blood loss, lower infection risk, less post-operative pain, shorter hospital stay (often 1–2 days) and faster return to normal activities. In experienced hands, it is extremely safe and produces results equivalent or superior to open surgery.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do you offer online / WhatsApp consultations?<div class="faq-arrow">▾</div></div>
+        <div class="faq-a">Yes! Many patients from outside Delhi or India consult with us via WhatsApp and video call. You can share your MRI reports, X-rays and describe your symptoms via WhatsApp and we'll review them and provide a detailed opinion, often within the same day. Use the form on this page to start your free WhatsApp consultation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does insurance cover spine treatment?<div class="faq-arrow">▾</div></div>
+        <div class="faq-a">Most health insurance policies cover spine surgery, advanced imaging (MRI/CT), and hospital stays. Physiotherapy and injection-based treatments may have partial coverage depending on your policy. Our billing team will verify your insurance benefits before your treatment starts and guide you through the claims process.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">I had spine surgery elsewhere and still have pain — can you help?<div class="faq-arrow">▾</div></div>
+        <div class="faq-a">Absolutely. Failed Back Surgery Syndrome (FBSS) — persistent or recurrent pain after spine surgery — is a recognised condition we treat regularly. We review your previous surgery records and imaging, identify the specific pain generator, and offer targeted solutions including revision surgery, spinal cord stimulation, or comprehensive pain management programs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="section">
+  <div class="container">
+    <div class="cta-section">
+      <h2>Stop Waiting. <em>Your Spine Needs Attention Now.</em></h2>
+      <p>Every week you wait with untreated back pain, the condition may worsen. Get a free consultation from our specialists today — on WhatsApp or in person.</p>
+      <div class="cta-btns">
+        <a href="#consult" class="btn btn-wa" style="font-size:15px; padding:16px 32px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Free Consult
+        </a>
+        <a href="tel:+919215151260" class="btn btn-ghost" style="font-size:15px; padding:16px 32px;">📞 Call +91 9215151260</a>
+      </div>
+      <div class="contact-strip">
+        <div class="contact-item">📍 <strong>Delhi NCR</strong> (Main Centre)</div>
+        <div class="contact-item">🕐 Mon–Sat: <strong>9am – 7pm</strong></div>
+        <div class="contact-item">📞 Emergency: <strong>24/7</strong></div>
+        <div class="contact-item">🇮🇳 Online consults: <strong>Pan-India</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== STICKY MOBILE CTA ========== -->
+<div class="mobile-cta">
+  <a href="https://wa.me/919215151260" style="background:#25d366;">💬 WhatsApp</a>
+  <a href="tel:+919215151260" style="background:var(--blue);">📞 Call Now</a>
+</div>
+
+<!-- ========== WHATSAPP FLOAT ========== -->
+<a class="wa-float" href="https://wa.me/919215151260" target="_blank" title="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ========== JS ========== -->
+<script>
+  // ── WhatsApp Form ──
+  document.getElementById('waForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const condition = document.getElementById('fcondition').value;
+    const duration = document.getElementById('fduration').value;
+    const symptoms = document.getElementById('fsymptoms').value.trim();
+
+    if (!name || !phone) {
+      alert('Please enter your name and phone number.');
+      return;
+    }
+
+    // Build WhatsApp message
+    const msg = `🔔 *New Consultation Request — Brain Spine Wellness*
+
+👤 *Name:* ${name}
+📞 *Phone:* ${phone}
+🏥 *Condition:* ${condition || 'Not specified'}
+⏱ *Duration:* ${duration || 'Not specified'}
+📝 *Symptoms:* ${symptoms || 'Not provided'}
+
+_Sent from website consultation form_`;
+
+    // REPLACE 919999999999 with your actual WhatsApp business number
+    const waNumber = '919215151260';
+    const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+    window.open(waURL, '_blank');
+  });
+
+  // ── Treatment Tabs ──
+  function switchTab(id, btn) {
+    document.querySelectorAll('.t-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.t-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // ── FAQ Accordion ──
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Smooth scroll for anchor buttons ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+
+
+
