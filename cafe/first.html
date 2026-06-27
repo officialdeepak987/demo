@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew & Soul — Specialty Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --espresso: #2C1A0E;
+    --dark-roast: #3D2314;
+    --medium-roast: #6B3A2A;
+    --latte: #C49A6C;
+    --cream: #F5ECD7;
+    --oat: #EAD9B8;
+    --foam: #FBF5E6;
+    --steam: #F0E6CC;
+    --cinnamon: #B5651D;
+    --gold: #D4A44C;
+    --warm-white: #FFFDF8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--warm-white);
+    color: var(--espresso);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 70px;
+    background: rgba(44,26,14,0.95);
+    backdrop-filter: blur(12px);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--latte);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); font-style: italic; }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    color: var(--cream); font-size: 0.88rem; letter-spacing: 0.08em;
+    text-transform: uppercase; text-decoration: none; font-weight: 400;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    background: var(--gold); color: var(--espresso) !important;
+    padding: 0.45rem 1.2rem; border-radius: 2px;
+    font-weight: 700; transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--latte); transform: translateY(-1px); }
+  .nav-cta::after { display: none !important; }
+
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--cream); border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .mobile-menu {
+    display: none; position: fixed; top: 70px; left: 0; right: 0; z-index: 999;
+    background: var(--espresso);
+    padding: 2rem; flex-direction: column; gap: 1.5rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--cream); text-decoration: none; font-size: 1.1rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #1a0a04 0%, var(--dark-roast) 40%, var(--medium-roast) 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    padding: 100px 5% 60px;
+  }
+
+  .hero-bg-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(196,154,108,0.12);
+    animation: ringPulse 8s ease-in-out infinite;
+  }
+  .hero-bg-ring:nth-child(1) { width: 600px; height: 600px; top: -100px; right: -100px; animation-delay: 0s; }
+  .hero-bg-ring:nth-child(2) { width: 900px; height: 900px; top: -250px; right: -250px; animation-delay: 2s; }
+  .hero-bg-ring:nth-child(3) { width: 1200px; height: 1200px; top: -400px; right: -400px; animation-delay: 4s; }
+
+  @keyframes ringPulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.02); }
+  }
+
+  .hero-steam {
+    position: absolute; top: 10%; right: 42%;
+    width: 3px; height: 80px;
+    background: linear-gradient(to top, transparent, rgba(245,236,215,0.3), transparent);
+    border-radius: 4px;
+    animation: steamRise 3s ease-in-out infinite;
+  }
+  .hero-steam:nth-child(5) { right: 44%; animation-delay: 1s; height: 60px; }
+  .hero-steam:nth-child(6) { right: 40%; animation-delay: 2s; height: 70px; }
+
+  @keyframes steamRise {
+    0% { transform: translateY(0) scaleX(1); opacity: 0; }
+    30% { opacity: 0.6; }
+    100% { transform: translateY(-60px) scaleX(1.5); opacity: 0; }
+  }
+
+  .hero-content {
+    max-width: 1200px; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+    position: relative; z-index: 2;
+  }
+
+  .hero-text { animation: fadeSlideUp 1s ease 0.2s both; }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Lato', sans-serif; font-size: 0.78rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 30px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--cream); margin-bottom: 1.5rem;
+  }
+  .hero-h1 em { color: var(--gold); font-style: italic; }
+
+  .hero-desc {
+    font-size: 1rem; line-height: 1.8;
+    color: rgba(245,236,215,0.7);
+    max-width: 420px; margin-bottom: 2.5rem;
+  }
+
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--gold); color: var(--espresso);
+    padding: 0.9rem 2rem; font-size: 0.9rem;
+    font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    border: none; border-radius: 2px; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { background: var(--latte); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,164,76,0.3); }
+
+  .btn-outline {
+    background: transparent; color: var(--cream);
+    padding: 0.9rem 2rem; font-size: 0.9rem;
+    font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase;
+    border: 1px solid rgba(245,236,215,0.4); border-radius: 2px; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    animation: fadeSlideUp 1s ease 0.5s both;
+  }
+
+  .coffee-cup-wrapper {
+    position: relative; width: 280px; height: 280px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .cup-glow {
+    position: absolute; width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,154,108,0.25) 0%, transparent 70%);
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.15); opacity: 1; }
+  }
+
+  .cup-svg { position: relative; z-index: 2; width: 200px; animation: cupFloat 6s ease-in-out infinite; }
+
+  @keyframes cupFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .beans-float {
+    position: absolute; animation: beanFloat 5s ease-in-out infinite;
+  }
+  .beans-float:nth-child(3) { top: 10px; right: 10px; animation-delay: 0s; }
+  .beans-float:nth-child(4) { bottom: 20px; left: 0px; animation-delay: 1.5s; }
+  .beans-float:nth-child(5) { top: 60px; left: -10px; animation-delay: 3s; }
+
+  @keyframes beanFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(15deg); }
+  }
+
+  /* ─── MARQUEE ─── */
+  .marquee-strip {
+    background: var(--gold); padding: 0.8rem 0; overflow: hidden;
+    position: relative;
+  }
+  .marquee-track {
+    display: flex; gap: 0;
+    animation: marqueeScroll 20s linear infinite;
+    white-space: nowrap;
+  }
+  .marquee-item {
+    font-family: 'Lato', sans-serif; font-size: 0.8rem;
+    font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--espresso); padding: 0 2.5rem;
+    flex-shrink: 0;
+  }
+  .marquee-dot {
+    color: var(--espresso); font-size: 0.5rem;
+    vertical-align: middle; padding: 0 0.5rem;
+  }
+  @keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 6rem 5%; }
+  .section-eyebrow {
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cinnamon); margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-eyebrow::before {
+    content: ''; display: block; width: 24px; height: 1px;
+    background: var(--cinnamon);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700; line-height: 1.2; color: var(--espresso);
+    margin-bottom: 1.2rem;
+  }
+  .section-title em { color: var(--cinnamon); font-style: italic; }
+  .section-subtitle {
+    font-size: 1rem; color: var(--medium-roast);
+    line-height: 1.8; max-width: 560px;
+  }
+
+  /* ─── FEATURES ─── */
+  #features { background: var(--foam); }
+
+  .features-grid {
+    max-width: 1100px; margin: 0 auto;
+  }
+  .features-header { text-align: center; margin-bottom: 4rem; }
+  .features-header .section-eyebrow { justify-content: center; }
+  .features-header .section-eyebrow::before { display: none; }
+  .features-header .section-subtitle { margin: 0 auto; }
+
+  .features-cards {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;
+  }
+
+  .feat-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(196,154,108,0.25);
+    border-radius: 4px; padding: 2.5rem 2rem; text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    cursor: default;
+  }
+  .feat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(44,26,14,0.12);
+    border-color: var(--gold);
+  }
+
+  .feat-icon {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--espresso); margin: 0 auto 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s;
+  }
+  .feat-card:hover .feat-icon { background: var(--gold); }
+  .feat-icon svg { width: 28px; height: 28px; }
+
+  .feat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 600;
+    color: var(--espresso); margin-bottom: 0.75rem;
+  }
+  .feat-desc { font-size: 0.9rem; color: var(--medium-roast); line-height: 1.7; }
+
+  /* ─── WHY CHOOSE US ─── */
+  #why {
+    background: var(--espresso);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0;
+    min-height: 500px;
+  }
+
+  .why-left {
+    padding: 6rem 5%;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .why-left .section-eyebrow { color: var(--gold); }
+  .why-left .section-eyebrow::before { background: var(--gold); }
+  .why-left .section-title { color: var(--cream); }
+  .why-left .section-subtitle { color: rgba(245,236,215,0.65); }
+
+  .why-points { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .why-point {
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .why-check {
+    width: 22px; height: 22px; min-width: 22px;
+    background: var(--gold); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .why-check svg { width: 12px; height: 12px; }
+  .why-point-text { font-size: 0.95rem; color: rgba(245,236,215,0.8); line-height: 1.6; }
+  .why-point-text strong { color: var(--cream); display: block; margin-bottom: 0.1rem; }
+
+  .why-right {
+    background: var(--medium-roast);
+    padding: 6rem 5%;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .promo-badge {
+    display: inline-block; background: var(--gold);
+    color: var(--espresso); font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.35rem 1rem; border-radius: 2px; margin-bottom: 1.5rem;
+  }
+
+  .promo-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem); font-weight: 600;
+    color: var(--cream); line-height: 1.2; margin-bottom: 1rem;
+  }
+
+  .promo-sub { font-size: 0.95rem; color: rgba(245,236,215,0.65); line-height: 1.7; margin-bottom: 2rem; }
+
+  /* ─── MENU SECTION ─── */
+  #menu { background: var(--cream); }
+
+  .menu-header { text-align: center; margin-bottom: 3.5rem; }
+  .menu-header .section-eyebrow { justify-content: center; }
+  .menu-header .section-eyebrow::before { display: none; }
+  .menu-header .section-subtitle { margin: 0 auto; }
+
+  .menu-tabs {
+    display: flex; justify-content: center; gap: 0.5rem;
+    flex-wrap: wrap; margin-bottom: 3rem;
+  }
+  .menu-tab {
+    padding: 0.5rem 1.5rem; font-size: 0.85rem; letter-spacing: 0.08em;
+    text-transform: uppercase; font-weight: 700;
+    border: 1px solid rgba(44,26,14,0.3);
+    background: transparent; color: var(--medium-roast);
+    border-radius: 2px; cursor: pointer; transition: all 0.2s;
+  }
+  .menu-tab.active, .menu-tab:hover {
+    background: var(--espresso); color: var(--cream); border-color: var(--espresso);
+  }
+
+  .menu-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+  }
+
+  .menu-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(196,154,108,0.3);
+    border-radius: 4px; padding: 1.75rem;
+    display: flex; align-items: center; gap: 1.2rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: default;
+  }
+  .menu-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(44,26,14,0.1); }
+
+  .menu-img {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--steam);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    overflow: hidden;
+  }
+  .menu-img svg { width: 40px; height: 40px; }
+
+  .menu-info { flex: 1; }
+  .menu-name {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600;
+    color: var(--espresso); margin-bottom: 0.3rem;
+  }
+  .menu-origin { font-size: 0.8rem; color: var(--cinnamon); margin-bottom: 0.5rem; }
+  .menu-desc { font-size: 0.85rem; color: var(--medium-roast); line-height: 1.5; }
+  .menu-price {
+    font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600;
+    color: var(--cinnamon); flex-shrink: 0;
+  }
+
+  /* ─── MORNING HAPPY ─── */
+  #morning {
+    background: var(--dark-roast); padding: 5rem 5%;
+  }
+
+  .morning-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+
+  .morning-left .section-eyebrow { color: var(--gold); }
+  .morning-left .section-eyebrow::before { background: var(--gold); }
+  .morning-left .section-title { color: var(--cream); }
+  .morning-left .section-subtitle { color: rgba(245,236,215,0.65); margin-bottom: 2rem; }
+
+  .hours-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+  .hour-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(245,236,215,0.1);
+    font-size: 0.9rem; color: rgba(245,236,215,0.7);
+  }
+  .hour-row strong { color: var(--cream); }
+  .hour-row .time { color: var(--gold); font-weight: 700; }
+
+  .morning-gallery {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .gallery-card {
+    border-radius: 4px; overflow: hidden;
+    background: var(--medium-roast);
+    padding: 2rem; display: flex; align-items: center; justify-content: center;
+    aspect-ratio: 1;
+    transition: transform 0.3s;
+  }
+  .gallery-card:hover { transform: scale(1.03); }
+  .gallery-card:first-child { grid-column: span 2; aspect-ratio: 2/1; }
+  .gallery-card svg { width: 80px; height: 80px; }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials { background: var(--foam); }
+
+  .testi-header { text-align: center; margin-bottom: 3.5rem; }
+  .testi-header .section-eyebrow { justify-content: center; }
+  .testi-header .section-eyebrow::before { display: none; }
+
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+  }
+
+  .testi-card {
+    background: var(--warm-white); border: 1px solid rgba(196,154,108,0.25);
+    border-radius: 4px; padding: 2rem;
+    transition: transform 0.25s;
+  }
+  .testi-card:hover { transform: translateY(-4px); }
+
+  .testi-stars {
+    color: var(--gold); font-size: 1rem; letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+  .testi-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-style: italic; line-height: 1.7;
+    color: var(--espresso); margin-bottom: 1.5rem;
+  }
+  .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--steam); display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    color: var(--espresso); font-size: 0.9rem;
+    border: 2px solid var(--gold);
+  }
+  .testi-name { font-weight: 700; font-size: 0.9rem; color: var(--espresso); }
+  .testi-role { font-size: 0.8rem; color: var(--cinnamon); }
+
+  /* ─── CTA / WHATSAPP FORM ─── */
+  #enquiry {
+    background: linear-gradient(135deg, var(--espresso) 0%, var(--dark-roast) 50%, var(--medium-roast) 100%);
+    padding: 6rem 5%;
+    position: relative; overflow: hidden;
+  }
+
+  .enquiry-rings {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(212,164,76,0.1);
+    animation: ringPulse 10s ease-in-out infinite;
+  }
+  .enquiry-rings:nth-child(1) { width: 400px; height: 400px; top: -100px; left: -80px; animation-delay: 0s; }
+  .enquiry-rings:nth-child(2) { width: 600px; height: 600px; top: -200px; left: -180px; animation-delay: 3s; }
+
+  .enquiry-inner {
+    max-width: 760px; margin: 0 auto; position: relative; z-index: 2;
+    text-align: center;
+  }
+
+  .enquiry-eyebrow {
+    font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+    display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+  }
+  .enquiry-eyebrow::before, .enquiry-eyebrow::after {
+    content: ''; display: block; width: 24px; height: 1px; background: var(--gold);
+  }
+
+  .enquiry-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700;
+    color: var(--cream); margin-bottom: 0.75rem; line-height: 1.2;
+  }
+  .enquiry-title em { color: var(--gold); font-style: italic; }
+
+  .enquiry-sub { font-size: 1rem; color: rgba(245,236,215,0.65); margin-bottom: 3rem; line-height: 1.7; }
+
+  .enquiry-form {
+    background: rgba(255,253,248,0.06); border: 1px solid rgba(212,164,76,0.25);
+    border-radius: 6px; padding: 2.5rem;
+    backdrop-filter: blur(8px);
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+  .form-group:last-of-type { margin-bottom: 0; }
+
+  .form-label {
+    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(245,236,215,0.6); font-weight: 700; text-align: left;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    width: 100%; padding: 0.85rem 1rem;
+    background: rgba(255,253,248,0.08);
+    border: 1px solid rgba(212,164,76,0.25);
+    border-radius: 3px;
+    color: var(--cream); font-size: 0.95rem;
+    font-family: 'Lato', sans-serif;
+    outline: none; transition: border-color 0.2s, background 0.2s;
+    appearance: none; -webkit-appearance: none;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(245,236,215,0.35); }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--gold); background: rgba(255,253,248,0.12);
+  }
+  .form-select { cursor: pointer; }
+  .form-select option { background: var(--dark-roast); color: var(--cream); }
+  .form-textarea { resize: vertical; min-height: 100px; }
+
+  .whatsapp-btn {
+    width: 100%; margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background: #25D366; color: #fff;
+    border: none; border-radius: 3px; cursor: pointer;
+    font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .whatsapp-btn:hover {
+    background: #20BA5A; transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+  }
+  .whatsapp-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+  .form-note {
+    margin-top: 1rem; font-size: 0.8rem;
+    color: rgba(245,236,215,0.4); text-align: center;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--espresso); padding: 4rem 5% 2rem;
+  }
+
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem; max-width: 1100px; margin: 0 auto 3rem;
+  }
+
+  .footer-brand .nav-logo { display: block; margin-bottom: 1rem; font-size: 1.6rem; }
+  .footer-brand p { font-size: 0.88rem; color: rgba(245,236,215,0.5); line-height: 1.7; max-width: 260px; }
+
+  .footer-col h4 {
+    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 1.2rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul a {
+    font-size: 0.88rem; color: rgba(245,236,215,0.55); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--gold); }
+
+  .footer-socials { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+  .social-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(212,164,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(245,236,215,0.55); text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .social-icon:hover { border-color: var(--gold); color: var(--gold); background: rgba(212,164,76,0.1); }
+  .social-icon svg { width: 16px; height: 16px; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(245,236,215,0.08);
+    padding-top: 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem; max-width: 1100px; margin: 0 auto;
+  }
+  .footer-bottom p { font-size: 0.82rem; color: rgba(245,236,215,0.35); }
+
+  /* ─── SCROLL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .hero-content { grid-template-columns: 1fr; text-align: center; }
+    .hero-text { order: 2; }
+    .hero-visual { order: 1; }
+    .hero-eyebrow { justify-content: center; }
+    .hero-desc { margin: 0 auto 2rem; }
+    .hero-btns { justify-content: center; }
+    .hero-steam { display: none; }
+
+    #why { grid-template-columns: 1fr; }
+    .morning-inner { grid-template-columns: 1fr; }
+
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    section { padding: 4rem 5%; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .morning-gallery { grid-template-columns: 1fr; }
+    .morning-gallery .gallery-card:first-child { grid-column: span 1; aspect-ratio: 2/1; }
+    .enquiry-form { padding: 1.5rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Brew<span>&Soul</span></a>
+  <ul class="nav-links">
+    <li><a href="#features">Coffees</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#why">Our Story</a></li>
+    <li><a href="#morning">Hours</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#enquiry" class="nav-cta">Reserve a Table</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features" onclick="closeMobileMenu()">Coffees</a>
+  <a href="#menu" onclick="closeMobileMenu()">Menu</a>
+  <a href="#why" onclick="closeMobileMenu()">Our Story</a>
+  <a href="#morning" onclick="closeMobileMenu()">Hours</a>
+  <a href="#testimonials" onclick="closeMobileMenu()">Reviews</a>
+  <a href="#enquiry" onclick="closeMobileMenu()" style="color: var(--gold); font-weight: 700;">Reserve a Table →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-ring"></div>
+  <div class="hero-bg-ring"></div>
+  <div class="hero-bg-ring"></div>
+  <div class="hero-steam"></div>
+  <div class="hero-steam"></div>
+  <div class="hero-steam"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Specialty Coffee House</div>
+      <h1 class="hero-h1">Savor the<br><em>Perfect Brew</em></h1>
+      <p class="hero-desc">
+        From single-origin pour-overs to hand-crafted lattes — every cup is an unhurried ritual. Welcome to your second home.
+      </p>
+      <div class="hero-btns">
+        <a href="#menu" class="btn-primary">Explore the Menu</a>
+        <a href="#enquiry" class="btn-outline">Reserve a Table</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="coffee-cup-wrapper">
+        <div class="cup-glow"></div>
+        <!-- Floating beans -->
+        <div class="beans-float" style="top:10px;right:10px;">
+          <svg width="30" height="20" viewBox="0 0 30 20" fill="none">
+            <ellipse cx="15" cy="10" rx="13" ry="8" fill="#6B3A2A"/>
+            <path d="M15 2 Q22 10 15 18" stroke="#3D2314" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="beans-float" style="bottom:20px;left:0;">
+          <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
+            <ellipse cx="12" cy="8" rx="10" ry="6" fill="#C49A6C"/>
+            <path d="M12 2 Q18 8 12 14" stroke="#6B3A2A" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+        <div class="beans-float" style="top:60px;left:-10px;">
+          <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+            <ellipse cx="10" cy="7" rx="9" ry="5.5" fill="#B5651D"/>
+            <path d="M10 1.5 Q16 7 10 12.5" stroke="#6B3A2A" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        <!-- Cup SVG -->
+        <svg class="cup-svg" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Steam wisps -->
+          <path d="M80 30 Q83 15 79 5" stroke="rgba(245,236,215,0.4)" stroke-width="2.5" stroke-linecap="round" fill="none">
+            <animate attributeName="d" values="M80 30 Q83 15 79 5;M80 30 Q77 12 82 2;M80 30 Q83 15 79 5" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.6;0" dur="3s" repeatCount="indefinite"/>
+          </path>
+          <path d="M100 28 Q104 10 100 0" stroke="rgba(245,236,215,0.3)" stroke-width="2" stroke-linecap="round" fill="none">
+            <animate attributeName="d" values="M100 28 Q104 10 100 0;M100 28 Q96 8 102 -2;M100 28 Q104 10 100 0" dur="3.5s" repeatCount="indefinite" begin="0.7s"/>
+            <animate attributeName="opacity" values="0;0.5;0" dur="3.5s" repeatCount="indefinite" begin="0.7s"/>
+          </path>
+          <path d="M120 32 Q124 14 119 4" stroke="rgba(245,236,215,0.35)" stroke-width="2" stroke-linecap="round" fill="none">
+            <animate attributeName="d" values="M120 32 Q124 14 119 4;M120 32 Q116 12 122 2;M120 32 Q124 14 119 4" dur="4s" repeatCount="indefinite" begin="1.4s"/>
+            <animate attributeName="opacity" values="0;0.55;0" dur="4s" repeatCount="indefinite" begin="1.4s"/>
+          </path>
+          <!-- Saucer -->
+          <ellipse cx="100" cy="195" rx="75" ry="16" fill="#3D2314"/>
+          <ellipse cx="100" cy="192" rx="72" ry="13" fill="#6B3A2A"/>
+          <!-- Cup body -->
+          <path d="M50 110 L60 190 Q100 200 140 190 L150 110 Z" fill="#C49A6C"/>
+          <path d="M50 110 L60 190 Q100 200 140 190 L150 110 Z" fill="url(#cupShade)"/>
+          <!-- Handle -->
+          <path d="M148 120 Q175 120 175 150 Q175 180 148 178" stroke="#B5651D" stroke-width="10" stroke-linecap="round" fill="none"/>
+          <path d="M148 120 Q170 120 170 150 Q170 175 148 178" stroke="#D4A44C" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <!-- Rim ellipse -->
+          <ellipse cx="100" cy="110" rx="50" ry="10" fill="#6B3A2A"/>
+          <!-- Coffee surface -->
+          <ellipse cx="100" cy="110" rx="44" ry="8.5" fill="#3D2314"/>
+          <!-- Latte art heart -->
+          <ellipse cx="92" cy="108" rx="9" ry="6" fill="rgba(245,236,215,0.55)" transform="rotate(-20 92 108)"/>
+          <ellipse cx="108" cy="108" rx="9" ry="6" fill="rgba(245,236,215,0.55)" transform="rotate(20 108 108)"/>
+          <path d="M100 116 L88 104 Q97 100 100 103 Q103 100 112 104 Z" fill="rgba(245,236,215,0.55)"/>
+          <!-- Cup highlight -->
+          <path d="M62 130 Q60 150 62 170" stroke="rgba(255,255,255,0.2)" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <defs>
+            <linearGradient id="cupShade" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#3D2314" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="transparent"/>
+              <stop offset="100%" stop-color="#3D2314" stop-opacity="0.3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item">Single Origin</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Cold Brew</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Espresso</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Pour Over</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Flat White</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Latte Art</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Oat Milk</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">French Press</span><span class="marquee-dot">◆</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="marquee-item">Single Origin</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Cold Brew</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Espresso</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Pour Over</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Flat White</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Latte Art</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Oat Milk</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">French Press</span><span class="marquee-dot">◆</span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="features-grid">
+    <div class="features-header reveal">
+      <div class="section-eyebrow">What We Brew</div>
+      <h2 class="section-title">Crafted with <em>Intention</em></h2>
+      <p class="section-subtitle">Every method, every bean, every pour — chosen with care for the cup you deserve.</p>
+    </div>
+    <div class="features-cards">
+      <div class="feat-card reveal reveal-delay-1">
+        <div class="feat-icon">
+          <svg viewBox="0 0 28 28" fill="none">
+            <path d="M8 22 L10 8 Q14 4 18 8 L20 22 Z" stroke="#C49A6C" stroke-width="1.5" fill="none"/>
+            <path d="M14 8 C14 8 12 12 14 14 C16 12 14 8 14 8Z" fill="#D4A44C"/>
+            <path d="M8 22 Q14 26 20 22" stroke="#C49A6C" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="feat-title">Espresso</div>
+        <p class="feat-desc">Intense, syrupy, and caramel-edged. Pulled at exactly 9 bars for a ristretto-style extraction that coats the palate.</p>
+      </div>
+      <div class="feat-card reveal reveal-delay-2">
+        <div class="feat-icon">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="6" y="8" width="16" height="14" rx="3" stroke="#C49A6C" stroke-width="1.5"/>
+            <path d="M14 4 Q14 8 14 8" stroke="#C49A6C" stroke-width="1.5" stroke-linecap="round"/>
+            <ellipse cx="14" cy="22" rx="7" ry="3" stroke="#C49A6C" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        <div class="feat-title">Signature Latte</div>
+        <p class="feat-desc">Velvety micro-foam poured over double shots — choose oat, almond, or whole milk. Seasonal syrups on request.</p>
+      </div>
+      <div class="feat-card reveal reveal-delay-3">
+        <div class="feat-icon">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="5" y="6" width="18" height="18" rx="3" stroke="#C49A6C" stroke-width="1.5"/>
+            <path d="M10 12 L18 12 M10 16 L18 16 M10 20 L15 20" stroke="#D4A44C" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="feat-title">Pour Over</div>
+        <p class="feat-desc">Single-origin beans. Gooseneck kettle. Four minutes of patience. The most honest cup we know how to make.</p>
+      </div>
+      <div class="feat-card reveal reveal-delay-4">
+        <div class="feat-icon">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect x="7" y="5" width="14" height="18" rx="2" stroke="#C49A6C" stroke-width="1.5"/>
+            <path d="M10 5 L10 3 M14 5 L14 3 M18 5 L18 3" stroke="#C49A6C" stroke-width="1.5" stroke-linecap="round"/>
+            <ellipse cx="14" cy="14" rx="4" ry="4" stroke="#D4A44C" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+        <div class="feat-title">Cold Brew</div>
+        <p class="feat-desc">18-hour steep. Naturally sweet, never bitter. Served over hand-chipped ice with a salted caramel float.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="why-left">
+    <div class="section-eyebrow reveal">Our Philosophy</div>
+    <h2 class="section-title reveal">Why Choose <em>Us?</em></h2>
+    <p class="section-subtitle reveal">We believe great coffee is a conversation between the farmer, the roaster, and the barista — with you at the end of it.</p>
+    <div class="why-points">
+      <div class="why-point reveal reveal-delay-1">
+        <div class="why-check">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6 L5 9 L10 3" stroke="#3D2314" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="why-point-text"><strong>Direct Trade Beans</strong>We partner directly with farmers in Ethiopia, Colombia, and Guatemala — cutting out middlemen and ensuring fair wages.</div>
+      </div>
+      <div class="why-point reveal reveal-delay-2">
+        <div class="why-check">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6 L5 9 L10 3" stroke="#3D2314" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="why-point-text"><strong>Roasted Locally</strong>Small-batch roasting every Tuesday. Beans on your table within 72 hours of roast — never stale, always vibrant.</div>
+      </div>
+      <div class="why-point reveal reveal-delay-3">
+        <div class="why-check">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6 L5 9 L10 3" stroke="#3D2314" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="why-point-text"><strong>Trained Baristas</strong>Each team member spends 200 hours learning the craft before pulling a single shot. Precision is our culture.</div>
+      </div>
+    </div>
+    <div style="margin-top: 2.5rem;" class="reveal reveal-delay-4">
+      <a href="#enquiry" class="btn-primary" style="background: var(--gold);">Book Your Visit</a>
+    </div>
+  </div>
+  <div class="why-right">
+    <div class="promo-badge reveal">Morning Special</div>
+    <h3 class="promo-heading reveal">200 Cups. From ₹10 only.<br><em>Every morning.</em></h3>
+    <p class="promo-sub reveal">Arrive before 10 AM and enjoy our house espresso at our community price. First 200 cups. No catch — just coffee the way it was meant to be shared.</p>
+    <div class="reveal reveal-delay-1">
+      <a href="#enquiry" class="btn-primary" style="background: var(--gold);">Claim Your Cup →</a>
+    </div>
+    <!-- Decorative cup icon -->
+    <div style="margin-top: 3rem; opacity: 0.15;" class="reveal reveal-delay-2">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+        <circle cx="60" cy="60" r="55" stroke="#D4A44C" stroke-width="1"/>
+        <path d="M35 75 Q38 90 60 92 Q82 90 85 75" fill="none" stroke="#D4A44C" stroke-width="2"/>
+        <path d="M35 45 L40 75 Q60 82 80 75 L85 45 Z" fill="rgba(212,164,76,0.3)"/>
+        <ellipse cx="60" cy="45" rx="25" ry="6" fill="rgba(212,164,76,0.4)"/>
+        <path d="M84 55 Q98 55 98 68 Q98 80 84 78" stroke="#D4A44C" stroke-width="6" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="menu-header reveal">
+    <div class="section-eyebrow">The Menu</div>
+    <h2 class="section-title">Visit Us <em>Today</em></h2>
+    <p class="section-subtitle">From sunrise espresso to sunset cold brew — here's what we're pouring.</p>
+  </div>
+  <div class="menu-tabs reveal">
+    <button class="menu-tab active" onclick="filterMenu('hot')">Hot Coffees</button>
+    <button class="menu-tab" onclick="filterMenu('cold')">Cold Coffees</button>
+    <button class="menu-tab" onclick="filterMenu('food')">Light Bites</button>
+    <button class="menu-tab" onclick="filterMenu('special')">Specials</button>
+  </div>
+  <div class="menu-grid" id="menuGrid">
+    <!-- Items injected by JS -->
+  </div>
+</section>
+
+<!-- MORNING / HOURS -->
+<section id="morning">
+  <div class="morning-inner">
+    <div class="morning-left">
+      <div class="section-eyebrow reveal">Opening Smiles</div>
+      <h2 class="section-title reveal">Morning <em>Happy —</em><br>We're Open</h2>
+      <p class="section-subtitle reveal">The perfect start to any day begins with the right cup. Come in, slow down, breathe in.</p>
+      <div class="hours-list reveal reveal-delay-1">
+        <div class="hour-row"><strong>Monday – Friday</strong><span class="time">7:00 AM – 9:00 PM</span></div>
+        <div class="hour-row"><strong>Saturday</strong><span class="time">8:00 AM – 10:00 PM</span></div>
+        <div class="hour-row"><strong>Sunday</strong><span class="time">9:00 AM – 7:00 PM</span></div>
+        <div class="hour-row"><strong>Public Holidays</strong><span class="time">10:00 AM – 6:00 PM</span></div>
+      </div>
+      <div style="display:flex; gap: 1rem; flex-wrap: wrap;" class="reveal reveal-delay-2">
+        <a href="#enquiry" class="btn-primary">Reserve a Table</a>
+        <a href="tel:+91XXXXXXXXXX" class="btn-outline" style="color: var(--cream); border-color: rgba(245,236,215,0.3);">Call Us</a>
+      </div>
+    </div>
+    <div class="morning-gallery">
+      <div class="gallery-card reveal reveal-delay-1">
+        <svg viewBox="0 0 120 60" fill="none" width="120">
+          <ellipse cx="60" cy="42" rx="50" ry="12" fill="#3D2314"/>
+          <path d="M20 30 L25 42 Q60 50 95 42 L100 30 Z" fill="#6B3A2A"/>
+          <ellipse cx="60" cy="30" rx="40" ry="9" fill="#C49A6C"/>
+          <ellipse cx="60" cy="30" rx="35" ry="7" fill="#3D2314"/>
+          <ellipse cx="50" cy="28" rx="12" ry="7" fill="rgba(245,236,215,0.5)" transform="rotate(-15 50 28)"/>
+          <ellipse cx="68" cy="28" rx="12" ry="7" fill="rgba(245,236,215,0.5)" transform="rotate(15 68 28)"/>
+          <path d="M60 36 L48 25 Q57 21 60 24 Q63 21 72 25 Z" fill="rgba(245,236,215,0.5)"/>
+        </svg>
+      </div>
+      <div class="gallery-card reveal reveal-delay-2">
+        <svg viewBox="0 0 80 80" fill="none" width="80">
+          <rect x="15" y="20" width="50" height="45" rx="4" fill="#6B3A2A"/>
+          <rect x="20" y="15" width="40" height="8" rx="2" fill="#3D2314"/>
+          <ellipse cx="40" cy="43" rx="18" ry="12" fill="#3D2314"/>
+          <ellipse cx="40" cy="43" rx="15" ry="9" fill="#C49A6C" opacity="0.4"/>
+          <path d="M62 30 Q72 30 72 43 Q72 56 62 54" stroke="#B5651D" stroke-width="5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="gallery-card reveal reveal-delay-3">
+        <svg viewBox="0 0 80 80" fill="none" width="80">
+          <rect x="20" y="10" width="40" height="55" rx="5" fill="#C49A6C" opacity="0.3" stroke="#D4A44C" stroke-width="1.5"/>
+          <rect x="25" y="20" width="30" height="35" rx="3" fill="#3D2314" opacity="0.6"/>
+          <path d="M30 28 Q40 22 50 28 Q40 38 30 28Z" fill="rgba(245,236,215,0.5)"/>
+        </svg>
+      </div>
+      <div class="gallery-card reveal reveal-delay-4">
+        <svg viewBox="0 0 80 80" fill="none" width="80">
+          <circle cx="40" cy="40" r="28" stroke="#D4A44C" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
+          <circle cx="40" cy="40" r="20" fill="#3D2314"/>
+          <path d="M32 35 L38 42 L50 30" stroke="#D4A44C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testi-header reveal">
+    <div class="section-eyebrow">What Guests Say</div>
+    <h2 class="section-title">Words from Our <em>Regulars</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal reveal-delay-1">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"I've visited cafés across three continents. Brew & Soul makes me feel like I never need to leave my neighbourhood."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AR</div>
+        <div><div class="testi-name">Arjun Rao</div><div class="testi-role">Architect, Patna</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal reveal-delay-2">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"The cold brew is dangerous. Once you've had it here, everything else tastes like a compromise."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">NC</div>
+        <div><div class="testi-name">Neha Chopra</div><div class="testi-role">Food Blogger</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal reveal-delay-3">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Morning specials at ₹10 and quality that rivals any premium café. This place is quietly extraordinary."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SK</div>
+        <div><div class="testi-name">Siddharth Kumar</div><div class="testi-role">Regular since 2022</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP CTA FORM -->
+<section id="enquiry">
+  <div class="enquiry-rings"></div>
+  <div class="enquiry-rings"></div>
+  <div class="enquiry-inner">
+    <div class="enquiry-eyebrow reveal">Get in Touch</div>
+    <h2 class="enquiry-title reveal">Book Your <em>Table</em><br>via WhatsApp</h2>
+    <p class="enquiry-sub reveal">Fill the form below and we'll confirm your reservation on WhatsApp instantly. No calls, no wait — just coffee.</p>
+
+    <div class="enquiry-form reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="fname">Your Name</label>
+          <input class="form-input" type="text" id="fname" placeholder="e.g. Arjun Rao"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fphone">WhatsApp Number</label>
+          <input class="form-input" type="tel" id="fphone" placeholder="+91 98765 XXXXX"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="fdate">Date of Visit</label>
+          <input class="form-input" type="date" id="fdate"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="ftime">Preferred Time</label>
+          <input class="form-input" type="time" id="ftime"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="fguests">Number of Guests</label>
+          <select class="form-select" id="fguests">
+            <option value="">Select guests</option>
+            <option>1 Person</option>
+            <option>2 People</option>
+            <option>3–4 People</option>
+            <option>5–8 People</option>
+            <option>9+ People (Group)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="foccasion">Occasion</label>
+          <select class="form-select" id="foccasion">
+            <option value="">Select occasion</option>
+            <option>Casual Visit</option>
+            <option>Business Meeting</option>
+            <option>Birthday Celebration</option>
+            <option>Anniversary</option>
+            <option>Date Night</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="fmsg">Special Requests</label>
+        <textarea class="form-textarea" id="fmsg" placeholder="Any dietary needs, seating preferences, or special arrangements…"></textarea>
+      </div>
+
+      <button class="whatsapp-btn" onclick="sendWhatsApp()">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Send Enquiry on WhatsApp
+      </button>
+      <p class="form-note">Your message goes directly to our team. We reply within 10 minutes during opening hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="nav-logo">Brew<span>&Soul</span></a>
+      <p>A specialty coffee house where every cup tells a story — of origin, craft, and quiet mornings well spent.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#features">Our Coffees</a></li>
+        <li><a href="#menu">Full Menu</a></li>
+        <li><a href="#why">Our Story</a></li>
+        <li><a href="#morning">Hours & Location</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Offerings</h4>
+      <ul>
+        <li><a href="#menu">Hot Beverages</a></li>
+        <li><a href="#menu">Cold Brew</a></li>
+        <li><a href="#menu">Light Bites</a></li>
+        <li><a href="#menu">Seasonal Specials</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find Us</h4>
+      <ul>
+        <li><a href="#">123 Coffee Lane, Patna, Bihar</a></li>
+        <li><a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a></li>
+        <li><a href="mailto:hello@brewandsoul.in">hello@brewandsoul.in</a></li>
+        <li><a href="#enquiry">Reserve via WhatsApp →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Brew & Soul. All rights reserved.</p>
+    <p>Crafted with care · Direct Trade · Patna's Finest</p>
+  </div>
+</footer>
+
+<script>
+  /* ─── MOBILE NAV ─── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ─── MENU DATA ─── */
+  const menuItems = {
+    hot: [
+      { name: 'House Espresso', origin: 'Ethiopia Yirgacheffe', desc: 'Bright, floral, and lively. A true expression of its terroir.', price: '₹120' },
+      { name: 'Velvet Latte', origin: 'Colombia Huila', desc: 'Brown sugar sweetness meets chocolate depth — poured with love.', price: '₹180' },
+      { name: 'Pour Over', origin: 'Guatemala Huehuetenango', desc: 'Light-roasted. Delicate stone fruit notes. Pure clarity in a cup.', price: '₹220' },
+      { name: 'Flat White', origin: 'Brazil Cerrado', desc: 'Stronger than a latte, silkier than a cappuccino. Our daily driver.', price: '₹160' },
+      { name: 'Cortado', origin: 'Ethiopia Sidama', desc: 'Equal parts espresso and warm milk — sharp, smooth, perfect.', price: '₹150' },
+      { name: 'Cardamom Brew', origin: 'Single Origin Blend', desc: 'A nod to tradition. Warm spice weaves through every sip.', price: '₹140' },
+    ],
+    cold: [
+      { name: 'Cold Brew Classic', origin: '18-Hour Steep', desc: 'Smooth, naturally sweet, unapologetically strong over hand-chipped ice.', price: '₹200' },
+      { name: 'Salted Caramel Float', origin: 'Cold Brew Base', desc: 'Cold brew poured over vanilla ice cream with salted caramel drizzle.', price: '₹260' },
+      { name: 'Nitro Brew', origin: 'Nitrogen-Infused', desc: 'Creamy, foamy, stout-like texture. Zero additives. Just coffee and gas.', price: '₹240' },
+      { name: 'Iced Pour Over', origin: 'Flash-Chilled', desc: 'Brewed hot, poured over ice — fruit-forward and refreshingly sharp.', price: '₹230' },
+    ],
+    food: [
+      { name: 'Avocado Toast', origin: 'Sourdough Base', desc: 'House-baked sourdough, smashed avocado, micro herbs, chilli flakes.', price: '₹280' },
+      { name: 'Almond Croissant', origin: 'Baked Fresh Daily', desc: 'Buttery, flaky, filled with frangipane. Gone by 11 AM — arrive early.', price: '₹180' },
+      { name: 'Mushroom Toast', origin: 'Wild Mushrooms', desc: 'Sautéed with garlic, thyme, and a soft-poached egg on rye bread.', price: '₹260' },
+      { name: 'Banana Bread', origin: 'House-Made', desc: 'Moist, walnut-studded, served warm with whipped butter.', price: '₹160' },
+    ],
+    special: [
+      { name: 'Rose Latte', origin: 'Seasonal Special', desc: 'Rosewater-infused oat milk with double ristretto. A fleeting favourite.', price: '₹220' },
+      { name: 'Turmeric Latte', origin: 'Wellness Blend', desc: 'Golden milk meets espresso. Warming, anti-inflammatory, and oddly addictive.', price: '₹200' },
+      { name: 'Affogato', origin: 'Dessert Special', desc: 'Vanilla gelato drowned in a hot double shot. Simple. Perfect.', price: '₹240' },
+    ],
+  };
+
+  const cupColors = ['#C49A6C', '#6B3A2A', '#B5651D', '#D4A44C', '#3D2314', '#8B5A2B'];
+
+  function getCupSVG(i) {
+    const c = cupColors[i % cupColors.length];
+    return `<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+      <path d="M14 28 L16 44 Q30 48 44 44 L46 28 Z" fill="${c}"/>
+      <ellipse cx="30" cy="28" rx="16" ry="4" fill="${c}" opacity="0.7"/>
+      <ellipse cx="30" cy="28" rx="13" ry="3" fill="#3D2314"/>
+      <path d="M44 32 Q52 32 52 40 Q52 48 44 46" stroke="${c}" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <ellipse cx="30" cy="44" rx="16" ry="4" fill="#3D2314" opacity="0.5"/>
+    </svg>`;
+  }
+
+  function renderMenu(category) {
+    const grid = document.getElementById('menuGrid');
+    const items = menuItems[category] || [];
+    grid.innerHTML = items.map((item, i) => `
+      <div class="menu-card reveal">
+        <div class="menu-img">${getCupSVG(i)}</div>
+        <div class="menu-info">
+          <div class="menu-name">${item.name}</div>
+          <div class="menu-origin">${item.origin}</div>
+          <div class="menu-desc">${item.desc}</div>
+        </div>
+        <div class="menu-price">${item.price}</div>
+      </div>
+    `).join('');
+    grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+
+  function filterMenu(cat) {
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`[onclick="filterMenu('${cat}')"]`).classList.add('active');
+    renderMenu(cat);
+  }
+
+  renderMenu('hot');
+
+  /* ─── WHATSAPP FORM ─── */
+  function sendWhatsApp() {
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const date = document.getElementById('fdate').value;
+    const time = document.getElementById('ftime').value;
+    const guests = document.getElementById('fguests').value;
+    const occasion = document.getElementById('foccasion').value;
+    const msg = document.getElementById('fmsg').value.trim();
+
+    if (!name || !phone) {
+      alert('Please enter your name and WhatsApp number so we can confirm your booking.');
+      return;
+    }
+
+    const message = [
+      '🫙 *New Table Reservation — Brew & Soul*',
+      '',
+      `👤 *Name:* ${name}`,
+      `📱 *WhatsApp:* ${phone}`,
+      date ? `📅 *Date:* ${new Date(date).toLocaleDateString('en-IN', {weekday:'long', year:'numeric', month:'long', day:'numeric'})}` : '',
+      time ? `⏰ *Time:* ${time}` : '',
+      guests ? `👥 *Guests:* ${guests}` : '',
+      occasion ? `🎉 *Occasion:* ${occasion}` : '',
+      msg ? `\n📝 *Special Requests:*\n${msg}` : '',
+      '',
+      '_Sent via Brew & Soul website_'
+    ].filter(Boolean).join('\n');
+
+    const waNumber = '919876543210'; // ← Replace with your WhatsApp business number
+    const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+    window.open(waURL, '_blank');
+  }
+</script>
+</body>
+</html>

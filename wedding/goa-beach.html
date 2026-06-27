@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Beach Decor Goa - Premium beach event decoration services in Goa. Romantic beach setups, wedding decorations, anniversary surprises, birthday parties & more. Book your dream beach experience today!">
+<meta name="keywords" content="beach decor Goa, beach decoration Goa, romantic beach setup Goa, beach wedding decoration Goa, beach party Goa, Goa event decoration, beach anniversary Goa, beach birthday Goa">
+<meta name="author" content="Beach Decor Goa">
+<meta property="og:title" content="Beach Decor Goa - Premium Beach Event Decorations">
+<meta property="og:description" content="Transform any Goa beach into your dream venue. Romantic setups, weddings, anniversaries & more. WhatsApp us now!">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200">
+<title>Beach Decor Goa | Premium Beach Event Decorations & Romantic Setups</title>
+<!-- Google Fonts: Playfair Display (Serif), Cormorant Garamond (Romantic), Inter (Clean Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --sand: #F5E6C8;
+    --ocean: #1A6B8A;
+    --ocean-dark: #0D4A63;
+    --ocean-light: #4DB8D4;
+    --sunset: #E8824A;
+    --sunset-warm: #F4A261;
+    --coral: #E07B54;
+    --white: #FFFDF8;
+    --dark: #1C2B35;
+    --text: #2D3A42;
+    --muted: #7A8F9B;
+    --gold: #C9A84C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Josefin Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+
+  /* NAVBAR */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: rgba(13, 74, 99, 0.95); backdrop-filter: blur(10px);
+    padding: 0 5%; display: flex; align-items: center; justify-content: space-between;
+    height: 70px; transition: all 0.3s;
+  }
+  nav.scrolled { background: rgba(13, 74, 99, 0.99); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--sand); letter-spacing: 1px; }
+  .logo span { color: var(--sunset-warm); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(245,230,200,0.85); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--sunset-warm); }
+  .nav-cta { background: var(--sunset); color: white; padding: 10px 22px; border-radius: 30px; text-decoration: none; font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; transition: all 0.3s; white-space: nowrap; }
+  .nav-cta:hover { background: var(--sunset-warm); transform: translateY(-1px); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 25px; height: 2px; background: var(--sand); transition: all 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: var(--ocean-dark); padding: 2rem; z-index: 999; }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a { display: block; color: var(--sand); text-decoration: none; padding: 12px 0; border-bottom: 1px solid rgba(245,230,200,0.1); font-size: 0.9rem; letter-spacing: 1.5px; text-transform: uppercase; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(160deg, #0D4A63 0%, #1A6B8A 40%, #2A8BA8 70%, #E8824A 100%);
+    overflow: hidden;
+  }
+  .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,74,99,0.6) 0%, rgba(13,74,99,0.2) 50%, rgba(13,74,99,0.7) 100%); }
+  .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 20px; max-width: 900px; }
+  .hero-badge { display: inline-block; background: rgba(201,168,76,0.25); border: 1px solid var(--gold); color: var(--gold); padding: 6px 20px; border-radius: 30px; font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 2rem; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5.5rem); color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; }
+  .hero-title em { color: var(--sunset-warm); font-style: italic; }
+  .hero-subtitle { font-size: clamp(0.9rem, 2.5vw, 1.1rem); color: rgba(245,230,200,0.85); letter-spacing: 2px; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8; }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--sunset); color: white; padding: 16px 36px; border-radius: 50px; text-decoration: none; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-primary:hover { background: var(--sunset-warm); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(232,130,74,0.4); }
+  .btn-outline { border: 1.5px solid rgba(245,230,200,0.6); color: var(--sand); padding: 16px 36px; border-radius: 50px; text-decoration: none; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s; }
+  .btn-outline:hover { background: rgba(245,230,200,0.1); border-color: var(--sand); }
+  .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(245,230,200,0.6); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
+  .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, rgba(245,230,200,0.6), transparent); animation: scrollAnim 1.5s infinite; }
+  @keyframes scrollAnim { 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:0.3;transform:scaleY(0.5)} }
+  .wave-bottom { position: absolute; bottom: 0; left: 0; width: 100%; }
+
+  /* SECTION COMMONS */
+  section { padding: 90px 5%; }
+  .section-tag { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--ocean); font-weight: 600; margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--dark); margin-bottom: 1rem; line-height: 1.2; }
+  .section-title em { color: var(--ocean); font-style: italic; }
+  .section-subtitle { color: var(--muted); font-size: 0.95rem; letter-spacing: 0.5px; line-height: 1.8; max-width: 600px; }
+  .section-header { text-align: center; margin-bottom: 60px; }
+  .section-header .section-subtitle { margin: 0 auto; }
+  .divider { width: 60px; height: 3px; background: linear-gradient(to right, var(--ocean), var(--sunset)); margin: 20px auto; border-radius: 2px; }
+
+  /* WHY US */
+  #why { background: var(--dark); }
+  #why .section-tag { color: var(--ocean-light); }
+  #why .section-title { color: var(--sand); }
+  #why .section-title em { color: var(--sunset-warm); }
+  #why .section-subtitle { color: rgba(245,230,200,0.6); }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; margin-top: 60px; }
+  .feature-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(245,230,200,0.08); padding: 40px 30px; transition: all 0.4s; position: relative; overflow: hidden; }
+  .feature-card::before { content:''; position: absolute; bottom:0; left:0; right:0; height:2px; background: linear-gradient(to right, var(--ocean), var(--sunset)); transform: scaleX(0); transition: transform 0.4s; }
+  .feature-card:hover::before { transform: scaleX(1); }
+  .feature-card:hover { background: rgba(255,255,255,0.07); }
+  .feature-icon { font-size: 2.2rem; margin-bottom: 1.5rem; }
+  .feature-card h3 { font-family: 'Playfair Display', serif; color: var(--sand); font-size: 1.2rem; margin-bottom: 0.8rem; }
+  .feature-card p { color: rgba(245,230,200,0.55); font-size: 0.85rem; line-height: 1.8; }
+
+  /* SERVICES */
+  #services { background: var(--white); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+  .service-card { border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; group; transition: transform 0.4s; }
+  .service-card:hover { transform: translateY(-6px); }
+  .service-img { width: 100%; height: 280px; object-fit: cover; display: block; transition: transform 0.5s; }
+  .service-card:hover .service-img { transform: scale(1.05); }
+  .service-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,74,99,0.92) 0%, rgba(13,74,99,0.3) 50%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; }
+  .service-tag { background: var(--sunset); color: white; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; width: fit-content; margin-bottom: 10px; }
+  .service-card h3 { font-family: 'Playfair Display', serif; color: white; font-size: 1.4rem; margin-bottom: 6px; }
+  .service-card p { color: rgba(255,255,255,0.75); font-size: 0.8rem; line-height: 1.6; }
+  .service-arrow { display: inline-flex; align-items: center; gap: 6px; color: var(--sunset-warm); font-size: 0.75rem; letter-spacing: 1px; margin-top: 12px; text-transform: uppercase; }
+
+  /* GALLERY */
+  #gallery { background: #F8F4EE; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 220px; gap: 12px; }
+  .gallery-item { overflow: hidden; border-radius: 12px; position: relative; cursor: pointer; }
+  .gallery-item.tall { grid-row: span 2; }
+  .gallery-item.wide { grid-column: span 2; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; display: block; }
+  .gallery-item:hover img { transform: scale(1.08); }
+  .gallery-item .gallery-overlay { position: absolute; inset: 0; background: rgba(13,74,99,0.5); opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-zoom { width: 50px; height: 50px; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }
+
+  /* LIGHTBOX */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999; align-items: center; justify-content: center; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; object-fit: contain; }
+  .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2rem; cursor: pointer; background: none; border: none; }
+
+  /* VIDEO */
+  #videos { background: var(--dark); }
+  #videos .section-tag { color: var(--ocean-light); }
+  #videos .section-title { color: var(--sand); }
+  #videos .section-title em { color: var(--sunset-warm); }
+  #videos .section-subtitle { color: rgba(245,230,200,0.6); }
+  .videos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .video-card { border-radius: 16px; overflow: hidden; position: relative; background: #111; }
+  .video-card video, .video-card iframe { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .video-thumb { position: relative; cursor: pointer; }
+  .video-thumb img { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 60px; height: 60px; border-radius: 50%; background: rgba(232,130,74,0.9); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; transition: all 0.3s; }
+  .video-thumb:hover .play-btn { background: var(--sunset); transform: translate(-50%,-50%) scale(1.1); }
+  .video-info { padding: 20px; }
+  .video-info h4 { font-family: 'Playfair Display', serif; color: var(--sand); font-size: 1.1rem; margin-bottom: 6px; }
+  .video-info p { color: rgba(245,230,200,0.5); font-size: 0.8rem; }
+
+  /* PACKAGES */
+  #packages { background: var(--white); }
+  .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .package-card { border: 1.5px solid #E8E0D0; border-radius: 20px; padding: 40px 30px; text-align: center; position: relative; transition: all 0.4s; background: white; }
+  .package-card:hover { border-color: var(--ocean); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(26,107,138,0.12); }
+  .package-card.featured { border-color: var(--ocean); background: var(--dark); }
+  .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--sunset); color: white; font-size: 0.65rem; letter-spacing: 2px; padding: 5px 18px; border-radius: 20px; text-transform: uppercase; white-space: nowrap; }
+  .package-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .package-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--dark); }
+  .package-card.featured h3 { color: var(--sand); }
+  .package-price { font-size: 2.2rem; font-weight: 600; color: var(--ocean); margin: 1rem 0; }
+  .package-card.featured .package-price { color: var(--sunset-warm); }
+  .package-price span { font-size: 0.9rem; font-weight: 400; color: var(--muted); }
+  .package-features { list-style: none; text-align: left; margin: 1.5rem 0; }
+  .package-features li { padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06); color: var(--muted); font-size: 0.85rem; display: flex; gap: 10px; }
+  .package-card.featured .package-features li { border-color: rgba(245,230,200,0.1); color: rgba(245,230,200,0.7); }
+  .package-features li::before { content: '✓'; color: var(--ocean); flex-shrink: 0; font-weight: 600; }
+  .package-card.featured .package-features li::before { color: var(--sunset-warm); }
+  .btn-package { display: block; padding: 14px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; transition: all 0.3s; margin-top: 1.5rem; border: 1.5px solid var(--ocean); color: var(--ocean); }
+  .btn-package:hover { background: var(--ocean); color: white; }
+  .package-card.featured .btn-package { background: var(--sunset); border-color: var(--sunset); color: white; }
+  .package-card.featured .btn-package:hover { background: var(--sunset-warm); border-color: var(--sunset-warm); }
+
+  /* TESTIMONIALS */
+  #testimonials { background: linear-gradient(135deg, #EDF6FA 0%, #F5EFE6 100%); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .testimonial-card { background: white; border-radius: 16px; padding: 35px; box-shadow: 0 4px 30px rgba(0,0,0,0.06); }
+  .stars { color: var(--gold); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+  .testimonial-card blockquote { font-family: 'Playfair Display', serif; font-style: italic; color: var(--dark); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; }
+  .reviewer { display: flex; align-items: center; gap: 12px; }
+  .reviewer-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; }
+  .reviewer-avatar-placeholder { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1rem; flex-shrink: 0; }
+  .reviewer-name { font-weight: 600; font-size: 0.9rem; color: var(--dark); }
+  .reviewer-loc { font-size: 0.75rem; color: var(--muted); }
+
+  /* BLOG */
+  #blog { background: var(--white); }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+  .blog-card { border-radius: 16px; overflow: hidden; border: 1px solid #EEE8DF; transition: all 0.4s; background: white; }
+  .blog-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); border-color: transparent; }
+  .blog-img { width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.5s; }
+  .blog-card:hover .blog-img { transform: scale(1.04); }
+  .blog-body { padding: 25px; }
+  .blog-cat { font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ocean); font-weight: 600; margin-bottom: 8px; }
+  .blog-body h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--dark); margin-bottom: 10px; line-height: 1.4; }
+  .blog-body p { color: var(--muted); font-size: 0.82rem; line-height: 1.7; margin-bottom: 16px; }
+  .blog-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; color: var(--muted); border-top: 1px solid #F0E8DC; padding-top: 14px; }
+  .read-more { color: var(--ocean); text-decoration: none; font-weight: 600; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* FAQ */
+  #faq { background: #F8F4EE; }
+  .faq-container { max-width: 800px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid #E8DFD0; }
+  .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 22px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+  .faq-q span { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); }
+  .faq-icon { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--ocean); display: flex; align-items: center; justify-content: center; color: var(--ocean); font-size: 1rem; flex-shrink: 0; transition: all 0.3s; }
+  .faq-item.open .faq-icon { background: var(--ocean); color: white; transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .faq-item.open .faq-a { max-height: 300px; }
+  .faq-a p { color: var(--muted); font-size: 0.88rem; line-height: 1.8; padding-bottom: 22px; }
+
+  /* LOCATION */
+  #location { background: var(--white); }
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .location-map { border-radius: 20px; overflow: hidden; height: 400px; background: #E0EAF0; display: flex; align-items: center; justify-content: center; border: 1.5px solid #D0E0E8; }
+  .map-placeholder { text-align: center; padding: 40px; }
+  .location-info h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--dark); margin-bottom: 1.5rem; }
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 2rem; }
+  .info-list li { display: flex; gap: 16px; align-items: flex-start; }
+  .info-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(26,107,138,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  .info-text strong { display: block; font-size: 0.85rem; color: var(--dark); font-weight: 600; margin-bottom: 3px; }
+  .info-text span { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+  .beaches-served { margin-top: 2rem; }
+  .beaches-served h4 { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--ocean); font-weight: 600; margin-bottom: 12px; }
+  .beach-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .beach-tag { background: rgba(26,107,138,0.08); color: var(--ocean); padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; border: 1px solid rgba(26,107,138,0.2); }
+
+  /* CONTACT / FORM */
+  #contact { background: var(--dark); }
+  #contact .section-tag { color: var(--ocean-light); }
+  #contact .section-title { color: var(--sand); }
+  #contact .section-title em { color: var(--sunset-warm); }
+  #contact .section-subtitle { color: rgba(245,230,200,0.6); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+  .contact-info { padding-top: 20px; }
+  .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--sand); margin-bottom: 1rem; }
+  .contact-info p { color: rgba(245,230,200,0.6); font-size: 0.88rem; line-height: 1.8; margin-bottom: 2rem; }
+  .contact-methods { display: flex; flex-direction: column; gap: 16px; }
+  .contact-method { display: flex; align-items: center; gap: 16px; }
+  .method-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+  .method-icon.wa { background: rgba(37,211,102,0.15); }
+  .method-icon.ph { background: rgba(77,184,212,0.15); }
+  .method-icon.em { background: rgba(201,168,76,0.15); }
+  .method-text strong { color: var(--sand); font-size: 0.88rem; display: block; }
+  .method-text a { color: var(--ocean-light); font-size: 0.82rem; text-decoration: none; }
+  .method-text a:hover { color: var(--sunset-warm); }
+  .contact-form { background: rgba(255,255,255,0.05); border: 1px solid rgba(245,230,200,0.1); border-radius: 24px; padding: 40px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(245,230,200,0.6); margin-bottom: 8px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(245,230,200,0.15);
+    border-radius: 10px; padding: 14px 16px; color: var(--sand); font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.88rem; transition: border-color 0.3s; outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--ocean-light); }
+  .form-group select option { background: var(--dark); color: var(--sand); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .whatsapp-submit { width: 100%; background: #25D366; color: white; border: none; border-radius: 50px; padding: 16px; font-family: 'Josefin Sans', sans-serif; font-size: 0.88rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s; margin-top: 10px; }
+  .whatsapp-submit:hover { background: #20BD5A; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,211,102,0.3); }
+  .form-note { text-align: center; color: rgba(245,230,200,0.35); font-size: 0.72rem; margin-top: 12px; letter-spacing: 0.5px; }
+
+  /* STATS COUNTER */
+  #stats { background: var(--ocean); padding: 70px 5%; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); color: white; line-height: 1; }
+  .stat-label { font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 8px; }
+
+  /* PROCESS */
+  #process { background: var(--white); }
+  .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; position: relative; }
+  .process-step { text-align: center; padding: 40px 20px; position: relative; }
+  .step-num { width: 60px; height: 60px; border-radius: 50%; background: var(--ocean); color: white; font-family: 'Playfair Display', serif; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+  .process-step h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--dark); margin-bottom: 0.8rem; }
+  .process-step p { color: var(--muted); font-size: 0.82rem; line-height: 1.7; }
+  .step-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .process-arrow { position: absolute; top: 55px; right: -20px; color: var(--ocean); font-size: 1.2rem; z-index: 1; }
+
+  /* FOOTER */
+  footer { background: #111C24; padding: 60px 5% 30px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+  .footer-brand { }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sand); margin-bottom: 1rem; }
+  .footer-logo span { color: var(--sunset-warm); }
+  .footer-brand p { color: rgba(245,230,200,0.45); font-size: 0.83rem; line-height: 1.8; max-width: 280px; }
+  .footer-social { display: flex; gap: 12px; margin-top: 1.5rem; }
+  .social-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(245,230,200,0.15); display: flex; align-items: center; justify-content: center; color: rgba(245,230,200,0.5); text-decoration: none; font-size: 0.9rem; transition: all 0.3s; }
+  .social-btn:hover { border-color: var(--sunset-warm); color: var(--sunset-warm); }
+  .footer-col h4 { color: var(--sand); font-size: 0.78rem; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { color: rgba(245,230,200,0.45); text-decoration: none; font-size: 0.82rem; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: var(--sunset-warm); }
+  .footer-bottom { border-top: 1px solid rgba(245,230,200,0.08); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; }
+  .footer-bottom p { color: rgba(245,230,200,0.3); font-size: 0.75rem; }
+  .footer-bottom a { color: rgba(245,230,200,0.3); text-decoration: none; }
+
+  /* FLOATING WA */
+  .wa-float { position: fixed; bottom: 30px; right: 30px; width: 62px; height: 62px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.6rem; text-decoration: none; z-index: 999; box-shadow: 0 6px 30px rgba(37,211,102,0.5); transition: all 0.3s; animation: waPulse 2s infinite; }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 40px rgba(37,211,102,0.7); }
+  @keyframes waPulse { 0%,100%{box-shadow:0 6px 30px rgba(37,211,102,0.5)} 50%{box-shadow:0 6px 50px rgba(37,211,102,0.8)} }
+  .wa-tooltip { position: absolute; right: 75px; background: var(--dark); color: var(--sand); font-size: 0.75rem; padding: 6px 14px; border-radius: 20px; white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+  .wa-float:hover .wa-tooltip { opacity: 1; }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16,1,0.3,1); }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .stats-grid { grid-template-columns: repeat(2,1fr); }
+    .location-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 70px 5%; }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); }
+    .gallery-item.tall { grid-row: span 1; }
+    .gallery-item.wide { grid-column: span 1; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-arrow { display: none; }
+    .location-map { height: 280px; }
+  }
+  @media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2,1fr); }
+    .process-steps { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20book%20a%20beach%20decoration%20in%20Goa%20🌊" class="wa-float" target="_blank" aria-label="WhatsApp Chat">
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+  💬
+</a>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="Gallery Image">
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="logo">Beach<span>Decor</span> Goa</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20book%20a%20beach%20decoration%20in%20Goa%20🌊" class="nav-cta" target="_blank">Book Now 🌊</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="#packages" onclick="toggleMenu()">Packages</a>
+  <a href="#videos" onclick="toggleMenu()">Videos</a>
+  <a href="#blog" onclick="toggleMenu()">Blog</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#location" onclick="toggleMenu()">Location</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20book%20beach%20decoration%20in%20Goa" target="_blank" style="color:#25D366;margin-top:12px;">📲 WhatsApp Us</a>
+</div>
+
+
+<!-- 1. HERO -->
+<section id="hero">
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&auto=format&fit=crop" alt="Beautiful Goa beach at sunset" class="hero-video-bg">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✨ Goa's #1 Beach Decoration Service</div>
+    <h1 class="hero-title">
+      Where Every <em>Wave</em> Tells<br>Your Love Story
+    </h1>
+    <p class="hero-subtitle">Premium beach setups for weddings, anniversaries, birthdays & romantic surprises across Goa's most stunning beaches.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">🌊 Book Your Setup</a>
+      <a href="#gallery" class="btn-outline">View Gallery</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+  <svg class="wave-bottom" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#FFFDF8"/>
+  </svg>
+</section>
+
+<!-- 2. WHY US -->
+<section id="why">
+  <div class="section-header">
+    <div class="section-tag">Why Beach Decor Goa</div>
+    <h2 class="section-title">Crafting Moments That<br>Last <em>Forever</em></h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">With over 500+ successful events, we transform Goa's beaches into magical venues you'll remember forever.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card fade-up">
+      <div class="feature-icon">🌊</div>
+      <h3>Prime Beach Locations</h3>
+      <p>Exclusive setups at Calangute, Baga, Anjuna, Vagator, Palolem & all major Goa beaches.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">🎨</div>
+      <h3>Custom Designs</h3>
+      <p>Every setup is uniquely designed to match your vision, theme, and personal style perfectly.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">📸</div>
+      <h3>Insta-Perfect Setup</h3>
+      <p>Photogenic arrangements that look stunning in photos and videos — memories for a lifetime.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">⚡</div>
+      <h3>Quick Setup</h3>
+      <p>Professional team sets up everything within 2-3 hours. You just arrive and enjoy!</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">🛡️</div>
+      <h3>100% Satisfaction</h3>
+      <p>5-star rated service with glowing reviews. We don't stop until you're overjoyed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <div class="section-tag">Our Services</div>
+    <h2 class="section-title">Beach Experiences We <em>Create</em></h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">From intimate romantic dinners to grand celebrations — we cover every occasion on Goa's magical beaches.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&auto=format&fit=crop" alt="Romantic Beach Setup Goa" class="service-img">
+      <div class="service-overlay">
+        <div class="service-tag">Most Popular</div>
+        <h3>Romantic Beach Setup</h3>
+        <p>Candles, flowers, fairy lights & private dinner table for two under the stars.</p>
+        <div class="service-arrow">Book Now →</div>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&auto=format&fit=crop" alt="Beach Wedding Decoration Goa" class="service-img">
+      <div class="service-overlay">
+        <div class="service-tag">Grand</div>
+        <h3>Beach Wedding Decor</h3>
+        <p>Floral mandaps, aisles with petals, arches & complete wedding setup by the waves.</p>
+        <div class="service-arrow">Book Now →</div>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&auto=format&fit=crop" alt="Beach Anniversary Surprise Goa" class="service-img">
+      <div class="service-overlay">
+        <div class="service-tag">Special</div>
+        <h3>Anniversary Surprise</h3>
+        <p>Surprise your partner with a dreamy anniversary setup they'll never forget.</p>
+        <div class="service-arrow">Book Now →</div>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&auto=format&fit=crop" alt="Beach Birthday Party Goa" class="service-img">
+      <div class="service-overlay">
+        <div class="service-tag">Fun</div>
+        <h3>Beach Birthday Party</h3>
+        <p>Balloon décor, banners, bonfire & everything to make birthdays magical on the beach.</p>
+        <div class="service-arrow">Book Now →</div>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&auto=format&fit=crop" alt="Proposal Setup Goa Beach" class="service-img">
+      <div class="service-overlay">
+        <div class="service-tag">Romantic</div>
+        <h3>Proposal Setup</h3>
+        <p>The most important question deserves the most magical setting — say YES on the beach!</p>
+        <div class="service-arrow">Book Now →</div>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=600&auto=format&fit=crop" alt="Private Beach Dinner Goa" class="service-img">
+      <div class="service-overlay">
+        <div class="service-tag">Luxury</div>
+        <h3>Private Beach Dinner</h3>
+        <p>Candlelit dinner table with floral decor, music & stunning sunset views for two.</p>
+        <div class="service-arrow">Book Now →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="fade-up">
+      <div class="stat-number" data-target="500">0</div>
+      <div class="stat-label">Events Decorated</div>
+    </div>
+    <div class="fade-up">
+      <div class="stat-number" data-target="300">0</div>
+      <div class="stat-label">Happy Couples</div>
+    </div>
+    <div class="fade-up">
+      <div class="stat-number" data-target="15">0</div>
+      <div class="stat-label">Beaches Covered</div>
+    </div>
+    <div class="fade-up">
+      <div class="stat-number" data-target="5">0</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. GALLERY -->
+<section id="gallery">
+  <div class="section-header">
+    <div class="section-tag">Photo Gallery</div>
+    <h2 class="section-title">Our <em>Stunning</em> Beach Setups</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Every image is a real setup we've created. Get inspired for your own beach event in Goa.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200')">
+      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&auto=format&fit=crop" alt="Romantic beach setup">
+      <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200')">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop" alt="Beach sunset">
+      <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200')">
+      <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&auto=format&fit=crop" alt="Beach wedding">
+      <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+    </div>
+    <div class="gallery-item wide fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200')">
+      <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&auto=format&fit=crop" alt="Beach wedding decor">
+      <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200')">
+      <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&auto=format&fit=crop" alt="Beach birthday party">
+      <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1200')">
+      <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&auto=format&fit=crop" alt="Candle decoration">
+      <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200')">
+      <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=600&auto=format&fit=crop" alt="Private beach dinner">
+      <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200')">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&auto=format&fit=crop" alt="Luxury beach setup">
+      <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=1200')">
+      <img src="https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=600&auto=format&fit=crop" alt="Flower decoration">
+      <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. VIDEO SECTION -->
+<section id="videos">
+  <div class="section-header">
+    <div class="section-tag">Video Gallery</div>
+    <h2 class="section-title">Watch Our <em>Magic</em> Unfold</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">See the transformation — from bare beach to your dream event, captured in stunning video.</p>
+  </div>
+  <div class="videos-grid">
+    <div class="video-card fade-up">
+      <div class="video-thumb" onclick="playVideo(this,'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&auto=format&fit=crop" alt="Romantic setup video">
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <h4>Romantic Sunset Setup — Baga Beach</h4>
+        <p>Watch how we transformed Baga beach into a magical evening for two.</p>
+      </div>
+    </div>
+    <div class="video-card fade-up">
+      <div class="video-thumb" onclick="playVideo(this,'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&auto=format&fit=crop" alt="Wedding decoration timelapse">
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <h4>Beach Wedding Timelapse — Anjuna</h4>
+        <p>Complete wedding setup from scratch in under 4 hours at Anjuna Beach.</p>
+      </div>
+    </div>
+    <div class="video-card fade-up">
+      <div class="video-thumb" onclick="playVideo(this,'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&auto=format&fit=crop" alt="Birthday party beach">
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <h4>Surprise Birthday — Palolem Beach</h4>
+        <p>A stunning birthday surprise that left the birthday girl in tears of joy!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. PACKAGES -->
+<section id="packages">
+  <div class="section-header">
+    <div class="section-tag">Packages & Pricing</div>
+    <h2 class="section-title">Choose Your <em>Dream</em> Setup</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Transparent pricing with no hidden charges. WhatsApp us for custom packages and group bookings.</p>
+  </div>
+  <div class="packages-grid">
+    <div class="package-card fade-up">
+      <!-- <div class="package-icon"></div> -->
+      <h3>Blossom Package</h3>
+      <div class="package-price">₹4,999 <span>/ setup</span></div>
+      <ul class="package-features">
+        <li>50 Candles + Holders</li>
+        <li>Rose Petal Trail</li>
+        <li>2 Bamboo Torches</li>
+        <li>Floral Table Centerpiece</li>
+        <li>Welcome Board</li>
+        <li>Setup & Removal</li>
+      </ul>
+      <a href="https://wa.me/919876543210?text=Hi!%20I%27m%20interested%20in%20Blossom%20Package%20-%20₹4999" target="_blank" class="btn-package">Book Now</a>
+    </div>
+    <div class="package-card featured fade-up">
+      <div class="featured-badge">⭐ Most Popular</div>
+      <!-- <div class="package-icon">🌊</div> -->
+      <h3>Ocean Romance</h3>
+      <div class="package-price">₹9,999 <span>/ setup</span></div>
+      <ul class="package-features">
+        <li>200+ Candles</li>
+        <li>Fairy Light Canopy</li>
+        <li>Fresh Flower Arch</li>
+        <li>Private Dinner Table for 2</li>
+        <li>Balloon Bouquet</li>
+        <li>Photographer (1 hr)</li>
+        <li>Bonfire Option</li>
+        <li>Setup & Removal</li>
+      </ul>
+      <a href="https://wa.me/919876543210?text=Hi!%20I%27m%20interested%20in%20Ocean%20Romance%20Package%20-%20₹9999" target="_blank" class="btn-package">Book Now</a>
+    </div>
+    <div class="package-card fade-up">
+      <!-- <div class="package-icon">👑</div> -->
+      <h3>Royal Sunset</h3>
+      <div class="package-price">₹18,999 <span>/ setup</span></div>
+      <ul class="package-features">
+        <li>500+ LED Candles</li>
+        <li>Full Floral Mandap</li>
+        <li>Live Music (2 hrs)</li>
+        <li>Private Chef Dinner</li>
+        <li>Professional Photographer</li>
+        <li>Drone Video</li>
+        <li>Fireworks (small)</li>
+        <li>Dedicated Host</li>
+      </ul>
+      <a href="https://wa.me/919876543210?text=Hi!%20I%27m%20interested%20in%20Royal%20Sunset%20Package%20-%20₹18999" target="_blank" class="btn-package">Book Now</a>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px;">
+    <p style="color:var(--muted);font-size:0.85rem;margin-bottom:16px;">Need something custom? We love unique ideas!</p>
+    <a href="https://wa.me/919876543210?text=Hi!%20I%20want%20a%20custom%20beach%20decoration%20package%20in%20Goa" target="_blank" class="btn-primary"> Request Custom Package</a>
+  </div>
+</section>
+
+<!-- 13. CONTACT / FORM -->
+<section id="contact">
+  <div class="section-header">
+    <div class="section-tag">Book Your Setup</div>
+    <h2 class="section-title">Let's Create Your <em>Dream</em> Beach Event</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Fill the form and we'll get back to you on WhatsApp within 30 minutes.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Reach Us Directly</h3>
+      <p>We love hearing about your special occasions. Whether it's a surprise proposal, a dreamy anniversary, or a grand wedding — we'll bring your vision to life on Goa's beautiful beaches.</p>
+      <div class="contact-methods">
+        <div class="contact-method">
+          <div class="method-icon wa">💬</div>
+          <div class="method-text">
+            <strong>WhatsApp (Fastest)</strong>
+            <a href="https://wa.me/919876543210" target="_blank">+91 98765 43210</a>
+          </div>
+        </div>
+        <div class="contact-method">
+          <div class="method-icon ph">📞</div>
+          <div class="method-text">
+            <strong>Phone Call</strong>
+            <a href="tel:+919876543210">+91 98765 43210</a>
+          </div>
+        </div>
+        <div class="contact-method">
+          <div class="method-icon em">✉️</div>
+          <div class="method-text">
+            <strong>Email</strong>
+            <a href="mailto:hello@beachdecorgoa.com">hello@beachdecorgoa.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="f-name" placeholder="Rahul Sharma" required>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp Number *</label>
+          <input type="tel" id="f-phone" placeholder="+91 98765 43210" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Event Type *</label>
+          <select id="f-event">
+            <option value="">Select Event...</option>
+            <option>Romantic Setup</option>
+            <option>Proposal</option>
+            <option>Anniversary</option>
+            <option>Wedding</option>
+            <option>Birthday Party</option>
+            <option>Honeymoon Setup</option>
+            <option>Private Beach Dinner</option>
+            <option>Baby Shower</option>
+            <option>Corporate Event</option>
+            <option>Custom Package</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred Beach</label>
+          <select id="f-beach">
+            <option value="">Select Beach...</option>
+            <option>Baga Beach</option>
+            <option>Calangute Beach</option>
+            <option>Anjuna Beach</option>
+            <option>Vagator Beach</option>
+            <option>Palolem Beach</option>
+            <option>Colva Beach</option>
+            <option>Agonda Beach</option>
+            <option>Candolim Beach</option>
+            <option>Morjim Beach</option>
+            <option>Arambol Beach</option>
+            <option>Other (mention below)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Event Date *</label>
+          <input type="date" id="f-date" required>
+        </div>
+        <div class="form-group">
+          <label>Preferred Time</label>
+          <select id="f-time">
+            <option value="">Select Time...</option>
+            <option>Morning (7 AM – 11 AM)</option>
+            <option>Afternoon (12 PM – 4 PM)</option>
+            <option>Sunset (5 PM – 7 PM)</option>
+            <option>Evening (7 PM – 10 PM)</option>
+            <option>Night (After 10 PM)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Budget Range</label>
+        <select id="f-budget">
+          <option value="">Select Budget...</option>
+          <option>₹3,000 – ₹6,000</option>
+          <option>₹6,000 – ₹12,000</option>
+          <option>₹12,000 – ₹20,000</option>
+          <option>₹20,000+</option>
+          <option>Flexible / Surprise me!</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Special Requests / Message</label>
+        <textarea id="f-msg" placeholder="Tell us about your special occasion, any specific ideas, themes, or messages you'd like on the setup..."></textarea>
+      </div>
+      <button class="whatsapp-submit" onclick="sendToWhatsApp()">
+        <span>💬</span> Send Enquiry via WhatsApp
+      </button>
+      <p class="form-note">We respond within 30 minutes during business hours (8 AM – 10 PM)</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 8. PROCESS -->
+<section id="process">
+  <div class="section-header">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">From Dream to <em>Reality</em> in 4 Steps</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Super simple booking process — we handle all the logistics so you can focus on enjoying the moment.</p>
+  </div>
+  <div class="process-steps">
+    <div class="process-step fade-up">
+      <!-- <div class="step-icon">💬</div> -->
+      <div class="step-num">1</div>
+      <h3>WhatsApp Us</h3>
+      <p>Send us a message with your event type, date, and preferred beach location in Goa.</p>
+    </div>
+    <div class="process-step fade-up">
+      <!-- <div class="step-icon">🎨</div> -->
+      <div class="step-num">2</div>
+      <h3>Choose Design</h3>
+      <p>We share mood boards and design concepts. Pick what resonates with your vision.</p>
+    </div>
+    <div class="process-step fade-up">
+      <!-- <div class="step-icon">✅</div> -->
+      <div class="step-num">3</div>
+      <h3>Confirm & Pay</h3>
+      <p>Lock your date with a simple advance payment. Rest easy — your beach is booked!</p>
+    </div>
+    <div class="process-step fade-up">
+      <!-- <div class="step-icon">🌅</div> -->
+      <div class="step-num">4</div>
+      <h3>Arrive & Enjoy</h3>
+      <p>Just show up! We set everything before you arrive. You walk into your dream setup.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9. TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header">
+    <div class="section-tag">Testimonials</div>
+    <h2 class="section-title">What Our <em>Couples</em> Say</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Real reviews from real couples who celebrated their most precious moments with us.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <blockquote>"I proposed to my girlfriend at Baga Beach and Beach Decor Goa made it absolutely magical. The candles, the flowers, the fairy lights — she said YES before I even finished the question! Highly recommended!"</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar-placeholder" style="background:#E0F0F7;color:#1A6B8A;">RK</div>
+        <div>
+          <div class="reviewer-name">Rahul Khanna</div>
+          <div class="reviewer-loc">Mumbai | Proposal Setup</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Our 10th anniversary at Anjuna Beach was beyond our wildest dreams. The team went above and beyond. The drone video they captured is our most precious memory. Worth every penny and more!"</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar-placeholder" style="background:#FEF0E6;color:#E8824A;">PS</div>
+        <div>
+          <div class="reviewer-name">Priya & Suresh</div>
+          <div class="reviewer-loc">Bangalore | Anniversary</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <blockquote>"We had our intimate beach wedding at Palolem and the decor was breathtaking. The floral mandap, petal aisle, fairy lights — it was exactly what we'd envisioned. Professional team, zero stress!"</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar-placeholder" style="background:#EEF5E6;color:#3B6D11;">AM</div>
+        <div>
+          <div class="reviewer-name">Aakash & Meera</div>
+          <div class="reviewer-loc">Delhi | Beach Wedding</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Booked a surprise birthday setup for my wife via WhatsApp. Super responsive, super professional. The setup was ready before we arrived and she was in tears! Best experience ever in Goa."</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar-placeholder" style="background:#F5EBF5;color:#7B4A9E;">VP</div>
+        <div>
+          <div class="reviewer-name">Vikram Patel</div>
+          <div class="reviewer-loc">Pune | Birthday Surprise</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <blockquote>"I can't believe how beautiful the setup was! Hundreds of candles, roses everywhere, our names on the sand, fairy lights strung between bamboo poles… it looked like a dream. BOOK THEM!"</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar-placeholder" style="background:#FEF0E6;color:#C9A84C;">NS</div>
+        <div>
+          <div class="reviewer-name">Neha Sharma</div>
+          <div class="reviewer-loc">Chennai | Romantic Dinner</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <blockquote>"We celebrated our honeymoon in Goa and added the Ocean Romance package. It was the highlight of our entire trip! The photos came out incredible. Amazing value for such a premium experience."</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar-placeholder" style="background:#E0F0F7;color:#185FA5;">DJ</div>
+        <div>
+          <div class="reviewer-name">Dev & Jyoti</div>
+          <div class="reviewer-loc">Hyderabad | Honeymoon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. BLOG -->
+<section id="blog">
+  <div class="section-header">
+    <div class="section-tag">Beach Decor Blog</div>
+    <h2 class="section-title">Tips, Ideas & <em>Inspiration</em></h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Discover ideas for your perfect Goa beach event and insider tips from our decoration experts.</p>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card fade-up">
+      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&auto=format&fit=crop" alt="Romantic beach ideas Goa" class="blog-img">
+      <div class="blog-body">
+        <div class="blog-cat">Romantic Ideas</div>
+        <h3>10 Romantic Beach Date Ideas in Goa You Must Try</h3>
+        <p>From moonlit dinners to surprise setups, here are the most romantic things you can do on Goa's beaches for your partner.</p>
+        <div class="blog-meta">
+          <span>🗓 Dec 2024</span>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+    </div>
+    <div class="blog-card fade-up">
+      <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&auto=format&fit=crop" alt="Best beaches Goa weddings" class="blog-img">
+      <div class="blog-body">
+        <div class="blog-cat">Wedding Guide</div>
+        <h3>Top 7 Beaches in Goa for an Intimate Beach Wedding</h3>
+        <p>Choosing the right beach for your wedding is crucial. We've helped 100+ couples pick the perfect spot — here's our guide.</p>
+        <div class="blog-meta">
+          <span>🗓 Nov 2024</span>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+    </div>
+    <div class="blog-card fade-up">
+      <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&auto=format&fit=crop" alt="Beach decor trends 2025" class="blog-img">
+      <div class="blog-body">
+        <div class="blog-cat">Decor Trends</div>
+        <h3>Beach Decoration Trends for 2025 — What's Hot in Goa</h3>
+        <p>Boho-chic, sustainable setups, LED art installations — these are the hottest beach decoration trends we're seeing in Goa.</p>
+        <div class="blog-meta">
+          <span>🗓 Oct 2024</span>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FAQ -->
+<section id="faq">
+  <div class="section-header">
+    <div class="section-tag">FAQ</div>
+    <h2 class="section-title">Questions? We've Got <em>Answers</em></h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Everything you need to know before booking your dream beach decoration in Goa.</p>
+  </div>
+  <div class="faq-container">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>How far in advance should I book my beach decoration?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>We recommend booking at least 3-7 days in advance, especially during peak season (November to February). For high-demand dates like Valentine's Day, New Year's Eve, or long weekends, booking 2-4 weeks ahead is advisable. That said, we also accommodate last-minute bookings (24-48 hours) subject to availability — just WhatsApp us!</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Which beaches in Goa do you cover for decoration?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>We cover all major beaches in Goa including Baga, Calangute, Anjuna, Vagator, Palolem, Colva, Agonda, Arambol, Candolim, Sinquerim, Morjim, and Mandrem. We also service smaller, more secluded beaches upon request. Contact us with your preferred location and we'll confirm availability.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>What is the best time for a beach setup in Goa?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>Sunset time (5:30 PM to 7:30 PM) is the most magical for romantic setups — the golden light makes everything glow beautifully. Night setups (7 PM onwards) with candles and fairy lights are equally stunning. For proposals or surprises, we recommend timing the reveal around sunset for the most photogenic moments.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Can I customise the decoration package?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>Absolutely! Every package can be customised. You can add or remove elements, choose specific flower types and colors, request custom name/message boards, add a bonfire, live music, a personal chef, photographer, drone videography, and much more. Just WhatsApp us your wish list and we'll create a tailored package for you.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>How does the payment and booking process work?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>Booking is simple! WhatsApp us with your event details → we share a proposal and design → you confirm and pay a 50% advance to lock the date → balance is paid on the day of the event. We accept UPI, bank transfer, and cash. Once booked, your date and beach are secured exclusively for you.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>What happens if it rains on the day of our event?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>We monitor weather forecasts closely and will inform you in advance if heavy rain is expected. In most cases, we can reschedule to the next available date at no extra charge. For light rain, we have contingency plans including tent setups and covered areas near the beach. Your event experience is our priority.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Do you offer photography and videography?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>Yes! We can arrange professional photography, videography, and even drone footage as add-ons to any package. Our Ocean Romance and Royal Sunset packages include photography. For custom packages, we'll quote based on your requirements — typically 1 hour of photography starts at ₹2,500.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Is the setup eco-friendly and legally permitted?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>Yes, we are committed to eco-friendly practices. We use biodegradable materials, collect all our items after the event, and leave beaches cleaner than we found them. We hold all necessary local permissions for beach setups. No plastic, no permanent fixtures — just beautiful, responsible celebrations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. LOCATION -->
+<section id="location">
+  <div class="section-header">
+    <div class="section-tag">Find Us</div>
+    <h2 class="section-title">We're All Over <em>Goa's</em> Beaches</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Based in North Goa, we serve beaches across the entire state — from Arambol in the north to Palolem in the south.</p>
+  </div>
+  <div class="location-grid">
+    <div class="location-map">
+      <div class="map-placeholder">
+        <div style="font-size:3rem;margin-bottom:1rem;">🗺️</div>
+        <p style="color:var(--muted);font-size:0.9rem;margin-bottom:0.5rem;">Beach Decor Goa</p>
+        <p style="color:var(--ocean);font-size:0.82rem;">Calangute, North Goa, India</p>
+        <br>
+        <a href="https://maps.google.com/?q=Calangute+Beach+Goa" target="_blank" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;">Open in Google Maps</a>
+      </div>
+    </div>
+    <div class="location-info">
+      <h3>Serving All of Beautiful Goa</h3>
+      <ul class="info-list">
+        <li>
+          <div class="info-icon">📍</div>
+          <div class="info-text">
+            <strong>Base Location</strong>
+            <span>Near Calangute Beach, North Goa, Goa — 403516</span>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon">📞</div>
+          <div class="info-text">
+            <strong>Call / WhatsApp</strong>
+            <span>+91 98765 43210 (Available 8 AM – 10 PM)</span>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon">✉️</div>
+          <div class="info-text">
+            <strong>Email</strong>
+            <span>hello@beachdecorgoa.com</span>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon">🕐</div>
+          <div class="info-text">
+            <strong>Operating Hours</strong>
+            <span>Open 7 days a week | Setups available 24/7 by appointment</span>
+          </div>
+        </li>
+      </ul>
+      <div class="beaches-served">
+        <h4>Beaches We Serve</h4>
+        <div class="beach-tags">
+          <span class="beach-tag">Baga</span>
+          <span class="beach-tag">Calangute</span>
+          <span class="beach-tag">Anjuna</span>
+          <span class="beach-tag">Vagator</span>
+          <span class="beach-tag">Palolem</span>
+          <span class="beach-tag">Colva</span>
+          <span class="beach-tag">Agonda</span>
+          <span class="beach-tag">Candolim</span>
+          <span class="beach-tag">Morjim</span>
+          <span class="beach-tag">Arambol</span>
+          <span class="beach-tag">Mandrem</span>
+          <span class="beach-tag">Sinquerim</span>
+          <span class="beach-tag">Benaulim</span>
+          <span class="beach-tag">+More</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 14. INSTAGRAM CTA -->
+<section style="background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%); padding: 80px 5%; text-align: center;">
+  <div class="section-tag" style="color: rgba(255,255,255,0.7);">Follow Our Journey</div>
+  <h2 style="font-family:'Playfair Display',serif;color:white;font-size:clamp(1.8rem,4vw,2.8rem);margin:16px 0;">Follow Us on <em style="font-style:italic;">Instagram</em></h2>
+  <p style="color:rgba(255,255,255,0.75);max-width:500px;margin:0 auto 30px;font-size:0.9rem;line-height:1.7;">See daily beach setup photos, behind-the-scenes magic and real couple moments on our feed.</p>
+  <a href="https://instagram.com/beachdecorgoa" target="_blank" class="btn-primary" style="background:white;color:#833AB4;display:inline-flex;align-items:center;gap:10px;">📷 @BeachDecorGoa</a>
+</section>
+
+<!-- 15. FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Beach<span>Decor</span> Goa</div>
+      <p>Goa's most trusted beach decoration service. Creating unforgettable moments where the ocean meets your heart. Every setup is crafted with love, passion, and precision.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">📷</a>
+        <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+        <a href="https://wa.me/919876543210" class="social-btn" aria-label="WhatsApp">💬</a>
+        <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Romantic Setup</a></li>
+        <li><a href="#services">Beach Wedding</a></li>
+        <li><a href="#services">Anniversary</a></li>
+        <li><a href="#services">Proposal Setup</a></li>
+        <li><a href="#services">Birthday Party</a></li>
+        <li><a href="#services">Private Dinner</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Book Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+919876543210">📞 +91 98765 43210</a></li>
+        <li><a href="https://wa.me/919876543210">💬 WhatsApp Us</a></li>
+        <li><a href="mailto:hello@beachdecorgoa.com">✉️ hello@beachdecorgoa.com</a></li>
+        <li><a href="#">📍 Calangute, North Goa</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Beach Decor Goa. All rights reserved. | Making Goa Beaches More Beautiful 🌊</p>
+    <p><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></p>
+  </div>
+</footer>
+
+<script>
+// NAVBAR scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// MOBILE MENU
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// FAQ TOGGLE
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// LIGHTBOX
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+// VIDEO PLAY
+function playVideo(thumb, embedUrl) {
+  const iframe = document.createElement('iframe');
+  iframe.src = embedUrl;
+  iframe.frameBorder = '0';
+  iframe.allow = 'autoplay; fullscreen';
+  iframe.style.width = '100%';
+  iframe.style.height = '220px';
+  iframe.style.display = 'block';
+  thumb.replaceWith(iframe);
+}
+
+// COUNTER ANIMATION
+function animateCounters() {
+  document.querySelectorAll('.stat-number').forEach(el => {
+    const target = parseInt(el.getAttribute('data-target'));
+    const step = target / 60;
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { el.textContent = target + '+'; clearInterval(timer); }
+      else el.textContent = Math.floor(current) + '+';
+    }, 25);
+  });
+}
+
+// INTERSECTION OBSERVER
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.id === 'stats') animateCounters();
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up, #stats').forEach(el => observer.observe(el));
+
+// WHATSAPP FORM SUBMIT
+function sendToWhatsApp() {
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const event = document.getElementById('f-event').value;
+  const beach = document.getElementById('f-beach').value;
+  const date = document.getElementById('f-date').value;
+  const time = document.getElementById('f-time').value;
+  const budget = document.getElementById('f-budget').value;
+  const msg = document.getElementById('f-msg').value.trim();
+  
+  if (!name || !phone || !event) {
+    alert('Please fill in your name, WhatsApp number, and event type!');
+    return;
+  }
+  
+  const waMsg = encodeURIComponent(
+    `🌊 *NEW BEACH DECOR BOOKING ENQUIRY*\n\n` +
+    `👤 *Name:* ${name}\n` +
+    `📱 *Phone:* ${phone}\n` +
+    `🎉 *Event Type:* ${event}\n` +
+    `🏖️ *Beach:* ${beach || 'Not specified'}\n` +
+    `📅 *Date:* ${date || 'Not specified'}\n` +
+    `🕐 *Time:* ${time || 'Not specified'}\n` +
+    `💰 *Budget:* ${budget || 'Not specified'}\n` +
+    `💬 *Message:* ${msg || 'No additional message'}\n\n` +
+    `_Sent from BeachDecorGoa.com_`
+  );
+  
+  window.open(`https://wa.me/919876543210?text=${waMsg}`, '_blank');
+}
+</script>
+</body>
+</html>
